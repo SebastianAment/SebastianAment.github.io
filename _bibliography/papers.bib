@@ -1,72 +1,89 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
+@article{ament2021sara,
+abbr={Sci. Adv.},
+author = {Sebastian Ament  and Maximilian Amsler  and Duncan R. Sutherland  and Ming-Chiang Chang  and Dan Guevarra  and Aine B. Connolly  and John M. Gregoire  and Michael O. Thompson  and Carla P. Gomes  and R. Bruce van Dover },
+title = {Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams},
+journal = {Science Advances},
+volume = {7},
+number = {51},
+pages = {eabg4930},
+year = {2021},
+doi = {10.1126/sciadv.abg4930},
+URL = {https://www.science.org/doi/abs/10.1126/sciadv.abg4930},
+eprint = {https://www.science.org/doi/pdf/10.1126/sciadv.abg4930},
+abstract = {Artificial intelligence accelerates the search and discovery of new metastable materials for energy applications. Autonomous experimentation enabled by artificial intelligence offers a new paradigm for accelerating scientific discovery. Nonequilibrium materials synthesis is emblematic of complex, resource-intensive experimentation whose acceleration would be a watershed for materials discovery. We demonstrate accelerated exploration of metastable materials through hierarchical autonomous experimentation governed by the Scientific Autonomous Reasoning Agent (SARA). SARA integrates robotic materials synthesis using lateral gradient laser spike annealing and optical characterization along with a hierarchy of AI methods to map out processing phase diagrams. Efficient exploration of the multidimensional parameter space is achieved with nested active learning cycles built upon advanced machine learning models that incorporate the underlying physics of the experiments and end-to-end uncertainty quantification. We demonstrate SARA’s performance by autonomously mapping synthesis phase boundaries for the Bi2O3 system, leading to orders-of-magnitude acceleration in the establishment of a synthesis phase diagram that includes conditions for stabilizing $\delta$-Bi2O3 at room temperature, a critical development for electrochemical technologies.},
+pdf={sciadv.abg4930.pdf},
+selected={true},
+bibtex_show={true}
+}
 
-@book{einstein1956investigations,
+@inproceedings{ament2021sparse,
+  abbr={ICML},
+  title={Sparse Bayesian Learning via Stepwise Regression},
+  author={Ament, Sebastian and Gomes, Carla},
+  booktitle={International Conference on Machine Learning},
+  pages={264--274},
+  year={2021},
+  organization={PMLR},
+    abstract = 	 {Sparse Bayesian Learning (SBL) is a powerful framework for attaining sparsity in probabilistic models. Herein, we propose a coordinate ascent algorithm for SBL termed Relevance Matching Pursuit (RMP) and show that, as its noise variance parameter goes to zero, RMP exhibits a surprising connection to Stepwise Regression. Further, we derive novel guarantees for Stepwise Regression algorithms, which also shed light on RMP. Our guarantees for Forward Regression improve on deterministic and probabilistic results for Orthogonal Matching Pursuit with noise. Our analysis of Backward Regression culminates in a bound on the residual of the optimal solution to the subset selection problem that, if satisfied, guarantees the optimality of the result. To our knowledge, this bound is the first that can be computed in polynomial time and depends chiefly on the smallest singular value of the matrix. We report numerical experiments using a variety of feature selection algorithms. Notably, RMP and its limiting variant are both efficient and maintain strong performance with correlated features.},
+  pdf={ament21a.pdf},
+  selected={true},
+  bibtex_show={true}
+}
+
+@INPROCEEDINGS{ament2021optimality,
+  author={Ament, Sebastian and Gomes, Carla},
+  booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={On the Optimality of Backward Regression: Sparse Recovery and Subset Selection}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={5599-5603},
+  doi={10.1109/ICASSP39728.2021.9415082},
+  abbr={ICASSP},
+  bibtex_show={true}
+  }
+  
+ @article{ament2019multi,
+  title={Multi-component background learning automates signal detection for spectroscopic data},
+  author={Ament, Sebastian E and Stein, Helge S and Guevarra, Dan and Zhou, Lan and Haber, Joel A and Boyd, David A and Umehara, Mitsutaro and Gregoire, John M and Gomes, Carla P},
+  journal={npj Computational Materials},
+  volume={5},
+  number={1},
+  pages={1--7},
+  year={2019},
+  publisher={Nature Publishing Group},
+  abbr={Nat. Comp. Mat.},
+  bibtex_show={true}
+}
+
+@misc{ament2019emg,
+  doi = {10.48550/ARXIV.1902.05601},
+  url = {https://arxiv.org/abs/1902.05601},
+  author = {Ament, Sebastian and Gregoire, John and Gomes, Carla},
+  keywords = {Machine Learning (stat.ML), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Exponentially-Modified Gaussian Mixture Model: Applications in Spectroscopy},
+  publisher = {arXiv},
+  year = {2019},
+  copyright = {arXiv.org perpetual, non-exclusive license},
   bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation,}
+  abbr={ArXiV}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics,},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers,}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.,},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  selected={true}
-}
-
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik,},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.,},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+@article{ament2017stable,
+	doi = {10.1007/s11222-017-9725-y},
+	url = {https://doi.org/10.1007\%2Fs11222-017-9725-y},
+	year = 2017,
+	month = {jan},
+	publisher = {Springer Science and Business Media {LLC}},
+	volume = {28},
+	number = {1},
+	pages = {171--185},
+	author = {Sebastian Ament and Michael O'Neil},
+	title = {Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics},
+	journal = {Statistics and Computing},
+	abbr={Stat. and Comp.},
+	bibtex_show={true}
 }
