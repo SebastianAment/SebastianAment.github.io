@@ -2,8 +2,8 @@
 layout: page
 permalink: /Publications/
 title: Publications
-description: Publications in reversed chronological order. Please also see my Google Scholar profile for an updated list.
-years: [2021, 2019, 2017]
+description: Publications in reversed chronological order. Please also see my Google Scholar profile for a complete list.
+years: [2022, 2021, 2019, 2017]
 nav: true
 nav_order: 2
 ---

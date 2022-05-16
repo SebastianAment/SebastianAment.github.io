@@ -1,6 +1,39 @@
 ---
 ---
 
+@INPROCEEDINGS{ament2022sparseopt,
+  author={Ament, Sebastian and Gomes, Carla},
+  booktitle={ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={Generalized Matching Pursuits for the Sparse Optimization of Separable Objectives}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={5553-5557},
+  doi={10.1109/ICASSP43922.2022.9747510},
+  abstract={Matching pursuit algorithms are a popular family of algorithms for compressed sensing and feature selection. Originally, Matching Pursuit (MP) was proposed as an algorithm for the least-squares objective, but has recently been generalized to arbitrary convex objectives. Here, we are concerned with the case of a general objective that is separable over observed data points, which encompasses most problems of practical interest: least-squares, logistic, and robust regression problems, and the class of generalized linear models. We propose efficient generalizations of Forward and Backward Stepwise Regression for this case, which take advantage of special structure in the Hessian matrix and are based on a locally quadratic approximation of the objective. Notably, the acquisition criterion of the generalized stepwise algorithms can be computed with the same complexity as the ones for the least-squares objective. We further propose a modification to the Newton step to avoid saddle points of non-convex objectives. Lastly, we demonstrate the generality and performance of the forward algorithm on least-squares, logistic, and robust regression problems, for which it compares favorably to generalized Orthogonal Matching Pursuit (OMP) on problems with moderate to large condition numbers.},
+    abbr={ICASSP},
+  pdf={Generalized_Matching_Pursuits_for_the_Sparse_Optimization_of_Separable_Objectives.pdf},
+  bibtex_show={true}
+  }
+  
+@InProceedings{pmlr-v151-ryan22a,
+  title = 	 { The Fast Kernel Transform },
+  author =       {Ryan, John P. and Ament, Sebastian and Gomes, Carla P. and Damle, Anil},
+  booktitle = 	 {Proceedings of The 25th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {11669--11690},
+  year = 	 {2022},
+  editor = 	 {Camps-Valls, Gustau and Ruiz, Francisco J. R. and Valera, Isabel},
+  volume = 	 {151},
+  series = 	 {Proceedings of Machine Learning Research},
+  publisher =    {PMLR},
+  url = 	 {https://proceedings.mlr.press/v151/ryan22a.html},
+  abstract = 	 { Kernel methods are a highly effective and widely used collection of modern machine learning algorithms. A fundamental limitation of virtually all such methods are computations involving the kernel matrix that naively scale quadratically (e.g., matrix-vector multiplication) or cubically (solving linear systems) with the size of the dataset N. We propose the Fast Kernel Transform (FKT), a general algorithm to compute matrix-vector multiplications (MVMs) for datasets in moderate dimensions with quasilinear complexity. Typically, analytically grounded fast multiplication methods require specialized development for specific kernels. In contrast, our scheme is based on auto-differentiation and automated symbolic computations that leverage the analytical structure of the underlying kernel. This allows the FKT to be easily applied to a broad class of kernels, including Gaussian, Matern, and Rational Quadratic covariance functions and Green’s functions, including those of the Laplace and Helmholtz equations. Furthermore, the FKT maintains a high, quantifiable, and controllable level of accuracy—properties that many acceleration methods lack. We illustrate the efficacy and versatility of the FKT by providing timing and accuracy benchmarks with comparisons to adjacent methods, and by applying it to scale the stochastic neighborhood embedding (t-SNE) and Gaussian processes to large real-world datasets. },
+ abbr={AISTATS},
+pdf={sciadv.abg4930.pdf},
+selected={false},
+bibtex_show={true}
+}
+
 @article{ament2021sara,
 abbr={Sci. Adv.},
 author = {Sebastian Ament  and Maximilian Amsler  and Duncan R. Sutherland  and Ming-Chiang Chang  and Dan Guevarra  and Aine B. Connolly  and John M. Gregoire  and Michael O. Thompson  and Carla P. Gomes  and R. Bruce van Dover },
@@ -42,21 +75,25 @@ bibtex_show={true}
   number={},
   pages={5599-5603},
   doi={10.1109/ICASSP39728.2021.9415082},
+  abstract={Sparse recovery and subset selection are fundamental problems in varied communities, including signal processing, statistics and machine learning. Herein, we focus on an important greedy algorithm for these problems: Backward Stepwise Regression. We present novel guarantees for the algorithm, propose an efficient, numerically stable implementation, and put forth Stepwise Regression with Replacement (SRR), a new family of two-stage algorithms that employs both forward and backward steps for compressed sensing problems. Prior work on the backward algorithm has proven its optimality for the subset selection problem, provided the residual associated with the optimal solution is small enough. However, the existing bounds on the residual magnitude are NP-hard to compute. In contrast, our main theoretical result includes a bound that can be computed in polynomial time, depends chiefly on the smallest singular value of the matrix, and also extends to the method of magnitude pruning. In addition, we report numerical experiments highlighting crucial differences between forward and backward greedy algorithms and compare SRR against popular two-stage algorithms for compressed sensing. Remarkably, SRR algorithms generally maintain good sparse recovery performance on coherent dictionaries. Further, a particular SRR algorithm has an edge over Subspace Pursuit.},
   abbr={ICASSP},
-  bibtex_show={true}
+  bibtex_show={true},
+  pdf={ament2021optimality.pdf}
   }
   
  @article{ament2019multi,
   title={Multi-component background learning automates signal detection for spectroscopic data},
-  author={Ament, Sebastian E and Stein, Helge S and Guevarra, Dan and Zhou, Lan and Haber, Joel A and Boyd, David A and Umehara, Mitsutaro and Gregoire, John M and Gomes, Carla P},
+  author={Ament, Sebastian and Stein, Helge S and Guevarra, Dan and Zhou, Lan and Haber, Joel A and Boyd, David A and Umehara, Mitsutaro and Gregoire, John M and Gomes, Carla P},
   journal={npj Computational Materials},
   volume={5},
   number={1},
   pages={1--7},
   year={2019},
   publisher={Nature Publishing Group},
+  abstract={Automated experimentation has yielded data acquisition rates that supersede human processing capabilities. Artificial Intelligence offers new possibilities for automating data interpretation to generate large, high-quality datasets. Background subtraction is a long-standing challenge, particularly in settings where multiple sources of the background signal coexist, and automatic extraction of signals of interest from measured signals accelerates data interpretation. Herein, we present an unsupervised probabilistic learning approach that analyzes large data collections to identify multiple background sources and establish the probability that any given data point contains a signal of interest. The approach is demonstrated on X-ray diffraction and Raman spectroscopy data and is suitable to any type of data where the signal of interest is a positive addition to the background signals. While the model can incorporate prior knowledge, it does not require knowledge of the signals since the shapes of the background signals, the noise levels, and the signal of interest are simultaneously learned via a probabilistic matrix factorization framework. Automated identification of interpretable signals by unsupervised probabilistic learning avoids the injection of human bias and expedites signal extraction in large datasets, a transformative capability with many applications in the physical sciences and beyond.},
   abbr={Nat. Comp. Mat.},
-  bibtex_show={true}
+  bibtex_show={true},
+  pdf={ament2019mcbl.pdf}
 }
 
 @misc{ament2019emg,
@@ -68,8 +105,10 @@ bibtex_show={true}
   publisher = {arXiv},
   year = {2019},
   copyright = {arXiv.org perpetual, non-exclusive license},
+  abstract={We propose a novel exponentially-modified Gaussian (EMG) mixture residual model. The EMG mixture is well suited to model residuals that are contaminated by a distribution with positive support. This is in contrast to commonly used robust residual models, like the Huber loss or ℓ1, which assume a symmetric contaminating distribution and are otherwise asymptotically biased. We propose an expectation-maximization algorithm to optimize an arbitrary model with respect to the EMG mixture. We apply the approach to linear regression and probabilistic matrix factorization (PMF). We compare against other residual models, including quantile regression. Our numerical experiments demonstrate the strengths of the EMG mixture on both tasks. The PMF model arises from considering spectroscopic data. In particular, we demonstrate the effectiveness of PMF in conjunction with the EMG mixture model on synthetic data and two real-world applications: X-ray diffraction and Raman spectroscopy. We show how our approach is effective in inferring background signals and systematic errors in data arising from these experimental settings, dramatically outperforming existing approaches and revealing the data's physically meaningful components.},
   bibtex_show={true},
-  abbr={ArXiV}
+  abbr={ArXiV},
+  pdf={ament2019emg.pdf}
 }
 
 @article{ament2017stable,
@@ -84,6 +123,23 @@ bibtex_show={true}
 	author = {Sebastian Ament and Michael O'Neil},
 	title = {Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics},
 	journal = {Statistics and Computing},
+	abstract={Stable distributions are an important class of infinitely divisible probability distributions, of which two special cases are the Cauchy distribution and the normal distribution. Aside from a few special cases, the density function for stable distributions has no known analytic form and is expressible only through the variate’s characteristic function or other integral forms. In this paper, we present numerical schemes for evaluating the density function for stable distributions, its gradient, and distribution function in various parameter regimes of interest, some of which had no preexisting efficient method for their computation. The novel evaluation schemes consist of optimized generalized Gaussian quadrature rules for integral representations of the density function, complemented by asymptotic expansions near various values of the shape and argument parameters. We report several numerical examples illustrating the efficiency of our methods. The resulting code has been made available online.},
 	abbr={Stat. and Comp.},
-	bibtex_show={true}
+	bibtex_show={true},
+	pdf={ament2017stable.pdf}
+
+}
+
+@misc{ament2017solving,
+      title={Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques}, 
+      author={Sebastian Ament and Nikhil Rangarajan and Arun Parthasarathy and Shaloo Rakheja},
+      year={2017},
+      eprint={1607.04596},
+      archivePrefix={arXiv},
+      primaryClass={cs.CE},
+      copyright = {arXiv.org perpetual, non-exclusive license},
+      abstract={The stochastic Landau-Lifshitz-Gilbert-Slonczewski (s-LLGS) equation is widely used to study the temporal evolution of the macrospin subject to spin torque and thermal noise. The numerical simulation of the s-LLGS equation requires an appropriate choice of stochastic calculus and numerical integration scheme. In this paper, we comprehensively evaluate the accuracy and complexity of various numerical techniques to solve the s-LLGS equation. We focus on implicit midpoint, Heun, and Euler-Heun methods that converge to the Stratonovich solution of the s-LLGS equation. By performing numerical tests for both strong (path-wise) and weak (statistical) convergence, we quantify the accuracy of various numerical schemes used to solve the s-LLGS equation. We demonstrate a new method intended to solve Stochastic Differential Equations (SDEs) with small noise (RK4-Heun), and test its capability to handle the s-LLGS equation. We also discuss the circuit implementation of nanomagnets for large-scale SPICE-based simulations. We evaluate the efficacy of SPICE in handling the stochastic dynamics of the multiplicative noise in the s-LLGS equation. Numerical schemes such as Euler and Gear, typically used by SPICE-based circuit simulators do not yield the expected outcome when solving the Stratonovich s-LLGS equation. While the trapezoidal method in SPICE does solve for the Stratonovich solution, its accuracy is limited by the minimum time step of integration in SPICE. We implement the s-LLGS equation in both its cartesian and spherical coordinates form in SPICE and compare the stability and accuracy of the two implementations. The results in this paper will serve as guidelines for researchers to understand the tradeoffs between accuracy and complexity of various numerical methods and the choice of appropriate calculus to solve the s-LLGS equation.},
+  bibtex_show={true},
+  abbr={ArXiV},
+  pdf={ament2017solving.pdf}
 }
