@@ -1,6 +1,22 @@
 ---
 ---
 
+@inproceedings{ament2022fobo,
+  abbr={ICML},
+  title={Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation},
+  author={Ament, Sebastian and Gomes, Carla},
+  booktitle={International Conference on Machine Learning},
+  pages={},
+  year={2022},
+  organization={PMLR},
+    abstract = 	 {Bayesian Optimization (BO) has shown great promise for the global optimization of functions that are expensive to evaluate, but despite many successes, standard approaches can struggle in high dimensions. To improve the performance of BO, prior work suggested incorporating gradient information into a Gaussian process surrogate of the objective, giving rise to kernel matrices of size nd × nd for n observations in d dimensions. Naïvely multiplying with (resp. inverting) these matrices requires O$(n^2d^2)$ (resp. O$(n^3d^3)$) operations, which becomes infeasible for moderate dimensions and sample sizes. Here, we observe that a wide range of kernels gives rise to structured matrices, enabling an exact O$(n^2d)$ matrix-vector multiply for gradient observations and O$(n^2d^2)$ for Hessian observations. Beyond canonical kernel classes, we derive a programmatic approach to leveraging this type of structure for transformations and combinations of the discussed kernel classes, which constitutes a structure-aware automatic differentiation algorithm. Our methods apply to virtually all canonical kernels and automatically extend to complex kernels, like the neural network, radial basis function network, and spectral mixture kernels without any additional derivations, enabling flexible, problem-dependent modeling while scaling first-order BO to high $d$.},
+  pdf={ament22fobo.pdf},
+  selected={true},
+  bibtex_show={true}
+}
+
+
+
 @INPROCEEDINGS{ament2022sparseopt,
   author={Ament, Sebastian and Gomes, Carla},
   booktitle={ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
@@ -29,7 +45,7 @@
   url = 	 {https://proceedings.mlr.press/v151/ryan22a.html},
   abstract = 	 { Kernel methods are a highly effective and widely used collection of modern machine learning algorithms. A fundamental limitation of virtually all such methods are computations involving the kernel matrix that naively scale quadratically (e.g., matrix-vector multiplication) or cubically (solving linear systems) with the size of the dataset N. We propose the Fast Kernel Transform (FKT), a general algorithm to compute matrix-vector multiplications (MVMs) for datasets in moderate dimensions with quasilinear complexity. Typically, analytically grounded fast multiplication methods require specialized development for specific kernels. In contrast, our scheme is based on auto-differentiation and automated symbolic computations that leverage the analytical structure of the underlying kernel. This allows the FKT to be easily applied to a broad class of kernels, including Gaussian, Matern, and Rational Quadratic covariance functions and Green’s functions, including those of the Laplace and Helmholtz equations. Furthermore, the FKT maintains a high, quantifiable, and controllable level of accuracy—properties that many acceleration methods lack. We illustrate the efficacy and versatility of the FKT by providing timing and accuracy benchmarks with comparisons to adjacent methods, and by applying it to scale the stochastic neighborhood embedding (t-SNE) and Gaussian processes to large real-world datasets. },
  abbr={AISTATS},
-pdf={sciadv.abg4930.pdf},
+pdf={ryan22fkt.pdf},
 selected={false},
 bibtex_show={true}
 }
@@ -61,7 +77,7 @@ bibtex_show={true}
   year={2021},
   organization={PMLR},
     abstract = 	 {Sparse Bayesian Learning (SBL) is a powerful framework for attaining sparsity in probabilistic models. Herein, we propose a coordinate ascent algorithm for SBL termed Relevance Matching Pursuit (RMP) and show that, as its noise variance parameter goes to zero, RMP exhibits a surprising connection to Stepwise Regression. Further, we derive novel guarantees for Stepwise Regression algorithms, which also shed light on RMP. Our guarantees for Forward Regression improve on deterministic and probabilistic results for Orthogonal Matching Pursuit with noise. Our analysis of Backward Regression culminates in a bound on the residual of the optimal solution to the subset selection problem that, if satisfied, guarantees the optimality of the result. To our knowledge, this bound is the first that can be computed in polynomial time and depends chiefly on the smallest singular value of the matrix. We report numerical experiments using a variety of feature selection algorithms. Notably, RMP and its limiting variant are both efficient and maintain strong performance with correlated features.},
-  pdf={ament21a.pdf},
+  pdf={ament21sparse.pdf},
   selected={true},
   bibtex_show={true}
 }
