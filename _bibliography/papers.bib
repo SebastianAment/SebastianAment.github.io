@@ -28,7 +28,7 @@
   doi={10.1109/ICASSP43922.2022.9747510},
   abstract={Matching pursuit algorithms are a popular family of algorithms for compressed sensing and feature selection. Originally, Matching Pursuit (MP) was proposed as an algorithm for the least-squares objective, but has recently been generalized to arbitrary convex objectives. Here, we are concerned with the case of a general objective that is separable over observed data points, which encompasses most problems of practical interest: least-squares, logistic, and robust regression problems, and the class of generalized linear models. We propose efficient generalizations of Forward and Backward Stepwise Regression for this case, which take advantage of special structure in the Hessian matrix and are based on a locally quadratic approximation of the objective. Notably, the acquisition criterion of the generalized stepwise algorithms can be computed with the same complexity as the ones for the least-squares objective. We further propose a modification to the Newton step to avoid saddle points of non-convex objectives. Lastly, we demonstrate the generality and performance of the forward algorithm on least-squares, logistic, and robust regression problems, for which it compares favorably to generalized Orthogonal Matching Pursuit (OMP) on problems with moderate to large condition numbers.},
     abbr={ICASSP},
-  pdf={Generalized_Matching_Pursuits_for_the_Sparse_Optimization_of_Separable_Objectives.pdf},
+  pdf={ament2022sparseopt.pdf},
   bibtex_show={true}
   }
   
@@ -45,7 +45,7 @@
   url = 	 {https://proceedings.mlr.press/v151/ryan22a.html},
   abstract = 	 { Kernel methods are a highly effective and widely used collection of modern machine learning algorithms. A fundamental limitation of virtually all such methods are computations involving the kernel matrix that naively scale quadratically (e.g., matrix-vector multiplication) or cubically (solving linear systems) with the size of the dataset N. We propose the Fast Kernel Transform (FKT), a general algorithm to compute matrix-vector multiplications (MVMs) for datasets in moderate dimensions with quasilinear complexity. Typically, analytically grounded fast multiplication methods require specialized development for specific kernels. In contrast, our scheme is based on auto-differentiation and automated symbolic computations that leverage the analytical structure of the underlying kernel. This allows the FKT to be easily applied to a broad class of kernels, including Gaussian, Matern, and Rational Quadratic covariance functions and Green’s functions, including those of the Laplace and Helmholtz equations. Furthermore, the FKT maintains a high, quantifiable, and controllable level of accuracy—properties that many acceleration methods lack. We illustrate the efficacy and versatility of the FKT by providing timing and accuracy benchmarks with comparisons to adjacent methods, and by applying it to scale the stochastic neighborhood embedding (t-SNE) and Gaussian processes to large real-world datasets. },
  abbr={AISTATS},
-pdf={ryan22fkt.pdf},
+pdf={ryan2022fkt.pdf},
 selected={false},
 bibtex_show={true}
 }
