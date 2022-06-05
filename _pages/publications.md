@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /Publications/
+permalink: /publications/
 title: Publications
 description: Publications in reversed chronological order. Please also see my Google Scholar profile for a complete list.
 years: [2022, 2021, 2019, 2017]
