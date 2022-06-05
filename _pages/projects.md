@@ -20,7 +20,7 @@ Contains a wide-ranging collection of compressed sensing and feature selection a
 ### [StochasticNeighborhoodEmbeddings.jl](https://github.com/SebastianAment/StochasticNeighborhoodEmbeddings.jl)
 
 Computing SNE and t-SNE visualizations
-taking advantage of [CompressedSensing.jl](https://github.com/SebastianAment/CompressedSensing.jl)'s lazy representation of kernel matrices.
+taking advantage of [CovarianceFunctions.jl](https://github.com/SebastianAment/CovarianceFunctions.jl)'s lazy representation of kernel matrices.
 
 ### [WoodburyFactorizations.jl](https://github.com/SebastianAment/WoodburyFactorizations.jl)
 

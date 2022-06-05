@@ -15,8 +15,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a PhD candidate in computer science at Cornell University, working with Carla Gomes.
-My research focus is on Bayesian and sparse optimization.
+I am a PhD candidate in computer science at Cornell University, working with [Carla Gomes](https://www.cs.cornell.edu/gomes/).
+My research focus is on sparse and Bayesian optimization.
 On the applied side, I have collaborated with materials scientists in leveraging
 [active learning for the discovery of novel meta-stable materials](https://www.youtube.com/watch?v=FAWud0uVxUQ).
 After graduation, I will join Meta as a research scientist.
