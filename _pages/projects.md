@@ -4,7 +4,7 @@ title: Software
 permalink: /software/
 description: Selected Open Source Projects on GitHub
 nav: true
-nav_order: 1
+nav_order: 3
 display_categories: [work, fun]
 horizontal: false
 ---
@@ -19,8 +19,7 @@ Contains a wide-ranging collection of compressed sensing and feature selection a
 
 ### [StochasticNeighborhoodEmbeddings.jl](https://github.com/SebastianAment/StochasticNeighborhoodEmbeddings.jl)
 
-Computing SNE and t-SNE visualizations
-taking advantage of [CovarianceFunctions.jl](https://github.com/SebastianAment/CovarianceFunctions.jl)'s lazy representation of kernel matrices.
+Computing SNE and t-SNE visualizations taking advantage of [CovarianceFunctions.jl](https://github.com/SebastianAment/CovarianceFunctions.jl)'s lazy representation of kernel matrices.
 
 ### [WoodburyFactorizations.jl](https://github.com/SebastianAment/WoodburyFactorizations.jl)
 

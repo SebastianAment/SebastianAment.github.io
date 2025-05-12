@@ -19,8 +19,8 @@
 
 @INPROCEEDINGS{ament2022sparseopt,
   author={Ament, Sebastian and Gomes, Carla},
-  booktitle={ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
-  title={Generalized Matching Pursuits for the Sparse Optimization of Separable Objectives}, 
+  booktitle={ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  title={Generalized Matching Pursuits for the Sparse Optimization of Separable Objectives},
   year={2022},
   volume={},
   number={},
@@ -31,7 +31,8 @@
   pdf={ament2022sparseopt.pdf},
   bibtex_show={true}
   }
-  
+
+
 @InProceedings{ryan2022fkt,
   title = 	 { The Fast Kernel Transform },
   author =       {Ryan, John P. and Ament, Sebastian and Gomes, Carla P. and Damle, Anil},
@@ -49,6 +50,7 @@ pdf={ryan2022fkt.pdf},
 selected={false},
 bibtex_show={true}
 }
+
 
 @article{ament2021sara,
 abbr={Sci. Adv.},
@@ -68,6 +70,7 @@ selected={true},
 bibtex_show={true}
 }
 
+
 @inproceedings{ament2021sparse,
   abbr={ICML},
   title={Sparse Bayesian Learning via Stepwise Regression},
@@ -82,10 +85,11 @@ bibtex_show={true}
   bibtex_show={true}
 }
 
+
 @INPROCEEDINGS{ament2021optimality,
   author={Ament, Sebastian and Gomes, Carla},
-  booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
-  title={On the Optimality of Backward Regression: Sparse Recovery and Subset Selection}, 
+  booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  title={On the Optimality of Backward Regression: Sparse Recovery and Subset Selection},
   year={2021},
   volume={},
   number={},
@@ -96,7 +100,8 @@ bibtex_show={true}
   bibtex_show={true},
   pdf={ament2021optimality.pdf}
   }
-  
+
+
  @article{ament2019multi,
   title={Multi-component background learning automates signal detection for spectroscopic data},
   author={Ament, Sebastian and Stein, Helge S and Guevarra, Dan and Zhou, Lan and Haber, Joel A and Boyd, David A and Umehara, Mitsutaro and Gregoire, John M and Gomes, Carla P},
@@ -112,6 +117,10 @@ bibtex_show={true}
   pdf={ament2019mcbl.pdf}
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master_rebased
 @misc{ament2019emg,
   doi = {10.48550/ARXIV.1902.05601},
   url = {https://arxiv.org/abs/1902.05601},
@@ -127,6 +136,10 @@ bibtex_show={true}
   pdf={ament2019emg.pdf}
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master_rebased
 @article{ament2017stable,
 	doi = {10.1007/s11222-017-9725-y},
 	url = {https://doi.org/10.1007\%2Fs11222-017-9725-y},
@@ -143,11 +156,11 @@ bibtex_show={true}
 	abbr={Stat. and Comp.},
 	bibtex_show={true},
 	pdf={ament2017stable.pdf}
-
 }
 
+
 @misc{ament2017solving,
-      title={Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques}, 
+      title={Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques},
       author={Sebastian Ament and Nikhil Rangarajan and Arun Parthasarathy and Shaloo Rakheja},
       year={2017},
       eprint={1607.04596},
@@ -174,15 +187,62 @@ bibtex_show={true}
   selected={true},
 }
 
+
 @misc{ament2023sustainableconcretebayesianoptimization,
       abbr={NeurIPS Workshop},
-      title={Sustainable Concrete via Bayesian Optimization}, 
+      title={Sustainable Concrete via Bayesian Optimization},
       author={Sebastian Ament and Andrew Witte and Nishant Garg and Julius Kusuma},
       year={2023},
       eprint={2310.18288},
       archivePrefix={arXiv},
       primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2310.18288}, 
+      url={https://arxiv.org/abs/2310.18288},
+       selected={true},
+}
+
+
+@InProceedings{pmlr-v206-deshwal23a,
+  title = 	 {Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings},
+  abbr={AISTATS},
+  author =       {Deshwal, Aryan and Ament, Sebastian and Balandat, Maximilian and Bakshy, Eytan and Doppa, Janardhan Rao and Eriksson, David},
+  booktitle = 	 {Proceedings of The 26th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {7021--7039},
+  year = 	 {2023},
+  editor = 	 {Ruiz, Francisco and Dy, Jennifer and van de Meent, Jan-Willem},
+  volume = 	 {206},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {25--27 Apr},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v206/deshwal23a/deshwal23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v206/deshwal23a.html},
+  abstract = 	 {We consider the problem of optimizing expensive black-box functions over high-dimensional combinatorial spaces which arises in many science, engineering, and ML applications. We use Bayesian Optimization (BO) and propose a novel surrogate modeling approach for efficiently handling a large number of binary and categorical parameters. The key idea is to select a number of discrete structures from the input space (the dictionary) and use them to define an ordinal embedding for high-dimensional combinatorial structures. This allows us to use existing Gaussian process models for continuous spaces. We develop a principled approach based on binary wavelets to construct dictionaries for binary spaces, and propose a randomized construction method that generalizes to categorical spaces. We provide theoretical justification to support the effectiveness of the dictionary-based embeddings. Our experiments on diverse real-world benchmarks demonstrate the effectiveness of our proposed surrogate modeling approach over state-of-the-art BO methods.}
+}
+
+
+@inproceedings{ament2024RP,
+  abbr={NeurIPS},
+ author = {Ament, Sebastian and Santorella, Elizabeth and Eriksson, David and Letham, Ben and Balandat, Maximilian and Bakshy, Eytan},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {61700--61734},
+ publisher = {Curran Associates, Inc.},
+ title = {Robust Gaussian Processes via Relevance Pursuit},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/7124771cf8c9b0f6e9c7fec0a66c5866-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024},
+   selected={true},
+
+}
+
+@misc{ament2023sustainableconcretebayesianoptimization,
+      abbr={NeurIPS Workshop},
+      title={Sustainable Concrete via Bayesian Optimization},
+      author={Sebastian Ament and Andrew Witte and Nishant Garg and Julius Kusuma},
+      year={2023},
+      eprint={2310.18288},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2310.18288},
        selected={true},
 }
 
@@ -217,5 +277,3 @@ bibtex_show={true}
    selected={true},
 
 }
-
-
