@@ -1,65 +1,39 @@
 ---
 layout: page
-title: projects
-permalink: /projects/
-description: A growing collection of your cool projects.
+title: Software
+permalink: /software/
+description: Selected Open Source Projects on GitHub
 nav: true
 nav_order: 3
 display_categories: [work, fun]
 horizontal: false
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
+### [CovarianceFunctions.jl](https://github.com/SebastianAment/CovarianceFunctions.jl)
 
-{% else %}
+Lazy, structured, and efficient operations with kernel matrices.
 
-<!-- Display projects without categories -->
+### [CompressedSensing.jl](https://github.com/SebastianAment/CompressedSensing.jl)
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+Contains a wide-ranging collection of compressed sensing and feature selection algorithms. Examples include matching pursuit algorithms, forward and backward stepwise regression, sparse Bayesian learning, and basis pursuit.
 
-  <!-- Generate cards for each project -->
+### [StochasticNeighborhoodEmbeddings.jl](https://github.com/SebastianAment/StochasticNeighborhoodEmbeddings.jl)
 
-{% if page.horizontal %}
+Computing SNE and t-SNE visualizations
+taking advantage of [CompressedSensing.jl](https://github.com/SebastianAment/CompressedSensing.jl)'s lazy representation of kernel matrices.
 
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
-</div>
+### [WoodburyFactorizations.jl](https://github.com/SebastianAment/WoodburyFactorizations.jl)
+
+Contains an implementation of lazily represented matrix structures that allow for the application of the Woodbury Identity.
+
+### [KroneckerProducts.jl](https://github.com/SebastianAment/KroneckerProducts.jl)
+
+Provides an implementation of lazily represented Kronecker products with efficient in-place multiplies and solves.
+
+### [UpdatableQRFactorizations.jl](https://github.com/SebastianAment/UpdatableQRFactorizations.jl)
+
+Contains implementations of efficient representations of and updating algorithms for QR factorizations.
+
+### [UpdatableCholeskyFactorizations.jl](https://github.com/SebastianAment/UpdatableCholeskyFactorizations.jl)
+
+This package contains implementations of efficient representations and updating algorithms for Cholesky factorizations.
