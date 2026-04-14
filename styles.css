@@ -35,7 +35,7 @@ body {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.7s ease, color 0.7s ease;
 }
 
 body.no-scroll {
@@ -51,7 +51,7 @@ html {
     background-color: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition: background-color 0.3s ease;
+    transition: background-color 1s ease;
 }
 
 /* Header */
@@ -157,58 +157,28 @@ nav a:hover {
     background-color: var(--accent-color);
 }
 
-/* Overlay menu */
+/* Overlay menu — positioned below header */
 .overlay-menu {
     position: fixed;
-    inset: 0;
-    z-index: 200;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40; /* below header (50) so header stays visible */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: env(safe-area-inset-bottom);
     visibility: hidden;
-    opacity: 0;
     transform: translateX(100%);
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+    transition: transform 0.5s ease, visibility 0s 0.5s;
 }
 
 .overlay-menu.open {
     visibility: visible;
-    opacity: 1;
     transform: translateX(0);
-}
-
-/* Close button — sits in a bar that mirrors the header's layout */
-.overlay-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0.35em 1.5em;
-    min-height: calc(20px * 1.6); /* match .header-name line box so close btn aligns with menu btn */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.overlay-close {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    padding: 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    line-height: 1;
-    transition: color 0.2s ease;
-    transform: translateY(-2px); /* visual alignment with menu-btn */
-}
-
-.overlay-close:hover {
-    color: var(--accent-color);
+    transition: transform 0.3s ease, visibility 0s;
 }
 
 .overlay-nav {
@@ -250,7 +220,7 @@ section {
     max-width: 90%;
     border-radius: var(--border-radius);
     scroll-margin-top: 56px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 1s ease, box-shadow 1s ease;
 }
 
 h2 {
@@ -420,6 +390,7 @@ footer p {
     outline: none;
     flex: 1;
     min-width: 120px;
+    max-width: 200px;
     transition: border-color 0.2s ease;
 }
 
