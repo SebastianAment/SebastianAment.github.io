@@ -112,7 +112,9 @@ html {
 }
 
 header {
-    background-color: var(--bg-card);
+    background-color: rgba(42, 42, 42, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 0.35em 1.5em;
     display: flex;
     align-items: center;
@@ -123,9 +125,8 @@ header {
     box-shadow: 0 2px 8px var(--shadow);
 }
 
-/* Offset scroll targets for sticky header */
-section {
-    scroll-margin-top: 3em;
+[data-theme="light"] header {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 nav {
@@ -163,6 +164,7 @@ section {
     width: 800px;
     max-width: 90%;
     border-radius: var(--border-radius);
+    scroll-margin-top: 48px;
 }
 
 h1 {

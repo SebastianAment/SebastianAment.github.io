@@ -6,11 +6,11 @@
     <meta name="description" content="Sebastian Ament - Machine Learning Research Scientist at Meta. Bayesian optimization, sparse optimization, and active learning.">
     <title>Sebastian Ament - Machine Learning Research Scientist</title>
     <meta property="og:title" content="Sebastian Ament">
-    <meta property="og:description" content="Research Scientist at Meta. Machine Learning, Probablisitic Modelling, and Bayesian Optimization.">
-    <meta property="og:image" content="https://sebastianament.github.io/la_square.jpg">
+    <meta property="og:description" content="Research Scientist at Meta. Machine Learning, Probabilistic Modelling, and Bayesian Optimization.">
+    <meta property="og:image" content="https://sebastianament.github.io/media/la_square.jpg">
     <meta property="og:url" content="https://sebastianament.github.io">
     <meta property="og:type" content="website">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="media/favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
         <section id="about" class="fade-in">
             <h2>About</h2>
             <div class="about-content">
-                <img src="la_square.jpg" alt="Portrait of Sebastian Ament" class="profile-picture">
+                <img src="media/la_square.jpg" alt="Portrait of Sebastian Ament" class="profile-picture">
                 <div class="about-text">
                     <p>
                         I am a Staff Research Scientist in the Adaptive Experimentation group at Meta,
@@ -89,7 +89,7 @@
     <script>
         // Load publications from JSON and enable sorting
         let publications = [];
-        let currentSort = 'year';
+        let currentSort = 'citations';
 
         function renderPublications(pubs) {
             const list = document.getElementById('publication-list');
@@ -122,7 +122,7 @@
             });
         }
 
-        fetch('publications.json')
+        fetch('media/publications.json')
             .then(response => response.json())
             .then(data => {
                 publications = data;
