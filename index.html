@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sebastian Ament - Machine Learning Research Scientist at Meta. Bayesian optimization, sparse optimization, and active learning.">
     <title>Sebastian Ament - Machine Learning Research Scientist</title>
+    <meta property="og:title" content="Sebastian Ament">
+    <meta property="og:description" content="Research Scientist at Meta. Machine Learning, Probablisitic Modelling, and Bayesian Optimization.">
+    <meta property="og:image" content="https://sebastianament.github.io/la_square.jpg">
+    <meta property="og:url" content="https://sebastianament.github.io">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -26,7 +32,7 @@
             </button>
             <div class="settings-dropdown">
                 <button class="theme-toggle" aria-label="Toggle theme">
-                    <span class="theme-label">Light mode</span>
+                    <span class="theme-label">Dark mode</span>
                 </button>
             </div>
         </div>
@@ -64,8 +70,8 @@
             <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
             <div class="sort-controls">
                 <span>Sort by:</span>
-                <button class="sort-btn" data-sort="year">Year</button>
                 <button class="sort-btn active" data-sort="citations">Citations</button>
+                <button class="sort-btn" data-sort="year">Year</button>
             </div>
             <ul class="publication-list" id="publication-list"></ul>
         </section>
