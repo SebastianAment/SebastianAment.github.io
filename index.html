@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Sebastian Ament - Machine Learning Research Scientist at Meta. Bayesian optimization, sparse optimization, and active learning.">
     <title>Sebastian Ament - Machine Learning Research Scientist</title>
     <meta property="og:title" content="Sebastian Ament">
@@ -15,9 +15,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#f8f8f8">
 </head>
 <body>
-    <header>
+    <header class="glass">
+        <a class="header-name" href="#">Sebastian Ament</a>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -25,20 +27,27 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="settings-menu">
-            <button class="settings-btn" aria-label="Settings">
-                <span class="settings-icon"></span>
-                <span class="settings-icon"></span>
-            </button>
-            <div class="settings-dropdown">
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <span class="theme-label">Dark mode</span>
-                </button>
-            </div>
-        </div>
+        <button class="theme-toggle header-theme-toggle" aria-label="Toggle theme">
+            <span class="theme-label">Dark mode</span>
+        </button>
+        <button class="menu-btn" aria-label="Menu">
+            <span></span><span></span>
+        </button>
     </header>
+    <div class="overlay-menu glass">
+        <div class="overlay-header">
+            <button class="overlay-close" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="overlay-nav">
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-label">Dark mode</span>
+        </button>
+    </div>
     <main>
-        <h1>Sebastian Ament</h1>
         <section id="about" class="fade-in">
             <h2>About</h2>
             <div class="about-content">
@@ -70,11 +79,13 @@
             <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
             <div class="sort-controls">
                 <input type="text" class="search-input" id="pub-search" placeholder="Filter publications...">
-                <span>Sort by:</span>
-                <button class="sort-btn active" data-sort="citations">Citations</button>
-                <button class="sort-btn" data-sort="year">Year</button>
+                <span class="sort-group">
+                    <span>Sort by:</span>
+                    <button class="sort-btn active" data-sort="citations">Citations</button>
+                    <button class="sort-btn" data-sort="year">Year</button>
+                </span>
             </div>
-            <ul class="publication-list" id="publication-list"></ul>
+            <ul id="publication-list"></ul>
         </section>
         <section id="contact" class="fade-in">
             <h2>Contact</h2>
@@ -121,8 +132,8 @@
                 return terms.every(term => text.includes(term));
             });
             const sorted = [...filtered].sort((a, b) => {
-                if (by === 'citations') return -(a.citationCount || 0) + (b.citationCount || 0);
-                return -(a.year || 0) + (b.year || 0) || -(a.citationCount || 0) + (b.citationCount || 0);
+                if (by === 'citations') return (b.citationCount || 0) - (a.citationCount || 0);
+                return (b.year || 0) - (a.year || 0) || (b.citationCount || 0) - (a.citationCount || 0);
             });
             renderPublications(sorted);
             document.querySelectorAll('.sort-btn').forEach(btn => {
@@ -163,46 +174,76 @@
                 }
             });
 
+        // Overlay menu
+        const overlay = document.querySelector('.overlay-menu');
+        const menuBtn = document.querySelector('.menu-btn');
+
+        function openOverlay() {
+            overlay.classList.add('open');
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeOverlay() {
+            overlay.classList.remove('open');
+            document.body.classList.remove('no-scroll');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            overlay.classList.contains('open') ? closeOverlay() : openOverlay();
+        });
+        document.querySelector('.overlay-close').addEventListener('click', closeOverlay);
+        document.querySelectorAll('.overlay-nav a').forEach(link => {
+            link.addEventListener('click', closeOverlay);
+        });
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeOverlay();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && overlay.classList.contains('open')) closeOverlay();
+        });
+
         // Dark/light theme toggle
-        const toggle = document.querySelector('.theme-toggle');
-        const label = toggle.querySelector('.theme-label');
-        const settingsBtn = document.querySelector('.settings-btn');
-        const dropdown = document.querySelector('.settings-dropdown');
+        const labels = document.querySelectorAll('.theme-label');
 
         function getEffectiveTheme() {
             return localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         }
 
+        function updateThemeColor() {
+            const color = getEffectiveTheme() === 'dark' ? '#222222' : '#f8f8f8';
+            let meta = document.querySelector('meta[name="theme-color"]');
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.name = 'theme-color';
+                document.head.appendChild(meta);
+            }
+            meta.content = '';
+            requestAnimationFrame(() => { meta.content = color; });
+        }
+
         function applyTheme() {
             const theme = getEffectiveTheme();
             document.documentElement.setAttribute('data-theme', theme);
-            label.textContent = theme === 'light' ? 'Dark mode' : 'Light mode';
+            labels.forEach(l => l.textContent = theme === 'light' ? 'Dark mode' : 'Light mode');
+            updateThemeColor();
         }
 
         applyTheme();
 
-        settingsBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('open');
-        });
-
-        toggle.addEventListener('click', () => {
-            const current = getEffectiveTheme();
-            const next = current === 'light' ? 'dark' : 'light';
-            localStorage.setItem('theme', next);
+        document.querySelectorAll('.theme-toggle').forEach(t => t.addEventListener('click', () => {
+            localStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
             applyTheme();
-            dropdown.classList.remove('open');
-        });
+            if (overlay.classList.contains('open')) {
+                setTimeout(closeOverlay, 300);
+            }
+        }));
 
-        // Follow OS theme changes (when user hasn't set a preference)
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
             if (!localStorage.getItem('theme')) applyTheme();
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            dropdown.classList.remove('open');
         });
 
         // Sort button handlers

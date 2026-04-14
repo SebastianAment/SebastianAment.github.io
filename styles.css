@@ -11,7 +11,7 @@
     --shadow: rgba(0, 0, 0, 0.1);
     --footer-color: #999;
     --glass-alpha: 0.5;
-    --header-bg: rgba(var(--bg-card-rgb), var(--glass-alpha));
+    --glass-bg: rgba(var(--bg-card-rgb), var(--glass-alpha));
 }
 
 /* Dark theme */
@@ -35,35 +35,116 @@ body {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.no-scroll {
+    overflow: hidden;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* Settings menu */
-.settings-menu {
+/* Frosted glass — shared by header and overlay */
+.glass {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.3s ease;
+}
+
+/* Header */
+header {
+    padding: 0.35em 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.header-name {
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: var(--text-white);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.header-name:hover {
+    color: var(--accent-color);
+}
+
+/* Nav centered via absolute positioning — immune to unequal left/right widths */
+header nav {
     position: absolute;
-    right: 1.5em;
+    left: 0;
+    right: 0;
     top: 0;
     bottom: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
-.settings-btn {
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    pointer-events: auto;
+}
+
+nav a {
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Theme toggle — shared base for header and overlay instances */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Header theme toggle (desktop) */
+.header-theme-toggle {
+    font-size: 14px;
+    padding: 0.5em;
+    white-space: nowrap;
+}
+
+/* Menu button (hamburger) — mobile only */
+.menu-btn {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5em;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
     align-items: center;
     justify-content: center;
 }
 
-.settings-icon {
+.menu-btn span {
     display: block;
     width: 18px;
     height: 2px;
@@ -72,83 +153,85 @@ html {
     transition: background-color 0.2s ease;
 }
 
-.settings-btn:hover .settings-icon {
+.menu-btn:hover span {
     background-color: var(--accent-color);
 }
 
-.settings-dropdown {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 0.5em);
-    background-color: var(--bg-card);
-    border: 1px solid var(--text-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 16px var(--shadow);
-    min-width: 140px;
-    z-index: 100;
+/* Overlay menu */
+.overlay-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: env(safe-area-inset-bottom);
+    visibility: hidden;
     opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
 }
 
-.settings-dropdown.open {
+.overlay-menu.open {
+    visibility: visible;
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    transform: translateX(0);
 }
 
-.theme-toggle {
+/* Close button — sits in a bar that mirrors the header's layout */
+.overlay-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.35em 1.5em;
+    min-height: calc(20px * 1.6); /* match .header-name line box so close btn aligns with menu btn */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.overlay-close {
     background: none;
     border: none;
     color: var(--text-color);
-    font-family: inherit;
-    font-size: 14px;
-    padding: 0.7em 1em;
     cursor: pointer;
-    width: 100%;
-    text-align: left;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    border-radius: var(--border-radius);
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1;
+    transition: color 0.2s ease;
+    transform: translateY(-2px); /* visual alignment with menu-btn */
 }
 
-.theme-toggle:hover {
+.overlay-close:hover {
     color: var(--accent-color);
-    background-color: var(--bg-primary);
 }
 
-header {
-    background-color: var(--header-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 0.35em 1.5em;
+.overlay-nav {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    box-shadow: 0 2px 8px var(--shadow);
+    gap: 0.2em;
 }
 
-nav {
-    width: 100%;
+.overlay-nav a {
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    padding: 0.5em 0;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 5px;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 20px;
+/* Overlay theme toggle */
+.overlay-menu .theme-toggle {
+    margin-top: 2em;
+    font-size: 16px;
+    padding: 0.7em 1em;
+    border-radius: var(--border-radius);
 }
 
 main {
@@ -167,14 +250,7 @@ section {
     max-width: 90%;
     border-radius: var(--border-radius);
     scroll-margin-top: 56px;
-}
-
-h1 {
-    font-weight: 300;
-    font-size: 36px;
-    margin: 0 0 24px 0;
-    color: var(--text-white);
-    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h2 {
@@ -189,7 +265,7 @@ ul {
     margin: 0;
 }
 
-li {
+section li {
     margin-bottom: 10px;
 }
 
@@ -201,16 +277,6 @@ a {
 
 a:hover {
     color: var(--accent-hover);
-}
-
-nav a {
-    color: var(--text-white);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: var(--accent-color);
 }
 
 /* About section: image + text side by side on desktop */
@@ -232,7 +298,21 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Mobile: stack image above text */
+/* Narrow/mobile: show hamburger, hide header nav + header theme toggle */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    .header-theme-toggle {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+}
+
 @media (max-width: 600px) {
     .about-content {
         flex-direction: column;
@@ -246,10 +326,6 @@ nav a:hover {
 
     main {
         padding: 16px;
-    }
-
-    h1 {
-        margin: 0 0 16px 0;
     }
 
     section {
@@ -280,11 +356,9 @@ footer p {
     transform: translateY(0);
 }
 
-/* Publications list */
-.publication-list {
-    list-style: none;
-    padding: 0;
-    margin: 0.5em 0 0 0;
+/* Publications */
+#publication-list {
+    margin-top: 0.5em;
 }
 
 .publication {
@@ -303,31 +377,36 @@ footer p {
     font-size: 15px;
 }
 
-.pub-authors {
+.pub-authors,
+.pub-meta,
+.pub-links {
     font-size: 13px;
-    color: var(--text-color);
+}
+
+.pub-authors {
     opacity: 0.8;
 }
 
 .pub-meta {
-    font-size: 13px;
-    color: var(--text-color);
     opacity: 0.6;
-}
-
-.pub-links {
-    font-size: 13px;
 }
 
 /* Sort controls */
 .sort-controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5em;
     margin-bottom: 0.5em;
     font-size: 14px;
-    color: var(--text-color);
     opacity: 0.7;
+}
+
+.sort-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    white-space: nowrap;
 }
 
 .search-input {
@@ -339,7 +418,8 @@ footer p {
     font-size: 13px;
     padding: 0.3em 0.8em;
     outline: none;
-    width: 160px;
+    flex: 1;
+    min-width: 120px;
     transition: border-color 0.2s ease;
 }
 
