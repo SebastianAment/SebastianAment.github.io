@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetches publications from Semantic Scholar and generates publications.json and publications.html."""
+"""Fetches publications from Semantic Scholar and generates publications.json."""
 
 import json
 import os

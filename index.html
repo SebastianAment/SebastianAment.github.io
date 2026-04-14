@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,6 +69,7 @@
             <h2>Publications</h2>
             <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
             <div class="sort-controls">
+                <input type="text" class="search-input" id="pub-search" placeholder="Filter publications...">
                 <span>Sort by:</span>
                 <button class="sort-btn active" data-sort="citations">Citations</button>
                 <button class="sort-btn" data-sort="year">Year</button>
@@ -112,7 +113,14 @@
 
         function sortPublications(by) {
             currentSort = by;
-            const sorted = [...publications].sort((a, b) => {
+            const query = (document.getElementById('pub-search').value || '').toLowerCase();
+            const terms = query.split(/\s+/).filter(t => t);
+            const filtered = publications.filter(pub => {
+                const text = [pub.title, pub.authors.join(' '), pub.venue, String(pub.year)]
+                    .join(' ').toLowerCase();
+                return terms.every(term => text.includes(term));
+            });
+            const sorted = [...filtered].sort((a, b) => {
                 if (by === 'citations') return -(a.citationCount || 0) + (b.citationCount || 0);
                 return -(a.year || 0) + (b.year || 0) || -(a.citationCount || 0) + (b.citationCount || 0);
             });
@@ -139,6 +147,20 @@
                 }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
 
                 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+                // Re-scroll to anchor after content has loaded
+                if (window.location.hash) {
+                    // Show all sections immediately (no fade-in for direct navigation)
+                    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                    requestAnimationFrame(() => {
+                        const target = document.querySelector(window.location.hash);
+                        if (target) {
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+                            window.scrollTo({ top, behavior: 'instant' });
+                        }
+                    });
+                }
             });
 
         // Dark/light theme toggle
@@ -146,11 +168,19 @@
         const label = toggle.querySelector('.theme-label');
         const settingsBtn = document.querySelector('.settings-btn');
         const dropdown = document.querySelector('.settings-dropdown');
-        const saved = localStorage.getItem('theme');
-        if (saved) {
-            document.documentElement.setAttribute('data-theme', saved);
-            label.textContent = saved === 'light' ? 'Dark mode' : 'Light mode';
+
+        function getEffectiveTheme() {
+            return localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         }
+
+        function applyTheme() {
+            const theme = getEffectiveTheme();
+            document.documentElement.setAttribute('data-theme', theme);
+            label.textContent = theme === 'light' ? 'Dark mode' : 'Light mode';
+        }
+
+        applyTheme();
 
         settingsBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -158,12 +188,16 @@
         });
 
         toggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
+            const current = getEffectiveTheme();
             const next = current === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            label.textContent = next === 'light' ? 'Dark mode' : 'Light mode';
+            applyTheme();
             dropdown.classList.remove('open');
+        });
+
+        // Follow OS theme changes (when user hasn't set a preference)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!localStorage.getItem('theme')) applyTheme();
         });
 
         // Close dropdown when clicking outside
@@ -174,6 +208,11 @@
         // Sort button handlers
         document.querySelectorAll('.sort-btn').forEach(btn => {
             btn.addEventListener('click', () => sortPublications(btn.dataset.sort));
+        });
+
+        // Search filter
+        document.getElementById('pub-search').addEventListener('input', () => {
+            sortPublications(currentSort);
         });
     </script>
 </body>

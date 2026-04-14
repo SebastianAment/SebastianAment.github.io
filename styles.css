@@ -1,24 +1,30 @@
+/* Light theme (default) */
 :root {
-    --bg-primary: #1a1a1a;
-    --bg-card: #2a2a2a;
-    --text-color: #d2d2d2;
-    --text-white: #fff;
-    --accent-color: #3ab8e2;
-    --accent-hover: #5ccef5;
-    --border-radius: 10px;
-    --shadow: rgba(0, 0, 0, 0.5);
-    --footer-color: #666;
-}
-
-[data-theme="light"] {
     --bg-primary: #f0f0f0;
     --bg-card: #ffffff;
+    --bg-card-rgb: 255, 255, 255;
     --text-color: #444;
     --text-white: #1a1a1a;
     --accent-color: #0a7ea8;
     --accent-hover: #0c9ad0;
+    --border-radius: 10px;
     --shadow: rgba(0, 0, 0, 0.1);
     --footer-color: #999;
+    --glass-alpha: 0.5;
+    --header-bg: rgba(var(--bg-card-rgb), var(--glass-alpha));
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --bg-card-rgb: 42, 42, 42;
+    --text-color: #d2d2d2;
+    --text-white: #fff;
+    --accent-color: #3ab8e2;
+    --accent-hover: #5ccef5;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --footer-color: #666;
 }
 
 body {
@@ -112,7 +118,7 @@ html {
 }
 
 header {
-    background-color: rgba(42, 42, 42, 0.5);
+    background-color: var(--header-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 0.35em 1.5em;
@@ -123,10 +129,6 @@ header {
     top: 0;
     z-index: 50;
     box-shadow: 0 2px 8px var(--shadow);
-}
-
-[data-theme="light"] header {
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
 nav {
@@ -164,7 +166,7 @@ section {
     width: 800px;
     max-width: 90%;
     border-radius: var(--border-radius);
-    scroll-margin-top: 48px;
+    scroll-margin-top: 56px;
 }
 
 h1 {
@@ -326,6 +328,28 @@ footer p {
     font-size: 14px;
     color: var(--text-color);
     opacity: 0.7;
+}
+
+.search-input {
+    background: var(--bg-primary);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 12px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 0.3em 0.8em;
+    outline: none;
+    width: 160px;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
 }
 
 .sort-btn {
