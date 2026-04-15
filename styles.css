@@ -7,11 +7,11 @@
     --text-white: #1a1a1a;
     --accent-color: #0a7ea8;
     --accent-hover: #0c9ad0;
+    --content-width: 1000px;
     --border-radius: 10px;
     --shadow: rgba(0, 0, 0, 0.1);
     --footer-color: #999;
-    --glass-alpha: 0.5;
-    --glass-bg: rgba(var(--bg-card-rgb), var(--glass-alpha));
+    --divider: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 /* Dark theme */
@@ -48,7 +48,7 @@ html {
 
 /* Frosted glass — shared by header and overlay */
 .glass {
-    background-color: var(--glass-bg);
+    background-color: rgba(var(--bg-card-rgb), 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: background-color 1s ease;
@@ -71,13 +71,17 @@ header {
     font-size: 20px;
     letter-spacing: 0.05em;
     color: var(--text-white);
-    text-decoration: none;
     white-space: nowrap;
-    transition: color 0.2s ease;
 }
 
 .header-name:hover {
     color: var(--accent-color);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 /* Nav centered via absolute positioning — immune to unequal left/right widths */
@@ -100,10 +104,49 @@ header nav ul {
     pointer-events: auto;
 }
 
+/* Dropdown menu */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 0.45em);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    padding: 6px 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: 0 4px 16px var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s 0.2s;
+}
+
+/* Invisible hover bridge from link to dropdown */
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: -0.45em;
+    left: 0;
+    right: 0;
+    height: 0.45em;
+}
+
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease, visibility 0s;
+}
+
+.dropdown a {
+    display: block;
+    padding: 6px 16px;
+    font-size: 14px;
+}
+
 nav a {
     color: var(--text-white);
-    text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -118,17 +161,86 @@ nav a:hover {
     font-family: inherit;
     cursor: pointer;
     transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
 }
 
 .theme-toggle:hover {
     color: var(--accent-color);
 }
 
+.theme-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Show sun in dark mode (click to go light), moon in light mode (click to go dark) */
+.theme-icon-sun { display: none; }
+.theme-icon-moon { display: block; }
+[data-theme="dark"] .theme-icon-sun { display: block; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+
+/* Social icons — header and overlay */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    display: flex;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+.social-icons svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Overlay social icons */
+.overlay-social-icons {
+    margin-top: 1.5em;
+    gap: 20px;
+}
+
+.overlay-social-icons svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Boost scholar icon — taller viewBox renders smaller in a square bounding box */
+.social-icons [aria-label="Google Scholar"] svg {
+    width: 22px;
+    height: 22px;
+}
+
+.overlay-social-icons [aria-label="Google Scholar"] svg {
+    width: 29px;
+    height: 29px;
+}
+
 /* Header theme toggle (desktop) */
 .header-theme-toggle {
-    font-size: 14px;
     padding: 0.5em;
-    white-space: nowrap;
+    margin-left: 4px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.header-theme-toggle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    border-left: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 /* Menu button (hamburger) — mobile only */
@@ -199,9 +311,12 @@ nav a:hover {
 /* Overlay theme toggle */
 .overlay-menu .theme-toggle {
     margin-top: 2em;
-    font-size: 16px;
-    padding: 0.7em 1em;
-    border-radius: var(--border-radius);
+    padding: 0.7em;
+}
+
+.overlay-menu .theme-icon {
+    width: 24px;
+    height: 24px;
 }
 
 main {
@@ -216,7 +331,7 @@ section {
     padding: 24px;
     margin-bottom: 20px;
     box-shadow: 0 0 20px var(--shadow);
-    width: 800px;
+    width: var(--content-width);
     max-width: 90%;
     border-radius: var(--border-radius);
     scroll-margin-top: 56px;
@@ -233,10 +348,6 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-section li {
-    margin-bottom: 10px;
 }
 
 a {
@@ -274,12 +385,37 @@ a:hover {
         display: none;
     }
 
+    /* Hide GitHub on mobile, keep LinkedIn + Scholar */
+    header .social-icons [aria-label="GitHub"] {
+        display: none;
+    }
+
+    header .social-icons {
+        gap: 14px;
+    }
+
+    .header-right {
+        gap: 12px;
+    }
+
     .header-theme-toggle {
         display: none;
     }
 
     .menu-btn {
         display: flex;
+    }
+
+    .project-body {
+        flex-direction: column;
+    }
+
+    .video-embed {
+        width: 100%;
+    }
+
+    .dropdown {
+        display: none;
     }
 }
 
@@ -333,8 +469,7 @@ footer p {
 
 .publication {
     padding: 1em 0;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-    margin-bottom: 0;
+    border-bottom: var(--divider);
 }
 
 .publication:last-child {
@@ -345,6 +480,14 @@ footer p {
 .publication strong {
     color: var(--text-white);
     font-size: 15px;
+}
+
+a.pub-title {
+    color: inherit;
+}
+
+a.pub-title:hover {
+    color: var(--accent-color);
 }
 
 .pub-authors,
@@ -422,4 +565,64 @@ footer p {
 .sort-btn.active {
     border-color: var(--accent-color);
     color: var(--accent-color);
+}
+
+/* Projects */
+#projects h2 {
+    padding-bottom: 1.5em;
+    border-bottom: var(--divider);
+}
+
+.project {
+    scroll-margin-top: 56px;
+}
+
+.project + .project {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: var(--divider);
+}
+
+.project h3 {
+    margin-top: 0;
+    font-weight: normal;
+    font-size: 18px;
+    color: var(--text-white);
+}
+
+.project-body {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+}
+
+.project-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-text p:first-child {
+    margin-top: 0;
+}
+
+.project-text p:last-child {
+    margin-bottom: 0;
+}
+
+.video-embed {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.project-links {
+    font-size: 14px;
 }

@@ -18,30 +18,76 @@
     <meta name="theme-color" content="#f8f8f8">
 </head>
 <body>
+    <!-- SVG icon sprite — defined once, referenced via <use> -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <symbol id="icon-linkedin" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </symbol>
+        <symbol id="icon-scholar" viewBox="0 0 384 512">
+            <path d="M343.759 106.662V79.43L363.524 64h-213.89L20.476 176.274h85.656a82 82 0 0 0-.219 6.225c0 20.845 7.22 38.087 21.672 51.861c14.453 13.797 32.252 20.648 53.327 20.648c4.923 0 9.75-.368 14.438-1.024c-2.907 6.5-4.374 12.523-4.374 18.142c0 9.875 4.499 20.43 13.467 31.642c-39.234 2.67-68.061 9.732-86.437 21.163c-10.531 6.5-19 14.704-25.39 24.531c-6.391 9.9-9.578 20.515-9.578 31.962c0 9.648 2.062 18.336 6.219 26.062c4.156 7.726 9.578 14.07 16.312 18.984c6.718 4.968 14.469 9.101 23.219 12.469c8.734 3.344 17.406 5.718 26.061 7.062A167 167 0 0 0 180.555 448c13.469 0 26.953-1.734 40.547-5.187c13.562-3.485 26.28-8.642 38.171-15.493c11.86-6.805 21.515-16.086 28.922-27.718c7.39-11.68 11.094-24.805 11.094-39.336c0-11.016-2.25-21.039-6.75-30.14c-4.468-9.073-9.938-16.542-16.452-22.345c-6.501-5.813-13-11.155-19.516-15.968c-6.5-4.845-12-9.75-16.468-14.813c-4.485-5.046-6.735-10.054-6.735-14.984c0-4.921 1.734-9.672 5.216-14.265c3.455-4.61 7.674-9.048 12.61-13.306c4.937-4.25 9.875-8.968 14.796-14.133c4.922-5.147 9.141-11.827 12.61-20.008c3.485-8.18 5.203-17.445 5.203-27.757c0-13.453-2.547-24.46-7.547-33.314c-.594-1.022-1.218-1.803-1.875-3.022l56.907-46.672v17.119c-7.393.93-6.624 5.345-6.624 10.635V245.96c0 5.958 4.875 10.834 10.834 10.834h3.989c5.958 0 10.833-4.875 10.833-10.834V117.293c0-5.277.778-9.688-6.561-10.63m-107.36 222.48c1.14.75 3.704 2.78 7.718 6.038c4.05 3.243 6.797 5.695 8.266 7.414a444 444 0 0 1 6.376 7.547c2.813 3.375 4.718 6.304 5.718 8.734q1.5 3.717 3.047 8.946a38.3 38.3 0 0 1 1.485 10.562c0 17.048-6.564 29.68-19.656 37.859c-13.125 8.18-28.767 12.274-46.938 12.274c-9.187 0-18.203-1.093-27.063-3.196c-8.843-2.116-17.311-5.336-25.39-9.601c-8.078-4.258-14.577-10.204-19.5-17.797c-4.938-7.64-7.407-16.415-7.407-26.25c0-10.32 2.797-19.29 8.422-26.906c5.594-7.625 12.938-13.391 22.032-17.315c9.063-3.946 18.25-6.742 27.562-8.398a158 158 0 0 1 28.438-2.555c4.47 0 7.936.25 10.405.696c.455.219 3.032 2.07 7.735 5.563c4.704 3.462 7.625 5.595 8.75 6.384zm-3.359-100.579c-7.406 8.86-17.734 13.288-30.953 13.288c-11.86 0-22.298-4.764-31.266-14.312c-9-9.523-15.422-20.328-19.344-32.43c-3.937-12.109-5.906-23.984-5.906-35.648q.002-20.54 10.781-34.976c7.187-9.65 17.5-14.485 30.938-14.485c11.875 0 22.374 5.038 31.437 15.157c9.094 10.085 15.61 21.413 19.517 33.968c3.922 12.54 5.873 24.53 5.873 35.984c0 13.446-3.702 24.61-11.076 33.454z"/>
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </symbol>
+    </svg>
     <header class="glass">
         <a class="header-name" href="#">Sebastian Ament</a>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li class="has-dropdown">
+                    <a href="#projects">Projects</a>
+                    <ul class="dropdown glass">
+                        <li><a href="#project-concrete">Sustainable Concrete</a></li>
+                        <li><a href="#project-sara">SARA</a></li>
+                    </ul>
+                </li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <button class="theme-toggle header-theme-toggle" aria-label="Toggle theme">
-            <span class="theme-label">Dark mode</span>
-        </button>
-        <button class="menu-btn" aria-label="Menu">
-            <span></span><span></span>
-        </button>
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="https://github.com/SebastianAment" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#icon-github"></use></svg></a>
+                <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl" target="_blank" rel="noopener" aria-label="Google Scholar"><svg><use href="#icon-scholar"></use></svg></a>
+                <a href="https://www.linkedin.com/in/amentsebastian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+            </div>
+            <button class="theme-toggle header-theme-toggle" aria-label="Toggle theme">
+                <svg class="theme-icon theme-icon-sun"><use href="#icon-sun"></use></svg>
+                <svg class="theme-icon theme-icon-moon"><use href="#icon-moon"></use></svg>
+            </button>
+            <button class="menu-btn" aria-label="Menu">
+                <span></span><span></span>
+            </button>
+        </div>
     </header>
     <div class="overlay-menu glass">
         <nav class="overlay-nav">
             <a href="#about">About</a>
+            <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
         </nav>
+        <div class="social-icons overlay-social-icons">
+            <a href="https://github.com/SebastianAment" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#icon-github"></use></svg></a>
+            <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl" target="_blank" rel="noopener" aria-label="Google Scholar"><svg><use href="#icon-scholar"></use></svg></a>
+            <a href="https://www.linkedin.com/in/amentsebastian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
         <button class="theme-toggle" aria-label="Toggle theme">
-            <span class="theme-label">Dark mode</span>
+            <svg class="theme-icon theme-icon-sun"><use href="#icon-sun"></use></svg>
+            <svg class="theme-icon theme-icon-moon"><use href="#icon-moon"></use></svg>
         </button>
     </div>
     <main>
@@ -71,6 +117,52 @@
                 </div>
             </div>
         </section>
+        <section id="projects" class="fade-in">
+            <h2>Selected Projects</h2>
+            <div id="project-concrete" class="project">
+                <h3>Sustainable Concrete via Bayesian Optimization</h3>
+                <p class="project-links">
+                    <a href="https://engineering.fb.com/2024/11/19/data-infrastructure/sustainable-concrete-meta-data-centers-bayesian-optimization/">Blog Post</a>
+                    &middot; <a href="https://arxiv.org/abs/2310.18288">Paper</a>
+                    &middot; <a href="https://github.com/facebookresearch/SustainableConcrete">GitHub</a>
+                </p>
+                <div class="project-body">
+                    <div class="project-text">
+                        <p>
+                            Eight percent of global CO₂ emissions come from cement production — the dominant source of emissions in data center construction.
+                            By collaborating with <a href="https://www.amrize.com/">Amrize</a> and the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>,
+                            we used Bayesian optimization to discover lower-carbon concrete formulations, achieving improved trade-offs between
+                            global warming potential and compressive strength compared to current industry mixes.
+                            The optimized mix has been deployed at Meta's <a href="https://www.facebook.com/RosemountDataCenter/">data center in Rosemount, MN</a>.
+                        </p>
+                    </div>
+                    <div class="video-embed">
+                        <iframe data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="project-sara" class="project">
+                <h3>Scientific Autonomous Reasoning Agent (SARA)</h3>
+                <p class="project-links">
+                    <a href="https://www.science.org/doi/epdf/10.1126/sciadv.abg4930">Paper</a>
+                    &middot; <a href="https://news.cornell.edu/stories/2021/12/ai-powers-autonomous-materials-discovery">Cornell Chronicle</a>
+                </p>
+                <div class="project-body">
+                    <div class="project-text">
+                        <p>
+                            SARA is an autonomous experimentation system that integrates robotic materials synthesis with a hierarchy of AI methods
+                            to accelerate scientific discovery. By combining lateral gradient laser spike annealing with nested active learning cycles
+                            and end-to-end uncertainty quantification, SARA autonomously maps synthesis phase diagrams — achieving orders-of-magnitude
+                            acceleration in exploring metastable materials. We demonstrated SARA's capabilities by mapping the Bi₂O₃ system,
+                            including conditions for stabilizing δ-Bi₂O₃ at room temperature, a critical development for electrochemical technologies.
+                        </p>
+                    </div>
+                    <div class="video-embed">
+                        <iframe data-src="https://www.youtube.com/embed/FAWud0uVxUQ" title="Scientific Autonomous Reasoning Agent (SARA)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="publications" class="fade-in">
             <h2>Publications</h2>
             <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
@@ -84,18 +176,27 @@
             </div>
             <ul id="publication-list"></ul>
         </section>
-        <section id="contact" class="fade-in">
-            <h2>Contact</h2>
-            <ul>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/amentsebastian">linkedin.com/in/amentsebastian</a></li>
-                <li>GitHub: <a href="https://github.com/SebastianAment">github.com/SebastianAment</a></li>
-            </ul>
-        </section>
     </main>
     <footer class="fade-in">
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
     <script>
+        // Viewport-based video autoplay: load iframe with autoplay+mute when visible
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target.querySelector('iframe[data-src]');
+                    if (iframe) {
+                        iframe.src = iframe.dataset.src + '?autoplay=1&mute=1';
+                        delete iframe.dataset.src;
+                    }
+                    videoObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.video-embed').forEach(el => videoObserver.observe(el));
+
         // Load publications from JSON and enable sorting
         let publications = [];
         let currentSort = 'citations';
@@ -110,8 +211,12 @@
                 if (pub.url) links.push(`<a href="${pub.url}">Semantic Scholar</a>`);
                 if (pub.arxiv) links.push(`<a href="${pub.arxiv}">arXiv</a>`);
                 if (pub.pdf) links.push(`<a href="${pub.pdf}">PDF</a>`);
+                const titleUrl = pub.arxiv || pub.url;
+                const title = titleUrl
+                    ? `<a href="${titleUrl}" class="pub-title">${pub.title}</a>`
+                    : `<span class="pub-title">${pub.title}</span>`;
                 return `<li class="publication">
-                    <strong>${pub.title}</strong><br>
+                    <strong>${title}</strong><br>
                     <span class="pub-authors">${authors}</span><br>
                     <span class="pub-meta">${pub.year || 'N/A'}${venue} &middot; ${citations} citations</span><br>
                     <span class="pub-links">${links.join(' &middot; ')}</span>
@@ -119,7 +224,7 @@
             }).join('');
         }
 
-        function sortPublications(by) {
+        function updatePublications(by) {
             currentSort = by;
             const query = (document.getElementById('pub-search').value || '').toLowerCase();
             const terms = query.split(/\s+/).filter(t => t);
@@ -142,7 +247,7 @@
             .then(response => response.json())
             .then(data => {
                 publications = data;
-                sortPublications('citations');
+                updatePublications('citations');
             })
             .finally(() => {
                 // Scroll-triggered fade-in (after content is loaded)
@@ -273,8 +378,6 @@
         });
 
         // Dark/light theme toggle
-        const labels = document.querySelectorAll('.theme-label');
-
         function getEffectiveTheme() {
             return localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -282,20 +385,13 @@
 
         function updateThemeColor() {
             const color = getEffectiveTheme() === 'dark' ? '#222222' : '#f8f8f8';
-            let meta = document.querySelector('meta[name="theme-color"]');
-            if (!meta) {
-                meta = document.createElement('meta');
-                meta.name = 'theme-color';
-                document.head.appendChild(meta);
-            }
+            const meta = document.querySelector('meta[name="theme-color"]');
             meta.content = '';
             requestAnimationFrame(() => { meta.content = color; });
         }
 
         function applyTheme() {
-            const theme = getEffectiveTheme();
-            document.documentElement.setAttribute('data-theme', theme);
-            labels.forEach(l => l.textContent = theme === 'light' ? 'Dark mode' : 'Light mode');
+            document.documentElement.setAttribute('data-theme', getEffectiveTheme());
             updateThemeColor();
         }
 
@@ -313,12 +409,12 @@
 
         // Sort button handlers
         document.querySelectorAll('.sort-btn').forEach(btn => {
-            btn.addEventListener('click', () => sortPublications(btn.dataset.sort));
+            btn.addEventListener('click', () => updatePublications(btn.dataset.sort));
         });
 
         // Search filter
         document.getElementById('pub-search').addEventListener('input', () => {
-            sortPublications(currentSort);
+            updatePublications(currentSort);
         });
     </script>
 </body>
