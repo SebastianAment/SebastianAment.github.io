@@ -1,0 +1,326 @@
+{
+  "fetched_at": "2026-04-16T15:10:49.229240+00:00",
+  "aggregate": {
+    "2017": 2,
+    "2018": 4,
+    "2019": 8,
+    "2020": 28,
+    "2021": 48,
+    "2022": 67,
+    "2023": 83,
+    "2024": 81,
+    "2025": 186,
+    "2026": 62
+  },
+  "papers": {
+    "autonomous_materials_exploration_by_integrating_automated_ph": {
+      "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
+      "citationCount": 0,
+      "citations_by_year": {}
+    },
+    "empirical_gaussian_processes": {
+      "title": "Empirical Gaussian Processes",
+      "citationCount": 0,
+      "citations_by_year": {}
+    },
+    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
+      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
+      "citationCount": 0,
+      "citations_by_year": {}
+    },
+    "scalable_gaussian_processes_with_latent_kronecker_structure": {
+      "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
+      "citationCount": 5,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 3,
+        "2024": 1
+      }
+    },
+    "robust_gaussian_processes_via_relevance_pursuit": {
+      "title": "Robust Gaussian Processes via Relevance Pursuit",
+      "citationCount": 9,
+      "citations_by_year": {
+        "2026": 2,
+        "2025": 6
+      }
+    },
+    "scaling_gaussian_processes_for_learning_curve_prediction_via": {
+      "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
+      "citationCount": 8,
+      "citations_by_year": {
+        "2025": 7,
+        "2024": 1
+      }
+    },
+    "unexpected_improvements_to_expected_improvement_for_bayesian": {
+      "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
+      "citationCount": 183,
+      "citations_by_year": {
+        "2026": 36,
+        "2025": 64
+      }
+    },
+    "bayesian_optimization_over_highdimensional_combinatorial_spa": {
+      "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
+      "citationCount": 36,
+      "citations_by_year": {
+        "2026": 5,
+        "2025": 15,
+        "2024": 10,
+        "2023": 6
+      }
+    },
+    "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
+      "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
+      "citationCount": 24,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 16,
+        "2024": 5,
+        "2023": 1
+      }
+    },
+    "sustainable_concrete_via_bayesian_optimization": {
+      "title": "Sustainable Concrete via Bayesian Optimization",
+      "citationCount": 7,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 4,
+        "2024": 1,
+        "2023": 1
+      }
+    },
+    "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
+      "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
+      "citationCount": 6,
+      "citations_by_year": {
+        "2026": 2,
+        "2025": 4
+      }
+    },
+    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
+      "title": "Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation",
+      "citationCount": 12,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 3,
+        "2024": 3,
+        "2023": 3,
+        "2022": 2
+      }
+    },
+    "efficient_projection_algorithms_onto_the_weighted_1_ball": {
+      "title": "Efficient projection algorithms onto the weighted \u21131 ball",
+      "citationCount": 7,
+      "citations_by_year": {
+        "2026": 1,
+        "2024": 2,
+        "2023": 2,
+        "2021": 2
+      }
+    },
+    "generalized_matching_pursuits_for_the_sparse_optimization_of": {
+      "title": "Generalized Matching Pursuits for the Sparse Optimization of Separable Objectives",
+      "citationCount": 1,
+      "citations_by_year": {
+        "2024": 1
+      }
+    },
+    "autonomous_materials_synthesis_via_hierarchical_active_learn": {
+      "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
+      "citationCount": 83,
+      "citations_by_year": {
+        "2026": 6,
+        "2025": 20,
+        "2024": 16,
+        "2023": 21,
+        "2022": 14,
+        "2021": 3
+      }
+    },
+    "automating_crystalstructure_phase_mapping_by_combining_deep_": {
+      "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
+      "citationCount": 62,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 15,
+        "2024": 12,
+        "2023": 19,
+        "2022": 11,
+        "2021": 2
+      }
+    },
+    "the_fast_kernel_transform": {
+      "title": "The Fast Kernel Transform",
+      "citationCount": 12,
+      "citations_by_year": {
+        "2025": 4,
+        "2024": 2,
+        "2023": 2,
+        "2022": 3,
+        "2021": 1
+      }
+    },
+    "sparse_bayesian_learning_via_stepwise_regression": {
+      "title": "Sparse Bayesian Learning via Stepwise Regression",
+      "citationCount": 11,
+      "citations_by_year": {
+        "2025": 5,
+        "2024": 3,
+        "2022": 2
+      }
+    },
+    "on_the_optimality_of_backward_regression_sparse_recovery_and": {
+      "title": "On the Optimality of Backward Regression: Sparse Recovery and Subset Selection",
+      "citationCount": 7,
+      "citations_by_year": {
+        "2025": 1,
+        "2024": 3,
+        "2022": 2,
+        "2021": 1
+      }
+    },
+    "constrained_machine_learning_the_bagel_framework": {
+      "title": "Constrained Machine Learning: The Bagel Framework",
+      "citationCount": 1,
+      "citations_by_year": {
+        "2024": 1
+      }
+    },
+    "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
+      "title": "Deep Reasoning Networks for Unsupervised Pattern De-mixing with Constraint Reasoning",
+      "citationCount": 27,
+      "citations_by_year": {
+        "2025": 4,
+        "2024": 3,
+        "2023": 5,
+        "2022": 1,
+        "2021": 12,
+        "2020": 2
+      }
+    },
+    "efficient_projection_algorithms_onto_the_weighted_l1_ball": {
+      "title": "Efficient Projection Algorithms onto the Weighted l1 Ball",
+      "citationCount": 10,
+      "citations_by_year": {
+        "2025": 1,
+        "2023": 2,
+        "2022": 5,
+        "2021": 2
+      }
+    },
+    "optical_identification_of_materials_transformations_in_oxide": {
+      "title": "Optical Identification of Materials Transformations in Oxide Thin Films.",
+      "citationCount": 5,
+      "citations_by_year": {
+        "2026": 1,
+        "2022": 1,
+        "2021": 2,
+        "2020": 1
+      }
+    },
+    "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
+      "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
+      "citationCount": 36,
+      "citations_by_year": {
+        "2025": 5,
+        "2024": 2,
+        "2023": 6,
+        "2022": 9,
+        "2021": 6,
+        "2020": 5,
+        "2019": 2
+      }
+    },
+    "multicomponent_background_learning_automates_signal_detectio": {
+      "title": "Multi-component background learning automates signal detection for spectroscopic data",
+      "citationCount": 29,
+      "citations_by_year": {
+        "2026": 2,
+        "2025": 3,
+        "2024": 1,
+        "2023": 4,
+        "2022": 7,
+        "2021": 8,
+        "2020": 4
+      }
+    },
+    "deep_reasoning_networks_thinking_fast_and_slow": {
+      "title": "Deep Reasoning Networks: Thinking Fast and Slow",
+      "citationCount": 26,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 4,
+        "2024": 4,
+        "2023": 3,
+        "2022": 4,
+        "2021": 3,
+        "2020": 5,
+        "2019": 2
+      }
+    },
+    "exponentiallymodified_gaussian_mixture_model_applications_in": {
+      "title": "Exponentially-Modified Gaussian Mixture Model: Applications in Spectroscopy",
+      "citationCount": 5,
+      "citations_by_year": {
+        "2024": 1,
+        "2022": 1,
+        "2021": 1,
+        "2020": 1,
+        "2019": 1
+      }
+    },
+    "an_efficient_relaxed_projection_method_for_constrained_nonne": {
+      "title": "An Efficient Relaxed Projection Method for Constrained Non-negative Matrix Factorization with Application to the Phase-Mapping Problem in Materials Science",
+      "citationCount": 6,
+      "citations_by_year": {
+        "2022": 1,
+        "2020": 4
+      }
+    },
+    "lecture_22_more_on_compressed_sensing_scribed": {
+      "title": "Lecture 22 : More On Compressed Sensing Scribed",
+      "citationCount": 0,
+      "citations_by_year": {}
+    },
+    "accurate_and_efficient_numerical_calculation_of_stable_densi": {
+      "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
+      "citationCount": 22,
+      "citations_by_year": {
+        "2026": 1,
+        "2025": 1,
+        "2024": 4,
+        "2023": 5,
+        "2022": 3,
+        "2021": 1,
+        "2020": 5,
+        "2018": 1,
+        "2017": 1
+      }
+    },
+    "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
+      "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
+      "citationCount": 19,
+      "citations_by_year": {
+        "2025": 1,
+        "2024": 5,
+        "2023": 2,
+        "2022": 1,
+        "2021": 4,
+        "2020": 1,
+        "2019": 3,
+        "2018": 2
+      }
+    },
+    "a_practical_guide_to_solving_the_stochastic_landaulifshitzgi": {
+      "title": "A practical guide to solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for macrospin dynamics",
+      "citationCount": 3,
+      "citations_by_year": {
+        "2023": 1,
+        "2018": 1,
+        "2017": 1
+      }
+    }
+  }
+}

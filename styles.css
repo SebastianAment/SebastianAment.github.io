@@ -504,6 +504,51 @@ a.pub-title:hover {
     opacity: 0.6;
 }
 
+/* Per-publication sparkline */
+.sparkline {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1px;
+    height: 16px;
+    margin-left: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    top: -1px;
+}
+
+.spark-bar {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--accent-color);
+    border-radius: 1px 1px 0 0;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.sparkline:hover .spark-bar {
+    opacity: 1;
+}
+
+/* Expanded per-paper detail chart */
+.pub-detail-chart {
+    margin-top: 0.5em;
+    padding: 0.6em 0;
+}
+
+.detail-citation-chart {
+    height: 80px !important;
+}
+
+.pub-detail-chart .chart-col {
+    width: 40px;
+}
+
+.pub-detail-chart .chart-bar {
+    max-width: 28px;
+    opacity: 0.8;
+}
+
 /* Sort controls */
 .sort-controls {
     display: flex;
@@ -513,6 +558,121 @@ a.pub-title:hover {
     margin-bottom: 0.5em;
     font-size: 14px;
     opacity: 0.7;
+}
+
+/* Citation chart */
+.citation-chart-wrapper {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: var(--divider);
+}
+
+.citation-summary {
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.citation-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8em;
+    gap: 0.5em;
+}
+
+.source-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* Fade edges when there's hidden content to scroll to.
+   Uses two masks combined: left fade + right fade, each toggled by class. */
+.citation-chart-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    direction: rtl; /* anchor scroll to the right (most recent years) */
+}
+
+.citation-chart-scroll.fade-left {
+    -webkit-mask-image: linear-gradient(to right, transparent 0px, black 36px);
+    mask-image: linear-gradient(to right, transparent 0px, black 36px);
+}
+
+.citation-chart-scroll.fade-right {
+    -webkit-mask-image: linear-gradient(to left, transparent 0px, black 36px);
+    mask-image: linear-gradient(to left, transparent 0px, black 36px);
+}
+
+.citation-chart-scroll.fade-left.fade-right {
+    -webkit-mask-image: linear-gradient(to right, transparent 0px, black 36px, black calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0px, black 36px, black calc(100% - 36px), transparent 100%);
+}
+
+.citation-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 120px;
+    padding-top: 4px;
+    min-width: min-content;
+    direction: ltr; /* restore normal reading order inside chart */
+}
+
+.chart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 100%;
+}
+
+.chart-value {
+    font-size: 10px;
+    opacity: 0.5;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.chart-bar {
+    width: 100%;
+    max-width: 40px;
+    background-color: var(--accent-color);
+    border-radius: 2px 2px 0 0;
+    min-height: 2px;
+    transition: opacity 0.2s ease;
+    cursor: default;
+}
+
+.chart-bar:hover {
+    opacity: 0.75;
+}
+
+.chart-bar-projected {
+    opacity: 0.25;
+    border-radius: 2px 2px 0 0;
+}
+
+.chart-bar-projected:hover {
+    opacity: 0.35;
+}
+
+.chart-projected-value {
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.chart-label {
+    font-size: 10px;
+    opacity: 0.5;
+    margin-top: 4px;
+    line-height: 1;
 }
 
 .sort-group {
@@ -569,7 +729,7 @@ a.pub-title:hover {
 
 /* Projects */
 #projects h2 {
-    padding-bottom: 1.5em;
+    padding-bottom: 0.5em;
     border-bottom: var(--divider);
 }
 

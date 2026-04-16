@@ -166,6 +166,18 @@
         <section id="publications" class="fade-in">
             <h2>Publications</h2>
             <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
+            <div id="citation-chart-wrapper" class="citation-chart-wrapper" style="display:none">
+                <div class="citation-chart-header">
+                    <p class="citation-summary" id="citation-summary"></p>
+                    <span class="source-toggle" id="source-toggle" style="display:none">
+                        <button class="sort-btn active" data-source="scholar">Google Scholar</button>
+                        <button class="sort-btn" data-source="s2">Semantic Scholar</button>
+                    </span>
+                </div>
+                <div class="citation-chart-scroll" id="citation-chart-scroll">
+                    <div class="citation-chart" id="citation-chart"></div>
+                </div>
+            </div>
             <div class="sort-controls">
                 <input type="text" class="search-input" id="pub-search" placeholder="Filter publications...">
                 <span class="sort-group">
@@ -199,7 +211,112 @@
 
         // Load publications from JSON and enable sorting
         let publications = [];
+        let citationHistory = null;
         let currentSort = 'citations';
+
+        // ── Shared bar chart renderer ──────────────────────────────────
+        // Used by the aggregate citation chart and per-paper detail charts.
+        // Options: { barHeight, showProjection }
+        const _fadeListeners = new WeakMap(); // track scroll listeners to avoid leaks
+
+        function renderBarChart(container, byYear, opts = {}) {
+            const barHeight = opts.barHeight || 90;
+            const years = Object.keys(byYear).sort();
+            if (years.length === 0) { container.innerHTML = ''; return; }
+
+            let maxVal = Math.max(...years.map(y => byYear[y]));
+            let projected = {};
+
+            if (opts.showProjection) {
+                const now = new Date();
+                const cy = String(now.getFullYear());
+                if (byYear[cy] !== undefined) {
+                    const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+                    const days = (now.getFullYear() % 4 === 0) ? 366 : 365;
+                    if (day > 0) {
+                        const proj = Math.round(byYear[cy] * days / day);
+                        projected[cy] = proj;
+                        maxVal = Math.max(maxVal, proj);
+                    }
+                }
+            }
+
+            container.innerHTML = years.map(year => {
+                const count = byYear[year];
+                const proj = projected[year];
+                if (proj && proj > count) {
+                    const actualPx = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
+                    const projPx = (proj / maxVal) * barHeight;
+                    return `<div class="chart-col">
+                        <span class="chart-value">${count}<span class="chart-projected-value"> / ${proj}*</span></span>
+                        <div class="chart-bar chart-bar-projected" style="height:${projPx - actualPx}px" title="${year} projected: ${proj}"></div>
+                        <div class="chart-bar" style="height:${actualPx}px; border-radius:0" title="${year}: ${count}"></div>
+                        <span class="chart-label">${year}</span>
+                    </div>`;
+                }
+                const px = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
+                return `<div class="chart-col">
+                    <span class="chart-value">${count}</span>
+                    <div class="chart-bar" style="height:${px}px" title="${year}: ${count}"></div>
+                    <span class="chart-label">${year}</span>
+                </div>`;
+            }).join('');
+
+            // Update edge fades based on scroll position.
+            // In RTL, scrollLeft is 0 at the right edge and negative toward the left.
+            const scroller = container.closest('.citation-chart-scroll');
+            if (scroller) {
+                // Remove previous listener if any to avoid leaks on re-render
+                const prev = _fadeListeners.get(scroller);
+                if (prev) scroller.removeEventListener('scroll', prev);
+
+                function updateFades() {
+                    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                    if (maxScroll <= 0) {
+                        scroller.classList.remove('fade-left', 'fade-right');
+                        return;
+                    }
+                    const atRight = Math.abs(scroller.scrollLeft) < 2;
+                    const atLeft = Math.abs(scroller.scrollLeft) >= maxScroll - 2;
+                    scroller.classList.toggle('fade-left', !atLeft);
+                    scroller.classList.toggle('fade-right', !atRight);
+                }
+                _fadeListeners.set(scroller, updateFades);
+                scroller.addEventListener('scroll', updateFades, { passive: true });
+                requestAnimationFrame(updateFades);
+            }
+        }
+
+        // ── Sparkline + detail chart for per-paper view ────────────────
+        // Must match Python's _paper_key(): normalize, strip punctuation, truncate.
+        function paperKey(title) {
+            return title.trim().toLowerCase()
+                .replace(/[,\s]+\d{4}\s*$/, '')  // trailing year
+                .replace(/[^a-z0-9\s]/g, '')      // punctuation
+                .replace(/\s+/g, '_')              // spaces to underscores
+                .slice(0, 60);
+        }
+
+        function getPaperHistory(title) {
+            if (!citationHistory || !citationHistory.papers) return null;
+            return citationHistory.papers[paperKey(title)] || null;
+        }
+
+        function buildSparkline(title) {
+            const paper = getPaperHistory(title);
+            if (!paper || !paper.citations_by_year) return '';
+            const byYear = paper.citations_by_year;
+            const years = Object.keys(byYear).sort();
+            if (years.length === 0) return '';
+            const max = Math.max(...Object.values(byYear));
+            if (max === 0) return '';
+            const key = paperKey(title);
+            const bars = years.map(y => {
+                const h = Math.max(1, (byYear[y] / max) * 16);
+                return `<span class="spark-bar" style="height:${h}px" title="${y}: ${byYear[y]}"></span>`;
+            }).join('');
+            return `<span class="sparkline" data-paper-key="${key}">${bars}</span>`;
+        }
 
         function renderPublications(pubs) {
             const list = document.getElementById('publication-list');
@@ -215,13 +332,40 @@
                 const title = titleUrl
                     ? `<a href="${titleUrl}" class="pub-title">${pub.title}</a>`
                     : `<span class="pub-title">${pub.title}</span>`;
+                const sparkline = buildSparkline(pub.title);
+                const key = paperKey(pub.title);
                 return `<li class="publication">
                     <strong>${title}</strong><br>
                     <span class="pub-authors">${authors}</span><br>
-                    <span class="pub-meta">${pub.year || 'N/A'}${venue} &middot; ${citations} citations</span><br>
+                    <span class="pub-meta">${pub.year || 'N/A'}${venue} &middot; ${citations} citations ${sparkline}</span><br>
                     <span class="pub-links">${links.join(' &middot; ')}</span>
+                    <div class="pub-detail-chart" id="detail-${key}" style="display:none">
+                        <div class="citation-chart-scroll">
+                            <div class="citation-chart detail-citation-chart"></div>
+                        </div>
+                    </div>
                 </li>`;
             }).join('');
+
+            // Attach sparkline click handlers
+            list.querySelectorAll('.sparkline').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const key = el.dataset.paperKey;
+                    const detail = document.getElementById('detail-' + key);
+                    if (!detail) return;
+                    if (detail.style.display === 'none') {
+                        const paper = citationHistory.papers[key];
+                        if (paper && paper.citations_by_year) {
+                            const chart = detail.querySelector('.citation-chart');
+                            renderBarChart(chart, paper.citations_by_year, { barHeight: 60 });
+                        }
+                        detail.style.display = '';
+                    } else {
+                        detail.style.display = 'none';
+                    }
+                });
+            });
         }
 
         function updatePublications(by) {
@@ -238,43 +382,121 @@
                 return (b.year || 0) - (a.year || 0) || (b.citationCount || 0) - (a.citationCount || 0);
             });
             renderPublications(sorted);
-            document.querySelectorAll('.sort-btn').forEach(btn => {
+            document.querySelectorAll('.sort-controls .sort-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.sort === by);
             });
         }
 
-        fetch('media/publications.json')
-            .then(response => response.json())
-            .then(data => {
-                publications = data;
-                updatePublications('citations');
-            })
-            .finally(() => {
-                // Scroll-triggered fade-in (after content is loaded)
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
+        // Data source management
+        const sources = {
+            scholar: {
+                pubs: 'media/publications_scholar.json',
+                history: 'media/citation_history_scholar.json',
+            },
+            s2: {
+                pubs: 'media/publications.json',
+                history: 'media/citation_history.json',
+            },
+        };
+        let currentSource = null;
+        const dataCache = {}; // cache fetched JSON per URL
 
-                document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        function fetchCached(url) {
+            if (dataCache[url]) return Promise.resolve(dataCache[url]);
+            return fetch(url).then(r => {
+                if (!r.ok) throw new Error(r.status);
+                return r.json();
+            }).then(data => { dataCache[url] = data; return data; });
+        }
 
-                // Re-scroll to anchor after content has loaded
-                if (window.location.hash) {
-                    // Show all sections immediately (no fade-in for direct navigation)
-                    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-                    requestAnimationFrame(() => {
-                        const target = document.querySelector(window.location.hash);
-                        if (target) {
-                            const headerHeight = document.querySelector('header').offsetHeight;
-                            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-                            window.scrollTo({ top, behavior: 'instant' });
-                        }
-                    });
-                }
+        function renderChart(history) {
+            const agg = history.aggregate;
+            const years = Object.keys(agg).sort();
+            const wrapper = document.getElementById('citation-chart-wrapper');
+            if (years.length === 0) { wrapper.style.display = 'none'; return; }
+
+            // Use citedby from author profile when available (exact Google Scholar
+            // total), otherwise fall back to sum of per-paper citationCount.
+            const papers = history.papers || {};
+            const total = history.citedby
+                || Object.values(papers).reduce((s, p) => s + (p.citationCount || 0), 0);
+
+            // Format the fetch timestamp for display
+            let updated = '';
+            if (history.fetched_at) {
+                const d = new Date(history.fetched_at);
+                updated = ` · updated ${d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}`;
+            }
+
+            document.getElementById('citation-summary').textContent =
+                `${total} total citations${updated}`;
+
+            const chart = document.getElementById('citation-chart');
+            renderBarChart(chart, agg, { barHeight: 90, showProjection: true });
+
+            wrapper.style.display = '';
+        }
+
+        function loadSource(name) {
+            const src = sources[name];
+            if (!src || name === currentSource) return;
+            currentSource = name;
+
+            // Update toggle buttons
+            document.querySelectorAll('#source-toggle .sort-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.source === name);
             });
+
+            const historyPromise = fetchCached(src.history)
+                .then(history => { citationHistory = history; renderChart(history); })
+                .catch(() => {});
+
+            const pubsPromise = fetchCached(src.pubs)
+                .then(data => { publications = data; })
+                .catch(() => {});
+
+            // Re-render publications after both settle so sparklines have citation data
+            return Promise.allSettled([historyPromise, pubsPromise])
+                .then(() => updatePublications(currentSort));
+        }
+
+        // Try Scholar first, fall back to S2. Show toggle only if both exist.
+        const scholarAvailable = fetchCached(sources.scholar.pubs).then(() => true).catch(() => false);
+        const s2Available = fetchCached(sources.s2.pubs).then(() => true).catch(() => false);
+
+        Promise.all([scholarAvailable, s2Available]).then(([hasScholar, hasS2]) => {
+            // Show toggle only when both sources have data
+            if (hasScholar && hasS2) {
+                document.getElementById('source-toggle').style.display = '';
+            } else {
+                document.getElementById('source-toggle').style.display = 'none';
+            }
+            return loadSource(hasScholar ? 'scholar' : 's2');
+        }).finally(() => {
+            // Scroll-triggered fade-in (after content is loaded)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Re-scroll to anchor after content has loaded
+            if (window.location.hash) {
+                document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                requestAnimationFrame(() => {
+                    const target = document.querySelector(window.location.hash);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+                        window.scrollTo({ top, behavior: 'instant' });
+                    }
+                });
+            }
+        });
 
         // Overlay menu
         const overlay = document.querySelector('.overlay-menu');
@@ -408,8 +630,13 @@
         });
 
         // Sort button handlers
-        document.querySelectorAll('.sort-btn').forEach(btn => {
+        document.querySelectorAll('.sort-controls .sort-btn').forEach(btn => {
             btn.addEventListener('click', () => updatePublications(btn.dataset.sort));
+        });
+
+        // Source toggle handlers
+        document.querySelectorAll('#source-toggle .sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => loadSource(btn.dataset.source));
         });
 
         // Search filter
