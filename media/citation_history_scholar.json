@@ -1,66 +1,59 @@
 {
-  "fetched_at": "2026-04-16T13:51:06.449870+00:00",
+  "fetched_at": "2026-04-28T19:17:06.504063+00:00",
   "source": "google_scholar",
-  "citedby": 924,
+  "citedby": 943,
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 5,
-    "2020": 19,
-    "2021": 40,
-    "2022": 94,
-    "2023": 100,
-    "2024": 169,
-    "2025": 356,
-    "2026": 104
+    "2020": 15,
+    "2021": 34,
+    "2022": 78,
+    "2023": 75,
+    "2024": 139,
+    "2025": 312,
+    "2026": 112
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 269,
+      "citationCount": 277,
       "citations_by_year": {
         "2022": 1,
         "2023": 3,
         "2024": 50,
-        "2025": 164,
-        "2026": 49
+        "2025": 162,
+        "2026": 59
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 103,
-      "citations_by_year": {
-        "2021": 2,
-        "2022": 13,
-        "2023": 23,
-        "2024": 25,
-        "2025": 29,
-        "2026": 10
-      }
+      "citationCount": 106,
+      "citations_by_year": {}
     },
-    "automating_crystal-structure_phase_mapping_by_combining_deep": {
+    "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 91,
+      "citationCount": 93,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
-        "2025": 22,
-        "2026": 9
+        "2025": 21,
+        "2026": 12
       }
     },
-    "bayesian_optimization_over_high-dimensional_combinatorial_sp": {
+    "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 45,
+      "citationCount": 46,
       "citations_by_year": {
         "2023": 5,
         "2024": 13,
         "2025": 21,
-        "2026": 6
+        "2026": 7
       }
     },
-    "deep_reasoning_networks_for_unsupervised_pattern_de-mixing_w": {
+    "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
       "citationCount": 40,
       "citations_by_year": {
@@ -72,7 +65,7 @@
         "2026": 1
       }
     },
-    "crystal:_a_multi-agent_ai_system_for_automated_mapping_of_ma": {
+    "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
       "citationCount": 38,
       "citations_by_year": {
@@ -94,7 +87,7 @@
         "2026": 6
       }
     },
-    "multi-component_background_learning_automates_signal_detecti": {
+    "multicomponent_background_learning_automates_signal_detectio": {
       "title": "Multi-component background learning automates signal detection for spectroscopic data",
       "citationCount": 34,
       "citations_by_year": {
@@ -123,7 +116,15 @@
         "2026": 1
       }
     },
-    "solving_the_stochastic_landau-lifshitz-gilbert-slonczewski_e": {
+    "ax_a_platform_for_adaptive_experimentation": {
+      "title": "Ax: A platform for adaptive experimentation",
+      "citationCount": 29,
+      "citations_by_year": {
+        "2025": 15,
+        "2026": 14
+      }
+    },
+    "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets: A survey and analysis of numerical techniques",
       "citationCount": 29,
       "citations_by_year": {
@@ -138,24 +139,16 @@
         "2025": 4
       }
     },
-    "ax:_a_platform_for_adaptive_experimentation": {
-      "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 27,
-      "citations_by_year": {
-        "2025": 16,
-        "2026": 11
-      }
-    },
-    "efficient_projection_algorithms_onto_the_weighted_\u21131_ball": {
+    "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 22,
+      "citationCount": 23,
       "citations_by_year": {
         "2021": 2,
         "2022": 5,
         "2023": 4,
         "2024": 5,
         "2025": 5,
-        "2026": 1
+        "2026": 2
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
@@ -168,7 +161,7 @@
         "2025": 8
       }
     },
-    "scalable_first-order_bayesian_optimization_via_structured_au": {
+    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
       "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
       "citationCount": 17,
       "citations_by_year": {
@@ -192,13 +185,9 @@
     "sustainable_concrete_via_bayesian_optimization": {
       "title": "Sustainable concrete via bayesian optimization",
       "citationCount": 16,
-      "citations_by_year": {
-        "2024": 3,
-        "2025": 11,
-        "2026": 2
-      }
+      "citations_by_year": {}
     },
-    "on_the_optimality_of_backward_regression:_sparse_recovery_an": {
+    "on_the_optimality_of_backward_regression_sparse_recovery_and": {
       "title": "On the optimality of backward regression: Sparse recovery and subset selection",
       "citationCount": 13,
       "citations_by_year": {
@@ -209,7 +198,7 @@
         "2025": 3
       }
     },
-    "exponentially-modified_gaussian_mixture_model:_applications_": {
+    "exponentiallymodified_gaussian_mixture_model_applications_in": {
       "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
       "citationCount": 11,
       "citations_by_year": {
@@ -224,7 +213,10 @@
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian processes via relevance pursuit",
       "citationCount": 10,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2025": 7,
+        "2026": 3
+      }
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling gaussian processes for learning curve prediction via latent kronecker structure",
@@ -233,15 +225,15 @@
         "2025": 9
       }
     },
-    "an_efficient_relaxed_projection_method_for_constrained_non-n": {
+    "an_efficient_relaxed_projection_method_for_constrained_nonne": {
       "title": "An efficient relaxed projection method for constrained non-negative matrix factorization with application to the phase-mapping problem in materials science",
       "citationCount": 8,
-      "citations_by_year": {
-        "2020": 4,
-        "2021": 1,
-        "2022": 2,
-        "2023": 1
-      }
+      "citations_by_year": {}
+    },
+    "scalable_gaussian_processes_with_latent_kronecker_structure": {
+      "title": "Scalable Gaussian processes with latent Kronecker structure",
+      "citationCount": 7,
+      "citations_by_year": {}
     },
     "optical_identification_of_materials_transformations_in_oxide": {
       "title": "Optical identification of materials transformations in oxide thin films",
@@ -256,25 +248,10 @@
         "2026": 1
       }
     },
-    "scalable_gaussian_processes_with_latent_kronecker_structure": {
-      "title": "Scalable Gaussian processes with latent Kronecker structure",
-      "citationCount": 6,
-      "citations_by_year": {
-        "2024": 1,
-        "2025": 4,
-        "2026": 1
-      }
-    },
-    "shufeng_kong,_santosh_k._suram,_r._bruce_van_dover,_and_john": {
+    "shufeng_kong_santosh_k_suram_r_bruce_van_dover_and_john_m_gr": {
       "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
       "citationCount": 6,
-      "citations_by_year": {
-        "2021": 3,
-        "2022": 1,
-        "2023": 0,
-        "2024": 0,
-        "2025": 2
-      }
+      "citations_by_year": {}
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
@@ -289,20 +266,15 @@
       "citationCount": 2,
       "citations_by_year": {}
     },
-    "constrained_machine_learning:_the_bagel_framework": {
+    "constrained_machine_learning_the_bagel_framework": {
       "title": "Constrained Machine Learning: The Bagel Framework",
       "citationCount": 2,
-      "citations_by_year": {
-        "2024": 1,
-        "2025": 1
-      }
+      "citations_by_year": {}
     },
-    "deep_reasoning_networks:_thinking_fast_and_slow,_for_pattern": {
+    "deep_reasoning_networks_thinking_fast_and_slow_for_pattern_d": {
       "title": "Deep reasoning networks: thinking fast and slow, for pattern de-mixing",
       "citationCount": 1,
-      "citations_by_year": {
-        "2023": 1
-      }
+      "citations_by_year": {}
     }
   }
 }

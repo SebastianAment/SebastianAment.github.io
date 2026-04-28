@@ -137,7 +137,10 @@
                         </p>
                     </div>
                     <div class="video-embed">
-                        <iframe data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-poster" data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization">
+                            <img src="media/concrete_poster.jpg" alt="Sustainable Concrete via Bayesian Optimization">
+                            <span class="play-btn" aria-label="Play video"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -193,13 +196,13 @@
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
     <script>
-        // Viewport-based video autoplay: load iframe with autoplay+mute when visible
+        // Lazy-load video iframes when they scroll into view (no autoplay)
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const iframe = entry.target.querySelector('iframe[data-src]');
                     if (iframe) {
-                        iframe.src = iframe.dataset.src + '?autoplay=1&mute=1';
+                        iframe.src = iframe.dataset.src;
                         delete iframe.dataset.src;
                     }
                     videoObserver.unobserve(entry.target);
@@ -209,6 +212,20 @@
 
         document.querySelectorAll('.video-embed').forEach(el => videoObserver.observe(el));
 
+        // Click-to-play for poster images: replace poster with iframe
+        document.querySelectorAll('.video-poster').forEach(poster => {
+            poster.addEventListener('click', () => {
+                const src = poster.dataset.src;
+                const title = poster.getAttribute('title') || '';
+                const iframe = document.createElement('iframe');
+                iframe.src = src + '?autoplay=1';
+                iframe.title = title;
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                poster.replaceWith(iframe);
+            });
+        });
+
         // Load publications from JSON and enable sorting
         let publications = [];
         let citationHistory = null;
@@ -216,7 +233,7 @@
 
         // ── Shared bar chart renderer ──────────────────────────────────
         // Used by the aggregate citation chart and per-paper detail charts.
-        // Options: { barHeight, showProjection }
+        // Options: { barHeight, showProjection, fetchedAt }
         const _fadeListeners = new WeakMap(); // track scroll listeners to avoid leaks
 
         function renderBarChart(container, byYear, opts = {}) {
@@ -227,12 +244,12 @@
             let maxVal = Math.max(...years.map(y => byYear[y]));
             let projected = {};
 
-            if (opts.showProjection) {
-                const now = new Date();
-                const cy = String(now.getFullYear());
+            if (opts.showProjection && opts.fetchedAt) {
+                const asOf = new Date(opts.fetchedAt);
+                const cy = String(asOf.getFullYear());
                 if (byYear[cy] !== undefined) {
-                    const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
-                    const days = (now.getFullYear() % 4 === 0) ? 366 : 365;
+                    const day = Math.floor((asOf - new Date(asOf.getFullYear(), 0, 0)) / 86400000);
+                    const days = (asOf.getFullYear() % 4 === 0) ? 366 : 365;
                     if (day > 0) {
                         const proj = Math.round(byYear[cy] * days / day);
                         projected[cy] = proj;
@@ -262,24 +279,27 @@
                 </div>`;
             }).join('');
 
-            // Update edge fades based on scroll position.
+            // Smoothly fade edges based on distance from scroll boundaries.
             // In RTL, scrollLeft is 0 at the right edge and negative toward the left.
             const scroller = container.closest('.citation-chart-scroll');
             if (scroller) {
-                // Remove previous listener if any to avoid leaks on re-render
                 const prev = _fadeListeners.get(scroller);
                 if (prev) scroller.removeEventListener('scroll', prev);
 
+                const FADE_MAX = 36; // max fade width in px
                 function updateFades() {
                     const maxScroll = scroller.scrollWidth - scroller.clientWidth;
                     if (maxScroll <= 0) {
-                        scroller.classList.remove('fade-left', 'fade-right');
+                        scroller.style.setProperty('--fade-left', '0px');
+                        scroller.style.setProperty('--fade-right', '0px');
                         return;
                     }
-                    const atRight = Math.abs(scroller.scrollLeft) < 2;
-                    const atLeft = Math.abs(scroller.scrollLeft) >= maxScroll - 2;
-                    scroller.classList.toggle('fade-left', !atLeft);
-                    scroller.classList.toggle('fade-right', !atRight);
+                    // RTL: scrollLeft=0 is rightmost, negative toward left
+                    const scrolled = Math.max(0, Math.abs(scroller.scrollLeft));
+                    const distFromLeft = maxScroll - scrolled;
+                    const distFromRight = scrolled;
+                    scroller.style.setProperty('--fade-left', Math.min(FADE_MAX, distFromLeft) + 'px');
+                    scroller.style.setProperty('--fade-right', Math.min(FADE_MAX, distFromRight) + 'px');
                 }
                 _fadeListeners.set(scroller, updateFades);
                 scroller.addEventListener('scroll', updateFades, { passive: true });
@@ -432,7 +452,9 @@
                 `${total} total citations${updated}`;
 
             const chart = document.getElementById('citation-chart');
-            renderBarChart(chart, agg, { barHeight: 90, showProjection: true });
+            renderBarChart(chart, agg, {
+                barHeight: 90, showProjection: true, fetchedAt: history.fetched_at
+            });
 
             wrapper.style.display = '';
         }

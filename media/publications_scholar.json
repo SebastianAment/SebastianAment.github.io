@@ -2,61 +2,35 @@
   {
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
-    "venue": "arXiv preprint arXiv:2603.21525",
+    "venue": "",
     "citationCount": 0,
-    "url": "https://arxiv.org/abs/2603.21525",
-    "authors": [
-      "Bayezid Baten",
-      "M Ayyan Iqbal",
-      "Sebastian Ament",
-      "Julius Kusuma",
-      "Nishant Garg"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Empirical Gaussian Processes",
     "year": 2026,
-    "venue": "arXiv preprint arXiv:2602.12082",
+    "venue": "",
     "citationCount": 0,
-    "url": "https://arxiv.org/abs/2602.12082",
-    "authors": [
-      "Jihao Andreas Lin",
-      "Sebastian Ament",
-      "Louis C Tiao",
-      "David Eriksson",
-      "Maximilian Balandat",
-      "Eytan Bakshy"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
-    "venue": "arXiv preprint arXiv:2601.08185",
+    "venue": "",
     "citationCount": 0,
-    "url": "https://arxiv.org/abs/2601.08185",
-    "authors": [
-      "Ming-Chiang Chang",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Sebastian Ament",
-      "Katie R Gann",
-      "Lan Zhou",
-      "Louisa M Smieska",
-      "Arthur R Woll",
-      "John M Gregoire",
-      "Carla P Gomes",
-      "R Bruce van Dover",
-      "Michael O Thompson"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 27,
+    "citationCount": 29,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -86,17 +60,10 @@
   {
     "title": "Scalable Gaussian processes with latent Kronecker structure",
     "year": 2025,
-    "venue": "arXiv preprint arXiv:2506.06895",
-    "citationCount": 6,
-    "url": "https://arxiv.org/abs/2506.06895",
-    "authors": [
-      "Jihao Andreas Lin",
-      "Sebastian Ament",
-      "Maximilian Balandat",
-      "David Eriksson",
-      "Jos\u00e9 Miguel Hern\u00e1ndez-Lobato",
-      "Eytan Bakshy"
-    ],
+    "venue": "",
+    "citationCount": 7,
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -123,18 +90,8 @@
     "year": 2025,
     "venue": "",
     "citationCount": 0,
-    "url": "https://ecommons.cornell.edu/items/462d5f29-b0f7-4b61-8fcb-b2902004cec7",
-    "authors": [
-      "Ming-Chiang Chang",
-      "Sebastian Ament",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Lan Zhou",
-      "John M Gregoire",
-      "Carla Gomes",
-      "R Bruce van Dover",
-      "Michael O Thompson"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -159,10 +116,17 @@
   {
     "title": "Robust Gaussian processes via relevance pursuit",
     "year": 2024,
-    "venue": "",
+    "venue": "Advances in Neural Information Processing Systems",
     "citationCount": 10,
-    "url": "",
-    "authors": [],
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html",
+    "authors": [
+      "Sebastian Ament",
+      "Elizabeth Santorella",
+      "David Eriksson",
+      "Ben Letham",
+      "Maximilian Balandat",
+      "Eytan Bakshy"
+    ],
     "pdf": ""
   },
   {
@@ -183,7 +147,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 269,
+    "citationCount": 277,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -198,7 +162,7 @@
     "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 45,
+    "citationCount": 46,
     "url": "https://proceedings.mlr.press/v206/deshwal23a.html",
     "authors": [
       "Aryan Deshwal",
@@ -213,22 +177,17 @@
   {
     "title": "Sustainable concrete via bayesian optimization",
     "year": 2023,
-    "venue": "arXiv preprint arXiv:2310.18288",
+    "venue": "",
     "citationCount": 16,
-    "url": "https://arxiv.org/abs/2310.18288",
-    "authors": [
-      "Sebastian Ament",
-      "Andrew Witte",
-      "Nishant Garg",
-      "Julius Kusuma"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
     "venue": "Artificial Intelligence",
-    "citationCount": 22,
+    "citationCount": 23,
     "url": "https://www.sciencedirect.com/science/article/pii/S0004370222000236",
     "authors": [
       "Guillaume Perez",
@@ -278,37 +237,24 @@
     "year": 2022,
     "venue": "",
     "citationCount": 0,
-    "url": "https://search.proquest.com/openview/a04f56bb4baac680d05edab74d8d99ec/1?pq-origsite=gscholar&cbl=18750&diss=y",
-    "authors": [
-      "Sebastian Eduard Ament"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
-    "venue": "Science Advances",
-    "citationCount": 103,
-    "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
-    "authors": [
-      "Sebastian Ament",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Ming-Chiang Chang",
-      "Dan Guevarra",
-      "Aine B Connolly",
-      "John M Gregoire",
-      "Michael O Thompson",
-      "Carla P Gomes",
-      "R Bruce Van Dover"
-    ],
+    "venue": "",
+    "citationCount": 106,
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 91,
+    "citationCount": 93,
     "url": "https://www.nature.com/articles/s42256-021-00384-1",
     "authors": [
       "Di Chen",
@@ -351,15 +297,10 @@
   {
     "title": "Constrained Machine Learning: The Bagel Framework",
     "year": 2021,
-    "venue": "arXiv preprint arXiv:2112.01088",
+    "venue": "",
     "citationCount": 2,
-    "url": "https://arxiv.org/abs/2112.01088",
-    "authors": [
-      "Guillaume Perez",
-      "Sebastian Ament",
-      "Carla Gomes",
-      "Arnaud Lallouet"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -367,19 +308,8 @@
     "year": 2021,
     "venue": "",
     "citationCount": 0,
-    "url": "https://ecommons.cornell.edu/items/5613063a-10bd-452b-9caf-1620d36553f7",
-    "authors": [
-      "Sebastian Ament",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Ming-Chiang Chang",
-      "Dan Guevarra",
-      "Aine B Connolly",
-      "John M Gregoire",
-      "Michael O Thompson",
-      "Carla P Gomes",
-      "R Bruce van Dover"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -425,15 +355,8 @@
     "year": 2020,
     "venue": "",
     "citationCount": 1,
-    "url": "https://openreview.net/forum?id=HkehD3VtvS",
-    "authors": [
-      "Di Chen",
-      "Yiwei Bai",
-      "Wenting Zhao",
-      "Sebastian Ament",
-      "John M Gregoire",
-      "Carla P Gomes"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -492,18 +415,10 @@
   {
     "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
     "year": 2019,
-    "venue": "MRS Communications",
+    "venue": "",
     "citationCount": 6,
-    "url": "https://scholar.google.com/scholar?cluster=14696124643441565425&hl=en&oi=scholarr",
-    "authors": [
-      "Carla P Gomes",
-      "Junwen Bai",
-      "Yexiang Xue",
-      "Johan Bj\u00f6rck",
-      "Brendan Rappazzo",
-      "Sebastian Ament",
-      "Richard Bernstein"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -523,14 +438,8 @@
     "year": 2018,
     "venue": "",
     "citationCount": 8,
-    "url": "https://link.springer.com/chapter/10.1007/978-3-319-93031-2_4",
-    "authors": [
-      "Junwen Bai",
-      "Sebastian Ament",
-      "Guillaume Perez",
-      "John Gregoire",
-      "Carla Gomes"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {

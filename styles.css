@@ -589,28 +589,29 @@ a.pub-title:hover {
     opacity: 0.7;
 }
 
-/* Fade edges when there's hidden content to scroll to.
-   Uses two masks combined: left fade + right fade, each toggled by class. */
+/* Fade edges smoothly when there's hidden content to scroll to.
+   --fade-left and --fade-right are set by JS (0–36) based on scroll position. */
 .citation-chart-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     direction: rtl; /* anchor scroll to the right (most recent years) */
-}
-
-.citation-chart-scroll.fade-left {
-    -webkit-mask-image: linear-gradient(to right, transparent 0px, black 36px);
-    mask-image: linear-gradient(to right, transparent 0px, black 36px);
-}
-
-.citation-chart-scroll.fade-right {
-    -webkit-mask-image: linear-gradient(to left, transparent 0px, black 36px);
-    mask-image: linear-gradient(to left, transparent 0px, black 36px);
-}
-
-.citation-chart-scroll.fade-left.fade-right {
-    -webkit-mask-image: linear-gradient(to right, transparent 0px, black 36px, black calc(100% - 36px), transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0px, black 36px, black calc(100% - 36px), transparent 100%);
+    --fade-left: 0px;
+    --fade-right: 0px;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0px,
+        black var(--fade-left),
+        black calc(100% - var(--fade-right)),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0px,
+        black var(--fade-left),
+        black calc(100% - var(--fade-right)),
+        transparent 100%
+    );
 }
 
 .citation-chart {
@@ -781,6 +782,48 @@ a.pub-title:hover {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+/* Click-to-play video poster */
+.video-poster {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.video-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.play-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.video-poster:hover .play-btn {
+    background: rgba(200, 0, 0, 0.85);
 }
 
 .project-links {
