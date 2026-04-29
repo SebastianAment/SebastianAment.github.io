@@ -502,6 +502,63 @@ def _infill_missing_citations():
         print("\nNo papers could be filled this run.")
 
 
+def _render_html_seo():
+    """Inject static publication HTML into index.html between SEO markers."""
+    index_path = os.path.join(SCRIPT_DIR, "index.html")
+    # Prefer Scholar data, fall back to S2
+    pubs_path = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
+    if not os.path.exists(pubs_path):
+        pubs_path = os.path.join(SCRIPT_DIR, "media", "publications.json")
+    if not os.path.exists(pubs_path):
+        print("No publications JSON found. Run the fetch first.")
+        return
+
+    with open(pubs_path) as f:
+        pubs = json.load(f)
+
+    # Generate static HTML for each publication
+    lines = []
+    for pub in pubs:
+        authors = ", ".join(pub.get("authors", []))
+        venue = f" &mdash; {pub['venue']}" if pub.get("venue") else ""
+        title = pub.get("title", "")
+        year = pub.get("year") or "N/A"
+        citations = pub.get("citationCount", 0)
+        link = pub.get("arxiv") or pub.get("url", "")
+        title_html = f'<a href="{link}">{title}</a>' if link else title
+        lines.append(
+            f'                <li class="publication"><strong>{title_html}</strong><br>'
+            f'<span class="pub-authors">{authors}</span><br>'
+            f'<span class="pub-meta">{year}{venue} &middot; {citations} citations</span></li>'
+        )
+
+    seo_block = "\n".join(lines)
+
+    with open(index_path) as f:
+        html = f.read()
+
+    # Replace between markers
+    start_marker = "<!-- PUBLICATIONS_SEO -->"
+    end_marker = "<!-- /PUBLICATIONS_SEO -->"
+    start_idx = html.find(start_marker)
+    end_idx = html.find(end_marker)
+    if start_idx == -1 or end_idx == -1:
+        print("SEO markers not found in index.html")
+        return
+
+    new_html = (
+        html[: start_idx + len(start_marker)]
+        + "\n"
+        + seo_block
+        + "\n                "
+        + html[end_idx:]
+    )
+
+    with open(index_path, "w") as f:
+        f.write(new_html)
+    print(f"Injected {len(pubs)} publications into index.html for SEO")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Update publications and citation data.")
     parser.add_argument(
@@ -515,9 +572,16 @@ def main():
         action="store_true",
         help="Only fetch citation history for papers missing cites_per_year data",
     )
+    parser.add_argument(
+        "--render-html",
+        action="store_true",
+        help="Inject static publication HTML into index.html for SEO",
+    )
     args = parser.parse_args()
 
-    if args.infill:
+    if args.render_html:
+        _render_html_seo()
+    elif args.infill:
         _infill_missing_citations()
     elif args.source == "scholar":
         print("Fetching from Google Scholar...")

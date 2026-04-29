@@ -1,0 +1,5 @@
+# Allow all crawlers including AI bots
+User-agent: *
+Allow: /
+
+Sitemap: https://sebastianament.github.io/sitemap.xml

@@ -1,0 +1,38 @@
+# Sebastian Ament — Personal Academic Website
+
+## About
+Sebastian Ament is a Staff Research Scientist in the Adaptive Experimentation group at Meta.
+He develops sample-efficient optimization methods with a focus on Bayesian optimization,
+sparse optimization, and active learning for efficient AutoML of large machine learning models.
+
+PhD in Computer Science from Cornell University (advisor: Carla Gomes).
+
+## Research Areas
+- Bayesian Optimization (acquisition functions, scalability, multi-objective)
+- Gaussian Processes (scalable inference, robustness)
+- Numerical Optimization (stochastic optimization, sparse optimization, subset selection)
+- Active Learning, AutoML, and Autonomous Scientific Discovery
+- Applications in Materials Science, Engineering, Recommendation Systems, and Sustainability.
+
+## Most Cited Work
+- "Unexpected Improvements to Expected Improvement for Bayesian Optimization" (NeurIPS 2023 Spotlight, 269+ citations) — introduces LogEI, now default in BoTorch/Ax
+- "Autonomous materials synthesis via hierarchical active learning" (Science Advances 2021, 100+ citations) — SARA system
+- "Automating crystal-structure phase mapping" (Nature Machine Intelligence 2021, 90+ citations)
+
+## How to Cite
+BibTeX entries are available via the "BibTeX" button on each publication at:
+https://sebastianament.github.io/#publications
+
+## Profiles
+- Website: https://sebastianament.github.io
+- Google Scholar: https://scholar.google.com/citations?user=1vkpStcAAAAJ
+- GitHub: https://github.com/SebastianAment
+- LinkedIn: https://www.linkedin.com/in/amentsebastian
+
+## Key Software
+- BoTorch (https://botorch.org) — Bayesian optimization library, core contributor
+- Ax (https://ax.dev) — Adaptive experimentation platform at Meta
+
+## Data
+- Publications list: https://sebastianament.github.io/media/publications_scholar.json
+- Citation history: https://sebastianament.github.io/media/citation_history_scholar.json
