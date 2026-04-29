@@ -49,12 +49,8 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li class="has-dropdown">
+                <li class="has-dropdown" id="projects-nav">
                     <a href="#projects">Projects</a>
-                    <ul class="dropdown glass">
-                        <li><a href="#project-concrete">Sustainable Concrete</a></li>
-                        <li><a href="#project-sara">SARA</a></li>
-                    </ul>
                 </li>
                 <li><a href="#publications">Publications</a></li>
             </ul>
@@ -74,6 +70,12 @@
             </button>
         </div>
     </header>
+    <!-- Dropdown outside header so backdrop-filter works independently -->
+    <ul class="dropdown glass" id="projects-dropdown">
+        <li><a href="#project-logei">LogEI</a></li>
+        <li><a href="#project-concrete">Sustainable Concrete</a></li>
+        <li><a href="#project-sara">SARA</a></li>
+    </ul>
     <div class="overlay-menu glass">
         <nav class="overlay-nav">
             <a href="#about">About</a>
@@ -119,10 +121,36 @@
         </section>
         <section id="projects" class="fade-in">
             <h2>Selected Projects</h2>
+            <div id="project-logei" class="project">
+                <h3>LogEI: Unexpected Improvements to Expected Improvement</h3>
+                <p class="project-links">
+                    <a href="https://arxiv.org/abs/2310.20708">Paper</a>
+                    &middot; <a href="https://neurips.cc/virtual/2023/poster/72985">NeurIPS Poster</a>
+                    &middot; <a href="https://www.linkedin.com/posts/aiatmeta_neurips2023-activity-7140398603868549120-5T7E">AI at Meta</a>
+                    &middot; <span class="project-meta">NeurIPS 2023 Spotlight</span>
+                </p>
+                <div class="project-body">
+                    <div class="project-text">
+                        <p>
+                            Expected Improvement (EI) is the most widely used acquisition function in Bayesian optimization,
+                            yet it suffers from numerical pathologies — vanishing gradients and poor acquisition optimization.
+                            LogEI reformulates the EI family with principled transformations that enable reliable gradient-based optimization.
+                            The result is substantially improved sample efficiency across a wide range of tasks,
+                            even outperforming state-of-the-art entropy search acquisition functions.
+                            LogEI generalizes to the noisy, multi-objective, and constrained settings
+                            and is the default in <a href="https://botorch.org/">BoTorch</a> and Meta's
+                            <a href="https://ax.dev/">Ax</a> platform, powering large-scale adaptive experimentation at Meta and beyond.
+                        </p>
+                    </div>
+                    <div class="video-embed">
+                        <iframe data-src="https://www.youtube.com/embed/B71ONUFweN0" title="LogEI — BDU Seminar Talk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
             <div id="project-concrete" class="project">
                 <h3>Sustainable Concrete via Bayesian Optimization</h3>
                 <p class="project-links">
-                    <a href="https://engineering.fb.com/2024/11/19/data-infrastructure/sustainable-concrete-meta-data-centers-bayesian-optimization/">Blog Post</a>
+                    <a href="https://engineering.fb.com/2024/11/19/data-infrastructure/sustainable-concrete-meta-data-centers-bayesian-optimization/">Meta Blog Post</a>
                     &middot; <a href="https://arxiv.org/abs/2310.18288">Paper</a>
                     &middot; <a href="https://github.com/facebookresearch/SustainableConcrete">GitHub</a>
                 </p>
@@ -195,6 +223,7 @@
     <footer class="fade-in">
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
+    <script src="chart.js"></script>
     <script>
         // Lazy-load video iframes when they scroll into view (no autoplay)
         const videoObserver = new IntersectionObserver((entries) => {
@@ -245,16 +274,10 @@
             let projected = {};
 
             if (opts.showProjection && opts.fetchedAt) {
-                const asOf = new Date(opts.fetchedAt);
-                const cy = String(asOf.getFullYear());
-                if (byYear[cy] !== undefined) {
-                    const day = Math.floor((asOf - new Date(asOf.getFullYear(), 0, 0)) / 86400000);
-                    const days = (asOf.getFullYear() % 4 === 0) ? 366 : 365;
-                    if (day > 0) {
-                        const proj = Math.round(byYear[cy] * days / day);
-                        projected[cy] = proj;
-                        maxVal = Math.max(maxVal, proj);
-                    }
+                const result = computeProjection(byYear, opts.fetchedAt);
+                if (result) {
+                    projected[result.year] = result.projected;
+                    maxVal = Math.max(maxVal, result.projected);
                 }
             }
 
@@ -308,14 +331,7 @@
         }
 
         // ── Sparkline + detail chart for per-paper view ────────────────
-        // Must match Python's _paper_key(): normalize, strip punctuation, truncate.
-        function paperKey(title) {
-            return title.trim().toLowerCase()
-                .replace(/[,\s]+\d{4}\s*$/, '')  // trailing year
-                .replace(/[^a-z0-9\s]/g, '')      // punctuation
-                .replace(/\s+/g, '_')              // spaces to underscores
-                .slice(0, 60);
-        }
+        // paperKey() and computeProjection() are defined in chart.js
 
         function getPaperHistory(title) {
             if (!citationHistory || !citationHistory.papers) return null;
@@ -378,7 +394,11 @@
                         const paper = citationHistory.papers[key];
                         if (paper && paper.citations_by_year) {
                             const chart = detail.querySelector('.citation-chart');
-                            renderBarChart(chart, paper.citations_by_year, { barHeight: 60 });
+                            renderBarChart(chart, paper.citations_by_year, {
+                                barHeight: 60,
+                                showProjection: true,
+                                fetchedAt: citationHistory.fetched_at
+                            });
                         }
                         detail.style.display = '';
                     } else {
@@ -519,6 +539,28 @@
                 });
             }
         });
+
+        // Projects dropdown — positioned outside header for proper backdrop-filter
+        const projectsNav = document.getElementById('projects-nav');
+        const projectsDropdown = document.getElementById('projects-dropdown');
+        let dropdownTimeout;
+
+        function showDropdown() {
+            clearTimeout(dropdownTimeout);
+            const rect = projectsNav.getBoundingClientRect();
+            projectsDropdown.style.left = rect.left + rect.width / 2 - projectsDropdown.offsetWidth / 2 + 'px';
+            projectsDropdown.style.top = rect.bottom + 4 + 'px';
+            projectsDropdown.classList.add('open');
+        }
+
+        function hideDropdown() {
+            dropdownTimeout = setTimeout(() => projectsDropdown.classList.remove('open'), 150);
+        }
+
+        projectsNav.addEventListener('mouseenter', showDropdown);
+        projectsNav.addEventListener('mouseleave', hideDropdown);
+        projectsDropdown.addEventListener('mouseenter', () => clearTimeout(dropdownTimeout));
+        projectsDropdown.addEventListener('mouseleave', hideDropdown);
 
         // Overlay menu
         const overlay = document.querySelector('.overlay-menu');

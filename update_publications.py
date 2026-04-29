@@ -1,10 +1,30 @@
 #!/usr/bin/env python3
-"""Fetches publications and citation history, generates publications.json and
-citation_history.json.
+"""Fetches publications and citation history, generates JSON data files for
+sebastianament.github.io.
 
-Supports two data sources:
-  --source s2        Semantic Scholar API (default)
-  --source scholar   Google Scholar via the `scholarly` library
+Usage:
+  # Semantic Scholar (default, used by CI weekly):
+  python3 update_publications.py
+
+  # Google Scholar (more comprehensive, run locally):
+  /opt/miniconda3/bin/python3 update_publications.py --source scholar
+
+  # Fill gaps for papers that failed on a previous Scholar run:
+  /opt/miniconda3/bin/python3 update_publications.py --infill
+
+  # With Semantic Scholar API key for higher rate limits:
+  S2_API_KEY=your_key python3 update_publications.py
+
+Options:
+  --source s2        Semantic Scholar API (default, reliable for CI)
+  --source scholar   Google Scholar via `scholarly` (higher counts, fragile)
+  --infill           Re-fetch only papers missing citation history data
+
+Output files:
+  media/publications.json              S2 publications list
+  media/citation_history.json          S2 per-paper citation time series
+  media/publications_scholar.json      Google Scholar publications list
+  media/citation_history_scholar.json  Google Scholar citation time series
 """
 
 import argparse
@@ -286,8 +306,8 @@ def fetch_from_google_scholar():
         try:
             pub_filled = scholarly.fill(pub_stub)
         except Exception as e:
-            print(f"    Warning: could not fill publication {i}: {e}")
-            # Use stub data as fallback
+            stub_title = pub_stub.get("bib", {}).get("title", f"index {i}")
+            print(f"    Warning: could not fill \"{stub_title}\": {e}")
             pub_filled = pub_stub
         bib = pub_filled.get("bib", {})
 
@@ -330,7 +350,7 @@ def fetch_from_google_scholar():
         #   - cites_per_year: element-wise max per year (avoids double-counting
         #     while preserving any years only captured by a minor version)
         cites_per_year = pub_filled.get("cites_per_year", {})
-        if cites_per_year or citation_count > 0:
+        if cites_per_year:  # Only store entries that have actual year data
             paper_key = _paper_key(title)
             new_by_year = {str(y): c for y, c in cites_per_year.items()}
             existing = citation_papers.get(paper_key)
@@ -356,6 +376,16 @@ def fetch_from_google_scholar():
     print(f"  After deduplication: {len(publications)} (from {len(raw_publications)})")
 
     publications = _merge_manual_and_sort(publications)
+
+    # Merge with previously cached citation history to preserve data from
+    # papers that failed to fill this run (rate limiting).
+    cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
+    if os.path.exists(cache_path):
+        with open(cache_path) as f:
+            prev_cache = json.load(f)
+        for key, prev in prev_cache.get("papers", {}).items():
+            if key not in citation_papers and prev.get("citations_by_year"):
+                citation_papers[key] = prev
 
     # Use the author-level citation data from Google Scholar's profile sidebar.
     # This is the exact aggregate shown on the profile — already deduplicated
@@ -385,6 +415,93 @@ def fetch_from_google_scholar():
     return publications, citation_history
 
 
+def _infill_missing_citations():
+    """Attempt to fill citation history only for papers with missing cites_per_year."""
+    from scholarly import scholarly, ProxyGenerator
+
+    cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
+    pubs_path = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
+    if not os.path.exists(cache_path):
+        print("No cached citation history found. Run --source scholar first.")
+        return
+
+    with open(cache_path) as f:
+        cache = json.load(f)
+
+    papers = cache.get("papers", {})
+
+    # Find papers with empty citations_by_year in the cache
+    missing = {k: v for k, v in papers.items() if not v.get("citations_by_year")}
+
+    # Also find papers in publications that aren't in the cache at all
+    if os.path.exists(pubs_path):
+        with open(pubs_path) as f:
+            pubs = json.load(f)
+        for pub in pubs:
+            key = _paper_key(pub.get("title", ""))
+            if key and key not in papers and pub.get("citationCount", 0) > 0:
+                missing[key] = {"title": pub["title"], "citationCount": pub["citationCount"], "citations_by_year": {}}
+
+    if not missing:
+        print("All papers already have citation history. Nothing to infill.")
+        return
+
+    print(f"Found {len(missing)} papers missing citation history:")
+    for v in missing.values():
+        print(f"  - {v.get('title', '?')}")
+
+    # Set up proxy
+    try:
+        pg = ProxyGenerator()
+        pg.FreeProxies()
+        scholarly.use_proxy(pg)
+        print("  Using free proxy rotation.")
+    except Exception:
+        print("  Could not set up proxy, using direct connection.")
+
+    # Search and fill each missing paper
+    filled = 0
+    for key, paper_data in missing.items():
+        title = paper_data.get("title", "")
+        print(f"  Fetching: {title[:60]}...")
+        time.sleep(3)
+
+        try:
+            results = scholarly.search_pubs(title)
+            pub = next(results, None)
+            if pub:
+                pub_filled = scholarly.fill(pub)
+                cites_per_year = pub_filled.get("cites_per_year", {})
+                if cites_per_year:
+                    papers[key]["citations_by_year"] = {str(y): c for y, c in cites_per_year.items()}
+                    papers[key]["citationCount"] = pub_filled.get("num_citations", paper_data.get("citationCount", 0))
+                    filled += 1
+                    print(f"    Filled: {cites_per_year}")
+                else:
+                    print(f"    No cites_per_year available.")
+            else:
+                print(f"    Not found on Google Scholar.")
+        except Exception as e:
+            print(f"    Error: {e}")
+
+    if filled > 0:
+        # Rebuild aggregate
+        aggregate = {}
+        for pd in papers.values():
+            for year, count in pd.get("citations_by_year", {}).items():
+                aggregate[year] = aggregate.get(year, 0) + count
+
+        cache["papers"] = papers
+        cache["aggregate"] = dict(sorted(aggregate.items()))
+        cache["fetched_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+        with open(cache_path, "w") as f:
+            json.dump(cache, f, indent=2)
+        print(f"\nInfilled {filled} papers. Saved {cache_path}")
+    else:
+        print("\nNo papers could be filled this run.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Update publications and citation data.")
     parser.add_argument(
@@ -393,9 +510,16 @@ def main():
         default="s2",
         help="Data source: 's2' for Semantic Scholar (default), 'scholar' for Google Scholar",
     )
+    parser.add_argument(
+        "--infill",
+        action="store_true",
+        help="Only fetch citation history for papers missing cites_per_year data",
+    )
     args = parser.parse_args()
 
-    if args.source == "scholar":
+    if args.infill:
+        _infill_missing_citations()
+    elif args.source == "scholar":
         print("Fetching from Google Scholar...")
         out_json = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
         cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")

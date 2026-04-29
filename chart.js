@@ -1,0 +1,55 @@
+/**
+ * Shared logic for citation chart rendering.
+ * Extracted for testability — used by both index.html and tests.
+ */
+
+/**
+ * Generate a paper key matching Python's _paper_key().
+ * Must stay in sync with update_publications.py.
+ */
+function paperKey(title) {
+    return title.trim().toLowerCase()
+        .replace(/[,\s]+\d{4}\s*$/, '')  // trailing year
+        .replace(/[^a-z0-9\s]/g, '')      // punctuation
+        .replace(/\s+/g, '_')              // spaces to underscores
+        .slice(0, 60);
+}
+
+/**
+ * Compute year-end projection using blended rate.
+ * Returns null if projection criteria not met.
+ *
+ * @param {Object} byYear - { "2023": 50, "2024": 100, "2025": 40 }
+ * @param {string} fetchedAt - ISO date string of when data was fetched
+ * @returns {Object|null} - { year, projected } or null
+ */
+function computeProjection(byYear, fetchedAt) {
+    if (!fetchedAt) return null;
+    const asOf = new Date(fetchedAt);
+    const cy = String(asOf.getFullYear());
+    const prevYear = String(asOf.getFullYear() - 1);
+    const actual = byYear[cy];
+    const prior = byYear[prevYear];
+
+    if (actual === undefined || prior === undefined) return null;
+
+    const day = Math.floor((asOf - new Date(asOf.getFullYear(), 0, 0)) / 86400000);
+    const days = (asOf.getFullYear() % 4 === 0) ? 366 : 365;
+    if (day <= 0) return null;
+
+    const rateCurrent = actual / day;
+    const ratePrior = prior / 365;
+    const weight = Math.min(day / 90, 1);
+    const blendedRate = weight * rateCurrent + (1 - weight) * ratePrior;
+    const projected = Math.max(actual, Math.round(blendedRate * days));
+
+    // Only project if annualized rate >= 12 citations/year
+    if (blendedRate * 365 < 12) return null;
+
+    return { year: cy, projected };
+}
+
+// Export for Node.js testing; no-op in browser
+if (typeof module !== 'undefined') {
+    module.exports = { paperKey, computeProjection };
+}

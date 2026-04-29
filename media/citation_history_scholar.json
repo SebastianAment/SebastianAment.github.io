@@ -1,18 +1,18 @@
 {
-  "fetched_at": "2026-04-28T19:17:06.504063+00:00",
+  "fetched_at": "2026-04-29T15:29:03.977570+00:00",
   "source": "google_scholar",
-  "citedby": 943,
+  "citedby": 944,
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 5,
     "2020": 15,
-    "2021": 34,
-    "2022": 78,
-    "2023": 75,
-    "2024": 139,
-    "2025": 312,
-    "2026": 112
+    "2021": 36,
+    "2022": 92,
+    "2023": 99,
+    "2024": 170,
+    "2025": 358,
+    "2026": 129
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
@@ -29,7 +29,14 @@
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
       "citationCount": 106,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2021": 2,
+        "2022": 13,
+        "2023": 23,
+        "2024": 25,
+        "2025": 29,
+        "2026": 13
+      }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
@@ -45,12 +52,12 @@
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 46,
+      "citationCount": 47,
       "citations_by_year": {
         "2023": 5,
         "2024": 13,
         "2025": 21,
-        "2026": 7
+        "2026": 8
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
@@ -63,19 +70,6 @@
         "2024": 7,
         "2025": 8,
         "2026": 1
-      }
-    },
-    "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
-      "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 38,
-      "citations_by_year": {
-        "2019": 1,
-        "2020": 4,
-        "2021": 5,
-        "2022": 10,
-        "2023": 7,
-        "2024": 5,
-        "2025": 5
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -185,7 +179,11 @@
     "sustainable_concrete_via_bayesian_optimization": {
       "title": "Sustainable concrete via bayesian optimization",
       "citationCount": 16,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2024": 3,
+        "2025": 11,
+        "2026": 2
+      }
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
       "title": "On the optimality of backward regression: Sparse recovery and subset selection",
@@ -196,18 +194,6 @@
         "2023": 1,
         "2024": 5,
         "2025": 3
-      }
-    },
-    "exponentiallymodified_gaussian_mixture_model_applications_in": {
-      "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
-      "citationCount": 11,
-      "citations_by_year": {
-        "2019": 1,
-        "2020": 0,
-        "2021": 1,
-        "2022": 5,
-        "2023": 1,
-        "2024": 3
       }
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
@@ -225,15 +211,14 @@
         "2025": 9
       }
     },
-    "an_efficient_relaxed_projection_method_for_constrained_nonne": {
-      "title": "An efficient relaxed projection method for constrained non-negative matrix factorization with application to the phase-mapping problem in materials science",
-      "citationCount": 8,
-      "citations_by_year": {}
-    },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian processes with latent Kronecker structure",
       "citationCount": 7,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2024": 1,
+        "2025": 5,
+        "2026": 1
+      }
     },
     "optical_identification_of_materials_transformations_in_oxide": {
       "title": "Optical identification of materials transformations in oxide thin films",
@@ -248,11 +233,6 @@
         "2026": 1
       }
     },
-    "shufeng_kong_santosh_k_suram_r_bruce_van_dover_and_john_m_gr": {
-      "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
-      "citationCount": 6,
-      "citations_by_year": {}
-    },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
       "citationCount": 4,
@@ -264,17 +244,51 @@
     "generalized_matching_pursuits_for_the_sparse_optimization_of": {
       "title": "Generalized matching pursuits for the sparse optimization of separable objectives",
       "citationCount": 2,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2022": 1,
+        "2023": 0,
+        "2024": 1
+      }
     },
     "constrained_machine_learning_the_bagel_framework": {
       "title": "Constrained Machine Learning: The Bagel Framework",
       "citationCount": 2,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2024": 1,
+        "2025": 1
+      }
     },
     "deep_reasoning_networks_thinking_fast_and_slow_for_pattern_d": {
       "title": "Deep reasoning networks: thinking fast and slow, for pattern de-mixing",
       "citationCount": 1,
-      "citations_by_year": {}
+      "citations_by_year": {
+        "2023": 1
+      }
+    },
+    "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
+      "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
+      "citationCount": 38,
+      "citations_by_year": {
+        "2019": 1,
+        "2020": 4,
+        "2021": 5,
+        "2022": 10,
+        "2023": 7,
+        "2024": 5,
+        "2025": 5
+      }
+    },
+    "exponentiallymodified_gaussian_mixture_model_applications_in": {
+      "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
+      "citationCount": 11,
+      "citations_by_year": {
+        "2019": 1,
+        "2020": 0,
+        "2021": 1,
+        "2022": 5,
+        "2023": 1,
+        "2024": 3
+      }
     }
   }
 }

@@ -97,43 +97,29 @@ header nav {
     pointer-events: none;
 }
 
-header nav ul {
+header nav > ul {
     display: flex;
     align-items: center;
     gap: 20px;
     pointer-events: auto;
 }
 
-/* Dropdown menu */
-.has-dropdown {
-    position: relative;
-}
-
+/* Dropdown menu — lives outside header for proper backdrop-filter */
 .dropdown {
-    position: absolute;
-    top: calc(100% + 0.45em);
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    top: 0;
+    left: 0;
     min-width: 180px;
     padding: 6px 0;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: 0 4px 16px var(--shadow);
+    z-index: 49;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0s 0.2s;
 }
 
-/* Invisible hover bridge from link to dropdown */
-.dropdown::before {
-    content: '';
-    position: absolute;
-    top: -0.45em;
-    left: 0;
-    right: 0;
-    height: 0.45em;
-}
-
-.has-dropdown:hover .dropdown {
+.dropdown.open {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.2s ease, visibility 0s;
@@ -143,6 +129,11 @@ header nav ul {
     display: block;
     padding: 6px 16px;
     font-size: 14px;
+    color: var(--text-white);
+}
+
+.dropdown a:hover {
+    color: var(--accent-color);
 }
 
 nav a {
@@ -546,6 +537,9 @@ a.pub-title:hover {
 
 .pub-detail-chart .chart-bar {
     max-width: 28px;
+}
+
+.pub-detail-chart .chart-bar:not(.chart-bar-projected) {
     opacity: 0.8;
 }
 
@@ -828,4 +822,9 @@ a.pub-title:hover {
 
 .project-links {
     font-size: 14px;
+}
+
+.project-meta {
+    font-style: italic;
+    opacity: 0.7;
 }
