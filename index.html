@@ -94,8 +94,8 @@
     </header>
     <!-- Dropdown outside header so backdrop-filter works independently -->
     <ul class="dropdown glass" id="projects-dropdown">
-        <li><a href="#project-logei">LogEI</a></li>
         <li><a href="#project-concrete">Sustainable Concrete</a></li>
+        <li><a href="#project-logei">LogEI</a></li>
         <li><a href="#project-sara">SARA</a></li>
     </ul>
     <div class="overlay-menu glass">
@@ -143,6 +143,38 @@
         </section>
         <section id="projects" class="fade-in">
             <h2>Selected Projects</h2>
+            <div id="project-concrete" class="project">
+                <h3>Sustainable Concrete via Bayesian Optimization</h3>
+                <p class="project-links">
+                    <a href="https://engineering.fb.com/2024/11/19/data-infrastructure/sustainable-concrete-meta-data-centers-bayesian-optimization/">Meta Blog Post</a>
+                    &middot; <a href="https://arxiv.org/abs/2310.18288">Paper</a>
+                    &middot; <a href="https://github.com/facebookresearch/SustainableConcrete">GitHub</a>
+                </p>
+                <div class="project-body">
+                    <div class="project-text">
+                        <p>
+                            Eight percent of global CO₂ emissions come from cement production — the dominant source of emissions in data center construction.
+                            In collaboration with <a href="https://www.amrize.com/">Amrize</a> and the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>,
+                            we used Bayesian optimization to discover lower-carbon concrete formulations that are
+                            13% stronger, 43% faster-setting, and 19% lower in CO₂ — at no extra cost and using only standard materials.
+                            The optimized mix has been deployed at <a href="https://www.facebook.com/RosemountDataCenter/"> Meta's data center in Rosemount, MN</a>.
+                        </p>
+                        <div class="project-awards">
+                            <span class="awards-label">Awards:</span>
+                            <ul>
+                                <li><a href="https://buildinginnovationawards.co.uk/2025-winners/#:~:text=Most%20Innovative%20Partnership">Most Innovative Partnership — Building Innovation Awards 2025</a></li>
+                                <li><a href="https://www.slagcement.org/post/sca-announces-2025-slag-cement-in-sustainable-concrete-award-winners#:~:text=Meta%20AI%2DDesigned%20Mix%20for%20Rosemount%20Data%20Center%2C%20Rosemount%2C%20Minnesota">Lower Carbon Concrete — SCA Sustainable Concrete Awards 2025</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="video-embed">
+                        <div class="video-poster" data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization">
+                            <img src="media/concrete_poster.jpg" alt="Sustainable Concrete via Bayesian Optimization">
+                            <span class="play-btn" aria-label="Play video"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="project-logei" class="project">
                 <h3>LogEI: Unexpected Improvements to Expected Improvement</h3>
                 <p class="project-links">
@@ -169,31 +201,6 @@
                     </div>
                 </div>
             </div>
-            <div id="project-concrete" class="project">
-                <h3>Sustainable Concrete via Bayesian Optimization</h3>
-                <p class="project-links">
-                    <a href="https://engineering.fb.com/2024/11/19/data-infrastructure/sustainable-concrete-meta-data-centers-bayesian-optimization/">Meta Blog Post</a>
-                    &middot; <a href="https://arxiv.org/abs/2310.18288">Paper</a>
-                    &middot; <a href="https://github.com/facebookresearch/SustainableConcrete">GitHub</a>
-                </p>
-                <div class="project-body">
-                    <div class="project-text">
-                        <p>
-                            Eight percent of global CO₂ emissions come from cement production — the dominant source of emissions in data center construction.
-                            By collaborating with <a href="https://www.amrize.com/">Amrize</a> and the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>,
-                            we used Bayesian optimization to discover lower-carbon concrete formulations, achieving improved trade-offs between
-                            global warming potential and compressive strength compared to current industry mixes.
-                            The optimized mix has been deployed at Meta's <a href="https://www.facebook.com/RosemountDataCenter/">data center in Rosemount, MN</a>.
-                        </p>
-                    </div>
-                    <div class="video-embed">
-                        <div class="video-poster" data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization">
-                            <img src="media/concrete_poster.jpg" alt="Sustainable Concrete via Bayesian Optimization">
-                            <span class="play-btn" aria-label="Play video"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="project-sara" class="project">
                 <h3>Scientific Autonomous Reasoning Agent (SARA)</h3>
                 <p class="project-links">
@@ -217,8 +224,7 @@
             </div>
         </section>
         <section id="publications" class="fade-in">
-            <h2>Publications</h2>
-            <p>See <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl">Google Scholar</a> for the most up-to-date list.</p>
+            <h2>Publications <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&hl" target="_blank" rel="noopener" class="section-icon" aria-label="Google Scholar profile"><svg><use href="#icon-scholar"></use></svg></a></h2>
             <div id="citation-chart-wrapper" class="citation-chart-wrapper" style="display:none">
                 <div class="citation-chart-header">
                     <p class="citation-summary" id="citation-summary"></p>
@@ -432,6 +438,8 @@
             return entry;
         }
 
+        // urlLabel() is defined in chart.js
+
         function renderPublications(pubs) {
             const list = document.getElementById('publication-list');
             list.innerHTML = pubs.map(pub => {
@@ -439,10 +447,23 @@
                 const venue = pub.venue ? ` &mdash; ${pub.venue}` : '';
                 const citations = pub.citationCount;
                 const links = [];
-                if (pub.url) links.push(`<a href="${pub.url}">Semantic Scholar</a>`);
+                // arXiv (most useful, present on nearly all papers)
                 if (pub.arxiv) links.push(`<a href="${pub.arxiv}">arXiv</a>`);
+                else if (pub.url && pub.url.includes('arxiv.org')) links.push(`<a href="${pub.url}">arXiv</a>`);
+                // BibTeX
+                const bibtex = pub.bibtex || generateBibtex(pub);
+                links.push(`<button class="bibtex-btn">BibTeX</button>`);
+                // Publisher (NeurIPS, Science Advances, etc.)
+                if (pub.publisherUrl) {
+                    links.push(`<a href="${pub.publisherUrl}">${urlLabel(pub.publisherUrl)}</a>`);
+                } else if (pub.url && !pub.url.includes('semanticscholar.org') && !pub.url.includes('arxiv.org')) {
+                    links.push(`<a href="${pub.url}">${urlLabel(pub.url)}</a>`);
+                }
+                // Semantic Scholar
+                if (pub.s2url) links.push(`<a href="${pub.s2url}">Semantic Scholar</a>`);
+                else if (pub.url && pub.url.includes('semanticscholar.org')) links.push(`<a href="${pub.url}">Semantic Scholar</a>`);
+                // PDF
                 if (pub.pdf) links.push(`<a href="${pub.pdf}">PDF</a>`);
-                links.push(`<button class="bibtex-btn" data-bibtex="${generateBibtex(pub).replace(/"/g, '&quot;')}">BibTeX</button>`);
                 const titleUrl = pub.arxiv || pub.url;
                 const title = titleUrl
                     ? `<a href="${titleUrl}" class="pub-title">${pub.title}</a>`
@@ -462,10 +483,15 @@
                 </li>`;
             }).join('');
 
-            // BibTeX copy handlers
-            list.querySelectorAll('.bibtex-btn').forEach(btn => {
+            // BibTeX copy handlers — store bibtex in a map keyed by paper key
+            const bibtexMap = {};
+            pubs.forEach(pub => {
+                bibtexMap[paperKey(pub.title)] = pub.bibtex || generateBibtex(pub);
+            });
+            list.querySelectorAll('.bibtex-btn').forEach((btn, i) => {
+                const key = paperKey(pubs[i].title);
                 btn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(btn.dataset.bibtex.replace(/&quot;/g, '"'));
+                    navigator.clipboard.writeText(bibtexMap[key]);
                     btn.textContent = 'Copied!';
                     setTimeout(() => { btn.textContent = 'BibTeX'; }, 1500);
                 });
@@ -585,8 +611,31 @@
                 .then(data => { publications = data; })
                 .catch(() => {});
 
-            // Re-render publications after both settle so sparklines have citation data
-            return Promise.allSettled([historyPromise, pubsPromise])
+            // Cross-reference both sources to enrich each paper with all available links
+            const otherSource = name === 'scholar' ? sources.s2 : sources.scholar;
+            const enrichPromise = fetchCached(otherSource.pubs).then(otherPubs => {
+                const otherByKey = {};
+                for (const p of otherPubs) otherByKey[paperKey(p.title)] = p;
+                return Promise.allSettled([pubsPromise]).then(() => {
+                    for (const pub of publications) {
+                        const other = otherByKey[paperKey(pub.title)];
+                        if (!other) continue;
+                        if (!pub.bibtex && other.bibtex) pub.bibtex = other.bibtex;
+                        if (!pub.arxiv && other.arxiv) pub.arxiv = other.arxiv;
+                        // Add Semantic Scholar link from S2 source
+                        if (!pub.s2url && other.url && other.url.includes('semanticscholar.org')) {
+                            pub.s2url = other.url;
+                        }
+                        // Add publisher link from Scholar source
+                        if (!pub.publisherUrl && other.url && !other.url.includes('semanticscholar.org') && !other.url.includes('arxiv.org')) {
+                            pub.publisherUrl = other.url;
+                        }
+                    }
+                });
+            }).catch(() => {});
+
+            // Re-render publications after all data is ready
+            return Promise.allSettled([historyPromise, pubsPromise, enrichPromise])
                 .then(() => updatePublications(currentSort));
         }
 
@@ -752,8 +801,10 @@
         });
 
         // Dark/light theme toggle
+        // Uses sessionStorage so manual override resets on tab close,
+        // and system theme always wins on fresh page load.
         function getEffectiveTheme() {
-            return localStorage.getItem('theme') ||
+            return sessionStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         }
 
@@ -772,13 +823,14 @@
         applyTheme();
 
         document.querySelectorAll('.theme-toggle').forEach(t => t.addEventListener('click', () => {
-            localStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
+            sessionStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
             applyTheme();
             if (overlay.classList.contains('open')) closeOverlay();
         }));
 
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            if (!localStorage.getItem('theme')) applyTheme();
+            sessionStorage.removeItem('theme');
+            applyTheme();
         });
 
         // Sort button handlers

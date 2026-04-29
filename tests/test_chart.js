@@ -104,4 +104,22 @@ assert.ok(
 assert.strictEqual(computeProjection({ "2024": 50, "2025": 20 }, null), null);
 assert.strictEqual(computeProjection({ "2024": 50, "2025": 20 }, ""), null);
 
+// ── urlLabel tests ──────────────────────────────────────────────────────────
+
+const { urlLabel } = require('../chart.js');
+
+assert.strictEqual(urlLabel('https://www.semanticscholar.org/paper/abc123'), 'Semantic Scholar');
+assert.strictEqual(urlLabel('https://arxiv.org/abs/2310.20708'), 'arXiv');
+assert.strictEqual(urlLabel('https://proceedings.neurips.cc/paper/2023/hash/abc-Conference.html'), 'NeurIPS');
+assert.strictEqual(urlLabel('https://proceedings.mlr.press/v162/ament22a.html'), 'PMLR');
+assert.strictEqual(urlLabel('https://www.science.org/doi/abs/10.1126/sciadv.abg4930'), 'Sci. Advances');
+assert.strictEqual(urlLabel('https://www.nature.com/articles/s42256-021-00384-1'), 'Nat. Mach. Intell.');
+assert.strictEqual(urlLabel('https://www.nature.com/articles/s41524-019-0213-0'), 'npj Comp. Mat.');
+assert.strictEqual(urlLabel('https://ieeexplore.ieee.org/abstract/document/9747510/'), 'IEEE');
+assert.strictEqual(urlLabel('https://link.springer.com/article/10.1007/s11222-017-9725-y'), 'Springer');
+assert.strictEqual(urlLabel('https://openreview.net/forum?id=U1f6wHtG1g'), 'OpenReview');
+assert.strictEqual(urlLabel('https://some-unknown-site.com/paper'), 'Paper');
+assert.strictEqual(urlLabel(''), '');
+assert.strictEqual(urlLabel(null), '');
+
 console.log("All JS tests passed ✓");

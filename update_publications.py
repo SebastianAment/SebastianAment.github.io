@@ -43,7 +43,7 @@ AUTHOR_IDS = ["5966892", "2264465163"]
 API_BASE = "https://api.semanticscholar.org/graph/v1"
 API_URL = API_BASE + "/author/{}/papers"
 CITATION_API_URL = API_BASE + "/paper/{}/citations"
-FIELDS = "title,year,venue,citationCount,url,externalIds,authors"
+FIELDS = "title,year,venue,citationCount,url,externalIds,authors,citationStyles"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Optional Semantic Scholar API key (free tier: 100 req/sec vs 100/5min without)
@@ -129,6 +129,9 @@ def process_publications(papers):
         ext_ids = paper.get("externalIds") or {}
         if ext_ids.get("ArXiv"):
             pub["arxiv"] = f"https://arxiv.org/abs/{ext_ids['ArXiv']}"
+        bibtex = (paper.get("citationStyles") or {}).get("bibtex", "")
+        if bibtex:
+            pub["bibtex"] = bibtex
         publications.append(pub)
 
     return _merge_manual_and_sort(publications)

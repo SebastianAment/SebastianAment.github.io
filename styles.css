@@ -335,6 +335,26 @@ h2 {
     font-size: 24px;
 }
 
+.section-icon {
+    display: inline-flex;
+    vertical-align: baseline;
+    margin-left: 8px;
+    color: var(--text-color);
+    transition: color 0.2s ease;
+}
+
+.section-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+    position: relative;
+    top: 3px;
+}
+
+.section-icon:hover {
+    color: var(--accent-color);
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -842,4 +862,24 @@ a.pub-title:hover {
 .project-meta {
     font-style: italic;
     opacity: 0.7;
+}
+
+.project-awards {
+    font-size: 13px;
+    margin-top: 0.5em;
+    opacity: 0.8;
+}
+
+.awards-label {
+    font-weight: 700;
+}
+
+.project-awards ul {
+    margin: 0.2em 0 0 1.2em;
+    padding: 0;
+    list-style: disc;
+}
+
+.project-awards li {
+    margin-bottom: 0.15em;
 }

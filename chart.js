@@ -49,7 +49,31 @@ function computeProjection(byYear, fetchedAt) {
     return { year: cy, projected };
 }
 
+/**
+ * Determine appropriate link label based on URL domain.
+ */
+function urlLabel(url) {
+    if (!url) return '';
+    if (url.includes('semanticscholar.org')) return 'Semantic Scholar';
+    if (url.includes('arxiv.org')) return 'arXiv';
+    if (url.includes('neurips.cc') || url.includes('nips.cc')) return 'NeurIPS';
+    if (url.includes('proceedings.mlr.press')) return 'PMLR';
+    if (url.includes('openreview.net')) return 'OpenReview';
+    if (url.includes('ieeexplore.ieee.org')) return 'IEEE';
+    if (url.includes('nature.com/articles/s41524')) return 'npj Comp. Mat.';
+    if (url.includes('nature.com/articles/s42256')) return 'Nat. Mach. Intell.';
+    if (url.includes('nature.com')) return 'Nature';
+    if (url.includes('science.org/doi') && url.includes('sciadv')) return 'Sci. Advances';
+    if (url.includes('science.org')) return 'Science';
+    if (url.includes('sciencedirect.com')) return 'ScienceDirect';
+    if (url.includes('springer.com')) return 'Springer';
+    if (url.includes('iopscience.iop.org')) return 'IOP Science';
+    if (url.includes('pubs.acs.org')) return 'ACS';
+    if (url.includes('cambridge.org')) return 'Cambridge';
+    return 'Paper';
+}
+
 // Export for Node.js testing; no-op in browser
 if (typeof module !== 'undefined') {
-    module.exports = { paperKey, computeProjection };
+    module.exports = { paperKey, computeProjection, urlLabel };
 }
