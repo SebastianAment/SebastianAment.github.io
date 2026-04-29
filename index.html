@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <meta name="theme-color" content="#f8f8f8">
+    <meta name="theme-color" content="#f8f8f8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#222222" media="(prefers-color-scheme: dark)">
     <link rel="author" href="llms.txt">
     <script type="application/ld+json">
     {
@@ -180,7 +181,7 @@
                 <p class="project-links">
                     <a href="https://arxiv.org/abs/2310.20708">Paper</a>
                     &middot; <a href="https://neurips.cc/virtual/2023/poster/72985">NeurIPS Poster</a>
-                    &middot; <a href="https://www.linkedin.com/posts/aiatmeta_neurips2023-activity-7140398603868549120-5T7E">AI at Meta</a>
+                    &middot; <a href="https://www.linkedin.com/posts/aiatmeta_neurips2023-activity-7140398603868549120-5T7E">AI at Meta on LinkedIn</a>
                     &middot; <span class="project-meta">NeurIPS 2023 Spotlight</span>
                 </p>
                 <div class="project-body">
@@ -810,9 +811,10 @@
 
         function updateThemeColor() {
             const color = getEffectiveTheme() === 'dark' ? '#222222' : '#f8f8f8';
-            const meta = document.querySelector('meta[name="theme-color"]');
-            meta.content = '';
-            requestAnimationFrame(() => { meta.content = color; });
+            document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+                meta.content = '';
+                requestAnimationFrame(() => { meta.content = color; });
+            });
         }
 
         function applyTheme() {

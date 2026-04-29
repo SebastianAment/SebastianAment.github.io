@@ -418,7 +418,7 @@ a:hover {
     }
 
     .project-body {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .video-embed {
