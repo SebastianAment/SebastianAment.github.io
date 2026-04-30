@@ -309,12 +309,14 @@
         document.querySelectorAll('.video-embed').forEach(el => videoObserver.observe(el));
 
         // Click-to-play for poster images: replace poster with iframe
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         document.querySelectorAll('.video-poster').forEach(poster => {
             poster.addEventListener('click', () => {
                 const src = poster.dataset.src;
                 const title = poster.getAttribute('title') || '';
                 const iframe = document.createElement('iframe');
-                iframe.src = src + '?autoplay=1&playsinline=1&enablejsapi=1';
+                const params = 'autoplay=1&playsinline=1&enablejsapi=1' + (isMobile ? '&mute=1' : '');
+                iframe.src = src + '?' + params;
                 iframe.title = title;
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
