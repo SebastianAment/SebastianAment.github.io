@@ -335,10 +335,14 @@ h2 {
     font-size: 24px;
 }
 
+#publications h2 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
 .section-icon {
     display: inline-flex;
-    vertical-align: baseline;
-    margin-left: 8px;
     color: var(--text-color);
     transition: color 0.2s ease;
 }
