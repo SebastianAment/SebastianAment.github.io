@@ -314,10 +314,17 @@
                 const src = poster.dataset.src;
                 const title = poster.getAttribute('title') || '';
                 const iframe = document.createElement('iframe');
-                iframe.src = src + '?autoplay=1';
+                iframe.src = src + '?autoplay=1&playsinline=1&enablejsapi=1';
                 iframe.title = title;
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
+                iframe.addEventListener('load', () => {
+                    const play = () => iframe.contentWindow.postMessage(
+                        JSON.stringify({event: 'command', func: 'playVideo'}), '*'
+                    );
+                    play();
+                    setTimeout(play, 700);
+                });
                 poster.replaceWith(iframe);
             });
         });
