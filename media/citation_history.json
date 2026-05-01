@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T19:35:50.161476+00:00",
+  "fetched_at": "2026-05-01T15:20:04.928728+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,7 +9,7 @@
     "2022": 67,
     "2023": 83,
     "2024": 81,
-    "2025": 177,
+    "2025": 178,
     "2026": 76
   },
   "papers": {
@@ -30,10 +30,10 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
-      "citationCount": 5,
+      "citationCount": 6,
       "citations_by_year": {
         "2026": 1,
-        "2025": 3,
+        "2025": 4,
         "2024": 1
       }
     },

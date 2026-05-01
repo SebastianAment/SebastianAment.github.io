@@ -2,10 +2,16 @@
   {
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
-    "venue": "",
+    "venue": "arXiv preprint arXiv:2603.21525",
     "citationCount": 0,
-    "url": "",
-    "authors": [],
+    "url": "https://arxiv.org/abs/2603.21525",
+    "authors": [
+      "Bayezid Baten",
+      "M Ayyan Iqbal",
+      "Sebastian Ament",
+      "Julius Kusuma",
+      "Nishant Garg"
+    ],
     "pdf": ""
   },
   {
@@ -184,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 277,
+    "citationCount": 280,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -443,10 +449,22 @@
   {
     "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
     "year": 2019,
-    "venue": "",
+    "venue": "MRS Communications",
     "citationCount": 38,
-    "url": "",
-    "authors": [],
+    "url": "https://www.cambridge.org/core/journals/mrs-communications/article/crystal-a-multiagent-ai-system-for-automated-mapping-of-materials-crystal-structures/73E3A4F24120EBD71A782F0ED278ECB3",
+    "authors": [
+      "Carla P Gomes",
+      "Junwen Bai",
+      "Yexiang Xue",
+      "Johan Bj\u00f6rck",
+      "Brendan Rappazzo",
+      "Sebastian Ament",
+      "Richard Bernstein",
+      "Shufeng Kong",
+      "Santosh K Suram",
+      "R Bruce van Dover",
+      "John M Gregoire"
+    ],
     "pdf": ""
   },
   {
@@ -471,19 +489,31 @@
   {
     "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
     "year": 2019,
-    "venue": "",
+    "venue": "arXiv preprint arXiv:1902.05601",
     "citationCount": 11,
-    "url": "",
-    "authors": [],
+    "url": "https://arxiv.org/abs/1902.05601",
+    "authors": [
+      "Sebastian Ament",
+      "John Gregoire",
+      "Carla Gomes"
+    ],
     "pdf": ""
   },
   {
     "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
     "year": 2019,
-    "venue": "",
+    "venue": "MRS Communications",
     "citationCount": 6,
-    "url": "",
-    "authors": [],
+    "url": "https://scholar.google.com/scholar?cluster=14696124643441565425&hl=en&oi=scholarr",
+    "authors": [
+      "Carla P Gomes",
+      "Junwen Bai",
+      "Yexiang Xue",
+      "Johan Bj\u00f6rck",
+      "Brendan Rappazzo",
+      "Sebastian Ament",
+      "Richard Bernstein"
+    ],
     "pdf": ""
   },
   {
@@ -503,8 +533,14 @@
     "year": 2018,
     "venue": "",
     "citationCount": 8,
-    "url": "",
-    "authors": [],
+    "url": "https://link.springer.com/chapter/10.1007/978-3-319-93031-2_4",
+    "authors": [
+      "Junwen Bai",
+      "Sebastian Ament",
+      "Guillaume Perez",
+      "John Gregoire",
+      "Carla Gomes"
+    ],
     "pdf": ""
   },
   {

@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="media/la_square.jpg" as="image">
     <meta name="theme-color" content="#f8f8f8" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#222222" media="(prefers-color-scheme: dark)">
     <link rel="author" href="llms.txt">
@@ -68,7 +69,7 @@
         </symbol>
     </svg>
     <header class="glass">
-        <a class="header-name" href="#">Sebastian Ament</a>
+        <a class="header-name" href="#" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'',location.pathname)">Sebastian Ament</a>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -365,8 +366,10 @@
                     const projPx = (proj / maxVal) * barHeight;
                     return `<div class="chart-col">
                         <span class="chart-value">${count}<span class="chart-projected-value"> / ${proj}*</span></span>
-                        <div class="chart-bar chart-bar-projected" style="height:${projPx - actualPx}px" title="${year} projected: ${proj}"></div>
-                        <div class="chart-bar" style="height:${actualPx}px; border-radius:0" title="${year}: ${count}"></div>
+                        <div class="chart-bar-stack" style="height:${projPx}px">
+                            <div class="chart-bar chart-bar-projected" style="height:100%" title="${year} projected: ${proj}"></div>
+                            <div class="chart-bar chart-bar-actual" style="height:${actualPx}px" title="${year}: ${count}"></div>
+                        </div>
                         <span class="chart-label">${year}</span>
                     </div>`;
                 }
@@ -573,6 +576,50 @@
             }).then(data => { dataCache[url] = data; return data; });
         }
 
+        // Animated count-up for citation total
+        const ANIM_DURATION = 900; // ms — single knob for all chart animations
+
+        function animateCount(el, target, suffix) {
+            const duration = ANIM_DURATION;
+            const start = performance.now();
+            function step(now) {
+                const t = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
+                el.textContent = `${Math.round(ease * target)}${suffix}`;
+                if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        let citationAnimated = false;
+        const citationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !citationAnimated) {
+                    citationAnimated = true;
+                    // Animate counter
+                    const el = document.getElementById('citation-summary');
+                    const total = parseInt(el.dataset.total, 10);
+                    const suffix = el.dataset.suffix || '';
+                    if (total > 0) animateCount(el, total, suffix);
+                    // Animate bars with staggered delay
+                    const bars = entry.target.querySelectorAll('#citation-chart .chart-col');
+                    const numBars = bars.length;
+                    const barDuration = ANIM_DURATION * 0.6;
+                    const stagger = numBars > 1 ? (ANIM_DURATION - barDuration) / (numBars - 1) : 0;
+                    bars.forEach((col, i) => {
+                        const bar = col.querySelector('.chart-bar-stack, .chart-bar:not(.chart-bar-actual):not(.chart-bar-projected)');
+                        if (bar) {
+                            const cls = bar.classList.contains('chart-bar-stack') ? 'chart-bar-stack-animate' : 'chart-bar-animate';
+                            bar.style.animationDelay = `${Math.round(i * stagger)}ms`;
+                            bar.style.animationDuration = `${Math.round(barDuration)}ms`;
+                            bar.classList.add(cls);
+                        }
+                    });
+                    citationObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
         function renderChart(history) {
             const agg = history.aggregate;
             const years = Object.keys(agg).sort();
@@ -592,8 +639,15 @@
                 updated = ` · updated ${d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}`;
             }
 
-            document.getElementById('citation-summary').textContent =
-                `${total} total citations${updated}`;
+            const suffix = ` total citations${updated}`;
+            const el = document.getElementById('citation-summary');
+            el.dataset.total = total;
+            el.dataset.suffix = suffix;
+            el.textContent = `${total}${suffix}`;
+
+            // Reset and observe for animation
+            citationAnimated = false;
+            citationObserver.observe(wrapper);
 
             const chart = document.getElementById('citation-chart');
             renderBarChart(chart, agg, {
