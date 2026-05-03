@@ -1,0 +1,10 @@
+# Required for `update_publications.py --source scholar`
+# Upper bound: scholarly has had breaking API changes between major
+# versions; cap protects the weekly cron job from a surprise.
+scholarly>=1.7,<2
+
+# Required for `generate_favicon.py`
+Pillow>=10.0
+
+# Test framework
+pytest>=7.0
