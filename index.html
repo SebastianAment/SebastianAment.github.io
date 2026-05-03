@@ -16,8 +16,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="media/la_square.jpg" as="image">
-    <meta name="theme-color" content="#f8f8f8" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#222222" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f8f8">
+    <script>
+        // Apply the theme synchronously, before <body> parses, so the page
+        // renders with the right colors from the very first paint and iOS
+        // Safari samples the right URL-bar tint immediately. sessionStorage
+        // scopes a manual override to the current tab; system preference
+        // wins on a fresh tab.
+        //
+        // applyTheme() and getEffectiveTheme() are intentionally global —
+        // the body script's theme-toggle and prefers-color-scheme listeners
+        // re-use them. The applyTheme() call below depends on the
+        // theme-color <meta> existing, which is why this script must come
+        // AFTER that meta tag in the head.
+        function getEffectiveTheme() {
+            return sessionStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+        function applyTheme() {
+            const theme = getEffectiveTheme();
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelector('meta[name="theme-color"]').content =
+                theme === 'dark' ? '#222222' : '#f8f8f8';
+        }
+        applyTheme();
+    </script>
     <link rel="author" href="llms.txt">
     <script type="application/ld+json">
     {
@@ -767,15 +790,25 @@
         // Overlay menu
         const overlay = document.querySelector('.overlay-menu');
         const menuBtn = document.querySelector('.menu-btn');
+        let savedScrollY = 0;
 
         function openOverlay() {
-            overlay.classList.add('open');
+            if (overlay.classList.contains('open')) return;
+            // Capture scroll position and pin the body in place (see CSS for
+            // body.no-scroll). Order matters: set `top` before adding the
+            // class, otherwise the page would briefly snap to scroll 0.
+            savedScrollY = window.scrollY;
+            document.body.style.top = `-${savedScrollY}px`;
             document.body.classList.add('no-scroll');
+            overlay.classList.add('open');
         }
 
         function closeOverlay() {
+            if (!overlay.classList.contains('open')) return;
             overlay.classList.remove('open');
             document.body.classList.remove('no-scroll');
+            document.body.style.top = '';
+            window.scrollTo(0, savedScrollY);
         }
 
         menuBtn.addEventListener('click', () => {
@@ -828,10 +861,7 @@
                 if (Math.abs(dy) > Math.abs(dx)) { swipeDir = null; return; }
                 swiping = true;
                 overlay.style.transition = 'none';
-                if (swipeDir === 'open') {
-                    overlay.classList.add('open');
-                    document.body.classList.add('no-scroll');
-                }
+                if (swipeDir === 'open') openOverlay();
             }
 
             const w = window.innerWidth;
@@ -865,29 +895,10 @@
             swipeDir = null;
         });
 
-        // Dark/light theme toggle
-        // Uses sessionStorage so manual override resets on tab close,
-        // and system theme always wins on fresh page load.
-        function getEffectiveTheme() {
-            return sessionStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        }
-
-        function updateThemeColor() {
-            const color = getEffectiveTheme() === 'dark' ? '#222222' : '#f8f8f8';
-            document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
-                meta.content = '';
-                requestAnimationFrame(() => { meta.content = color; });
-            });
-        }
-
-        function applyTheme() {
-            document.documentElement.setAttribute('data-theme', getEffectiveTheme());
-            updateThemeColor();
-        }
-
-        applyTheme();
-
+        // Dark/light theme toggle. applyTheme() and getEffectiveTheme()
+        // are defined in the <head> inline script and applied there
+        // synchronously before body parses — see that script's comment for
+        // why (FOUC + iOS URL bar tinting).
         document.querySelectorAll('.theme-toggle').forEach(t => t.addEventListener('click', () => {
             sessionStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
             applyTheme();

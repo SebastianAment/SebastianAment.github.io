@@ -3,7 +3,16 @@
  *
  * Renders a Gaussian process posterior (mean, variance band, samples)
  * behind all page content. Samples rotate along equi-probability
- * ellipses of the posterior as the user scrolls.
+ * ellipses of the posterior. Two motion sources combine:
+ *   - A slow time-based drift (IDLE_ANGULAR_SPEED) so the page feels alive
+ *     even when stationary.
+ *   - Scroll position (SCROLL_SPEED) adds to the angle, so scrolling
+ *     accelerates the motion and feels coupled to the page.
+ *
+ * `prefers-reduced-motion: reduce` disables both — samples render once
+ * at θ = 0 and never animate. The rAF loop is only started when motion
+ * is allowed, and rAF auto-pauses when the document is hidden, so we
+ * don't burn CPU/battery in background tabs.
  */
 (function () {
     'use strict';
@@ -17,12 +26,16 @@
     const OPACITY_MEAN = 0.15;
     const OPACITY_BAND = 0.06;
     const OPACITY_SAMPLE = 0.10;
-    const SCROLL_SPEED = 0.0008;
+    const SCROLL_SPEED = 0.0008;        // radians per scroll pixel
+    const IDLE_ANGULAR_SPEED = 0.0002;  // radians per ms — ~30s per full rotation
     const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ─── Fake observed data ──────────────────────────────────────────────
-    const xObs = [0.08, 0.22, 0.35, 0.52, 0.68, 0.82, 0.93];
-    const yObs = [0.3, -0.5, 0.2, 0.8, -0.1, 0.6, -0.3];
+    // Reflected across the y-axis (x → 1-x) from the original data so the
+    // mean trends upward left-to-right rather than downward — reads as
+    // "increasing" rather than "decreasing".
+    const xObs = [0.07, 0.18, 0.32, 0.48, 0.65, 0.78, 0.92];
+    const yObs = [-0.3, 0.6, -0.1, 0.8, 0.2, -0.5, 0.3];
 
     // ─── Canvas setup ────────────────────────────────────────────────────
     const canvas = document.createElement('canvas');
@@ -33,7 +46,8 @@
 
     let W, H, dpr;
     let scrollY = 0;
-    let ticking = false;
+    let baseTheta = 0;       // accumulated time-based angle (radians)
+    let lastFrameTime = 0;   // timestamp of previous rAF frame
 
     // ─── Precomputed posterior data ──────────────────────────────────────
     let xGrid = [];
@@ -248,7 +262,7 @@
         ctx.clearRect(0, 0, W, H);
 
         const accent = accentColor;
-        const theta = REDUCED_MOTION ? 0 : scrollY * SCROLL_SPEED;
+        const theta = REDUCED_MOTION ? 0 : (baseTheta + scrollY * SCROLL_SPEED);
 
         // ── Variance band (±2σ) ──────────────────────────────────────────
         ctx.beginPath();
@@ -301,8 +315,21 @@
     }
 
     // ─── Resize ──────────────────────────────────────────────────────────
+    // Two iOS-specific guards that together eliminated the stutter on
+    // iPhone:
+    //
+    // 1. Skip resize unless WIDTH changes. iOS fires `resize` every time
+    //    the URL bar collapses/expands during scroll, and each one was
+    //    reallocating the canvas backing store (which clears it) — a
+    //    multi-ms stall landing mid-flick. Width-only check kicks the
+    //    URL-bar transitions out; CSS `height: 100%` keeps the canvas
+    //    visually filling the viewport in between.
+    // 2. Cap DPR at 2. iPhone Pro is DPR=3 → 9× pixel backing store for
+    //    a low-opacity background ornament. Capping at 2 cuts per-frame
+    //    GPU work ~55% with no visible difference at these opacities.
     function resize() {
-        dpr = window.devicePixelRatio || 1;
+        if (W === window.innerWidth) return;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
         W = window.innerWidth;
         H = window.innerHeight;
         canvas.width = W * dpr;
@@ -313,16 +340,19 @@
         draw();
     }
 
-    // ─── Scroll handler ──────────────────────────────────────────────────
-    function onScroll() {
+    // ─── Animation loop ──────────────────────────────────────────────────
+    // Continuous rAF loop: integrates IDLE_ANGULAR_SPEED into baseTheta
+    // each frame and re-reads window.scrollY directly (no scroll listener
+    // needed). dt is capped at 50ms so a long pause (e.g. backgrounded
+    // tab) doesn't produce a teleport jump on resume — rAF auto-pauses
+    // when the document is hidden, so the loop only runs while visible.
+    function frame(now) {
+        const dt = lastFrameTime === 0 ? 0 : Math.min(now - lastFrameTime, 50);
+        lastFrameTime = now;
+        baseTheta += dt * IDLE_ANGULAR_SPEED;
         scrollY = window.scrollY;
-        if (!ticking && !REDUCED_MOTION) {
-            ticking = true;
-            requestAnimationFrame(() => {
-                draw();
-                ticking = false;
-            });
-        }
+        draw();
+        requestAnimationFrame(frame);
     }
 
     // ─── Theme change ────────────────────────────────────────────────────
@@ -343,6 +373,6 @@
     computePosterior();
     updateAccentColor();
     window.addEventListener('resize', resize, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
     resize();
+    if (!REDUCED_MOTION) requestAnimationFrame(frame);
 })();

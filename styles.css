@@ -1,5 +1,12 @@
 /* Light theme (default) */
 :root {
+    /* color-scheme drives UA chrome (scrollbars, form controls, native
+       caret) to match the site theme. The URL-bar tint on iOS is driven
+       primarily by the theme-color meta tag (mutated in the <head>
+       inline script in index.html); color-scheme is the supporting
+       declaration that keeps everything else consistent. */
+    color-scheme: light;
+
     --bg-primary: #f0f0f0;
     --bg-card: #ffffff;
     --bg-card-rgb: 255, 255, 255;
@@ -16,6 +23,8 @@
 
 /* Dark theme */
 [data-theme="dark"] {
+    color-scheme: dark;
+
     --bg-primary: #1a1a1a;
     --bg-card: #2a2a2a;
     --bg-card-rgb: 42, 42, 42;
@@ -27,14 +36,27 @@
     --footer-color: #666;
 }
 
-/* GP background canvas — full viewport behind content */
+/* GP background canvas — full viewport behind content.
+   z-index: -1 (not 0) is critical: at z-index 0 the canvas would land in
+   the same paint bucket as positioned content, which breaks iOS Safari's
+   ability to detect theme-color meta tag mutations on the same page (URL
+   bar fails to re-tint on toggle). At z-index -1 the canvas paints behind
+   in-flow content; iOS treats it as a background layer and the meta tag
+   path works correctly.
+   Visibility chain: body's bg (--bg-primary) propagates to html and is
+   painted at the very back of the viewport. The canvas (z-index -1) is
+   painted on top of that, then content layers above. The canvas shows
+   through because content above is partly transparent: .glass header
+   (50% opacity), sections (92% opacity).
+   Important: this fix relies on body having an opaque background. Don't
+   make body transparent without also rethinking the iOS workaround. */
 #gp-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -51,8 +73,18 @@ body {
     transition: background-color 0.7s ease, color 0.7s ease;
 }
 
+/* Position-fixed scroll lock. `overflow: hidden` alone isn't enough on
+   iOS — it prevents new scrolls but doesn't stop existing momentum, which
+   blocks tap events on the overlay until the momentum dies. Removing body
+   from the scroll context (position: fixed) does. The negative `top` is
+   set inline by JS to preserve visual scroll position; window.scrollTo on
+   close restores actual scroll position. */
 body.no-scroll {
     overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 html {
