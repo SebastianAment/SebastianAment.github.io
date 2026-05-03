@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-05-01T15:26:50.560964+00:00",
+  "fetched_at": "2026-05-03T19:25:31.071442+00:00",
   "source": "google_scholar",
-  "citedby": 947,
+  "citedby": 950,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,19 +11,19 @@
     "2022": 95,
     "2023": 100,
     "2024": 170,
-    "2025": 360,
-    "2026": 132
+    "2025": 358,
+    "2026": 137
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 280,
+      "citationCount": 283,
       "citations_by_year": {
         "2022": 1,
         "2023": 3,
         "2024": 50,
         "2025": 162,
-        "2026": 62
+        "2026": 65
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -34,8 +34,8 @@
         "2022": 13,
         "2023": 23,
         "2024": 25,
-        "2025": 29,
-        "2026": 13
+        "2025": 28,
+        "2026": 14
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -127,8 +127,8 @@
       "title": "Ax: A platform for adaptive experimentation",
       "citationCount": 29,
       "citations_by_year": {
-        "2025": 15,
-        "2026": 14
+        "2025": 14,
+        "2026": 15
       }
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {

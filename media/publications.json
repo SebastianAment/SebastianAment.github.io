@@ -62,7 +62,7 @@
     "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
     "year": 2025,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 6,
+    "citationCount": 7,
     "url": "https://www.semanticscholar.org/paper/da89c7f87939960d0909574355ec9b134e6eef01",
     "authors": [
       "J. Lin",
@@ -271,7 +271,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 64,
+    "citationCount": 65,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",

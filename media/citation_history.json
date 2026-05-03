@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-01T15:20:04.928728+00:00",
+  "fetched_at": "2026-05-03T19:23:43.706540+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 178,
-    "2026": 76
+    "2026": 77
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -30,7 +30,7 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
-      "citationCount": 6,
+      "citationCount": 7,
       "citations_by_year": {
         "2026": 1,
         "2025": 4,
@@ -141,9 +141,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 64,
+      "citationCount": 65,
       "citations_by_year": {
-        "2026": 3,
+        "2026": 4,
         "2025": 15,
         "2024": 12,
         "2023": 19,
