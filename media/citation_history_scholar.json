@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-05-03T19:25:31.071442+00:00",
+  "fetched_at": "2026-05-06T04:20:30.808692+00:00",
   "source": "google_scholar",
-  "citedby": 950,
+  "citedby": 952,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -12,7 +12,7 @@
     "2023": 100,
     "2024": 170,
     "2025": 358,
-    "2026": 137
+    "2026": 139
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
@@ -22,20 +22,20 @@
         "2022": 1,
         "2023": 3,
         "2024": 50,
-        "2025": 162,
-        "2026": 65
+        "2025": 161,
+        "2026": 66
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 106,
+      "citationCount": 107,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 28,
-        "2026": 14
+        "2026": 15
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -125,9 +125,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 29,
+      "citationCount": 30,
       "citations_by_year": {
-        "2025": 14,
+        "2025": 15,
         "2026": 15
       }
     },
