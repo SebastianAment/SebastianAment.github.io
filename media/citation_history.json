@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-11T12:13:54.281394+00:00",
+  "fetched_at": "2026-05-11T16:20:30.086660+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 174,
-    "2026": 83
+    "2026": 84
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -83,9 +83,9 @@
     },
     "sustainable_concrete_via_bayesian_optimization": {
       "title": "Sustainable Concrete via Bayesian Optimization",
-      "citationCount": 7,
+      "citationCount": 8,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 4,
         "2024": 1,
         "2023": 1
