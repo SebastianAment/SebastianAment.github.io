@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-06T04:20:04.645734+00:00",
+  "fetched_at": "2026-05-11T12:13:54.281394+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 67,
     "2023": 83,
     "2024": 81,
-    "2025": 177,
-    "2026": 78
+    "2025": 174,
+    "2026": 83
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -39,9 +39,9 @@
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian Processes via Relevance Pursuit",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 6
       }
     },
@@ -55,10 +55,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 194,
+      "citationCount": 197,
       "citations_by_year": {
-        "2026": 46,
-        "2025": 54
+        "2026": 49,
+        "2025": 51
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -129,9 +129,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 84,
+      "citationCount": 85,
       "citations_by_year": {
-        "2026": 7,
+        "2026": 8,
         "2025": 20,
         "2024": 16,
         "2023": 21,
