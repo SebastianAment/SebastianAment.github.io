@@ -33,10 +33,23 @@
   {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
-    "venue": "",
+    "venue": "arXiv preprint arXiv:2601.08185",
     "citationCount": 0,
-    "url": "",
-    "authors": [],
+    "url": "https://arxiv.org/abs/2601.08185",
+    "authors": [
+      "Ming-Chiang Chang",
+      "Maximilian Amsler",
+      "Duncan R Sutherland",
+      "Sebastian Ament",
+      "Katie R Gann",
+      "Lan Zhou",
+      "Louisa M Smieska",
+      "Arthur R Woll",
+      "John M Gregoire",
+      "Carla P Gomes",
+      "R Bruce van Dover",
+      "Michael O Thompson"
+    ],
     "pdf": ""
   },
   {
@@ -74,7 +87,7 @@
     "title": "Scalable Gaussian processes with latent Kronecker structure",
     "year": 2025,
     "venue": "arXiv preprint arXiv:2506.06895",
-    "citationCount": 7,
+    "citationCount": 8,
     "url": "https://arxiv.org/abs/2506.06895",
     "authors": [
       "Jihao Andreas Lin",
@@ -147,7 +160,7 @@
     "title": "Robust Gaussian processes via relevance pursuit",
     "year": 2024,
     "venue": "Advances in Neural Information Processing Systems",
-    "citationCount": 10,
+    "citationCount": 11,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -177,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 286,
+    "citationCount": 290,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -208,7 +221,7 @@
     "title": "Sustainable concrete via bayesian optimization",
     "year": 2023,
     "venue": "arXiv preprint arXiv:2310.18288",
-    "citationCount": 16,
+    "citationCount": 17,
     "url": "https://arxiv.org/abs/2310.18288",
     "authors": [
       "Sebastian Ament",
@@ -221,10 +234,15 @@
   {
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
-    "venue": "",
+    "venue": "Artificial Intelligence",
     "citationCount": 23,
-    "url": "",
-    "authors": [],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0004370222000236",
+    "authors": [
+      "Guillaume Perez",
+      "Sebastian Ament",
+      "Carla Gomes",
+      "Michel Barlaud"
+    ],
     "pdf": ""
   },
   {
