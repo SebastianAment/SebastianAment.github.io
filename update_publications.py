@@ -15,10 +15,17 @@ Usage:
   # With Semantic Scholar API key for higher rate limits:
   S2_API_KEY=your_key python3 update_publications.py
 
+  # With ScraperAPI key for reliable Google Scholar fetches:
+  SCHOLARLY_SCRAPER_API_KEY=your_key python3 update_publications.py --source scholar
+
 Options:
-  --source s2        Semantic Scholar API (default, reliable for CI)
-  --source scholar   Google Scholar via `scholarly` (higher counts, fragile)
-  --infill           Re-fetch only papers missing citation history data
+  --source s2          Semantic Scholar API (default, reliable for CI)
+  --source scholar     Google Scholar via `scholarly` (higher counts, fragile)
+  --infill             Re-fetch only papers missing citation history data
+  --scholar-proxy MODE One of: auto (default), direct, free, scraperapi.
+                       'auto' tries direct, then scraperapi (if key), then free.
+                       Free proxies often serve cached pages and yield stale
+                       per-year counts; prefer 'direct' or 'scraperapi'.
 
 Output files:
   media/publications.json              S2 publications list
@@ -48,6 +55,12 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Optional Semantic Scholar API key (free tier: 100 req/sec vs 100/5min without)
 S2_API_KEY = os.environ.get("S2_API_KEY")
+
+# Output paths (defined once and referenced everywhere).
+S2_PUBS_PATH = os.path.join(SCRIPT_DIR, "media", "publications.json")
+S2_HISTORY_PATH = os.path.join(SCRIPT_DIR, "media", "citation_history.json")
+SCHOLAR_PUBS_PATH = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
+SCHOLAR_HISTORY_PATH = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
 
 
 def _make_request(url, retries=3):
@@ -172,10 +185,9 @@ def fetch_citations_for_paper(paper_id):
 
 def fetch_citation_history(publications):
     """Fetch citation-year data for all publications, with incremental caching."""
-    cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history.json")
     cache = {}
-    if os.path.exists(cache_path):
-        with open(cache_path) as f:
+    if os.path.exists(S2_HISTORY_PATH):
+        with open(S2_HISTORY_PATH) as f:
             cache = json.load(f)
 
     cached_papers = cache.get("papers", {})
@@ -230,9 +242,9 @@ def fetch_citation_history(publications):
         "papers": cached_papers,
     }
 
-    with open(cache_path, "w") as f:
+    with open(S2_HISTORY_PATH, "w") as f:
         json.dump(result, f, indent=2)
-    print(f"  Saved {cache_path} ({updated} papers updated)")
+    print(f"  Saved {S2_HISTORY_PATH} ({updated} papers updated)")
 
     # Print summary
     total = sum(aggregate.values())
@@ -276,103 +288,368 @@ def _merge_manual_and_sort(publications):
     return publications
 
 
-def fetch_from_google_scholar():
-    """Fetch publications and citation history from Google Scholar."""
+def _check_citation_coherence(citation_history, publications, prev_cache=None,
+                              gap_abs_threshold=3, gap_rel_threshold=0.01):
+    """Sanity-check that citation totals and the per-year history line up.
+
+    Google Scholar's per-year chart only covers ~11 years, so the chart sum is
+    typically *less than* the headline 'Cited by' total — that's expected.
+    This check looks for *unexpected* inconsistencies and prints a warning
+    section. It never raises.
+
+    Side effect: writes a 'coherence' block back into ``citation_history``.
+
+    Returns a list of (severity, message) tuples; severity is 'INFO', 'WARN',
+    or 'ERROR'. ERROR means a logical impossibility (e.g. chart > total).
+    """
+    issues = []
+    citedby = citation_history.get("citedby") or 0
+    aggregate = citation_history.get("aggregate", {})
+    papers = citation_history.get("papers", {})
+
+    sum_aggregate = sum(aggregate.values())
+    sum_paper_counts = sum(p.get("citationCount", 0) for p in publications)
+
+    # 1. Hard invariant: chart sum cannot exceed total cited-by.
+    if sum_aggregate > citedby and citedby > 0:
+        issues.append((
+            "ERROR",
+            f"sum(aggregate)={sum_aggregate} > citedby={citedby} "
+            f"(impossible — per-year chart cannot exceed total)"
+        ))
+
+    # 2. Soft invariant: the gap (older-than-chart citations) should be small
+    #    and stable. A growing gap usually means newer years are under-counted.
+    gap = citedby - sum_aggregate
+    if citedby > 0 and prev_cache:
+        prev_citedby = prev_cache.get("citedby") or 0
+        prev_gap = prev_citedby - sum(prev_cache.get("aggregate", {}).values())
+        delta_gap = gap - prev_gap
+        if abs(delta_gap) >= gap_abs_threshold and abs(delta_gap) / max(citedby, 1) > gap_rel_threshold:
+            issues.append((
+                "WARN",
+                f"chart-vs-total gap moved by {delta_gap:+d} since last run "
+                f"(prev gap={prev_gap}, now={gap}). New citations may be "
+                f"missing from recent-year bars; see if Scholar is logged in."
+            ))
+
+    # 3. Per-paper consistency: each paper's per-year sum should not exceed
+    #    its own citationCount (the paper-level bar chart is bounded by its
+    #    headline number).
+    bad_papers = []
+    for key, pd in papers.items():
+        cby = pd.get("citationCount", 0)
+        s = sum(pd.get("citations_by_year", {}).values())
+        if s > cby:
+            bad_papers.append((pd.get("title", key)[:60], s, cby))
+    if bad_papers:
+        issues.append((
+            "WARN",
+            f"{len(bad_papers)} paper(s) have per-year sum > citationCount "
+            f"(first: '{bad_papers[0][0]}' sum={bad_papers[0][1]} "
+            f"vs count={bad_papers[0][2]})"
+        ))
+
+    # 4. Informational deltas vs prior run.
+    if prev_cache:
+        prev_citedby = prev_cache.get("citedby") or 0
+        prev_agg = prev_cache.get("aggregate", {})
+        if prev_citedby and citedby and citedby != prev_citedby:
+            issues.append((
+                "INFO",
+                f"citedby: {prev_citedby} -> {citedby} ({citedby - prev_citedby:+d})"
+            ))
+        for y in sorted(set(prev_agg) | set(aggregate)):
+            old = prev_agg.get(y, 0)
+            new = aggregate.get(y, 0)
+            if old != new:
+                issues.append(("INFO", f"  {y}: {old} -> {new} ({new - old:+d})"))
+
+    # 5. Print a structured summary block.
+    print("\nCoherence check:")
+    print(f"  citedby (total):           {citedby}")
+    print(f"  sum(aggregate per year):   {sum_aggregate}  (gap from total: {gap})")
+    print(f"  sum(paper.citationCount):  {sum_paper_counts}")
+    if not issues:
+        print("  All invariants OK.")
+    else:
+        # Order: ERROR first, then WARN, then INFO.
+        order = {"ERROR": 0, "WARN": 1, "INFO": 2}
+        for sev, msg in sorted(issues, key=lambda i: order.get(i[0], 99)):
+            print(f"  [{sev}] {msg}")
+
+    citation_history["coherence"] = {
+        "citedby": citedby,
+        "sum_aggregate": sum_aggregate,
+        "sum_paper_counts": sum_paper_counts,
+        "gap_total_minus_aggregate": gap,
+        "issues": [{"severity": s, "message": m} for s, m in issues],
+    }
+    return issues
+
+
+def _setup_scholar_proxy(mode="auto"):
+    """Set up scholarly's connection mode.
+
+    Modes:
+      'auto'        : ScraperAPI (if key set) -> direct (no proxy). On a fetch
+                      failure, the caller may fall back to free proxies via
+                      ``_enable_free_proxy_fallback``.
+      'direct'      : no proxy.
+      'scraperapi'  : require SCHOLARLY_SCRAPER_API_KEY env var; raises if missing.
+      'free'        : free public proxies (often serve cached pages — discouraged).
+
+    Returns the mode that was actually activated (one of 'direct', 'free',
+    'scraperapi'). The returned value drives downstream throttling.
+    """
     from scholarly import scholarly, ProxyGenerator
 
-    # Use free proxy rotation to avoid IP-based rate limiting from Google
+    api_key = os.environ.get("SCHOLARLY_SCRAPER_API_KEY")
+
+    if mode == "direct":
+        print("  Using direct connection (no proxy).")
+        return "direct"
+
+    if mode in ("scraperapi", "auto") and api_key:
+        try:
+            pg = ProxyGenerator()
+            ok = pg.ScraperAPI(api_key)
+            if ok:
+                scholarly.use_proxy(pg)
+                print("  Using ScraperAPI.")
+                return "scraperapi"
+        except Exception as e:
+            print(f"  ScraperAPI setup failed: {e}")
+        if mode == "scraperapi":
+            raise RuntimeError("ScraperAPI key not provided or setup failed.")
+
+    if mode == "free":
+        try:
+            pg = ProxyGenerator()
+            pg.FreeProxies()
+            scholarly.use_proxy(pg)
+            print("  Using free proxy rotation (warning: may serve cached pages).")
+            return "free"
+        except Exception as e:
+            print(f"  Free proxy setup failed ({e}); falling back to direct.")
+            return "direct"
+
+    # auto with no scraperapi key → start direct, only fall back to free on failure
+    print("  Using direct connection (no proxy). Will fall back to free proxies if blocked.")
+    return "direct"
+
+
+def _enable_free_proxy_fallback():
+    """Switch scholarly to free proxies after a direct attempt fails."""
+    from scholarly import scholarly, ProxyGenerator
     try:
         pg = ProxyGenerator()
         pg.FreeProxies()
         scholarly.use_proxy(pg)
-        print("  Using free proxy rotation.")
-    except Exception:
-        print("  Could not set up proxy, using direct connection.")
+        print("  Switched to free proxy rotation as a fallback.")
+        return True
+    except Exception as e:
+        print(f"  Could not start free proxy fallback: {e}")
+        return False
+
+
+def _process_filled_pub(pub_filled):
+    """Convert a scholarly-filled publication into our (pub, citation_record) shape.
+
+    Returns (pub_dict, paper_key, citation_dict_or_None).
+    """
+    bib = pub_filled.get("bib", {})
+    title = bib.get("title", "")
+    year = bib.get("pub_year")
+    if year:
+        try:
+            year = int(year)
+        except (ValueError, TypeError):
+            year = None
+
+    citation_count = pub_filled.get("num_citations", 0)
+    venue = bib.get("journal") or bib.get("conference") or bib.get("venue", "")
+    authors = bib.get("author", "").split(" and ") if bib.get("author") else []
+
+    pub_url = pub_filled.get("pub_url", "")
+    eprint = bib.get("eprint", "")
+    arxiv = ""
+    if eprint and "arxiv" in eprint.lower():
+        arxiv = eprint if eprint.startswith("http") else f"https://arxiv.org/abs/{eprint}"
+
+    pub = {
+        "title": title,
+        "year": year,
+        "venue": venue,
+        "citationCount": citation_count,
+        "url": pub_url,
+        "authors": authors,
+        "pdf": "",
+    }
+    if arxiv:
+        pub["arxiv"] = arxiv
+
+    cites_per_year = pub_filled.get("cites_per_year", {})
+    citation = None
+    if cites_per_year:
+        citation = {
+            "title": title,
+            "citationCount": citation_count,
+            "citations_by_year": {str(y): c for y, c in cites_per_year.items()},
+        }
+    return pub, _paper_key(title), citation
+
+
+def _merge_citation(citation_papers, key, new):
+    """Merge a new citation record into the running map (max per year)."""
+    if key is None or new is None:
+        return
+    existing = citation_papers.get(key)
+    if not existing:
+        citation_papers[key] = new
+        return
+    merged_by_year = dict(existing.get("citations_by_year", {}))
+    for y, c in new.get("citations_by_year", {}).items():
+        merged_by_year[y] = max(merged_by_year.get(y, 0), c)
+    citation_papers[key] = {
+        "title": existing["title"] if existing["citationCount"] >= new["citationCount"] else new["title"],
+        "citationCount": max(existing["citationCount"], new["citationCount"]),
+        "citations_by_year": merged_by_year,
+    }
+
+
+def _save_partial_cache(cache_path, citation_papers, author_data=None):
+    """Persist citation history mid-run so a crash doesn't lose work."""
+    if author_data and author_data.get("cites_per_year"):
+        # Prefer the author-level chart aggregate when available — it's GS's
+        # own deduplicated number, not our per-paper sum.
+        aggregate = {
+            str(y): c for y, c in sorted(author_data["cites_per_year"].items())
+        }
+    else:
+        aggregate = {}
+        for pd in citation_papers.values():
+            for y, c in pd.get("citations_by_year", {}).items():
+                aggregate[y] = aggregate.get(y, 0) + c
+        aggregate = dict(sorted(aggregate.items()))
+
+    payload = {
+        "fetched_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "source": "google_scholar",
+        "citedby": (author_data or {}).get("citedby", 0),
+        "aggregate": aggregate,
+        "papers": citation_papers,
+    }
+    os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+    tmp = cache_path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(payload, f, indent=2)
+    os.replace(tmp, cache_path)
+
+
+def _fetch_with_proxy_fallback(proxy_mode):
+    """Fetch the author profile, falling back to free proxies on failure.
+
+    The author profile contains the per-year citation chart that we use as the
+    authoritative aggregate. We try the configured connection first, since
+    free proxies often serve stale cached HTML that under-counts recent years.
+    """
+    from scholarly import scholarly
+
+    def _do_fetch():
+        author = scholarly.search_author_id(SCHOLAR_AUTHOR_ID)
+        return scholarly.fill(author, sections=["basics", "publications"])
+
+    try:
+        return _do_fetch()
+    except Exception as e:
+        # Only fall back to free proxies if we weren't already on a proxy.
+        if proxy_mode not in ("auto", "direct"):
+            raise
+        print(f"  Direct fetch failed ({e}); enabling free-proxy fallback.")
+        if not _enable_free_proxy_fallback():
+            raise
+        return _do_fetch()
+
+
+def fetch_from_google_scholar(proxy_mode="auto"):
+    """Fetch publications and citation history from Google Scholar."""
+    from scholarly import scholarly
+
+    proxy_mode = _setup_scholar_proxy(proxy_mode)
 
     print("  Looking up Google Scholar profile...")
-    author = scholarly.search_author_id(SCHOLAR_AUTHOR_ID)
-    author = scholarly.fill(author, sections=["basics", "publications"])
+    author = _fetch_with_proxy_fallback(proxy_mode)
 
     raw_publications = []
     citation_papers = {}
+    failed = []  # list of (index, stub) to retry at the end
 
     pubs = author.get("publications", [])
     print(f"  Found {len(pubs)} publications. Filling details...")
 
+    # Throttle between fills to avoid tripping Google Scholar rate limits.
+    # Direct connection: a small delay is enough. With a proxy: be more cautious.
+    fill_delay = 2.0 if proxy_mode in ("free", "scraperapi") else 0.5
+
     for i, pub_stub in enumerate(pubs):
+        # Progress log (decoupled from throttling).
         if i > 0 and i % 5 == 0:
             print(f"    {i}/{len(pubs)} done...")
-            time.sleep(3)  # Longer delay every 5 papers to avoid rate limiting
-        elif i > 0:
-            time.sleep(1)
+        if i > 0:
+            time.sleep(fill_delay)
 
         try:
             pub_filled = scholarly.fill(pub_stub)
         except Exception as e:
             stub_title = pub_stub.get("bib", {}).get("title", f"index {i}")
-            print(f"    Warning: could not fill \"{stub_title}\": {e}")
+            print(f"    Warning: could not fill \"{stub_title[:60]}\": {e}")
+            failed.append((i, pub_stub))
             pub_filled = pub_stub
-        bib = pub_filled.get("bib", {})
 
-        title = bib.get("title", "")
-        year = bib.get("pub_year")
-        if year:
-            try:
-                year = int(year)
-            except (ValueError, TypeError):
-                year = None
-
-        citation_count = pub_filled.get("num_citations", 0)
-        venue = bib.get("journal") or bib.get("conference") or bib.get("venue", "")
-        authors = bib.get("author", "").split(" and ") if bib.get("author") else []
-
-        pub_url = pub_filled.get("pub_url", "")
-        eprint = bib.get("eprint", "")
-        arxiv = ""
-        if eprint and "arxiv" in eprint.lower():
-            arxiv = eprint if eprint.startswith("http") else f"https://arxiv.org/abs/{eprint}"
-
-        pub = {
-            "title": title,
-            "year": year,
-            "venue": venue,
-            "citationCount": citation_count,
-            "url": pub_url,
-            "authors": authors,
-            "pdf": "",
-        }
-        if arxiv:
-            pub["arxiv"] = arxiv
+        pub, key, citation = _process_filled_pub(pub_filled)
         raw_publications.append(pub)
+        _merge_citation(citation_papers, key, citation)
 
-        # Citation history — scholarly provides cites_per_year directly.
-        # Google Scholar lists multiple versions of the same paper (arXiv,
-        # conference, journal). Their citation sets mostly overlap — Google
-        # Scholar deduplicates citers internally — so we merge duplicates as:
-        #   - citationCount: max (the main entry subsumes the others)
-        #   - cites_per_year: element-wise max per year (avoids double-counting
-        #     while preserving any years only captured by a minor version)
-        cites_per_year = pub_filled.get("cites_per_year", {})
-        if cites_per_year:  # Only store entries that have actual year data
-            paper_key = _paper_key(title)
-            new_by_year = {str(y): c for y, c in cites_per_year.items()}
-            existing = citation_papers.get(paper_key)
-            if existing:
-                # Merge: max citationCount, element-wise max for cites_per_year
-                merged_by_year = dict(existing.get("citations_by_year", {}))
-                for y, c in new_by_year.items():
-                    merged_by_year[y] = max(merged_by_year.get(y, 0), c)
-                citation_papers[paper_key] = {
-                    "title": existing["title"] if existing["citationCount"] >= citation_count else title,
-                    "citationCount": max(existing["citationCount"], citation_count),
-                    "citations_by_year": merged_by_year,
-                }
-            else:
-                citation_papers[paper_key] = {
-                    "title": title,
-                    "citationCount": citation_count,
-                    "citations_by_year": new_by_year,
-                }
+        # Persist incrementally so a crash mid-run preserves progress.
+        if i and i % 10 == 0:
+            _save_partial_cache(SCHOLAR_HISTORY_PATH, citation_papers, author)
+
+    # Retry failures once with longer waits + proxy fallback if not already on it.
+    if failed:
+        print(f"  Retrying {len(failed)} papers that failed on first pass...")
+        if proxy_mode == "direct":
+            _enable_free_proxy_fallback()
+        # title -> pub mapping so the post-retry update is O(1) per paper.
+        pubs_by_title = {p["title"]: p for p in raw_publications}
+        still_failed = []
+        for idx, stub in failed:
+            stub_title = stub.get("bib", {}).get("title", f"index {idx}")
+            time.sleep(5)
+            try:
+                pub_filled = scholarly.fill(stub)
+            except Exception:
+                still_failed.append(stub_title)
+                continue
+            _, key, citation = _process_filled_pub(pub_filled)
+            _merge_citation(citation_papers, key, citation)
+            # Update the publication entry's citationCount/year if we have better data now.
+            p = pubs_by_title.get(stub_title)
+            if p is not None:
+                if pub_filled.get("num_citations") is not None:
+                    p["citationCount"] = pub_filled["num_citations"]
+                bib = pub_filled.get("bib", {})
+                if bib.get("pub_year"):
+                    try:
+                        p["year"] = int(bib["pub_year"])
+                    except (ValueError, TypeError):
+                        pass
+        if still_failed:
+            print(f"  Could not fill {len(still_failed)} papers after retry:")
+            for t in still_failed:
+                print(f"    - {t[:80]}")
+        else:
+            print("  All retries succeeded.")
 
     # Deduplicate publications: keep the one with more citations for each title
     publications = _deduplicate_by_title(raw_publications)
@@ -382,9 +659,8 @@ def fetch_from_google_scholar():
 
     # Merge with previously cached citation history to preserve data from
     # papers that failed to fill this run (rate limiting).
-    cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
-    if os.path.exists(cache_path):
-        with open(cache_path) as f:
+    if os.path.exists(SCHOLAR_HISTORY_PATH):
+        with open(SCHOLAR_HISTORY_PATH) as f:
             prev_cache = json.load(f)
         for key, prev in prev_cache.get("papers", {}).items():
             if key not in citation_papers and prev.get("citations_by_year"):
@@ -400,7 +676,6 @@ def fetch_from_google_scholar():
     if author_cites_per_year:
         aggregate = {str(y): c for y, c in sorted(author_cites_per_year.items())}
     else:
-        # Fallback: build aggregate from per-paper citation histories
         aggregate = {}
         for paper_data in citation_papers.values():
             for year, count in paper_data.get("citations_by_year", {}).items():
@@ -422,13 +697,11 @@ def _infill_missing_citations():
     """Attempt to fill citation history only for papers with missing cites_per_year."""
     from scholarly import scholarly, ProxyGenerator
 
-    cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
-    pubs_path = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
-    if not os.path.exists(cache_path):
+    if not os.path.exists(SCHOLAR_HISTORY_PATH):
         print("No cached citation history found. Run --source scholar first.")
         return
 
-    with open(cache_path) as f:
+    with open(SCHOLAR_HISTORY_PATH) as f:
         cache = json.load(f)
 
     papers = cache.get("papers", {})
@@ -437,8 +710,8 @@ def _infill_missing_citations():
     missing = {k: v for k, v in papers.items() if not v.get("citations_by_year")}
 
     # Also find papers in publications that aren't in the cache at all
-    if os.path.exists(pubs_path):
-        with open(pubs_path) as f:
+    if os.path.exists(SCHOLAR_PUBS_PATH):
+        with open(SCHOLAR_PUBS_PATH) as f:
             pubs = json.load(f)
         for pub in pubs:
             key = _paper_key(pub.get("title", ""))
@@ -498,9 +771,9 @@ def _infill_missing_citations():
         cache["aggregate"] = dict(sorted(aggregate.items()))
         cache["fetched_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
-        with open(cache_path, "w") as f:
+        with open(SCHOLAR_HISTORY_PATH, "w") as f:
             json.dump(cache, f, indent=2)
-        print(f"\nInfilled {filled} papers. Saved {cache_path}")
+        print(f"\nInfilled {filled} papers. Saved {SCHOLAR_HISTORY_PATH}")
     else:
         print("\nNo papers could be filled this run.")
 
@@ -509,9 +782,7 @@ def _render_html_seo():
     """Inject static publication HTML into index.html between SEO markers."""
     index_path = os.path.join(SCRIPT_DIR, "index.html")
     # Prefer Scholar data, fall back to S2
-    pubs_path = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
-    if not os.path.exists(pubs_path):
-        pubs_path = os.path.join(SCRIPT_DIR, "media", "publications.json")
+    pubs_path = SCHOLAR_PUBS_PATH if os.path.exists(SCHOLAR_PUBS_PATH) else S2_PUBS_PATH
     if not os.path.exists(pubs_path):
         print("No publications JSON found. Run the fetch first.")
         return
@@ -580,6 +851,17 @@ def main():
         action="store_true",
         help="Inject static publication HTML into index.html for SEO",
     )
+    parser.add_argument(
+        "--scholar-proxy",
+        choices=["auto", "direct", "free", "scraperapi"],
+        default="auto",
+        help=(
+            "Connection mode for Google Scholar. 'auto' (default): direct, "
+            "falling back to free proxies if blocked. 'direct': no proxy. "
+            "'free': free public proxies (may serve stale cached pages — "
+            "avoid if you can). 'scraperapi': requires SCHOLARLY_SCRAPER_API_KEY."
+        ),
+    )
     args = parser.parse_args()
 
     if args.render_html:
@@ -588,16 +870,26 @@ def main():
         _infill_missing_citations()
     elif args.source == "scholar":
         print("Fetching from Google Scholar...")
-        out_json = os.path.join(SCRIPT_DIR, "media", "publications_scholar.json")
-        cache_path = os.path.join(SCRIPT_DIR, "media", "citation_history_scholar.json")
+
+        # Load the previous cache *before* we overwrite it, so the coherence
+        # check can show run-over-run deltas.
+        prev_cache = None
+        if os.path.exists(SCHOLAR_HISTORY_PATH):
+            try:
+                with open(SCHOLAR_HISTORY_PATH) as f:
+                    prev_cache = json.load(f)
+            except Exception:
+                prev_cache = None
 
         try:
-            publications, citation_history = fetch_from_google_scholar()
+            publications, citation_history = fetch_from_google_scholar(
+                proxy_mode=args.scholar_proxy
+            )
         except Exception as e:
             # Google Scholar rate-limits aggressively. If the fetch fails,
             # keep the previously cached files and exit gracefully.
             print(f"\n  Error: {e}")
-            if os.path.exists(out_json) and os.path.exists(cache_path):
+            if os.path.exists(SCHOLAR_PUBS_PATH) and os.path.exists(SCHOLAR_HISTORY_PATH):
                 print("  Using previously cached Scholar data (files unchanged).")
             else:
                 print("  No cached data available. Try again after a few minutes.")
@@ -605,19 +897,28 @@ def main():
 
         print(f"Total publications: {len(publications)}")
 
-        with open(out_json, "w") as f:
-            json.dump(publications, f, indent=2)
-        print(f"Saved {out_json}")
+        # Coherence check (warns; never raises). Mutates citation_history to
+        # include a 'coherence' block so the saved JSON records the audit.
+        issues = _check_citation_coherence(citation_history, publications, prev_cache)
 
-        with open(cache_path, "w") as f:
+        with open(SCHOLAR_PUBS_PATH, "w") as f:
+            json.dump(publications, f, indent=2)
+        print(f"Saved {SCHOLAR_PUBS_PATH}")
+
+        with open(SCHOLAR_HISTORY_PATH, "w") as f:
             json.dump(citation_history, f, indent=2)
-        print(f"Saved {cache_path}")
+        print(f"Saved {SCHOLAR_HISTORY_PATH}")
 
         # Print summary
         total = citation_history.get("citedby") or sum(citation_history["aggregate"].values())
         print(f"\n{len(publications)} publications, {total} total citations:")
         for year in sorted(citation_history["aggregate"].keys()):
             print(f"    {year}: {citation_history['aggregate'][year]}")
+
+        # Non-zero exit if a hard invariant was violated, but only after we've
+        # written the (still-best-effort) data so the website isn't left empty.
+        if any(sev == "ERROR" for sev, _ in issues):
+            print("\n  WARNING: hard coherence invariant violated. Inspect output above.")
     else:
         main_s2()
 
@@ -633,10 +934,9 @@ def main_s2():
     publications = process_publications(papers)
 
     # Save JSON
-    out_json = os.path.join(SCRIPT_DIR, "media", "publications.json")
-    with open(out_json, "w") as f:
+    with open(S2_PUBS_PATH, "w") as f:
         json.dump(publications, f, indent=2)
-    print(f"Saved {out_json}")
+    print(f"Saved {S2_PUBS_PATH}")
 
     # Print summary
     print(f"\n{len(publications)} publications:")
