@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-05-12T15:35:30.287600+00:00",
+  "fetched_at": "2026-05-13T18:19:10.316318+00:00",
   "source": "google_scholar",
-  "citedby": 962,
+  "citedby": 964,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,19 +11,19 @@
     "2022": 95,
     "2023": 99,
     "2024": 168,
-    "2025": 348,
-    "2026": 162
+    "2025": 349,
+    "2026": 163
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 290,
+      "citationCount": 291,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 156,
-        "2026": 80
+        "2026": 81
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -107,6 +107,14 @@
         "2026": 3
       }
     },
+    "ax_a_platform_for_adaptive_experimentation": {
+      "title": "Ax: A platform for adaptive experimentation",
+      "citationCount": 31,
+      "citations_by_year": {
+        "2025": 16,
+        "2026": 15
+      }
+    },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
       "citationCount": 31,
@@ -121,14 +129,6 @@
         "2024": 7,
         "2025": 4,
         "2026": 1
-      }
-    },
-    "ax_a_platform_for_adaptive_experimentation": {
-      "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 30,
-      "citations_by_year": {
-        "2025": 15,
-        "2026": 15
       }
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
@@ -314,10 +314,23 @@
     }
   },
   "coherence": {
-    "citedby": 962,
-    "sum_aggregate": 942,
-    "sum_paper_counts": 950,
+    "citedby": 964,
+    "sum_aggregate": 944,
+    "sum_paper_counts": 952,
     "gap_total_minus_aggregate": 20,
-    "issues": []
+    "issues": [
+      {
+        "severity": "INFO",
+        "message": "citedby: 962 -> 964 (+2)"
+      },
+      {
+        "severity": "INFO",
+        "message": "  2025: 348 -> 349 (+1)"
+      },
+      {
+        "severity": "INFO",
+        "message": "  2026: 162 -> 163 (+1)"
+      }
+    ]
   }
 }

@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 30,
+    "citationCount": 31,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 290,
+    "citationCount": 291,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
