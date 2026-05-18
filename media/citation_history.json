@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-13T18:21:23.999679+00:00",
+  "fetched_at": "2026-05-18T12:35:24.767984+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 67,
     "2023": 83,
     "2024": 81,
-    "2025": 174,
-    "2026": 85
+    "2025": 172,
+    "2026": 88
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -30,9 +30,9 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
-      "citationCount": 7,
+      "citationCount": 8,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 4,
         "2024": 1
       }
@@ -55,10 +55,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 197,
+      "citationCount": 200,
       "citations_by_year": {
-        "2026": 49,
-        "2025": 51
+        "2026": 51,
+        "2025": 49
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
