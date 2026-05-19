@@ -69,12 +69,12 @@
       "S. Ament",
       "M. Balandat",
       "David Eriksson",
-      "Jos'e Miguel Hern'andez-Lobato",
+      "Jos\u00e9 Miguel Hern\u00e1ndez-Lobato",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2506.06895",
-    "bibtex": "@Inproceedings{Lin2025ScalableGP,\n author = {J. Lin and S. Ament and M. Balandat and David Eriksson and Jos'e Miguel Hern'andez-Lobato and E. Bakshy},\n booktitle = {International Conference on Machine Learning},\n title = {Scalable Gaussian Processes with Latent Kronecker Structure},\n year = {2025}\n}\n"
+    "bibtex": "@Inproceedings{Lin2025ScalableGP,\n author = {J. Lin and S. Ament and M. Balandat and David Eriksson and Jos\u00e9 Miguel Hern\u00e1ndez-Lobato and E. Bakshy},\n booktitle = {International Conference on Machine Learning},\n title = {Scalable Gaussian Processes with Latent Kronecker Structure},\n year = {2025}\n}\n"
   },
   {
     "title": "Robust Gaussian Processes via Relevance Pursuit",
@@ -529,7 +529,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 19,
+    "citationCount": 20,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "Sebastian Ament",

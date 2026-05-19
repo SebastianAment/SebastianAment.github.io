@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-05-18T12:35:24.767984+00:00",
+  "fetched_at": "2026-05-19T03:04:33.051280+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 48,
+    "2021": 49,
     "2022": 67,
     "2023": 83,
     "2024": 81,
@@ -301,13 +301,13 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 19,
+      "citationCount": 20,
       "citations_by_year": {
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 4,
+        "2021": 5,
         "2020": 1,
         "2019": 3,
         "2018": 2

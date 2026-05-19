@@ -141,7 +141,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2024,
     "venue": "Nuclear Fusion",
-    "citationCount": 36,
+    "citationCount": 37,
     "url": "https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta",
     "authors": [
       "P Rodriguez-Fernandez",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 291,
+    "citationCount": 292,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -235,7 +235,7 @@
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
     "venue": "Artificial Intelligence",
-    "citationCount": 23,
+    "citationCount": 24,
     "url": "https://www.sciencedirect.com/science/article/pii/S0004370222000236",
     "authors": [
       "Guillaume Perez",
