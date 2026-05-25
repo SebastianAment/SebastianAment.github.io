@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-05-21T01:21:29.019131+00:00",
+  "fetched_at": "2026-05-25T12:34:32.093463+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
     "2021": 49,
-    "2022": 67,
+    "2022": 66,
     "2023": 83,
     "2024": 81,
     "2025": 171,
@@ -55,7 +55,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 201,
+      "citationCount": 202,
       "citations_by_year": {
         "2026": 52,
         "2025": 48
@@ -129,13 +129,13 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 85,
+      "citationCount": 84,
       "citations_by_year": {
         "2026": 8,
         "2025": 20,
         "2024": 16,
         "2023": 21,
-        "2022": 14,
+        "2022": 13,
         "2021": 3
       }
     },
