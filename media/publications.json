@@ -98,7 +98,7 @@
     "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
     "year": 2024,
     "venue": "arXiv.org",
-    "citationCount": 8,
+    "citationCount": 9,
     "url": "https://www.semanticscholar.org/paper/5c8a1e28139ebace36ce71b3b545c73b2d6776b5",
     "authors": [
       "J. Lin",
@@ -114,7 +114,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 202,
+    "citationCount": 206,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -149,7 +149,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2023,
     "venue": "Nuclear Fusion",
-    "citationCount": 24,
+    "citationCount": 25,
     "url": "https://www.semanticscholar.org/paper/a0a89c87b1e7550d3e7204bdf459ad0daea33d46",
     "authors": [
       "P. Rodriguez-Fernandez",
@@ -249,7 +249,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 84,
+    "citationCount": 85,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "Sebastian Ament",

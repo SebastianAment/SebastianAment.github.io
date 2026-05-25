@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-25T12:34:32.093463+00:00",
+  "fetched_at": "2026-05-27T02:47:08.268087+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 171,
-    "2026": 89
+    "2025": 167,
+    "2026": 96
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -47,18 +47,19 @@
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
+        "2026": 1,
         "2025": 7,
         "2024": 1
       }
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 202,
+      "citationCount": 206,
       "citations_by_year": {
-        "2026": 52,
-        "2025": 48
+        "2026": 56,
+        "2025": 44
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -73,9 +74,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 24,
+      "citationCount": 25,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 16,
         "2024": 5,
         "2023": 1
@@ -129,9 +130,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 84,
+      "citationCount": 85,
       "citations_by_year": {
-        "2026": 8,
+        "2026": 9,
         "2025": 20,
         "2024": 16,
         "2023": 21,

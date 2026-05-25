@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-05-21T01:21:12.896699+00:00",
+  "fetched_at": "2026-05-27T02:55:16.142765+00:00",
   "source": "google_scholar",
-  "citedby": 970,
+  "citedby": 983,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,43 +11,43 @@
     "2022": 95,
     "2023": 99,
     "2024": 168,
-    "2025": 349,
-    "2026": 168
+    "2025": 350,
+    "2026": 180
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 292,
+      "citationCount": 295,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 157,
-        "2026": 81
+        "2025": 158,
+        "2026": 83
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 107,
+      "citationCount": 110,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 28,
-        "2026": 15
+        "2026": 18
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 93,
+      "citationCount": 95,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
         "2025": 21,
-        "2026": 12
+        "2026": 14
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -62,19 +62,19 @@
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
-      "citationCount": 40,
+      "citationCount": 41,
       "citations_by_year": {
         "2021": 12,
         "2022": 6,
         "2023": 6,
         "2024": 7,
         "2025": 8,
-        "2026": 1
+        "2026": 2
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 38,
+      "citationCount": 39,
       "citations_by_year": {
         "2019": 1,
         "2020": 4,
@@ -82,16 +82,25 @@
         "2022": 10,
         "2023": 7,
         "2024": 5,
-        "2025": 5
+        "2025": 5,
+        "2026": 1
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 37,
+      "citationCount": 38,
       "citations_by_year": {
         "2024": 6,
-        "2025": 22,
+        "2025": 23,
         "2026": 8
+      }
+    },
+    "ax_a_platform_for_adaptive_experimentation": {
+      "title": "Ax: A platform for adaptive experimentation",
+      "citationCount": 35,
+      "citations_by_year": {
+        "2025": 15,
+        "2026": 20
       }
     },
     "multicomponent_background_learning_automates_signal_detectio": {
@@ -105,14 +114,6 @@
         "2024": 1,
         "2025": 4,
         "2026": 3
-      }
-    },
-    "ax_a_platform_for_adaptive_experimentation": {
-      "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 33,
-      "citations_by_year": {
-        "2025": 16,
-        "2026": 17
       }
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
@@ -209,14 +210,6 @@
         "2025": 3
       }
     },
-    "robust_gaussian_processes_via_relevance_pursuit": {
-      "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 11,
-      "citations_by_year": {
-        "2025": 6,
-        "2026": 5
-      }
-    },
     "exponentiallymodified_gaussian_mixture_model_applications_in": {
       "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
       "citationCount": 11,
@@ -235,15 +228,6 @@
       "citations_by_year": {
         "2025": 8,
         "2026": 1
-      }
-    },
-    "scalable_gaussian_processes_with_latent_kronecker_structure": {
-      "title": "Scalable Gaussian processes with latent Kronecker structure",
-      "citationCount": 8,
-      "citations_by_year": {
-        "2024": 1,
-        "2025": 5,
-        "2026": 2
       }
     },
     "an_efficient_relaxed_projection_method_for_constrained_nonne": {
@@ -311,25 +295,38 @@
       "citations_by_year": {
         "2023": 1
       }
+    },
+    "robust_gaussian_processes_via_relevance_pursuit": {
+      "title": "Robust Gaussian processes via relevance pursuit",
+      "citationCount": 11,
+      "citations_by_year": {
+        "2025": 6,
+        "2026": 5
+      }
+    },
+    "scalable_gaussian_processes_with_latent_kronecker_structure": {
+      "title": "Scalable Gaussian processes with latent Kronecker structure",
+      "citationCount": 8,
+      "citations_by_year": {
+        "2024": 1,
+        "2025": 5,
+        "2026": 2
+      }
     }
   },
   "coherence": {
-    "citedby": 970,
-    "sum_aggregate": 949,
-    "sum_paper_counts": 957,
+    "citedby": 983,
+    "sum_aggregate": 962,
+    "sum_paper_counts": 970,
     "gap_total_minus_aggregate": 21,
     "issues": [
       {
         "severity": "INFO",
-        "message": "citedby: 968 -> 970 (+2)"
+        "message": "citedby: 981 -> 983 (+2)"
       },
       {
         "severity": "INFO",
-        "message": "  2025: 348 -> 349 (+1)"
-      },
-      {
-        "severity": "INFO",
-        "message": "  2026: 167 -> 168 (+1)"
+        "message": "  2026: 178 -> 180 (+2)"
       }
     ]
   }

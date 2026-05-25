@@ -33,30 +33,17 @@
   {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
-    "venue": "arXiv preprint arXiv:2601.08185",
+    "venue": "",
     "citationCount": 0,
-    "url": "https://arxiv.org/abs/2601.08185",
-    "authors": [
-      "Ming-Chiang Chang",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Sebastian Ament",
-      "Katie R Gann",
-      "Lan Zhou",
-      "Louisa M Smieska",
-      "Arthur R Woll",
-      "John M Gregoire",
-      "Carla P Gomes",
-      "R Bruce van Dover",
-      "Michael O Thompson"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 33,
+    "citationCount": 35,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -86,17 +73,10 @@
   {
     "title": "Scalable Gaussian processes with latent Kronecker structure",
     "year": 2025,
-    "venue": "arXiv preprint arXiv:2506.06895",
+    "venue": "",
     "citationCount": 8,
-    "url": "https://arxiv.org/abs/2506.06895",
-    "authors": [
-      "Jihao Andreas Lin",
-      "Sebastian Ament",
-      "Maximilian Balandat",
-      "David Eriksson",
-      "Jos\u00e9 Miguel Hern\u00e1ndez-Lobato",
-      "Eytan Bakshy"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -141,7 +121,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2024,
     "venue": "Nuclear Fusion",
-    "citationCount": 37,
+    "citationCount": 38,
     "url": "https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta",
     "authors": [
       "P Rodriguez-Fernandez",
@@ -159,17 +139,10 @@
   {
     "title": "Robust Gaussian processes via relevance pursuit",
     "year": 2024,
-    "venue": "Advances in Neural Information Processing Systems",
+    "venue": "",
     "citationCount": 11,
-    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html",
-    "authors": [
-      "Sebastian Ament",
-      "Elizabeth Santorella",
-      "David Eriksson",
-      "Ben Letham",
-      "Maximilian Balandat",
-      "Eytan Bakshy"
-    ],
+    "url": "",
+    "authors": [],
     "pdf": ""
   },
   {
@@ -190,7 +163,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 292,
+    "citationCount": 295,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -298,7 +271,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 107,
+    "citationCount": 110,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
@@ -318,7 +291,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 93,
+    "citationCount": 95,
     "url": "https://www.nature.com/articles/s42256-021-00384-1",
     "authors": [
       "Di Chen",
@@ -396,7 +369,7 @@
     "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
     "year": 2020,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 40,
+    "citationCount": 41,
     "url": "https://proceedings.mlr.press/v119/chen20a.html",
     "authors": [
       "Di Chen",
@@ -450,7 +423,7 @@
     "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
     "year": 2019,
     "venue": "MRS Communications",
-    "citationCount": 38,
+    "citationCount": 39,
     "url": "https://www.cambridge.org/core/journals/mrs-communications/article/crystal-a-multiagent-ai-system-for-automated-mapping-of-materials-crystal-structures/73E3A4F24120EBD71A782F0ED278ECB3",
     "authors": [
       "Carla P Gomes",
