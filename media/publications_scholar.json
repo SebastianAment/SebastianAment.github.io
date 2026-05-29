@@ -33,10 +33,23 @@
   {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
-    "venue": "",
+    "venue": "arXiv preprint arXiv:2601.08185",
     "citationCount": 0,
-    "url": "",
-    "authors": [],
+    "url": "https://arxiv.org/abs/2601.08185",
+    "authors": [
+      "Ming-Chiang Chang",
+      "Maximilian Amsler",
+      "Duncan R Sutherland",
+      "Sebastian Ament",
+      "Katie R Gann",
+      "Lan Zhou",
+      "Louisa M Smieska",
+      "Arthur R Woll",
+      "John M Gregoire",
+      "Carla P Gomes",
+      "R Bruce van Dover",
+      "Michael O Thompson"
+    ],
     "pdf": ""
   },
   {
@@ -73,10 +86,17 @@
   {
     "title": "Scalable Gaussian processes with latent Kronecker structure",
     "year": 2025,
-    "venue": "",
+    "venue": "arXiv preprint arXiv:2506.06895",
     "citationCount": 8,
-    "url": "",
-    "authors": [],
+    "url": "https://arxiv.org/abs/2506.06895",
+    "authors": [
+      "Jihao Andreas Lin",
+      "Sebastian Ament",
+      "Maximilian Balandat",
+      "David Eriksson",
+      "Jos\u00e9 Miguel Hern\u00e1ndez-Lobato",
+      "Eytan Bakshy"
+    ],
     "pdf": ""
   },
   {
@@ -139,10 +159,17 @@
   {
     "title": "Robust Gaussian processes via relevance pursuit",
     "year": 2024,
-    "venue": "",
+    "venue": "Advances in Neural Information Processing Systems",
     "citationCount": 11,
-    "url": "",
-    "authors": [],
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html",
+    "authors": [
+      "Sebastian Ament",
+      "Elizabeth Santorella",
+      "David Eriksson",
+      "Ben Letham",
+      "Maximilian Balandat",
+      "Eytan Bakshy"
+    ],
     "pdf": ""
   },
   {
@@ -163,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 295,
+    "citationCount": 296,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
