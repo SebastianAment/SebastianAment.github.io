@@ -80,7 +80,7 @@
     "title": "Robust Gaussian Processes via Relevance Pursuit",
     "year": 2024,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 10,
+    "citationCount": 11,
     "url": "https://www.semanticscholar.org/paper/f39baa55227c52433d61df8f7d0468a9e0dd88f3",
     "authors": [
       "S. Ament",
@@ -114,7 +114,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 207,
+    "citationCount": 208,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -290,6 +290,20 @@
     "bibtex": "@Inproceedings{Chen2021AutomatingCP,\n author = {Di Chen and Yiwei Bai and Sebastian Ament and Wenting Zhao and D. Guevarra and Lan Zhou and B. Selman and R. B. Dover and J. Gregoire and Carla P. Gomes},\n booktitle = {Nature Machine Intelligence},\n title = {Automating crystal-structure phase mapping by combining deep learning with constraint reasoning},\n year = {2021}\n}\n"
   },
   {
+    "title": "Sparse Bayesian Learning via Stepwise Regression",
+    "year": 2021,
+    "venue": "International Conference on Machine Learning",
+    "citationCount": 12,
+    "url": "https://www.semanticscholar.org/paper/08c3eb3135ef41659b2fed8fd6e3f743b0ed3a69",
+    "authors": [
+      "Sebastian Ament",
+      "Carla P. Gomes"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2106.06095",
+    "bibtex": "@Inproceedings{Ament2021SparseBL,\n author = {Sebastian Ament and Carla P. Gomes},\n booktitle = {International Conference on Machine Learning},\n title = {Sparse Bayesian Learning via Stepwise Regression},\n year = {2021}\n}\n"
+  },
+  {
     "title": "The Fast Kernel Transform",
     "year": 2021,
     "venue": "International Conference on Artificial Intelligence and Statistics",
@@ -304,20 +318,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2106.04487",
     "bibtex": "@Inproceedings{Ryan2021TheFK,\n author = {J. Ryan and Sebastian Ament and Carla P. Gomes and Anil Damle},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {The Fast Kernel Transform},\n year = {2021}\n}\n"
-  },
-  {
-    "title": "Sparse Bayesian Learning via Stepwise Regression",
-    "year": 2021,
-    "venue": "International Conference on Machine Learning",
-    "citationCount": 11,
-    "url": "https://www.semanticscholar.org/paper/08c3eb3135ef41659b2fed8fd6e3f743b0ed3a69",
-    "authors": [
-      "Sebastian Ament",
-      "Carla P. Gomes"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2106.06095",
-    "bibtex": "@Inproceedings{Ament2021SparseBL,\n author = {Sebastian Ament and Carla P. Gomes},\n booktitle = {International Conference on Machine Learning},\n title = {Sparse Bayesian Learning via Stepwise Regression},\n year = {2021}\n}\n"
   },
   {
     "title": "On the Optimality of Backward Regression: Sparse Recovery and Subset Selection",
