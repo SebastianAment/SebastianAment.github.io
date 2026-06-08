@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-01T15:24:30.364598+00:00",
+  "fetched_at": "2026-06-08T13:09:36.414795+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 165,
-    "2026": 100
+    "2025": 161,
+    "2026": 106
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 208,
+      "citationCount": 214,
       "citations_by_year": {
-        "2026": 58,
-        "2025": 42
+        "2026": 62,
+        "2025": 38
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -102,9 +102,9 @@
     },
     "scalable_firstorder_bayesian_optimization_via_structured_aut": {
       "title": "Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation",
-      "citationCount": 12,
+      "citationCount": 13,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 3,
         "2024": 3,
         "2023": 3,
@@ -192,8 +192,9 @@
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep Reasoning Networks for Unsupervised Pattern De-mixing with Constraint Reasoning",
-      "citationCount": 27,
+      "citationCount": 28,
       "citations_by_year": {
+        "2026": 1,
         "2025": 4,
         "2024": 3,
         "2023": 5,
