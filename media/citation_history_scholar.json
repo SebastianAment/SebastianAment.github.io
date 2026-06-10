@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-05-29T03:55:53.830044+00:00",
+  "fetched_at": "2026-06-10T14:21:46.841463+00:00",
   "source": "google_scholar",
-  "citedby": 984,
+  "citedby": 1007,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,43 +11,43 @@
     "2022": 95,
     "2023": 99,
     "2024": 168,
-    "2025": 349,
-    "2026": 182
+    "2025": 346,
+    "2026": 207
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 296,
+      "citationCount": 305,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 157,
-        "2026": 85
+        "2025": 156,
+        "2026": 95
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 110,
+      "citationCount": 111,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
-        "2025": 28,
-        "2026": 18
+        "2025": 27,
+        "2026": 20
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 95,
+      "citationCount": 96,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
         "2025": 21,
-        "2026": 14
+        "2026": 15
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -72,6 +72,23 @@
         "2026": 2
       }
     },
+    "ax_a_platform_for_adaptive_experimentation": {
+      "title": "Ax: A platform for adaptive experimentation",
+      "citationCount": 40,
+      "citations_by_year": {
+        "2025": 14,
+        "2026": 26
+      }
+    },
+    "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
+      "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
+      "citationCount": 39,
+      "citations_by_year": {
+        "2024": 6,
+        "2025": 23,
+        "2026": 9
+      }
+    },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
       "citationCount": 39,
@@ -84,23 +101,6 @@
         "2024": 5,
         "2025": 5,
         "2026": 1
-      }
-    },
-    "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
-      "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 38,
-      "citations_by_year": {
-        "2024": 6,
-        "2025": 23,
-        "2026": 8
-      }
-    },
-    "ax_a_platform_for_adaptive_experimentation": {
-      "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 35,
-      "citations_by_year": {
-        "2025": 15,
-        "2026": 20
       }
     },
     "multicomponent_background_learning_automates_signal_detectio": {
@@ -161,12 +161,24 @@
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
       "title": "Sparse Bayesian Learning via Stepwise Regression",
-      "citationCount": 19,
+      "citationCount": 20,
       "citations_by_year": {
         "2022": 3,
         "2023": 1,
         "2024": 7,
-        "2025": 8
+        "2025": 8,
+        "2026": 1
+      }
+    },
+    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
+      "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
+      "citationCount": 18,
+      "citations_by_year": {
+        "2022": 1,
+        "2023": 5,
+        "2024": 5,
+        "2025": 4,
+        "2026": 3
       }
     },
     "sustainable_concrete_via_bayesian_optimization": {
@@ -176,17 +188,6 @@
         "2024": 3,
         "2025": 10,
         "2026": 4
-      }
-    },
-    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
-      "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
-      "citationCount": 17,
-      "citations_by_year": {
-        "2022": 1,
-        "2023": 5,
-        "2024": 5,
-        "2025": 4,
-        "2026": 2
       }
     },
     "the_fast_kernel_transform": {
@@ -199,6 +200,14 @@
         "2025": 6
       }
     },
+    "robust_gaussian_processes_via_relevance_pursuit": {
+      "title": "Robust Gaussian processes via relevance pursuit",
+      "citationCount": 13,
+      "citations_by_year": {
+        "2025": 6,
+        "2026": 7
+      }
+    },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
       "title": "On the optimality of backward regression: Sparse recovery and subset selection",
       "citationCount": 13,
@@ -208,14 +217,6 @@
         "2023": 1,
         "2024": 5,
         "2025": 3
-      }
-    },
-    "robust_gaussian_processes_via_relevance_pursuit": {
-      "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 11,
-      "citations_by_year": {
-        "2025": 6,
-        "2026": 5
       }
     },
     "exponentiallymodified_gaussian_mixture_model_applications_in": {
@@ -283,10 +284,10 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 4,
+      "citationCount": 5,
       "citations_by_year": {
         "2025": 2,
-        "2026": 2
+        "2026": 3
       }
     },
     "generalized_matching_pursuits_for_the_sparse_optimization_of": {
@@ -315,22 +316,22 @@
     }
   },
   "coherence": {
-    "citedby": 984,
-    "sum_aggregate": 963,
-    "sum_paper_counts": 971,
-    "gap_total_minus_aggregate": 21,
+    "citedby": 1007,
+    "sum_aggregate": 985,
+    "sum_paper_counts": 993,
+    "gap_total_minus_aggregate": 22,
     "issues": [
       {
         "severity": "INFO",
-        "message": "citedby: 983 -> 984 (+1)"
+        "message": "citedby: 984 -> 1007 (+23)"
       },
       {
         "severity": "INFO",
-        "message": "  2025: 350 -> 349 (-1)"
+        "message": "  2025: 349 -> 346 (-3)"
       },
       {
         "severity": "INFO",
-        "message": "  2026: 180 -> 182 (+2)"
+        "message": "  2026: 182 -> 207 (+25)"
       }
     ]
   }
