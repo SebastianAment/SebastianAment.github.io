@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 305,
+    "citationCount": 311,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -396,7 +396,7 @@
     "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
     "year": 2020,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 41,
+    "citationCount": 42,
     "url": "https://proceedings.mlr.press/v119/chen20a.html",
     "authors": [
       "Di Chen",
