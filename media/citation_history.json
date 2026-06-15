@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-12T18:05:44.529268+00:00",
+  "fetched_at": "2026-06-15T15:17:50.002980+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 160,
-    "2026": 110
+    "2026": 111
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -304,8 +304,9 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 19,
+      "citationCount": 20,
       "citations_by_year": {
+        "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
