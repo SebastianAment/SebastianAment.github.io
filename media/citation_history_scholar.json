@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-12T18:07:10.655761+00:00",
+  "fetched_at": "2026-06-16T02:24:11.504161+00:00",
   "source": "google_scholar",
-  "citedby": 1014,
+  "citedby": 1025,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,33 +9,33 @@
     "2020": 19,
     "2021": 40,
     "2022": 95,
-    "2023": 99,
+    "2023": 100,
     "2024": 168,
-    "2025": 345,
-    "2026": 215
+    "2025": 344,
+    "2026": 226
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 311,
+      "citationCount": 318,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 156,
-        "2026": 101
+        "2025": 155,
+        "2026": 109
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 111,
+      "citationCount": 113,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 27,
-        "2026": 20
+        "2026": 22
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -149,11 +149,11 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 24,
+      "citationCount": 25,
       "citations_by_year": {
         "2021": 2,
         "2022": 5,
-        "2023": 4,
+        "2023": 5,
         "2024": 5,
         "2025": 4,
         "2026": 4
@@ -290,6 +290,15 @@
         "2026": 3
       }
     },
+    "constrained_machine_learning_the_bagel_framework": {
+      "title": "Constrained Machine Learning: The Bagel Framework",
+      "citationCount": 3,
+      "citations_by_year": {
+        "2024": 1,
+        "2025": 1,
+        "2026": 1
+      }
+    },
     "generalized_matching_pursuits_for_the_sparse_optimization_of": {
       "title": "Generalized matching pursuits for the sparse optimization of separable objectives",
       "citationCount": 2,
@@ -297,14 +306,6 @@
         "2022": 1,
         "2023": 0,
         "2024": 1
-      }
-    },
-    "constrained_machine_learning_the_bagel_framework": {
-      "title": "Constrained Machine Learning: The Bagel Framework",
-      "citationCount": 2,
-      "citations_by_year": {
-        "2024": 1,
-        "2025": 1
       }
     },
     "deep_reasoning_networks_thinking_fast_and_slow_for_pattern_d": {
@@ -316,22 +317,26 @@
     }
   },
   "coherence": {
-    "citedby": 1014,
-    "sum_aggregate": 992,
-    "sum_paper_counts": 1000,
+    "citedby": 1025,
+    "sum_aggregate": 1003,
+    "sum_paper_counts": 1011,
     "gap_total_minus_aggregate": 22,
     "issues": [
       {
         "severity": "INFO",
-        "message": "citedby: 1007 -> 1014 (+7)"
+        "message": "citedby: 1014 -> 1025 (+11)"
       },
       {
         "severity": "INFO",
-        "message": "  2025: 346 -> 345 (-1)"
+        "message": "  2023: 99 -> 100 (+1)"
       },
       {
         "severity": "INFO",
-        "message": "  2026: 207 -> 215 (+8)"
+        "message": "  2025: 345 -> 344 (-1)"
+      },
+      {
+        "severity": "INFO",
+        "message": "  2026: 215 -> 226 (+11)"
       }
     ]
   }
