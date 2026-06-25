@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 40,
+    "citationCount": 41,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -141,7 +141,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2024,
     "venue": "Nuclear Fusion",
-    "citationCount": 39,
+    "citationCount": 41,
     "url": "https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta",
     "authors": [
       "P Rodriguez-Fernandez",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 318,
+    "citationCount": 321,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -249,7 +249,7 @@
     "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
     "year": 2022,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 18,
+    "citationCount": 19,
     "url": "https://proceedings.mlr.press/v162/ament22a.html",
     "authors": [
       "Sebastian E Ament",
@@ -318,7 +318,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 96,
+    "citationCount": 97,
     "url": "https://www.nature.com/articles/s42256-021-00384-1",
     "authors": [
       "Di Chen",

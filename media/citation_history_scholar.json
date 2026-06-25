@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-16T02:24:11.504161+00:00",
+  "fetched_at": "2026-06-25T18:14:19.596693+00:00",
   "source": "google_scholar",
-  "citedby": 1025,
+  "citedby": 1033,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,20 +10,20 @@
     "2021": 40,
     "2022": 95,
     "2023": 100,
-    "2024": 168,
-    "2025": 344,
-    "2026": 226
+    "2024": 169,
+    "2025": 343,
+    "2026": 234
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 318,
+      "citationCount": 321,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 155,
-        "2026": 109
+        "2026": 112
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -40,14 +40,14 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 96,
+      "citationCount": 97,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
         "2025": 21,
-        "2026": 15
+        "2026": 16
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -74,19 +74,19 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 40,
+      "citationCount": 41,
       "citations_by_year": {
         "2025": 14,
-        "2026": 26
+        "2026": 27
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 39,
+      "citationCount": 41,
       "citations_by_year": {
         "2024": 6,
         "2025": 23,
-        "2026": 9
+        "2026": 11
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
@@ -166,17 +166,17 @@
         "2022": 3,
         "2023": 1,
         "2024": 7,
-        "2025": 8,
-        "2026": 1
+        "2025": 7,
+        "2026": 2
       }
     },
     "scalable_firstorder_bayesian_optimization_via_structured_aut": {
       "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
-      "citationCount": 18,
+      "citationCount": 19,
       "citations_by_year": {
         "2022": 1,
         "2023": 5,
-        "2024": 5,
+        "2024": 6,
         "2025": 4,
         "2026": 3
       }
@@ -317,27 +317,10 @@
     }
   },
   "coherence": {
-    "citedby": 1025,
-    "sum_aggregate": 1003,
-    "sum_paper_counts": 1011,
+    "citedby": 1033,
+    "sum_aggregate": 1011,
+    "sum_paper_counts": 1019,
     "gap_total_minus_aggregate": 22,
-    "issues": [
-      {
-        "severity": "INFO",
-        "message": "citedby: 1014 -> 1025 (+11)"
-      },
-      {
-        "severity": "INFO",
-        "message": "  2023: 99 -> 100 (+1)"
-      },
-      {
-        "severity": "INFO",
-        "message": "  2025: 345 -> 344 (-1)"
-      },
-      {
-        "severity": "INFO",
-        "message": "  2026: 215 -> 226 (+11)"
-      }
-    ]
+    "issues": []
   }
 }
