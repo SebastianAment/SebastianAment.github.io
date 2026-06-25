@@ -7,10 +7,10 @@ Usage:
   python3 update_publications.py
 
   # Google Scholar (more comprehensive, run locally):
-  /opt/miniconda3/bin/python3 update_publications.py --source scholar
+  /Users/sebastianament/opt/miniconda3/bin/python3 update_publications.py --source scholar
 
   # Fill gaps for papers that failed on a previous Scholar run:
-  /opt/miniconda3/bin/python3 update_publications.py --infill
+  /Users/sebastianament/opt/miniconda3/bin/python3 update_publications.py --infill
 
   # With Semantic Scholar API key for higher rate limits:
   S2_API_KEY=your_key python3 update_publications.py
@@ -242,9 +242,10 @@ def fetch_citation_history(publications):
         "papers": cached_papers,
     }
 
-    with open(S2_HISTORY_PATH, "w") as f:
-        json.dump(result, f, indent=2)
-    print(f"  Saved {S2_HISTORY_PATH} ({updated} papers updated)")
+    if _write_json_if_changed(S2_HISTORY_PATH, result):
+        print(f"  Saved {S2_HISTORY_PATH} ({updated} papers updated)")
+    else:
+        print(f"  No substantive changes — {S2_HISTORY_PATH} unchanged.")
 
     # Print summary
     total = sum(aggregate.values())
@@ -286,6 +287,30 @@ def _merge_manual_and_sort(publications):
                 publications.append(m)
     publications.sort(key=lambda p: (-(p["year"] or 0), -p["citationCount"]))
     return publications
+
+
+def _write_json_if_changed(path, data, volatile_keys=("fetched_at", "coherence")):
+    """Write JSON to *path* only if the substantive content has changed.
+
+    Strips *volatile_keys* (timestamps, coherence diffs) before comparing so
+    that re-runs with identical citation data are true no-ops on disk.
+    Returns True if the file was written, False if skipped.
+    """
+    def _strip(d):
+        return {k: v for k, v in d.items() if k not in volatile_keys} if isinstance(d, dict) else d
+
+    try:
+        with open(path) as f:
+            old = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        old = None
+
+    if old is not None and _strip(old) == _strip(data):
+        return False
+
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
+    return True
 
 
 def _check_citation_coherence(citation_history, publications, prev_cache=None,
@@ -901,13 +926,15 @@ def main():
         # include a 'coherence' block so the saved JSON records the audit.
         issues = _check_citation_coherence(citation_history, publications, prev_cache)
 
-        with open(SCHOLAR_PUBS_PATH, "w") as f:
-            json.dump(publications, f, indent=2)
-        print(f"Saved {SCHOLAR_PUBS_PATH}")
+        pubs_written = _write_json_if_changed(SCHOLAR_PUBS_PATH, publications, volatile_keys=())
+        hist_written = _write_json_if_changed(SCHOLAR_HISTORY_PATH, citation_history)
 
-        with open(SCHOLAR_HISTORY_PATH, "w") as f:
-            json.dump(citation_history, f, indent=2)
-        print(f"Saved {SCHOLAR_HISTORY_PATH}")
+        if pubs_written:
+            print(f"Saved {SCHOLAR_PUBS_PATH}")
+        if hist_written:
+            print(f"Saved {SCHOLAR_HISTORY_PATH}")
+        if not pubs_written and not hist_written:
+            print("No substantive changes — Scholar files unchanged.")
 
         # Print summary
         total = citation_history.get("citedby") or sum(citation_history["aggregate"].values())
@@ -933,10 +960,10 @@ def main_s2():
 
     publications = process_publications(papers)
 
-    # Save JSON
-    with open(S2_PUBS_PATH, "w") as f:
-        json.dump(publications, f, indent=2)
-    print(f"Saved {S2_PUBS_PATH}")
+    if _write_json_if_changed(S2_PUBS_PATH, publications, volatile_keys=()):
+        print(f"Saved {S2_PUBS_PATH}")
+    else:
+        print(f"No substantive changes — {S2_PUBS_PATH} unchanged.")
 
     # Print summary
     print(f"\n{len(publications)} publications:")
