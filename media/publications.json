@@ -130,7 +130,7 @@
     "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
     "year": 2024,
     "venue": "arXiv.org",
-    "citationCount": 9,
+    "citationCount": 10,
     "url": "https://www.semanticscholar.org/paper/5c8a1e28139ebace36ce71b3b545c73b2d6776b5",
     "authors": [
       "J. Lin",
@@ -146,7 +146,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 223,
+    "citationCount": 227,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -163,7 +163,7 @@
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 38,
+    "citationCount": 39,
     "url": "https://www.semanticscholar.org/paper/68500e037f95d21e2d169f81e696e1e0461546bb",
     "authors": [
       "Aryan Deshwal",
@@ -281,7 +281,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 88,
+    "citationCount": 90,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -561,7 +561,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 20,
+    "citationCount": 21,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",

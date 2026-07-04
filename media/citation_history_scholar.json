@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-06-25T18:14:19.596693+00:00",
+  "fetched_at": "2026-07-04T19:32:42.756407+00:00",
   "source": "google_scholar",
-  "citedby": 1033,
+  "citedby": 1051,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,43 +11,43 @@
     "2022": 95,
     "2023": 100,
     "2024": 169,
-    "2025": 343,
-    "2026": 234
+    "2025": 344,
+    "2026": 251
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 321,
+      "citationCount": 325,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 155,
-        "2026": 112
+        "2025": 154,
+        "2026": 117
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 113,
+      "citationCount": 117,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 27,
-        "2026": 22
+        "2026": 26
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 97,
+      "citationCount": 100,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
         "2025": 21,
-        "2026": 16
+        "2026": 19
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -56,28 +56,28 @@
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
-        "2025": 21,
-        "2026": 9
+        "2025": 22,
+        "2026": 8
+      }
+    },
+    "ax_a_platform_for_adaptive_experimentation": {
+      "title": "Ax: A platform for adaptive experimentation",
+      "citationCount": 44,
+      "citations_by_year": {
+        "2025": 14,
+        "2026": 30
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
-      "citationCount": 42,
+      "citationCount": 43,
       "citations_by_year": {
         "2021": 12,
         "2022": 6,
         "2023": 6,
         "2024": 7,
-        "2025": 8,
+        "2025": 9,
         "2026": 3
-      }
-    },
-    "ax_a_platform_for_adaptive_experimentation": {
-      "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 41,
-      "citations_by_year": {
-        "2025": 14,
-        "2026": 27
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -91,7 +91,7 @@
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 39,
+      "citationCount": 40,
       "citations_by_year": {
         "2019": 1,
         "2020": 4,
@@ -100,7 +100,7 @@
         "2023": 7,
         "2024": 5,
         "2025": 5,
-        "2026": 1
+        "2026": 2
       }
     },
     "multicomponent_background_learning_automates_signal_detectio": {
@@ -202,10 +202,10 @@
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 13,
+      "citationCount": 14,
       "citations_by_year": {
         "2025": 6,
-        "2026": 7
+        "2026": 8
       }
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
@@ -233,10 +233,10 @@
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling gaussian processes for learning curve prediction via latent kronecker structure",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
         "2025": 8,
-        "2026": 1
+        "2026": 2
       }
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
@@ -315,12 +315,5 @@
         "2023": 1
       }
     }
-  },
-  "coherence": {
-    "citedby": 1033,
-    "sum_aggregate": 1011,
-    "sum_paper_counts": 1019,
-    "gap_total_minus_aggregate": 22,
-    "issues": []
   }
 }

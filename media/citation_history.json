@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-06-29T13:09:26.984630+00:00",
+  "fetched_at": "2026-07-04T19:31:26.734374+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 48,
+    "2021": 49,
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 165,
-    "2026": 131
+    "2025": 161,
+    "2026": 139
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -47,26 +47,26 @@
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 7,
         "2024": 1
       }
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 223,
+      "citationCount": 227,
       "citations_by_year": {
-        "2026": 68,
-        "2025": 32
+        "2026": 72,
+        "2025": 28
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 38,
+      "citationCount": 39,
       "citations_by_year": {
-        "2026": 7,
+        "2026": 8,
         "2025": 15,
         "2024": 10,
         "2023": 6
@@ -130,9 +130,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 88,
+      "citationCount": 90,
       "citations_by_year": {
-        "2026": 11,
+        "2026": 13,
         "2025": 20,
         "2024": 16,
         "2023": 21,
@@ -304,14 +304,14 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 20,
+      "citationCount": 21,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 4,
+        "2021": 5,
         "2020": 1,
         "2019": 3,
         "2018": 2
