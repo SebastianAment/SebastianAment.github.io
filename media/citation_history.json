@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-04T19:31:26.734374+00:00",
+  "fetched_at": "2026-07-11T17:35:09.277078+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 161,
-    "2026": 139
+    "2025": 160,
+    "2026": 144
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 227,
+      "citationCount": 228,
       "citations_by_year": {
-        "2026": 72,
-        "2025": 28
+        "2026": 73,
+        "2025": 27
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -142,9 +142,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 67,
+      "citationCount": 68,
       "citations_by_year": {
-        "2026": 6,
+        "2026": 7,
         "2025": 15,
         "2024": 12,
         "2023": 19,
@@ -225,8 +225,9 @@
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
-      "citationCount": 36,
+      "citationCount": 37,
       "citations_by_year": {
+        "2026": 1,
         "2025": 5,
         "2024": 2,
         "2023": 6,
@@ -251,7 +252,7 @@
     },
     "deep_reasoning_networks_thinking_fast_and_slow": {
       "title": "Deep Reasoning Networks: Thinking Fast and Slow",
-      "citationCount": 26,
+      "citationCount": 27,
       "citations_by_year": {
         "2026": 1,
         "2025": 4,
@@ -328,9 +329,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 22,
+      "citationCount": 24,
       "citations_by_year": {
-        "2026": 12,
+        "2026": 14,
         "2025": 10
       }
     },

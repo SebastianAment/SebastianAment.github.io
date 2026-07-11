@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-04T19:32:42.756407+00:00",
+  "fetched_at": "2026-07-11T17:36:21.484809+00:00",
   "source": "google_scholar",
-  "citedby": 1051,
+  "citedby": 1057,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -12,30 +12,30 @@
     "2023": 100,
     "2024": 169,
     "2025": 344,
-    "2026": 251
+    "2026": 257
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 325,
+      "citationCount": 326,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 154,
-        "2026": 117
+        "2026": 118
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 117,
+      "citationCount": 116,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 27,
-        "2026": 26
+        "2026": 25
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -52,20 +52,20 @@
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 47,
+      "citationCount": 48,
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
         "2025": 22,
-        "2026": 8
+        "2026": 9
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 44,
+      "citationCount": 47,
       "citations_by_year": {
         "2025": 14,
-        "2026": 30
+        "2026": 33
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
@@ -82,11 +82,11 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 41,
+      "citationCount": 42,
       "citations_by_year": {
         "2024": 6,
         "2025": 23,
-        "2026": 11
+        "2026": 12
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
@@ -202,10 +202,10 @@
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 14,
+      "citationCount": 15,
       "citations_by_year": {
         "2025": 6,
-        "2026": 8
+        "2026": 9
       }
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {

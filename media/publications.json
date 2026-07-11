@@ -62,7 +62,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 22,
+    "citationCount": 24,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -146,7 +146,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 227,
+    "citationCount": 228,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -303,7 +303,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 67,
+    "citationCount": 68,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",
@@ -442,7 +442,7 @@
     "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
     "year": 2019,
     "venue": "MRS Communications",
-    "citationCount": 36,
+    "citationCount": 37,
     "url": "https://www.semanticscholar.org/paper/d0201ac9b47dd2b1b75973db6ac1356776b4631d",
     "authors": [
       "C. Gomes",
@@ -484,7 +484,7 @@
     "title": "Deep Reasoning Networks: Thinking Fast and Slow",
     "year": 2019,
     "venue": "arXiv.org",
-    "citationCount": 26,
+    "citationCount": 27,
     "url": "https://www.semanticscholar.org/paper/140bdd635deebe7d01de126b1ef7d9c9640a5831",
     "authors": [
       "Di Chen",
