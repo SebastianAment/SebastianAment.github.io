@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-07-11T17:35:09.277078+00:00",
+  "fetched_at": "2026-07-13T12:08:27.498502+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 49,
+    "2021": 48,
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 160,
-    "2026": 144
+    "2025": 159,
+    "2026": 146
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 228,
+      "citationCount": 230,
       "citations_by_year": {
-        "2026": 73,
-        "2025": 27
+        "2026": 74,
+        "2025": 26
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -305,14 +305,14 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 21,
+      "citationCount": 20,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 5,
+        "2021": 4,
         "2020": 1,
         "2019": 3,
         "2018": 2
@@ -329,9 +329,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 24,
+      "citationCount": 25,
       "citations_by_year": {
-        "2026": 14,
+        "2026": 15,
         "2025": 10
       }
     },
