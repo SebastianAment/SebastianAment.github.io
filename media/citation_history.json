@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-13T12:08:27.498502+00:00",
+  "fetched_at": "2026-07-14T01:46:15.485743+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 159,
-    "2026": 146
+    "2026": 147
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -290,9 +290,9 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 22,
+      "citationCount": 23,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 1,
         "2024": 4,
         "2023": 5,

@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-11T17:36:21.484809+00:00",
+  "fetched_at": "2026-07-14T01:47:23.937909+00:00",
   "source": "google_scholar",
-  "citedby": 1057,
+  "citedby": 1060,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -12,30 +12,30 @@
     "2023": 100,
     "2024": 169,
     "2025": 344,
-    "2026": 257
+    "2026": 260
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 326,
+      "citationCount": 328,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 154,
-        "2026": 118
+        "2026": 120
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 116,
+      "citationCount": 117,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 27,
-        "2026": 25
+        "2026": 26
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -62,10 +62,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 47,
+      "citationCount": 46,
       "citations_by_year": {
         "2025": 14,
-        "2026": 33
+        "2026": 32
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
@@ -91,7 +91,7 @@
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 40,
+      "citationCount": 41,
       "citations_by_year": {
         "2019": 1,
         "2020": 4,
@@ -100,7 +100,7 @@
         "2023": 7,
         "2024": 5,
         "2025": 5,
-        "2026": 2
+        "2026": 3
       }
     },
     "multicomponent_background_learning_automates_signal_detectio": {
