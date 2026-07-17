@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-14T01:47:23.937909+00:00",
+  "fetched_at": "2026-07-17T02:30:37.564112+00:00",
   "source": "google_scholar",
-  "citedby": 1060,
+  "citedby": 1064,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,20 +10,20 @@
     "2021": 40,
     "2022": 95,
     "2023": 100,
-    "2024": 169,
+    "2024": 168,
     "2025": 344,
-    "2026": 260
+    "2026": 265
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 328,
+      "citationCount": 329,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 154,
-        "2026": 120
+        "2026": 121
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -62,10 +62,19 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 46,
+      "citationCount": 47,
       "citations_by_year": {
         "2025": 14,
-        "2026": 32
+        "2026": 33
+      }
+    },
+    "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
+      "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
+      "citationCount": 43,
+      "citations_by_year": {
+        "2024": 6,
+        "2025": 23,
+        "2026": 13
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
@@ -78,15 +87,6 @@
         "2024": 7,
         "2025": 9,
         "2026": 3
-      }
-    },
-    "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
-      "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 42,
-      "citations_by_year": {
-        "2024": 6,
-        "2025": 23,
-        "2026": 12
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
@@ -118,7 +118,7 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 31,
+      "citationCount": 32,
       "citations_by_year": {
         "2017": 1,
         "2018": 2,
@@ -129,7 +129,7 @@
         "2023": 5,
         "2024": 7,
         "2025": 4,
-        "2026": 1
+        "2026": 2
       }
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
@@ -243,9 +243,8 @@
       "title": "Scalable Gaussian processes with latent Kronecker structure",
       "citationCount": 8,
       "citations_by_year": {
-        "2024": 1,
         "2025": 4,
-        "2026": 3
+        "2026": 4
       }
     },
     "an_efficient_relaxed_projection_method_for_constrained_nonne": {

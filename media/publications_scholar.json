@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 46,
+    "citationCount": 47,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -141,7 +141,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2024,
     "venue": "Nuclear Fusion",
-    "citationCount": 42,
+    "citationCount": 43,
     "url": "https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta",
     "authors": [
       "P Rodriguez-Fernandez",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 328,
+    "citationCount": 329,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -520,7 +520,7 @@
     "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
     "year": 2018,
     "venue": "Statistics and Computing",
-    "citationCount": 31,
+    "citationCount": 32,
     "url": "https://link.springer.com/article/10.1007/s11222-017-9725-y",
     "authors": [
       "Sebastian Ament",
