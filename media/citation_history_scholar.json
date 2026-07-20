@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-18T19:45:52.534991+00:00",
+  "fetched_at": "2026-07-20T02:48:08.484782+00:00",
   "source": "google_scholar",
-  "citedby": 1068,
+  "citedby": 1069,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -12,18 +12,18 @@
     "2023": 100,
     "2024": 168,
     "2025": 344,
-    "2026": 269
+    "2026": 270
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 333,
+      "citationCount": 334,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 154,
-        "2026": 125
+        "2026": 126
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {

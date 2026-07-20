@@ -146,7 +146,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 232,
+    "citationCount": 233,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -281,7 +281,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 91,
+    "citationCount": 92,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -303,7 +303,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 69,
+    "citationCount": 70,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",
@@ -385,7 +385,7 @@
     "title": "Deep Reasoning Networks for Unsupervised Pattern De-mixing with Constraint Reasoning",
     "year": 2020,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 28,
+    "citationCount": 29,
     "url": "https://www.semanticscholar.org/paper/be16145043798a9189a454d4dd96b46df5717195",
     "authors": [
       "Di Chen",

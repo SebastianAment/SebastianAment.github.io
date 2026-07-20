@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18T19:44:43.590981+00:00",
+  "fetched_at": "2026-07-20T02:46:58.073139+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 157,
-    "2026": 153
+    "2025": 156,
+    "2026": 157
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 232,
+      "citationCount": 233,
       "citations_by_year": {
-        "2026": 76,
-        "2025": 24
+        "2026": 77,
+        "2025": 23
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -130,9 +130,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 91,
+      "citationCount": 92,
       "citations_by_year": {
-        "2026": 14,
+        "2026": 15,
         "2025": 20,
         "2024": 16,
         "2023": 21,
@@ -142,9 +142,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 69,
+      "citationCount": 70,
       "citations_by_year": {
-        "2026": 8,
+        "2026": 9,
         "2025": 15,
         "2024": 12,
         "2023": 19,
@@ -192,9 +192,9 @@
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep Reasoning Networks for Unsupervised Pattern De-mixing with Constraint Reasoning",
-      "citationCount": 28,
+      "citationCount": 29,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 4,
         "2024": 3,
         "2023": 5,
