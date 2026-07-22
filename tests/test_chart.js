@@ -4,7 +4,7 @@
  */
 
 const assert = require('assert');
-const { paperKey, computeProjection } = require('../chart.js');
+const { paperKey, computeProjection, reconcileToTotal, buildBarModel } = require('../chart.js');
 
 // ── paperKey tests ──────────────────────────────────────────────────────────
 
@@ -103,6 +103,82 @@ assert.ok(
 // No fetchedAt → no projection
 assert.strictEqual(computeProjection({ "2024": 50, "2025": 20 }, null), null);
 assert.strictEqual(computeProjection({ "2024": 50, "2025": 20 }, ""), null);
+
+// ── reconcileToTotal tests ──────────────────────────────────────────────────
+
+const sumVals = obj => Object.values(obj).reduce((s, v) => s + v, 0);
+
+// Scales up to exactly the reported total
+const rec = reconcileToTotal({ "2024": 100, "2025": 60 }, 200);
+assert.strictEqual(sumVals(rec), 200, "Scaled histogram must sum to the total");
+assert.ok(rec["2024"] >= 100 && rec["2025"] >= 60, "Every year scales up, none down");
+
+// Real S2-like case: dated sum 637, reported total 782
+const s2agg = { "2017": 2, "2018": 4, "2019": 8, "2020": 28, "2021": 49,
+                "2022": 66, "2023": 83, "2024": 81, "2025": 156, "2026": 160 };
+const s2rec = reconcileToTotal(s2agg, 782);
+assert.strictEqual(sumVals(s2rec), 782, "S2 aggregate must reconcile to 782 exactly");
+// Proportional bias: recent (larger) years absorb more of the residual
+assert.ok(s2rec["2026"] - 160 >= s2rec["2017"] - 2, "Larger years absorb more residual");
+
+// All integers
+assert.ok(Object.values(s2rec).every(v => Number.isInteger(v)), "All bars must be integers");
+
+// No total, or total not exceeding the sum → unchanged copy (never scales down)
+assert.deepStrictEqual(reconcileToTotal({ "2024": 50, "2025": 20 }, 0), { "2024": 50, "2025": 20 });
+assert.deepStrictEqual(reconcileToTotal({ "2024": 50, "2025": 20 }, 40), { "2024": 50, "2025": 20 });
+assert.deepStrictEqual(reconcileToTotal({ "2024": 50, "2025": 20 }, 70), { "2024": 50, "2025": 20 });
+
+// Returns a new object (no mutation of the input)
+const orig = { "2024": 10 };
+const out = reconcileToTotal(orig, 20);
+assert.strictEqual(orig["2024"], 10, "Input must not be mutated");
+assert.strictEqual(out["2024"], 20);
+
+// Monotonic input stays monotonic after scaling (cumulative safety)
+const mono = reconcileToTotal({ "2023": 10, "2024": 20, "2025": 30 }, 90);
+assert.ok(mono["2023"] <= mono["2024"] && mono["2024"] <= mono["2025"], "Order preserved");
+
+// ── buildBarModel tests ─────────────────────────────────────────────────────
+// This is the exact pipeline the chart renderer runs. These tests guard against
+// the "no bars render" regression: if the model ever comes back empty for real
+// data — or a helper it depends on (reconcileToTotal / computeProjection) goes
+// missing or throws — these fail instead of the page silently blanking.
+
+// Non-empty input must always produce one bar per year
+const perYear = buildBarModel({ "2023": 10, "2024": 20 }, {});
+assert.strictEqual(perYear.bars.length, 2, "One bar per year");
+assert.deepStrictEqual(perYear.bars.map(b => b.count), [10, 20], "Per-year counts are raw");
+assert.strictEqual(perYear.maxVal, 20);
+assert.ok(perYear.bars.every(b => b.barPx >= 2 && Number.isFinite(b.barPx)), "Finite, visible heights");
+assert.ok(perYear.bars.every(b => !b.isStack), "No projection → no stacked bars");
+
+// Empty input is the ONLY case that yields no bars
+assert.deepStrictEqual(buildBarModel({}, {}).bars, [], "Empty histogram → no bars");
+assert.deepStrictEqual(buildBarModel(undefined, {}).bars, [], "Missing histogram → no bars, no throw");
+
+// Cumulative mode: running totals, monotonic, last = sum
+const cum = buildBarModel({ "2023": 10, "2024": 20, "2025": 30 }, { cumulative: true });
+assert.deepStrictEqual(cum.bars.map(b => b.count), [10, 30, 60], "Cumulative running totals");
+
+// Reconciliation: per-year bars scale up to the reported total exactly
+const recModel = buildBarModel({ "2024": 100, "2025": 60 }, { total: 200 });
+assert.strictEqual(recModel.bars.reduce((s, b) => s + b.count, 0), 200, "Bars sum to the total");
+
+// Cumulative + reconciliation: last cumulative bar equals the total
+const cumRec = buildBarModel({ "2024": 100, "2025": 60 }, { cumulative: true, total: 200 });
+assert.strictEqual(cumRec.bars[cumRec.bars.length - 1].count, 200, "Cumulative ends at total");
+
+// Projection: the current year becomes a stacked bar with proj > actual
+const proj = buildBarModel(
+    { "2024": 100, "2025": 60 },
+    { showProjection: true, fetchedAt: "2025-06-30T00:00:00Z" }
+);
+const lastBar = proj.bars[proj.bars.length - 1];
+assert.strictEqual(lastBar.isStack, true, "Projected year is a stacked bar");
+assert.ok(lastBar.proj > lastBar.count, "Projection exceeds actual");
+assert.strictEqual(proj.bars[0].isStack, false, "Non-current years are not stacked");
+assert.ok(proj.maxVal >= lastBar.proj, "maxVal accounts for the projection");
 
 // ── urlLabel tests ──────────────────────────────────────────────────────────
 

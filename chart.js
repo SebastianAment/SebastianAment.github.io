@@ -50,6 +50,52 @@ function computeProjection(byYear, fetchedAt) {
 }
 
 /**
+ * Scale a per-year citation histogram so its values sum exactly to `total`,
+ * using largest-remainder (Hamilton) rounding.
+ *
+ * The per-year breakdown is an incomplete view of the authoritative total:
+ * citing works whose publication year is unknown are absent from the
+ * histogram, so its sum is a lower bound on the real citation count. To
+ * reconcile the two — so the cumulative chart ends at the reported total and
+ * the projection sits above it — the dated years are scaled up in proportion,
+ * which is the least-biased placement of the undated citations (they are
+ * assumed to follow the same yearly distribution as the dated ones).
+ *
+ * Returns a new object. If `total` is falsy or not greater than the current
+ * sum (nothing to reconcile), returns an unscaled copy.
+ *
+ * @param {Object} byYear - { "2023": 50, "2024": 100 }
+ * @param {number} total  - authoritative citation count to scale up to
+ * @returns {Object} scaled histogram summing exactly to `total`
+ */
+function reconcileToTotal(byYear, total) {
+    const years = Object.keys(byYear);
+    const sum = years.reduce((s, y) => s + byYear[y], 0);
+    const copy = {};
+    years.forEach(y => { copy[y] = byYear[y]; });
+    if (!total || total <= sum || sum <= 0) return copy;
+
+    const result = {};
+    const remainders = [];
+    let allocated = 0;
+    years.forEach(y => {
+        const exact = byYear[y] * total / sum;
+        const floor = Math.floor(exact);
+        result[y] = floor;
+        allocated += floor;
+        remainders.push({ y, frac: exact - floor });
+    });
+    // Hand the remaining units to the years with the largest fractional parts
+    // so the scaled histogram sums to exactly `total`.
+    remainders.sort((a, b) => b.frac - a.frac);
+    let leftover = total - allocated;
+    for (let i = 0; i < remainders.length && leftover > 0; i++, leftover--) {
+        result[remainders[i].y] += 1;
+    }
+    return result;
+}
+
+/**
  * Determine appropriate link label based on URL domain.
  */
 function urlLabel(url) {
@@ -73,7 +119,76 @@ function urlLabel(url) {
     return 'Paper';
 }
 
+/**
+ * Build the display model for a citation bar chart. This is the single source
+ * of truth for the chart math — reconciliation to the authoritative total,
+ * per-year vs. cumulative, year-end projection, and pixel heights — kept here
+ * (rather than in the DOM renderer) so it is unit-testable without a browser.
+ *
+ * @param {Object} byYear - raw per-year histogram, e.g. { "2024": 100, "2025": 60 }
+ * @param {Object} opts
+ * @param {number} [opts.barHeight=90] - pixel height of the tallest bar
+ * @param {boolean} [opts.cumulative=false] - render cumulative running totals
+ * @param {boolean} [opts.showProjection] - include a year-end projection bar
+ * @param {string}  [opts.fetchedAt] - ISO date used by the projection
+ * @param {number}  [opts.total] - authoritative total to scale the bars up to
+ * @returns {{bars: Array, maxVal: number, barHeight: number}}
+ *   Each bar: { year, count, proj|null, isStack, barPx, actualPx|null }.
+ *   `bars` is empty only when `byYear` has no entries.
+ */
+function buildBarModel(byYear, opts = {}) {
+    opts = opts || {};
+    const barHeight = opts.barHeight || 90;
+    const cumulative = !!opts.cumulative;
+
+    // Scale the dated histogram up to the authoritative total (no-op when
+    // opts.total is absent or not greater than the current sum).
+    const reconciled = reconcileToTotal(byYear || {}, opts.total || 0);
+    const years = Object.keys(reconciled).sort();
+    if (years.length === 0) return { bars: [], maxVal: 0, barHeight };
+
+    // Projection is computed on the reconciled per-year data so it stays
+    // consistent with the bars actually displayed.
+    let projResult = null;
+    if (opts.showProjection && opts.fetchedAt) {
+        projResult = computeProjection(reconciled, opts.fetchedAt);
+    }
+
+    // Per-year or cumulative display values, carrying the projection forward
+    // (in cumulative mode the projected year-end becomes the running total).
+    let displayByYear = reconciled;
+    const projected = {};
+    if (cumulative) {
+        displayByYear = {};
+        let running = 0;
+        years.forEach(y => { running += reconciled[y]; displayByYear[y] = running; });
+        if (projResult) {
+            const extra = projResult.projected - reconciled[projResult.year];
+            projected[projResult.year] = displayByYear[projResult.year] + extra;
+        }
+    } else if (projResult) {
+        projected[projResult.year] = projResult.projected;
+    }
+
+    let maxVal = Math.max(...years.map(y => displayByYear[y]));
+    if (projResult) maxVal = Math.max(maxVal, projected[projResult.year]);
+
+    const bars = years.map(year => {
+        const count = displayByYear[year];
+        const proj = projected[year];
+        if (proj && proj > count) {
+            const actualPx = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
+            const projPx = maxVal > 0 ? (proj / maxVal) * barHeight : 2;
+            return { year, count, proj, isStack: true, barPx: projPx, actualPx };
+        }
+        const px = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
+        return { year, count, proj: null, isStack: false, barPx: px, actualPx: null };
+    });
+
+    return { bars, maxVal, barHeight };
+}
+
 // Export for Node.js testing; no-op in browser
 if (typeof module !== 'undefined') {
-    module.exports = { paperKey, computeProjection, urlLabel };
+    module.exports = { paperKey, computeProjection, urlLabel, reconcileToTotal, buildBarModel };
 }

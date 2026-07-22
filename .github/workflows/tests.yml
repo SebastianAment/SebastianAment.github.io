@@ -27,4 +27,6 @@ jobs:
         run: pytest tests/ -v
 
       - name: Run JS tests
-        run: node tests/test_chart.js
+        run: |
+          node tests/test_chart.js
+          node tests/test_integration.js

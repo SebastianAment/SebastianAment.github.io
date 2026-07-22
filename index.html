@@ -14,7 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Cache-busting: bump ?v= whenever styles.css / chart.js / gp-background.js
+         change, so returning visitors never run a stale copy against new markup. -->
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="preload" href="media/la_square.jpg" as="image">
     <meta name="theme-color" content="#f8f8f8">
     <script>
@@ -255,14 +257,21 @@
             <div id="citation-chart-wrapper" class="citation-chart-wrapper" style="display:none">
                 <div class="citation-chart-header">
                     <p class="citation-summary" id="citation-summary"></p>
-                    <span class="source-toggle" id="source-toggle" style="display:none">
-                        <button class="sort-btn active" data-source="scholar">Google Scholar</button>
-                        <button class="sort-btn" data-source="s2">Semantic Scholar</button>
+                    <span class="citation-toggles">
+                        <span class="mode-toggle" id="mode-toggle">
+                            <button class="sort-btn active" data-mode="peryear">Per year</button>
+                            <button class="sort-btn" data-mode="cumulative">Cumulative</button>
+                        </span>
+                        <span class="source-toggle" id="source-toggle" style="display:none">
+                            <button class="sort-btn active" data-source="scholar">Google Scholar</button>
+                            <button class="sort-btn" data-source="s2">Semantic Scholar</button>
+                        </span>
                     </span>
                 </div>
                 <div class="citation-chart-scroll" id="citation-chart-scroll">
                     <div class="citation-chart" id="citation-chart"></div>
                 </div>
+                <p class="citation-note" id="citation-note" style="display:none">Yearly figures are normalized to the reported total (some citing works are undated); <span class="chart-projected-value">*</span> marks the projected year-end value.</p>
             </div>
             <div class="sort-controls">
                 <input type="text" class="search-input" id="pub-search" placeholder="Filter publications...">
@@ -316,8 +325,8 @@
     <footer class="fade-in">
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
-    <script src="chart.js"></script>
-    <script src="gp-background.js"></script>
+    <script src="chart.js?v=2"></script>
+    <script src="gp-background.js?v=2"></script>
     <script>
         // Lazy-load video iframes when they scroll into view (no autoplay)
         const videoObserver = new IntersectionObserver((entries) => {
@@ -362,48 +371,35 @@
         let publications = [];
         let citationHistory = null;
         let currentSort = 'citations';
+        let currentMode = 'peryear'; // 'peryear' | 'cumulative' for the bar charts
+        const openDetails = new Set(); // paper keys whose detail chart is expanded
 
         // ── Shared bar chart renderer ──────────────────────────────────
         // Used by the aggregate citation chart and per-paper detail charts.
-        // Options: { barHeight, showProjection, fetchedAt }
+        // The chart math lives in buildBarModel() (chart.js); this only renders
+        // the returned model to DOM.
+        // Options: { barHeight, showProjection, fetchedAt, cumulative, total }
         const _fadeListeners = new WeakMap(); // track scroll listeners to avoid leaks
 
         function renderBarChart(container, byYear, opts = {}) {
-            const barHeight = opts.barHeight || 90;
-            const years = Object.keys(byYear).sort();
-            if (years.length === 0) { container.innerHTML = ''; return; }
+            const model = buildBarModel(byYear, opts);
+            if (model.bars.length === 0) { container.innerHTML = ''; return; }
 
-            let maxVal = Math.max(...years.map(y => byYear[y]));
-            let projected = {};
-
-            if (opts.showProjection && opts.fetchedAt) {
-                const result = computeProjection(byYear, opts.fetchedAt);
-                if (result) {
-                    projected[result.year] = result.projected;
-                    maxVal = Math.max(maxVal, result.projected);
-                }
-            }
-
-            container.innerHTML = years.map(year => {
-                const count = byYear[year];
-                const proj = projected[year];
-                if (proj && proj > count) {
-                    const actualPx = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
-                    const projPx = (proj / maxVal) * barHeight;
+            container.innerHTML = model.bars.map(b => {
+                if (b.isStack) {
                     return `<div class="chart-col">
-                        <span class="chart-value">${count}<span class="chart-projected-value"> / ${proj}*</span></span>
-                        <div class="chart-bar-stack" style="height:${projPx}px">
-                            <div class="chart-bar chart-bar-projected" style="height:100%" title="${year} projected: ${proj}"></div>
-                            <div class="chart-bar chart-bar-actual" style="height:${actualPx}px" title="${year}: ${count}"></div>
+                        <span class="chart-value">${b.count}<span class="chart-projected-value"> / ${b.proj}*</span></span>
+                        <div class="chart-bar-stack" style="height:${b.barPx}px">
+                            <div class="chart-bar chart-bar-projected" style="height:100%" title="${b.year} projected: ${b.proj}"></div>
+                            <div class="chart-bar chart-bar-actual" style="height:${b.actualPx}px" title="${b.year}: ${b.count}"></div>
                         </div>
-                        <span class="chart-label">${year}</span>
+                        <span class="chart-label">${b.year}</span>
                     </div>`;
                 }
-                const px = maxVal > 0 ? Math.max(2, (count / maxVal) * barHeight) : 2;
                 return `<div class="chart-col">
-                    <span class="chart-value">${count}</span>
-                    <div class="chart-bar" style="height:${px}px" title="${year}: ${count}"></div>
-                    <span class="chart-label">${year}</span>
+                    <span class="chart-value">${b.count}</span>
+                    <div class="chart-bar" style="height:${b.barPx}px" title="${b.year}: ${b.count}"></div>
+                    <span class="chart-label">${b.year}</span>
                 </div>`;
             }).join('');
 
@@ -436,27 +432,46 @@
         }
 
         // ── Sparkline + detail chart for per-paper view ────────────────
-        // paperKey() and computeProjection() are defined in chart.js
+        // paperKey() and buildBarModel() are defined in chart.js
 
         function getPaperHistory(title) {
             if (!citationHistory || !citationHistory.papers) return null;
             return citationHistory.papers[paperKey(title)] || null;
         }
 
+        // Inner bars for a paper's sparkline, honoring the per-year/cumulative
+        // mode via the shared buildBarModel (so previews match the detail chart).
+        // Returns null when there's nothing to draw.
+        const SPARK_HEIGHT = 16;
+        function sparklineBarsHTML(paper) {
+            const model = buildBarModel(paper.citations_by_year, {
+                cumulative: currentMode === 'cumulative'
+            });
+            if (model.maxVal === 0) return null;
+            return model.bars.map(b => {
+                const h = Math.max(1, (b.count / model.maxVal) * SPARK_HEIGHT);
+                return `<span class="spark-bar" style="height:${h}px" title="${b.year}: ${b.count}"></span>`;
+            }).join('');
+        }
+
         function buildSparkline(title) {
             const paper = getPaperHistory(title);
             if (!paper || !paper.citations_by_year) return '';
-            const byYear = paper.citations_by_year;
-            const years = Object.keys(byYear).sort();
-            if (years.length === 0) return '';
-            const max = Math.max(...Object.values(byYear));
-            if (max === 0) return '';
-            const key = paperKey(title);
-            const bars = years.map(y => {
-                const h = Math.max(1, (byYear[y] / max) * 16);
-                return `<span class="spark-bar" style="height:${h}px" title="${y}: ${byYear[y]}"></span>`;
-            }).join('');
-            return `<span class="sparkline" data-paper-key="${key}">${bars}</span>`;
+            const inner = sparklineBarsHTML(paper);
+            if (inner === null) return '';
+            return `<span class="sparkline" data-paper-key="${paperKey(title)}">${inner}</span>`;
+        }
+
+        // Re-render every visible sparkline in place for the current mode (used
+        // by the per-year/cumulative toggle, without rebuilding the whole list).
+        function updateSparklines() {
+            document.querySelectorAll('.sparkline').forEach(el => {
+                const paper = citationHistory && citationHistory.papers
+                    ? citationHistory.papers[el.dataset.paperKey] : null;
+                if (!paper || !paper.citations_by_year) return;
+                const inner = sparklineBarsHTML(paper);
+                if (inner !== null) el.innerHTML = inner;
+            });
         }
 
         function generateBibtex(pub) {
@@ -544,21 +559,54 @@
                     const detail = document.getElementById('detail-' + key);
                     if (!detail) return;
                     if (detail.style.display === 'none') {
-                        const paper = citationHistory.papers[key];
-                        if (paper && paper.citations_by_year) {
-                            const chart = detail.querySelector('.citation-chart');
-                            renderBarChart(chart, paper.citations_by_year, {
-                                barHeight: 60,
-                                showProjection: true,
-                                fetchedAt: citationHistory.fetched_at
-                            });
-                        }
+                        openDetails.add(key);
                         detail.style.display = '';
+                        renderDetailChart(key, true);
                     } else {
+                        openDetails.delete(key);
                         detail.style.display = 'none';
                     }
                 });
             });
+
+            // Restore any details that were expanded before this re-render
+            // (e.g. after a source/sort/search change) and animate the new bars in.
+            openDetails.forEach(key => {
+                const detail = document.getElementById('detail-' + key);
+                if (!detail) return; // filtered out by the current search
+                detail.style.display = '';
+                renderDetailChart(key, true);
+            });
+        }
+
+        // Render (or re-render) a single paper's expanded detail chart in the
+        // current source + mode, optionally animating the bars in.
+        function renderDetailChart(key, animate) {
+            const detail = document.getElementById('detail-' + key);
+            if (!detail) return;
+            const chart = detail.querySelector('.citation-chart');
+            const paper = citationHistory && citationHistory.papers
+                ? citationHistory.papers[key] : null;
+            if (paper && paper.citations_by_year) {
+                // Scale this paper's dated bars up to its headline citationCount,
+                // matching the aggregate chart's reconciliation.
+                renderBarChart(chart, paper.citations_by_year, {
+                    barHeight: 60,
+                    showProjection: true,
+                    fetchedAt: citationHistory.fetched_at,
+                    cumulative: currentMode === 'cumulative',
+                    total: paper.citationCount
+                });
+                if (animate) animateBars(chart);
+            } else {
+                chart.innerHTML = '';
+            }
+        }
+
+        // Re-render all currently-expanded detail charts (used when the
+        // per-year / cumulative mode toggles, without collapsing them).
+        function rerenderOpenDetails() {
+            openDetails.forEach(key => renderDetailChart(key, true));
         }
 
         function updatePublications(by) {
@@ -617,6 +665,27 @@
             requestAnimationFrame(step);
         }
 
+        // Grow-in bar animation with a staggered delay across a chart's columns.
+        // Shared by the aggregate chart and the per-paper detail charts.
+        function animateBars(container) {
+            if (!container) return;
+            const bars = container.querySelectorAll('.chart-col');
+            const numBars = bars.length;
+            const barDuration = ANIM_DURATION * 0.6;
+            const stagger = numBars > 1 ? (ANIM_DURATION - barDuration) / (numBars - 1) : 0;
+            bars.forEach((col, i) => {
+                const bar = col.querySelector('.chart-bar-stack, .chart-bar:not(.chart-bar-actual):not(.chart-bar-projected)');
+                if (!bar) return;
+                const cls = bar.classList.contains('chart-bar-stack') ? 'chart-bar-stack-animate' : 'chart-bar-animate';
+                bar.style.animationDelay = `${Math.round(i * stagger)}ms`;
+                bar.style.animationDuration = `${Math.round(barDuration)}ms`;
+                // Remove + reflow so re-rendered bars replay the animation.
+                bar.classList.remove(cls);
+                void bar.offsetWidth;
+                bar.classList.add(cls);
+            });
+        }
+
         let citationAnimated = false;
         const citationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -628,23 +697,48 @@
                     const suffix = el.dataset.suffix || '';
                     if (total > 0) animateCount(el, total, suffix);
                     // Animate bars with staggered delay
-                    const bars = entry.target.querySelectorAll('#citation-chart .chart-col');
-                    const numBars = bars.length;
-                    const barDuration = ANIM_DURATION * 0.6;
-                    const stagger = numBars > 1 ? (ANIM_DURATION - barDuration) / (numBars - 1) : 0;
-                    bars.forEach((col, i) => {
-                        const bar = col.querySelector('.chart-bar-stack, .chart-bar:not(.chart-bar-actual):not(.chart-bar-projected)');
-                        if (bar) {
-                            const cls = bar.classList.contains('chart-bar-stack') ? 'chart-bar-stack-animate' : 'chart-bar-animate';
-                            bar.style.animationDelay = `${Math.round(i * stagger)}ms`;
-                            bar.style.animationDuration = `${Math.round(barDuration)}ms`;
-                            bar.classList.add(cls);
-                        }
-                    });
+                    animateBars(document.getElementById('citation-chart'));
                     citationObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
+
+        // Render the aggregate chart bars in the current per-year/cumulative mode.
+        // The dated per-year bars are scaled up to the authoritative total so the
+        // cumulative view ends exactly at the reported citation count.
+        function renderAggregateBars() {
+            if (!citationHistory) return;
+            const chart = document.getElementById('citation-chart');
+            renderBarChart(chart, citationHistory.aggregate, {
+                barHeight: 90,
+                showProjection: true,
+                fetchedAt: citationHistory.fetched_at,
+                cumulative: currentMode === 'cumulative',
+                total: historyTotal(citationHistory)
+            });
+        }
+
+        // Switch between per-year and cumulative views. Keeps expanded paper
+        // details open and animates the new bars in, without collapsing them.
+        function setMode(mode) {
+            if (mode === currentMode) return;
+            currentMode = mode;
+            document.querySelectorAll('#mode-toggle .sort-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === mode);
+            });
+            renderAggregateBars();
+            if (citationAnimated) animateBars(document.getElementById('citation-chart'));
+            updateSparklines();
+            rerenderOpenDetails();
+        }
+
+        // Authoritative total: Scholar's profile citedby when present (exact),
+        // otherwise the sum of per-paper citationCounts. The per-year bars are
+        // scaled up to this number (see reconcileToTotal / the note below).
+        function historyTotal(history) {
+            return history.citedby
+                || Object.values(history.papers || {}).reduce((s, p) => s + (p.citationCount || 0), 0);
+        }
 
         function renderChart(history) {
             const agg = history.aggregate;
@@ -652,11 +746,7 @@
             const wrapper = document.getElementById('citation-chart-wrapper');
             if (years.length === 0) { wrapper.style.display = 'none'; return; }
 
-            // Use citedby from author profile when available (exact Google Scholar
-            // total), otherwise fall back to sum of per-paper citationCount.
-            const papers = history.papers || {};
-            const total = history.citedby
-                || Object.values(papers).reduce((s, p) => s + (p.citationCount || 0), 0);
+            const total = historyTotal(history);
 
             // Format the fetch timestamp for display
             let updated = '';
@@ -671,16 +761,25 @@
             el.dataset.suffix = suffix;
             el.textContent = `${total}${suffix}`;
 
+            // Show the normalization note only when the dated bars actually fall
+            // short of the reported total (i.e. some citations were undated).
+            const sumAgg = Object.values(agg).reduce((s, v) => s + v, 0);
+            document.getElementById('citation-note').style.display =
+                total > sumAgg ? '' : 'none';
+
             // Reset and observe for animation
             citationAnimated = false;
             citationObserver.observe(wrapper);
 
-            const chart = document.getElementById('citation-chart');
-            renderBarChart(chart, agg, {
-                barHeight: 90, showProjection: true, fetchedAt: history.fetched_at
-            });
-
+            // Reveal the wrapper (summary + toggles) BEFORE rendering the bars,
+            // and guard the bar render, so a rendering error can never blank the
+            // whole section — the toggles stay usable and the error is surfaced.
             wrapper.style.display = '';
+            try {
+                renderAggregateBars();
+            } catch (e) {
+                console.error('renderAggregateBars failed:', e);
+            }
         }
 
         function loadSource(name) {
@@ -693,13 +792,15 @@
                 btn.classList.toggle('active', btn.dataset.source === name);
             });
 
+            // Surface errors to the console (don't swallow silently) so a broken
+            // render is debuggable instead of just showing an empty section.
             const historyPromise = fetchCached(src.history)
                 .then(history => { citationHistory = history; renderChart(history); })
-                .catch(() => {});
+                .catch(e => console.error('citation history load/render failed:', e));
 
             const pubsPromise = fetchCached(src.pubs)
                 .then(data => { publications = data; })
-                .catch(() => {});
+                .catch(e => console.error('publications load failed:', e));
 
             // Cross-reference both sources to enrich each paper with all available links
             const otherSource = name === 'scholar' ? sources.s2 : sources.scholar;
@@ -920,6 +1021,11 @@
         // Source toggle handlers
         document.querySelectorAll('#source-toggle .sort-btn').forEach(btn => {
             btn.addEventListener('click', () => loadSource(btn.dataset.source));
+        });
+
+        // Per-year / cumulative mode toggle handlers
+        document.querySelectorAll('#mode-toggle .sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => setMode(btn.dataset.mode));
         });
 
         // Search filter

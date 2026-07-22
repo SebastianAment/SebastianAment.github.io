@@ -655,6 +655,18 @@ a.pub-title:hover {
     margin: 0;
 }
 
+.citation-note {
+    font-size: 11px;
+    opacity: 0.45;
+    margin: 0.7em 0 0;
+    line-height: 1.35;
+}
+
+.citation-note .chart-projected-value {
+    font-style: normal;
+    opacity: 1;
+}
+
 .citation-chart-header {
     display: flex;
     align-items: center;
@@ -663,12 +675,47 @@ a.pub-title:hover {
     gap: 0.5em;
 }
 
-.source-toggle {
+.citation-toggles {
     display: flex;
     align-items: center;
-    gap: 0.3em;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4em 0.5em;
+}
+
+/* Each toggle family is wrapped in a subtle pill outline so the two groups
+   read as distinct segmented controls affecting different behavior. */
+.source-toggle,
+.mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1em;
+    padding: 0.2em;
     font-size: 13px;
-    opacity: 0.7;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 999px;
+    opacity: 0.8;
+}
+
+/* Inner buttons echo the outer pill so the active option nests cleanly. */
+.citation-toggles .sort-btn {
+    border-radius: 999px;
+    padding: 0.2em 0.7em;
+}
+
+/* On narrow screens stack the summary above the toggle families so the two
+   pills get their own room and the header proportions stay clean. Placed after
+   the base .citation-* rules so these overrides win on source order. */
+@media (max-width: 600px) {
+    .citation-chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7em;
+    }
+
+    .citation-toggles {
+        justify-content: flex-start;
+    }
 }
 
 /* Fade edges smoothly when there's hidden content to scroll to.
