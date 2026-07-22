@@ -3,7 +3,7 @@
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
     "venue": "arXiv preprint arXiv:2603.21525",
-    "citationCount": 0,
+    "citationCount": 1,
     "url": "https://arxiv.org/abs/2603.21525",
     "authors": [
       "Bayezid Baten",
@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 47,
+    "citationCount": 48,
     "url": "https://openreview.net/forum?id=U1f6wHtG1g",
     "authors": [
       "Miles Olson",
@@ -103,7 +103,7 @@
     "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
     "year": 2025,
     "venue": "npj Computational Materials",
-    "citationCount": 5,
+    "citationCount": 6,
     "url": "https://www.nature.com/articles/s41524-025-01627-0",
     "authors": [
       "Ming-Chiang Chang",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 334,
+    "citationCount": 338,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -205,7 +205,7 @@
     "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 48,
+    "citationCount": 50,
     "url": "https://proceedings.mlr.press/v206/deshwal23a.html",
     "authors": [
       "Aryan Deshwal",
@@ -318,7 +318,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 100,
+    "citationCount": 101,
     "url": "https://www.nature.com/articles/s42256-021-00384-1",
     "authors": [
       "Di Chen",

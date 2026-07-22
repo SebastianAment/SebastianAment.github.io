@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-20T02:48:08.484782+00:00",
+  "fetched_at": "2026-07-22T14:58:52.511448+00:00",
   "source": "google_scholar",
-  "citedby": 1069,
+  "citedby": 1079,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -12,18 +12,18 @@
     "2023": 100,
     "2024": 168,
     "2025": 344,
-    "2026": 270
+    "2026": 279
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 334,
+      "citationCount": 338,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 154,
-        "2026": 126
+        "2026": 130
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -40,32 +40,32 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 100,
+      "citationCount": 101,
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
         "2023": 25,
         "2024": 15,
         "2025": 21,
-        "2026": 19
+        "2026": 20
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 48,
+      "citationCount": 50,
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
         "2025": 22,
-        "2026": 9
+        "2026": 11
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 47,
+      "citationCount": 48,
       "citations_by_year": {
         "2025": 14,
-        "2026": 33
+        "2026": 34
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -270,6 +270,14 @@
         "2026": 1
       }
     },
+    "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
+      "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
+      "citationCount": 6,
+      "citations_by_year": {
+        "2025": 2,
+        "2026": 3
+      }
+    },
     "shufeng_kong_santosh_k_suram_r_bruce_van_dover_and_john_m_gr": {
       "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
       "citationCount": 6,
@@ -279,14 +287,6 @@
         "2023": 0,
         "2024": 0,
         "2025": 2
-      }
-    },
-    "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
-      "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 5,
-      "citations_by_year": {
-        "2025": 2,
-        "2026": 3
       }
     },
     "constrained_machine_learning_the_bagel_framework": {
@@ -305,6 +305,13 @@
         "2022": 1,
         "2023": 0,
         "2024": 1
+      }
+    },
+    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
+      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
+      "citationCount": 1,
+      "citations_by_year": {
+        "2026": 1
       }
     },
     "deep_reasoning_networks_thinking_fast_and_slow_for_pattern_d": {

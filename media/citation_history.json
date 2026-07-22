@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-20T02:46:58.073139+00:00",
+  "fetched_at": "2026-07-22T14:57:41.019239+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 156,
-    "2026": 157
+    "2026": 160
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -30,9 +30,9 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 4,
         "2025": 4,
         "2024": 1
       }
@@ -74,9 +74,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 28,
+      "citationCount": 29,
       "citations_by_year": {
-        "2026": 5,
+        "2026": 6,
         "2025": 16,
         "2024": 5,
         "2023": 1
