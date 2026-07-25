@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-07-22T14:58:52.511448+00:00",
+  "fetched_at": "2026-07-25T15:32:39.919401+00:00",
   "source": "google_scholar",
-  "citedby": 1079,
+  "citedby": 1083,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,31 +11,31 @@
     "2022": 95,
     "2023": 100,
     "2024": 168,
-    "2025": 344,
-    "2026": 279
+    "2025": 343,
+    "2026": 284
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 338,
+      "citationCount": 340,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 154,
-        "2026": 130
+        "2025": 153,
+        "2026": 133
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 117,
+      "citationCount": 118,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 27,
-        "2026": 26
+        "2026": 27
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -62,10 +62,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 48,
+      "citationCount": 49,
       "citations_by_year": {
         "2025": 14,
-        "2026": 34
+        "2026": 35
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
