@@ -100,25 +100,6 @@
     "pdf": ""
   },
   {
-    "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-    "year": 2025,
-    "venue": "npj Computational Materials",
-    "citationCount": 6,
-    "url": "https://www.nature.com/articles/s41524-025-01627-0",
-    "authors": [
-      "Ming-Chiang Chang",
-      "Sebastian Ament",
-      "Maximilian Amsler",
-      "Duncan R Sutherland",
-      "Lan Zhou",
-      "John M Gregoire",
-      "Carla P Gomes",
-      "R Bruce van Dover",
-      "Michael O Thompson"
-    ],
-    "pdf": ""
-  },
-  {
     "title": "Data from: Probabilistic Phase Labeling and Lattice Refinement for Autonomous Materials Research",
     "year": 2025,
     "venue": "",
@@ -141,7 +122,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2024,
     "venue": "Nuclear Fusion",
-    "citationCount": 43,
+    "citationCount": 44,
     "url": "https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta",
     "authors": [
       "P Rodriguez-Fernandez",
@@ -190,7 +171,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 340,
+    "citationCount": 337,
     "url": "https://proceedings.neurips.cc/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -232,10 +213,29 @@
     "pdf": ""
   },
   {
+    "title": "Probabilistic Phase Labeling and Lattice Refinement for Autonomous Material Research",
+    "year": 2023,
+    "venue": "arXiv preprint arXiv:2308.07897",
+    "citationCount": 7,
+    "url": "https://www.cs.cornell.edu/gomes/pdf/2023_chang_arxiv_phase.pdf",
+    "authors": [
+      "Ming-Chiang Chang",
+      "Sebastian Ament",
+      "Maximilian Amsler",
+      "Duncan R Sutherland",
+      "Lan Zhou",
+      "John M Gregoire",
+      "Carla P Gomes",
+      "R Bruce van Dover",
+      "Michael O Thompson"
+    ],
+    "pdf": ""
+  },
+  {
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
     "venue": "Artificial Intelligence",
-    "citationCount": 25,
+    "citationCount": 24,
     "url": "https://www.sciencedirect.com/science/article/pii/S0004370222000236",
     "authors": [
       "Guillaume Perez",
@@ -298,7 +298,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 118,
+    "citationCount": 117,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",

@@ -1,41 +1,41 @@
 {
-  "fetched_at": "2026-07-25T15:32:39.919401+00:00",
+  "fetched_at": "2026-07-27T18:15:03.108211+00:00",
   "source": "google_scholar",
-  "citedby": 1083,
+  "citedby": 1080,
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 5,
     "2020": 19,
-    "2021": 40,
-    "2022": 95,
-    "2023": 100,
+    "2021": 41,
+    "2022": 96,
+    "2023": 106,
     "2024": 168,
-    "2025": 343,
-    "2026": 284
+    "2025": 339,
+    "2026": 278
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 340,
+      "citationCount": 337,
       "citations_by_year": {
         "2022": 1,
-        "2023": 2,
+        "2023": 3,
         "2024": 49,
-        "2025": 153,
-        "2026": 133
+        "2025": 154,
+        "2026": 128
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 118,
+      "citationCount": 117,
       "citations_by_year": {
         "2021": 2,
-        "2022": 13,
-        "2023": 23,
-        "2024": 25,
-        "2025": 27,
-        "2026": 27
+        "2022": 14,
+        "2023": 25,
+        "2024": 23,
+        "2025": 26,
+        "2026": 26
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -44,9 +44,9 @@
       "citations_by_year": {
         "2021": 2,
         "2022": 18,
-        "2023": 25,
-        "2024": 15,
-        "2025": 21,
+        "2023": 26,
+        "2024": 16,
+        "2025": 19,
         "2026": 20
       }
     },
@@ -70,19 +70,19 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 43,
+      "citationCount": 44,
       "citations_by_year": {
-        "2024": 6,
-        "2025": 23,
-        "2026": 13
+        "2024": 7,
+        "2025": 22,
+        "2026": 14
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
       "citationCount": 43,
       "citations_by_year": {
-        "2021": 12,
-        "2022": 6,
+        "2021": 13,
+        "2022": 5,
         "2023": 6,
         "2024": 7,
         "2025": 9,
@@ -97,8 +97,8 @@
         "2020": 4,
         "2021": 5,
         "2022": 10,
-        "2023": 7,
-        "2024": 5,
+        "2023": 8,
+        "2024": 4,
         "2025": 5,
         "2026": 3
       }
@@ -110,9 +110,9 @@
         "2020": 4,
         "2021": 2,
         "2022": 12,
-        "2023": 7,
+        "2023": 8,
         "2024": 1,
-        "2025": 4,
+        "2025": 3,
         "2026": 3
       }
     },
@@ -149,14 +149,14 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 25,
+      "citationCount": 24,
       "citations_by_year": {
         "2021": 2,
-        "2022": 5,
-        "2023": 5,
-        "2024": 5,
-        "2025": 4,
-        "2026": 4
+        "2022": 6,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 3
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
@@ -196,8 +196,8 @@
       "citations_by_year": {
         "2022": 5,
         "2023": 2,
-        "2024": 4,
-        "2025": 6
+        "2024": 5,
+        "2025": 5
       }
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
@@ -243,8 +243,9 @@
       "title": "Scalable Gaussian processes with latent Kronecker structure",
       "citationCount": 8,
       "citations_by_year": {
+        "2024": 1,
         "2025": 4,
-        "2026": 4
+        "2026": 3
       }
     },
     "an_efficient_relaxed_projection_method_for_constrained_nonne": {
@@ -255,6 +256,16 @@
         "2021": 1,
         "2022": 2,
         "2023": 1
+      }
+    },
+    "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
+      "title": "Probabilistic Phase Labeling and Lattice Refinement for Autonomous Material Research",
+      "citationCount": 7,
+      "citations_by_year": {
+        "2023": 1,
+        "2024": 0,
+        "2025": 2,
+        "2026": 4
       }
     },
     "optical_identification_of_materials_transformations_in_oxide": {
@@ -268,14 +279,6 @@
         "2024": 0,
         "2025": 0,
         "2026": 1
-      }
-    },
-    "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
-      "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 6,
-      "citations_by_year": {
-        "2025": 2,
-        "2026": 3
       }
     },
     "shufeng_kong_santosh_k_suram_r_bruce_van_dover_and_john_m_gr": {
