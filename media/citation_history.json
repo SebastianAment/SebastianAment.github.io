@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-25T15:31:25.726766+00:00",
+  "fetched_at": "2026-07-27T12:26:26.110918+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 155,
-    "2026": 162
+    "2026": 163
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -94,9 +94,9 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 6,
+      "citationCount": 7,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 4
       }
     },
