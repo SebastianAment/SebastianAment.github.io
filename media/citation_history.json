@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-07-27T18:13:34.578028+00:00",
+  "fetched_at": "2026-08-03T12:27:41.711353+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 49,
+    "2021": 48,
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 155,
-    "2026": 164
+    "2025": 154,
+    "2026": 168
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 235,
+      "citationCount": 236,
       "citations_by_year": {
-        "2026": 78,
-        "2025": 22
+        "2026": 79,
+        "2025": 21
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -74,9 +74,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 29,
+      "citationCount": 30,
       "citations_by_year": {
-        "2026": 6,
+        "2026": 7,
         "2025": 16,
         "2024": 5,
         "2023": 1
@@ -225,9 +225,9 @@
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
-      "citationCount": 37,
+      "citationCount": 38,
       "citations_by_year": {
-        "2026": 1,
+        "2026": 2,
         "2025": 5,
         "2024": 2,
         "2023": 6,
@@ -305,14 +305,14 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 21,
+      "citationCount": 20,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 5,
+        "2021": 4,
         "2020": 1,
         "2019": 3,
         "2018": 2
@@ -329,9 +329,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 27,
+      "citationCount": 28,
       "citations_by_year": {
-        "2026": 17,
+        "2026": 18,
         "2025": 10
       }
     },

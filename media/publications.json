@@ -62,7 +62,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 27,
+    "citationCount": 28,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -146,7 +146,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 235,
+    "citationCount": 236,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -181,7 +181,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2023,
     "venue": "Nuclear Fusion",
-    "citationCount": 29,
+    "citationCount": 30,
     "url": "https://www.semanticscholar.org/paper/a0a89c87b1e7550d3e7204bdf459ad0daea33d46",
     "authors": [
       "P. Rodriguez-Fernandez",
@@ -442,7 +442,7 @@
     "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
     "year": 2019,
     "venue": "MRS Communications",
-    "citationCount": 37,
+    "citationCount": 38,
     "url": "https://www.semanticscholar.org/paper/d0201ac9b47dd2b1b75973db6ac1356776b4631d",
     "authors": [
       "C. Gomes",
@@ -561,7 +561,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 21,
+    "citationCount": 20,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",
