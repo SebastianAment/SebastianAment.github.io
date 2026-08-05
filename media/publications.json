@@ -62,7 +62,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 28,
+    "citationCount": 30,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -146,7 +146,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 236,
+    "citationCount": 238,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",

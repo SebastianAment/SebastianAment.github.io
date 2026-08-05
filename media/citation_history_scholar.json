@@ -1,41 +1,41 @@
 {
-  "fetched_at": "2026-07-27T18:15:03.108211+00:00",
+  "fetched_at": "2026-08-05T18:08:32.636201+00:00",
   "source": "google_scholar",
-  "citedby": 1080,
+  "citedby": 1097,
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 5,
     "2020": 19,
-    "2021": 41,
+    "2021": 40,
     "2022": 96,
-    "2023": 106,
-    "2024": 168,
-    "2025": 339,
-    "2026": 278
+    "2023": 99,
+    "2024": 165,
+    "2025": 335,
+    "2026": 309
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 337,
+      "citationCount": 342,
       "citations_by_year": {
         "2022": 1,
-        "2023": 3,
-        "2024": 49,
-        "2025": 154,
-        "2026": 128
+        "2023": 2,
+        "2024": 50,
+        "2025": 149,
+        "2026": 138
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 117,
+      "citationCount": 118,
       "citations_by_year": {
         "2021": 2,
-        "2022": 14,
-        "2023": 25,
-        "2024": 23,
+        "2022": 13,
+        "2023": 23,
+        "2024": 25,
         "2025": 26,
-        "2026": 26
+        "2026": 28
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -43,63 +43,63 @@
       "citationCount": 101,
       "citations_by_year": {
         "2021": 2,
-        "2022": 18,
-        "2023": 26,
-        "2024": 16,
-        "2025": 19,
-        "2026": 20
-      }
-    },
-    "bayesian_optimization_over_highdimensional_combinatorial_spa": {
-      "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 50,
-      "citations_by_year": {
-        "2023": 5,
-        "2024": 12,
-        "2025": 22,
-        "2026": 11
+        "2022": 19,
+        "2023": 25,
+        "2024": 14,
+        "2025": 18,
+        "2026": 23
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 49,
+      "citationCount": 52,
       "citations_by_year": {
-        "2025": 14,
-        "2026": 35
+        "2025": 16,
+        "2026": 36
+      }
+    },
+    "bayesian_optimization_over_highdimensional_combinatorial_spa": {
+      "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
+      "citationCount": 51,
+      "citations_by_year": {
+        "2023": 5,
+        "2024": 11,
+        "2025": 22,
+        "2026": 13
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 44,
+      "citationCount": 48,
       "citations_by_year": {
         "2024": 7,
         "2025": 22,
-        "2026": 14
-      }
-    },
-    "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
-      "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
-      "citationCount": 43,
-      "citations_by_year": {
-        "2021": 13,
-        "2022": 5,
-        "2023": 6,
-        "2024": 7,
-        "2025": 9,
-        "2026": 3
+        "2026": 18
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 41,
+      "citationCount": 42,
       "citations_by_year": {
         "2019": 1,
         "2020": 4,
         "2021": 5,
         "2022": 10,
-        "2023": 8,
-        "2024": 4,
+        "2023": 7,
+        "2024": 5,
         "2025": 5,
+        "2026": 4
+      }
+    },
+    "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
+      "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
+      "citationCount": 40,
+      "citations_by_year": {
+        "2021": 12,
+        "2022": 6,
+        "2023": 6,
+        "2024": 5,
+        "2025": 8,
         "2026": 3
       }
     },
@@ -110,9 +110,9 @@
         "2020": 4,
         "2021": 2,
         "2022": 12,
-        "2023": 8,
+        "2023": 7,
         "2024": 1,
-        "2025": 3,
+        "2025": 4,
         "2026": 3
       }
     },
@@ -149,14 +149,14 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 24,
+      "citationCount": 25,
       "citations_by_year": {
         "2021": 2,
-        "2022": 6,
-        "2023": 4,
-        "2024": 4,
-        "2025": 5,
-        "2026": 3
+        "2022": 5,
+        "2023": 5,
+        "2024": 5,
+        "2025": 4,
+        "2026": 4
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
@@ -176,28 +176,28 @@
       "citations_by_year": {
         "2022": 1,
         "2023": 5,
-        "2024": 6,
+        "2024": 5,
         "2025": 4,
-        "2026": 3
+        "2026": 4
       }
     },
     "sustainable_concrete_via_bayesian_optimization": {
-      "title": "Sustainable concrete via bayesian optimization",
-      "citationCount": 17,
+      "title": "Sustainable concrete via Bayesian optimization",
+      "citationCount": 18,
       "citations_by_year": {
         "2024": 3,
         "2025": 10,
-        "2026": 4
+        "2026": 5
       }
     },
     "the_fast_kernel_transform": {
       "title": "The fast kernel transform",
-      "citationCount": 17,
+      "citationCount": 16,
       "citations_by_year": {
         "2022": 5,
-        "2023": 2,
-        "2024": 5,
-        "2025": 5
+        "2023": 1,
+        "2024": 4,
+        "2025": 6
       }
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
@@ -221,31 +221,31 @@
     },
     "exponentiallymodified_gaussian_mixture_model_applications_in": {
       "title": "Exponentially-modified Gaussian mixture model: applications in spectroscopy",
-      "citationCount": 11,
+      "citationCount": 12,
       "citations_by_year": {
         "2019": 1,
         "2020": 0,
         "2021": 1,
         "2022": 5,
         "2023": 1,
-        "2024": 3
+        "2024": 3,
+        "2025": 1
+      }
+    },
+    "scalable_gaussian_processes_with_latent_kronecker_structure": {
+      "title": "Scalable Gaussian processes with latent Kronecker structure",
+      "citationCount": 10,
+      "citations_by_year": {
+        "2025": 5,
+        "2026": 5
       }
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling gaussian processes for learning curve prediction via latent kronecker structure",
       "citationCount": 10,
       "citations_by_year": {
-        "2025": 8,
-        "2026": 2
-      }
-    },
-    "scalable_gaussian_processes_with_latent_kronecker_structure": {
-      "title": "Scalable Gaussian processes with latent Kronecker structure",
-      "citationCount": 8,
-      "citations_by_year": {
-        "2024": 1,
-        "2025": 4,
-        "2026": 3
+        "2025": 6,
+        "2026": 4
       }
     },
     "an_efficient_relaxed_projection_method_for_constrained_nonne": {
@@ -259,11 +259,9 @@
       }
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
-      "title": "Probabilistic Phase Labeling and Lattice Refinement for Autonomous Material Research",
+      "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
       "citationCount": 7,
       "citations_by_year": {
-        "2023": 1,
-        "2024": 0,
         "2025": 2,
         "2026": 4
       }
@@ -301,6 +299,13 @@
         "2026": 1
       }
     },
+    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
+      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
+      "citationCount": 2,
+      "citations_by_year": {
+        "2026": 2
+      }
+    },
     "generalized_matching_pursuits_for_the_sparse_optimization_of": {
       "title": "Generalized matching pursuits for the sparse optimization of separable objectives",
       "citationCount": 2,
@@ -308,13 +313,6 @@
         "2022": 1,
         "2023": 0,
         "2024": 1
-      }
-    },
-    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
-      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
-      "citationCount": 1,
-      "citations_by_year": {
-        "2026": 1
       }
     },
     "deep_reasoning_networks_thinking_fast_and_slow_for_pattern_d": {
