@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-05T18:08:32.636201+00:00",
+  "fetched_at": "2026-08-10T13:05:25.260062+00:00",
   "source": "google_scholar",
-  "citedby": 1097,
+  "citedby": 1108,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,20 +10,20 @@
     "2021": 40,
     "2022": 96,
     "2023": 99,
-    "2024": 165,
+    "2024": 166,
     "2025": 335,
-    "2026": 309
+    "2026": 319
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 342,
+      "citationCount": 346,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 50,
         "2025": 149,
-        "2026": 138
+        "2026": 142
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -40,22 +40,22 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 101,
+      "citationCount": 102,
       "citations_by_year": {
         "2021": 2,
         "2022": 19,
         "2023": 25,
-        "2024": 14,
+        "2024": 15,
         "2025": 18,
         "2026": 23
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 52,
+      "citationCount": 57,
       "citations_by_year": {
         "2025": 16,
-        "2026": 36
+        "2026": 41
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -149,14 +149,14 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 25,
+      "citationCount": 26,
       "citations_by_year": {
         "2021": 2,
         "2022": 5,
         "2023": 5,
         "2024": 5,
         "2025": 4,
-        "2026": 4
+        "2026": 5
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
