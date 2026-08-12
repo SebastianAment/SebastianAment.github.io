@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-10T10:21:46.621133+00:00",
+  "fetched_at": "2026-08-12T05:51:50.149693+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 81,
     "2025": 152,
-    "2026": 176
+    "2026": 177
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,7 +56,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 239,
+      "citationCount": 240,
       "citations_by_year": {
         "2026": 82,
         "2025": 18
@@ -113,9 +113,9 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2024": 2,
         "2023": 2,
         "2021": 2

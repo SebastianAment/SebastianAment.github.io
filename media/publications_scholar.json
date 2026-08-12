@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 57,
+    "citationCount": 58,
     "url": "https://openreview.net/forum?noteId=uBnplA82aW",
     "authors": [
       "Miles Olson",
@@ -264,7 +264,7 @@
     "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
     "year": 2022,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 19,
+    "citationCount": 20,
     "url": "https://proceedings.mlr.press/v162/ament22a.html",
     "authors": [
       "Sebastian E Ament",

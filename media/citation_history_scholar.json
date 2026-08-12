@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-10T13:05:25.260062+00:00",
+  "fetched_at": "2026-08-12T05:53:10.518081+00:00",
   "source": "google_scholar",
-  "citedby": 1108,
+  "citedby": 1110,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,10 +9,10 @@
     "2020": 19,
     "2021": 40,
     "2022": 96,
-    "2023": 99,
-    "2024": 166,
+    "2023": 100,
+    "2024": 165,
     "2025": 335,
-    "2026": 319
+    "2026": 321
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
@@ -21,8 +21,8 @@
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
-        "2024": 50,
-        "2025": 149,
+        "2024": 49,
+        "2025": 150,
         "2026": 142
       }
     },
@@ -52,10 +52,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 57,
+      "citationCount": 58,
       "citations_by_year": {
-        "2025": 16,
-        "2026": 41
+        "2025": 15,
+        "2026": 43
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -159,6 +159,17 @@
         "2026": 5
       }
     },
+    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
+      "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
+      "citationCount": 20,
+      "citations_by_year": {
+        "2022": 1,
+        "2023": 6,
+        "2024": 5,
+        "2025": 4,
+        "2026": 4
+      }
+    },
     "sparse_bayesian_learning_via_stepwise_regression": {
       "title": "Sparse Bayesian Learning via Stepwise Regression",
       "citationCount": 20,
@@ -168,17 +179,6 @@
         "2024": 7,
         "2025": 7,
         "2026": 2
-      }
-    },
-    "scalable_firstorder_bayesian_optimization_via_structured_aut": {
-      "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
-      "citationCount": 19,
-      "citations_by_year": {
-        "2022": 1,
-        "2023": 5,
-        "2024": 5,
-        "2025": 4,
-        "2026": 4
       }
     },
     "sustainable_concrete_via_bayesian_optimization": {
