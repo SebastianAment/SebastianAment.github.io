@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-13T17:53:26.870593+00:00",
+  "fetched_at": "2026-08-17T09:45:13.416356+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 147,
-    "2026": 185
+    "2025": 146,
+    "2026": 187
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,17 +56,17 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 245,
+      "citationCount": 246,
       "citations_by_year": {
-        "2026": 87,
-        "2025": 13
+        "2026": 88,
+        "2025": 12
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 39,
+      "citationCount": 40,
       "citations_by_year": {
-        "2026": 8,
+        "2026": 9,
         "2025": 15,
         "2024": 10,
         "2023": 6
