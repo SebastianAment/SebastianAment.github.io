@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-13T17:54:42.656090+00:00",
+  "fetched_at": "2026-08-21T12:39:47.839121+00:00",
   "source": "google_scholar",
-  "citedby": 1113,
+  "citedby": 1132,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,32 +10,32 @@
     "2021": 40,
     "2022": 96,
     "2023": 100,
-    "2024": 165,
-    "2025": 335,
-    "2026": 324
+    "2024": 166,
+    "2025": 333,
+    "2026": 343
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 347,
+      "citationCount": 357,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 150,
-        "2026": 143
+        "2025": 149,
+        "2026": 154
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 119,
+      "citationCount": 123,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 26,
-        "2026": 29
+        "2026": 33
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -52,20 +52,20 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 58,
+      "citationCount": 59,
       "citations_by_year": {
         "2025": 15,
-        "2026": 43
+        "2026": 44
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 51,
+      "citationCount": 54,
       "citations_by_year": {
         "2023": 5,
-        "2024": 11,
+        "2024": 12,
         "2025": 22,
-        "2026": 13
+        "2026": 15
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -166,8 +166,8 @@
         "2022": 1,
         "2023": 6,
         "2024": 5,
-        "2025": 4,
-        "2026": 4
+        "2025": 3,
+        "2026": 5
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {

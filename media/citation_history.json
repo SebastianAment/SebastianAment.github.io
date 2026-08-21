@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-17T09:45:13.416356+00:00",
+  "fetched_at": "2026-08-21T12:38:32.878887+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 146,
-    "2026": 187
+    "2025": 145,
+    "2026": 196
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,18 +56,18 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 246,
+      "citationCount": 249,
       "citations_by_year": {
-        "2026": 88,
-        "2025": 12
+        "2026": 91,
+        "2025": 9
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 40,
+      "citationCount": 43,
       "citations_by_year": {
-        "2026": 9,
-        "2025": 15,
+        "2026": 11,
+        "2025": 16,
         "2024": 10,
         "2023": 6
       }
@@ -130,10 +130,10 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 94,
+      "citationCount": 98,
       "citations_by_year": {
-        "2026": 17,
-        "2025": 20,
+        "2026": 20,
+        "2025": 21,
         "2024": 16,
         "2023": 21,
         "2022": 13,
@@ -329,9 +329,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 32,
+      "citationCount": 33,
       "citations_by_year": {
-        "2026": 22,
+        "2026": 23,
         "2025": 10
       }
     },
