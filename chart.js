@@ -9,6 +9,7 @@
  */
 function paperKey(title) {
     return title.trim().toLowerCase()
+        .replace(/\s*\(\s*(?:19|20)\d{2}\s*\)\s*$/, '')  // trailing "(YYYY)"
         .replace(/[,\s]+\d{4}\s*$/, '')  // trailing year
         .replace(/[^a-z0-9\s]/g, '')      // punctuation
         .replace(/\s+/g, '_')              // spaces to underscores
@@ -188,7 +189,125 @@ function buildBarModel(byYear, opts = {}) {
     return { bars, maxVal, barHeight };
 }
 
+
+/**
+ * Escape text for safe interpolation into HTML.
+ * Publication metadata comes from third-party APIs, so it is never trusted.
+ */
+function escapeHtml(text) {
+    return String(text == null ? '' : text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+/**
+ * True when an author string refers to the site owner. Scholar and Semantic
+ * Scholar spell the same person several ways ("Sebastian Ament",
+ * "Sebastian E Ament", "Sebastian Eduard Ament", "S Ament", "S. Ament"), so
+ * match on surname plus a first name starting with S rather than exact text.
+ */
+function isSelfAuthor(name) {
+    if (!name) return false;
+    const parts = String(name).trim().toLowerCase()
+        .replace(/\./g, '').split(/\s+/).filter(Boolean);
+    if (parts.length < 2) return false;
+    if (parts[parts.length - 1] !== 'ament') return false;
+    return parts[0].startsWith('s');
+}
+
+/**
+ * Papers whose first N authors contributed equally, keyed by paperKey().
+ *
+ * Neither Google Scholar nor Semantic Scholar records equal contribution — it
+ * exists only as a footnote in the paper itself — so it has to be curated here.
+ * Keyed by POSITION rather than by name on purpose: the two sources spell the
+ * same people differently ("Jihao Andreas Lin" vs "J. Lin"), whereas shared
+ * first authorship is always a prefix of the author list.
+ *
+ * Mirrored in update_publications.py; tests assert the two stay in sync.
+ */
+const EQUAL_CONTRIBUTION = {
+    'empirical_gaussian_processes': 2,
+};
+
+/** How many leading authors share first authorship (0 when not applicable). */
+function equalContributionCount(title) {
+    return EQUAL_CONTRIBUTION[paperKey(title || '')] || 0;
+}
+
+/**
+ * Render an author list as escaped HTML with the site owner's name emphasised,
+ * so first authorship is visible at a glance across a long list. When the paper
+ * has joint first authors, those names carry an asterisk.
+ */
+function formatAuthors(authors, title) {
+    if (!Array.isArray(authors)) return '';
+    const eq = equalContributionCount(title);
+    return authors.map((a, i) => {
+        const name = escapeHtml(a);
+        const marked = isSelfAuthor(a)
+            ? `<strong class="author-self">${name}</strong>` : name;
+        return i < eq ? `${marked}<sup class="author-eq">*</sup>` : marked;
+    }).join(', ');
+}
+
+/**
+ * Curated award/recognition badges, keyed by paperKey(). Only designations that
+ * are independently verifiable belong here — an unearned badge costs more
+ * credibility than a missing one. Mirrored in update_publications.py
+ * (PUBLICATION_BADGES); tests assert the two stay in sync.
+ */
+const PUBLICATION_BADGES = {
+    'unexpected_improvements_to_expected_improvement_for_bayesian': 'NeurIPS 2023 Spotlight',
+};
+
+/** Badge text for a paper title, or '' when it has none. */
+function badgeFor(title) {
+    return PUBLICATION_BADGES[paperKey(title || '')] || '';
+}
+
+/**
+ * Detect publication-list noise that Google Scholar attributes to an author:
+ * dataset deposits, supplementary-material PDFs, and mangled entries where a
+ * citation string was captured as the title. These carry no citations and
+ * dilute a list that readers use to judge rigour.
+ */
+function isNoisePublication(title) {
+    const t = String(title || '').trim();
+    if (!t) return true;
+    if (/^\s*data\s+from\s*:/i.test(t)) return true;           // dataset deposit
+    if (/supplementary\s+material/i.test(t)) return true;        // supplement PDF
+    if (/\.\s*(?:19|20)\d{2}\.\s/.test(t)) return true;         // "Authors. 2019. Title"
+    return false;
+}
+
+
+/**
+ * Collapse duplicate publication records, keeping the best-cited copy.
+ * Sources list the same paper more than once (arXiv preprint vs published
+ * venue, or a record with the year appended to the title). paperKey()
+ * normalises those variants to one key.
+ */
+function dedupePublications(pubs) {
+    if (!Array.isArray(pubs)) return [];
+    const best = new Map();
+    for (const p of pubs) {
+        const k = paperKey(p && p.title ? p.title : '');
+        const prev = best.get(k);
+        if (!prev || (p.citationCount || 0) > (prev.citationCount || 0)) best.set(k, p);
+    }
+    return [...best.values()];
+}
+
 // Export for Node.js testing; no-op in browser
 if (typeof module !== 'undefined') {
-    module.exports = { paperKey, computeProjection, urlLabel, reconcileToTotal, buildBarModel };
+    module.exports = {
+        paperKey, computeProjection, urlLabel, reconcileToTotal, buildBarModel,
+        escapeHtml, isSelfAuthor, formatAuthors, PUBLICATION_BADGES, badgeFor,
+        isNoisePublication, dedupePublications,
+        EQUAL_CONTRIBUTION, equalContributionCount,
+    };
 }

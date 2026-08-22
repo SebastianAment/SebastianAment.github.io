@@ -11,20 +11,20 @@
     <meta property="og:url" content="https://sebastianament.github.io">
     <meta property="og:type" content="website">
     <link rel="icon" href="media/favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Montserrat is self-hosted (media/fonts/) so no visitor IP reaches a
+         third party before they interact. @font-face lives in styles.css. -->
+    <link rel="preload" href="media/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Cache-busting: bump ?v= whenever styles.css / chart.js / gp-background.js
          change, so returning visitors never run a stale copy against new markup. -->
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="preload" href="media/la_square.jpg" as="image">
     <meta name="theme-color" content="#f8f8f8">
     <script>
         // Apply the theme synchronously, before <body> parses, so the page
         // renders with the right colors from the very first paint and iOS
-        // Safari samples the right URL-bar tint immediately. sessionStorage
-        // scopes a manual override to the current tab; system preference
-        // wins on a fresh tab.
+        // Safari samples the right URL-bar tint immediately. localStorage
+        // persists a manual override across tabs and visits; the system
+        // preference is the fallback until the visitor chooses explicitly.
         //
         // applyTheme() and getEffectiveTheme() are intentionally global —
         // the body script's theme-toggle and prefers-color-scheme listeners
@@ -32,7 +32,7 @@
         // theme-color <meta> existing, which is why this script must come
         // AFTER that meta tag in the head.
         function getEffectiveTheme() {
-            return sessionStorage.getItem('theme') ||
+            return localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         }
         function applyTheme() {
@@ -42,6 +42,12 @@
                 theme === 'dark' ? '#222222' : '#f8f8f8';
         }
         applyTheme();
+
+        // Opt into the scroll fade-in animation only when JS is alive. The CSS
+        // keeps .fade-in content visible by default, so a blocked/broken script
+        // can never leave the page permanently blank. Set here (head, pre-body)
+        // so there is no flash of visible-then-hidden content.
+        document.documentElement.classList.add('js-anim');
     </script>
     <link rel="author" href="llms.txt">
     <script type="application/ld+json">
@@ -197,10 +203,11 @@
                         </div>
                     </div>
                     <div class="video-embed">
-                        <div class="video-poster" data-src="https://www.youtube.com/embed/PHuAG_jZMD8" title="Sustainable Concrete via Bayesian Optimization">
+                        <button type="button" class="video-poster" data-src="https://www.youtube-nocookie.com/embed/PHuAG_jZMD8" data-title="Sustainable Concrete via Bayesian Optimization">
                             <img src="media/concrete_poster.jpg" alt="Sustainable Concrete via Bayesian Optimization">
-                            <span class="play-btn" aria-label="Play video"></span>
-                        </div>
+                            <span class="play-btn" aria-hidden="true"></span>
+                            <span class="sr-only">Play video: Sustainable Concrete via Bayesian Optimization</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -226,7 +233,7 @@
                         </p>
                     </div>
                     <div class="video-embed">
-                        <iframe data-src="https://www.youtube.com/embed/B71ONUFweN0" title="LogEI — BDU Seminar Talk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <button type="button" class="video-poster" data-src="https://www.youtube-nocookie.com/embed/B71ONUFweN0" data-title="LogEI &mdash; BDU Seminar Talk"><img src="media/logei_talk_poster.jpg" alt="Talk: Unexpected Improvements to Expected Improvement for Bayesian Optimization" width="1280" height="720" loading="lazy"><span class="play-btn" aria-hidden="true"></span><span class="sr-only">Play video: LogEI &mdash; BDU Seminar Talk</span></button>
                     </div>
                 </div>
             </div>
@@ -247,7 +254,7 @@
                         </p>
                     </div>
                     <div class="video-embed">
-                        <iframe data-src="https://www.youtube.com/embed/FAWud0uVxUQ" title="Scientific Autonomous Reasoning Agent (SARA)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <button type="button" class="video-poster" data-src="https://www.youtube-nocookie.com/embed/FAWud0uVxUQ" data-title="Scientific Autonomous Reasoning Agent (SARA)"><img src="media/sara_poster.jpg" alt="Talk: Scientific Autonomous Reasoning Agent" width="1280" height="720" loading="lazy"><span class="play-btn" aria-hidden="true"></span><span class="sr-only">Play video: Scientific Autonomous Reasoning Agent (SARA)</span></button>
                     </div>
                 </div>
             </div>
@@ -281,44 +288,47 @@
                     <button class="sort-btn" data-sort="year">Year</button>
                 </span>
             </div>
+            <p class="pub-notice" id="pub-notice" style="display:none" role="status">
+                Live citation data couldn&rsquo;t be loaded, so the list below may be out of date &mdash;
+                see <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&amp;hl" target="_blank" rel="noopener">Google&nbsp;Scholar</a>
+                for current figures.
+            </p>
+            <p class="pub-empty" id="pub-empty" style="display:none" role="status">
+                No publications match that filter.
+            </p>
             <ul id="publication-list">
                 <!-- PUBLICATIONS_SEO -->
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2603.21525">BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization</a></strong><br><span class="pub-authors">Bayezid Baten, M Ayyan Iqbal, Sebastian Ament, Julius Kusuma, Nishant Garg</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2603.21525 &middot; 2 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2602.12082">Empirical Gaussian Processes</a></strong><br><span class="pub-authors">Jihao Andreas Lin, Sebastian Ament, Louis C Tiao, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2602.12082 &middot; 0 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2601.08185">Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning</a></strong><br><span class="pub-authors">Ming-Chiang Chang, Maximilian Amsler, Duncan R Sutherland, Sebastian Ament, Katie R Gann, Lan Zhou, Louisa M Smieska, Arthur R Woll, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2601.08185 &middot; 0 citations</span></li>
-                <li class="publication"><strong><a href="https://openreview.net/forum?noteId=uBnplA82aW">Ax: A platform for adaptive experimentation</a></strong><br><span class="pub-authors">Miles Olson, Elizabeth Santorella, Louis C Tiao, Sait Cakmak, Mia Garrard, Samuel Daulton, Zhiyuan Jerry Lin, Sebastian Ament, Bernard Beckerman, Eric Onofrey, Paschal Igusti, Cristian Lara, Benjamin Letham, Cesar Cardoso, Shiyun Sunny Shen, Andy Chenyuan Lin, Matthew Grange, Elena Kashtelyan, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2025 &mdash; AutoML 2025 ABCD Track &middot; 58 citations</span></li>
-                <li class="publication"><strong><a href="https://scholar.google.com/scholar?cluster=8347492257050161163&hl=en&oi=scholarr">Unexpected improvements to expected improvement for bayesian optimization (2024)</a></strong><br><span class="pub-authors">Sebastian Ament, Samuel Daulton, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2025 &mdash; arXiv preprint arXiv:2310.20708 &middot; 14 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2506.06895">Scalable Gaussian processes with latent Kronecker structure</a></strong><br><span class="pub-authors">Jihao Andreas Lin, Sebastian Ament, Maximilian Balandat, David Eriksson, José Miguel Hernández-Lobato, Eytan Bakshy</span><br><span class="pub-meta">2025 &mdash; arXiv preprint arXiv:2506.06895 &middot; 10 citations</span></li>
-                <li class="publication"><strong><a href="https://www.nature.com/articles/s41524-025-01627-0">Probabilistic phase labeling and lattice refinement for autonomous materials research</a></strong><br><span class="pub-authors">Ming-Chiang Chang, Sebastian Ament, Maximilian Amsler, Duncan R Sutherland, Lan Zhou, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2025 &mdash; npj Computational Materials &middot; 7 citations</span></li>
-                <li class="publication"><strong><a href="https://ecommons.cornell.edu/items/462d5f29-b0f7-4b61-8fcb-b2902004cec7">Data from: Probabilistic Phase Labeling and Lattice Refinement for Autonomous Materials Research</a></strong><br><span class="pub-authors">Ming-Chiang Chang, Sebastian Ament, Maximilian Amsler, Duncan R Sutherland, Lan Zhou, John M Gregoire, Carla Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2025 &middot; 0 citations</span></li>
-                <li class="publication"><strong><a href="https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta">Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers</a></strong><br><span class="pub-authors">P Rodriguez-Fernandez, NT Howard, A Saltzman, S Kantamneni, J Candy, C Holland, Maximilian Balandat, Sebastian Ament, AE White</span><br><span class="pub-meta">2024 &mdash; Nuclear Fusion &middot; 48 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html">Robust Gaussian processes via relevance pursuit</a></strong><br><span class="pub-authors">Sebastian Ament, Elizabeth Santorella, David Eriksson, Ben Letham, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2024 &mdash; Advances in Neural Information Processing Systems &middot; 15 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2410.09239">Scaling gaussian processes for learning curve prediction via latent kronecker structure</a></strong><br><span class="pub-authors">Jihao Andreas Lin, Sebastian Ament, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2024 &mdash; arXiv preprint arXiv:2410.09239 &middot; 10 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html">Unexpected improvements to expected improvement for bayesian optimization</a></strong><br><span class="pub-authors">Sebastian Ament, Samuel Daulton, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2023 &mdash; Advances in neural information processing systems &middot; 347 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v206/deshwal23a.html">Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings</a></strong><br><span class="pub-authors">Aryan Deshwal, Sebastian Ament, Maximilian Balandat, Eytan Bakshy, Janardhan Rao Doppa, David Eriksson</span><br><span class="pub-meta">2023 &mdash; International Conference on Artificial Intelligence and Statistics &middot; 51 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2310.18288">Sustainable concrete via Bayesian optimization</a></strong><br><span class="pub-authors">Sebastian Ament, Andrew Witte, Nishant Garg, Julius Kusuma</span><br><span class="pub-meta">2023 &mdash; arXiv preprint arXiv:2310.18288 &middot; 18 citations</span></li>
-                <li class="publication"><strong><a href="https://www.sciencedirect.com/science/article/pii/S0004370222000236">Efficient projection algorithms onto the weighted ℓ1 ball</a></strong><br><span class="pub-authors">Guillaume Perez, Sebastian Ament, Carla Gomes, Michel Barlaud</span><br><span class="pub-meta">2022 &mdash; Artificial Intelligence &middot; 26 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v162/ament22a.html">Scalable first-order Bayesian optimization via structured automatic differentiation</a></strong><br><span class="pub-authors">Sebastian E Ament, Carla P Gomes</span><br><span class="pub-meta">2022 &mdash; International Conference on Machine Learning &middot; 20 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v151/ryan22a">The fast kernel transform</a></strong><br><span class="pub-authors">John P Ryan, Sebastian E Ament, Carla P Gomes, Anil Damle</span><br><span class="pub-meta">2022 &mdash; International Conference on Artificial Intelligence and Statistics &middot; 16 citations</span></li>
-                <li class="publication"><strong><a href="https://ieeexplore.ieee.org/abstract/document/9747510/">Generalized matching pursuits for the sparse optimization of separable objectives</a></strong><br><span class="pub-authors">Sebastian Ament, Carla Gomes</span><br><span class="pub-meta">2022 &mdash; ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) &middot; 2 citations</span></li>
-                <li class="publication"><strong><a href="https://search.proquest.com/openview/a04f56bb4baac680d05edab74d8d99ec/1?pq-origsite=gscholar&cbl=18750&diss=y">Advances in Sparse and Bayesian Optimization for Autonomous Scientific Discovery</a></strong><br><span class="pub-authors">Sebastian Eduard Ament</span><br><span class="pub-meta">2022 &middot; 0 citations</span></li>
-                <li class="publication"><strong><a href="https://www.science.org/doi/abs/10.1126/sciadv.abg4930">Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams</a></strong><br><span class="pub-authors">Sebastian Ament, Maximilian Amsler, Duncan R Sutherland, Ming-Chiang Chang, Dan Guevarra, Aine B Connolly, John M Gregoire, Michael O Thompson, Carla P Gomes, R Bruce Van Dover</span><br><span class="pub-meta">2021 &mdash; Science Advances &middot; 119 citations</span></li>
-                <li class="publication"><strong><a href="https://www.nature.com/articles/s42256-021-00384-1">Automating crystal-structure phase mapping by combining deep learning with constraint reasoning</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, Sebastian Ament, Wenting Zhao, Dan Guevarra, Lan Zhou, Bart Selman, R Bruce van Dover, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2021 &mdash; Nature Machine Intelligence &middot; 102 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v139/ament21a.html">Sparse Bayesian Learning via Stepwise Regression</a></strong><br><span class="pub-authors">Sebastian Ament, Carla Gomes</span><br><span class="pub-meta">2021 &mdash; International Conference on Machine Learning &middot; 20 citations</span></li>
-                <li class="publication"><strong><a href="https://ieeexplore.ieee.org/abstract/document/9415082/">On the optimality of backward regression: Sparse recovery and subset selection</a></strong><br><span class="pub-authors">Sebastian Ament, Carla Gomes</span><br><span class="pub-meta">2021 &mdash; ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) &middot; 13 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/2112.01088">Constrained Machine Learning: The Bagel Framework</a></strong><br><span class="pub-authors">Guillaume Perez, Sebastian Ament, Carla Gomes, Arnaud Lallouet</span><br><span class="pub-meta">2021 &mdash; arXiv preprint arXiv:2112.01088 &middot; 3 citations</span></li>
-                <li class="publication"><strong><a href="https://ecommons.cornell.edu/entities/publication/5613063a-10bd-452b-9caf-1620d36553f7">Data from: Autonomous synthesis of metastable materials</a></strong><br><span class="pub-authors">Sebastian Ament, Maximilian Amsler, Duncan R Sutherland, Ming-Chiang Chang, Dan Guevarra, Aine B Connolly, John M Gregoire, Michael O Thompson, Carla P Gomes, R Bruce van Dover</span><br><span class="pub-meta">2021 &middot; 0 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v119/chen20a.html">Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, Wenting Zhao, Sebastian Ament, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2020 &mdash; International Conference on Machine Learning &middot; 40 citations</span></li>
-                <li class="publication"><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acscombsci.0c00172">Optical identification of materials transformations in oxide thin films</a></strong><br><span class="pub-authors">Duncan R Sutherland, Aine Boyer Connolly, Maximilian Amsler, Ming-Chiang Chang, Katie Rose Gann, Vidit Gupta, Sebastian Ament, Dan Guevarra, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2020 &mdash; ACS Combinatorial Science &middot; 7 citations</span></li>
-                <li class="publication"><strong><a href="https://openreview.net/forum?id=HkehD3VtvS">Deep reasoning networks: thinking fast and slow, for pattern de-mixing</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, Wenting Zhao, Sebastian Ament, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2020 &middot; 1 citations</span></li>
-                <li class="publication"><strong><a href="https://www.cambridge.org/core/journals/mrs-communications/article/crystal-a-multiagent-ai-system-for-automated-mapping-of-materials-crystal-structures/73E3A4F24120EBD71A782F0ED278ECB3">CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures</a></strong><br><span class="pub-authors">Carla P Gomes, Junwen Bai, Yexiang Xue, Johan Björck, Brendan Rappazzo, Sebastian Ament, Richard Bernstein, Shufeng Kong, Santosh K Suram, R Bruce van Dover, John M Gregoire</span><br><span class="pub-meta">2019 &mdash; MRS Communications &middot; 43 citations</span></li>
-                <li class="publication"><strong><a href="https://www.nature.com/articles/s41524-019-0213-0">Multi-component background learning automates signal detection for spectroscopic data</a></strong><br><span class="pub-authors">Sebastian E Ament, Helge S Stein, Dan Guevarra, Lan Zhou, Joel A Haber, David A Boyd, Mitsutaro Umehara, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2019 &mdash; npj Computational Materials &middot; 34 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/1902.05601">Exponentially-modified Gaussian mixture model: applications in spectroscopy</a></strong><br><span class="pub-authors">Sebastian Ament, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2019 &mdash; arXiv preprint arXiv:1902.05601 &middot; 12 citations</span></li>
-                <li class="publication"><strong><a href="https://scholar.google.com/scholar?cluster=14696124643441565425&hl=en&oi=scholarr">Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials’ crystal structures</a></strong><br><span class="pub-authors">Carla P Gomes, Junwen Bai, Yexiang Xue, Johan Björck, Brendan Rappazzo, Sebastian Ament, Richard Bernstein</span><br><span class="pub-meta">2019 &mdash; MRS Communications &middot; 6 citations</span></li>
-                <li class="publication"><strong><a href="https://link.springer.com/article/10.1007/s11222-017-9725-y">Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics</a></strong><br><span class="pub-authors">Sebastian Ament, Michael O’Neil</span><br><span class="pub-meta">2018 &mdash; Statistics and Computing &middot; 32 citations</span></li>
-                <li class="publication"><strong><a href="https://link.springer.com/chapter/10.1007/978-3-319-93031-2_4">An efficient relaxed projection method for constrained non-negative matrix factorization with application to the phase-mapping problem in materials science</a></strong><br><span class="pub-authors">Junwen Bai, Sebastian Ament, Guillaume Perez, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2018 &middot; 8 citations</span></li>
-                <li class="publication"><strong><a href="https://arxiv.org/abs/1607.04596">Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets: A survey and analysis of numerical techniques</a></strong><br><span class="pub-authors">Sebastian Ament, Nikhil Rangarajan, Arun Parthasarathy, Shaloo Rakheja</span><br><span class="pub-meta">2016 &mdash; arXiv preprint arXiv:1607.04596 &middot; 29 citations</span></li>
-                <li class="publication"><strong><a href="https://proceedings.mlr.press/v139/ament21a/ament21a-supp.pdf">Sparse Bayesian Learning via Stepwise Regression: Supplementary Materials</a></strong><br><span class="pub-authors">Sebastian Ament, Carla Gomes</span><br><span class="pub-meta">N/A &middot; 0 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2603.21525">BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization</a></strong><br><span class="pub-authors">Bayezid Baten, M Ayyan Iqbal, <strong class="author-self">Sebastian Ament</strong>, Julius Kusuma, Nishant Garg</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2603.21525 &middot; 2 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2602.12082">Empirical Gaussian Processes</a></strong><br><span class="pub-authors">Jihao Andreas Lin<sup class="author-eq">*</sup>, <strong class="author-self">Sebastian Ament</strong><sup class="author-eq">*</sup>, Louis C Tiao, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2602.12082 &middot; 0 citations &middot; <span class="pub-equal-note">* equal contribution</span></span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2601.08185">Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning</a></strong><br><span class="pub-authors">Ming-Chiang Chang, Maximilian Amsler, Duncan R Sutherland, <strong class="author-self">Sebastian Ament</strong>, Katie R Gann, Lan Zhou, Louisa M Smieska, Arthur R Woll, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2026 &mdash; arXiv preprint arXiv:2601.08185 &middot; 0 citations</span></li>
+                <li class="publication"><strong><a href="https://openreview.net/forum?noteId=uBnplA82aW">Ax: A platform for adaptive experimentation</a></strong><br><span class="pub-authors">Miles Olson, Elizabeth Santorella, Louis C Tiao, Sait Cakmak, Mia Garrard, Samuel Daulton, Zhiyuan Jerry Lin, <strong class="author-self">Sebastian Ament</strong>, Bernard Beckerman, Eric Onofrey, Paschal Igusti, Cristian Lara, Benjamin Letham, Cesar Cardoso, Shiyun Sunny Shen, Andy Chenyuan Lin, Matthew Grange, Elena Kashtelyan, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2025 &mdash; AutoML 2025 ABCD Track &middot; 59 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html">Unexpected improvements to expected improvement for bayesian optimization</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Samuel Daulton, David Eriksson, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2023 &mdash; Advances in neural information processing systems &middot; 357 citations <span class="pub-badge">NeurIPS 2023 Spotlight</span></span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2506.06895">Scalable Gaussian processes with latent Kronecker structure</a></strong><br><span class="pub-authors">Jihao Andreas Lin, <strong class="author-self">Sebastian Ament</strong>, Maximilian Balandat, David Eriksson, José Miguel Hernández-Lobato, Eytan Bakshy</span><br><span class="pub-meta">2025 &mdash; arXiv preprint arXiv:2506.06895 &middot; 10 citations</span></li>
+                <li class="publication"><strong><a href="https://www.nature.com/articles/s41524-025-01627-0">Probabilistic phase labeling and lattice refinement for autonomous materials research</a></strong><br><span class="pub-authors">Ming-Chiang Chang, <strong class="author-self">Sebastian Ament</strong>, Maximilian Amsler, Duncan R Sutherland, Lan Zhou, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2025 &mdash; npj Computational Materials &middot; 7 citations</span></li>
+                <li class="publication"><strong><a href="https://iopscience.iop.org/article/10.1088/1741-4326/ad4b3d/meta">Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers</a></strong><br><span class="pub-authors">P Rodriguez-Fernandez, NT Howard, A Saltzman, S Kantamneni, J Candy, C Holland, Maximilian Balandat, <strong class="author-self">Sebastian Ament</strong>, AE White</span><br><span class="pub-meta">2024 &mdash; Nuclear Fusion &middot; 48 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html">Robust Gaussian processes via relevance pursuit</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Elizabeth Santorella, David Eriksson, Ben Letham, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2024 &mdash; Advances in Neural Information Processing Systems &middot; 15 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2410.09239">Scaling gaussian processes for learning curve prediction via latent kronecker structure</a></strong><br><span class="pub-authors">Jihao Andreas Lin, <strong class="author-self">Sebastian Ament</strong>, Maximilian Balandat, Eytan Bakshy</span><br><span class="pub-meta">2024 &mdash; arXiv preprint arXiv:2410.09239 &middot; 10 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.mlr.press/v206/deshwal23a.html">Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings</a></strong><br><span class="pub-authors">Aryan Deshwal, <strong class="author-self">Sebastian Ament</strong>, Maximilian Balandat, Eytan Bakshy, Janardhan Rao Doppa, David Eriksson</span><br><span class="pub-meta">2023 &mdash; International Conference on Artificial Intelligence and Statistics &middot; 54 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2310.18288">Sustainable concrete via Bayesian optimization</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Andrew Witte, Nishant Garg, Julius Kusuma</span><br><span class="pub-meta">2023 &mdash; arXiv preprint arXiv:2310.18288 &middot; 18 citations</span></li>
+                <li class="publication"><strong><a href="https://www.sciencedirect.com/science/article/pii/S0004370222000236">Efficient projection algorithms onto the weighted ℓ1 ball</a></strong><br><span class="pub-authors">Guillaume Perez, <strong class="author-self">Sebastian Ament</strong>, Carla Gomes, Michel Barlaud</span><br><span class="pub-meta">2022 &mdash; Artificial Intelligence &middot; 26 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.mlr.press/v162/ament22a.html">Scalable first-order Bayesian optimization via structured automatic differentiation</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian E Ament</strong>, Carla P Gomes</span><br><span class="pub-meta">2022 &mdash; International Conference on Machine Learning &middot; 20 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.mlr.press/v151/ryan22a">The fast kernel transform</a></strong><br><span class="pub-authors">John P Ryan, <strong class="author-self">Sebastian E Ament</strong>, Carla P Gomes, Anil Damle</span><br><span class="pub-meta">2022 &mdash; International Conference on Artificial Intelligence and Statistics &middot; 16 citations</span></li>
+                <li class="publication"><strong><a href="https://ieeexplore.ieee.org/abstract/document/9747510/">Generalized matching pursuits for the sparse optimization of separable objectives</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Carla Gomes</span><br><span class="pub-meta">2022 &mdash; ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) &middot; 2 citations</span></li>
+                <li class="publication"><strong><a href="https://search.proquest.com/openview/a04f56bb4baac680d05edab74d8d99ec/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y">Advances in Sparse and Bayesian Optimization for Autonomous Scientific Discovery</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Eduard Ament</strong></span><br><span class="pub-meta">2022 &middot; 0 citations</span></li>
+                <li class="publication"><strong><a href="https://www.science.org/doi/abs/10.1126/sciadv.abg4930">Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Maximilian Amsler, Duncan R Sutherland, Ming-Chiang Chang, Dan Guevarra, Aine B Connolly, John M Gregoire, Michael O Thompson, Carla P Gomes, R Bruce Van Dover</span><br><span class="pub-meta">2021 &mdash; Science Advances &middot; 123 citations</span></li>
+                <li class="publication"><strong><a href="https://www.nature.com/articles/s42256-021-00384-1">Automating crystal-structure phase mapping by combining deep learning with constraint reasoning</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, <strong class="author-self">Sebastian Ament</strong>, Wenting Zhao, Dan Guevarra, Lan Zhou, Bart Selman, R Bruce van Dover, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2021 &mdash; Nature Machine Intelligence &middot; 102 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.mlr.press/v139/ament21a.html">Sparse Bayesian Learning via Stepwise Regression</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Carla Gomes</span><br><span class="pub-meta">2021 &mdash; International Conference on Machine Learning &middot; 20 citations</span></li>
+                <li class="publication"><strong><a href="https://ieeexplore.ieee.org/abstract/document/9415082/">On the optimality of backward regression: Sparse recovery and subset selection</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Carla Gomes</span><br><span class="pub-meta">2021 &mdash; ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) &middot; 13 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/2112.01088">Constrained Machine Learning: The Bagel Framework</a></strong><br><span class="pub-authors">Guillaume Perez, <strong class="author-self">Sebastian Ament</strong>, Carla Gomes, Arnaud Lallouet</span><br><span class="pub-meta">2021 &mdash; arXiv preprint arXiv:2112.01088 &middot; 3 citations</span></li>
+                <li class="publication"><strong><a href="https://proceedings.mlr.press/v119/chen20a.html">Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, Wenting Zhao, <strong class="author-self">Sebastian Ament</strong>, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2020 &mdash; International Conference on Machine Learning &middot; 40 citations</span></li>
+                <li class="publication"><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acscombsci.0c00172">Optical identification of materials transformations in oxide thin films</a></strong><br><span class="pub-authors">Duncan R Sutherland, Aine Boyer Connolly, Maximilian Amsler, Ming-Chiang Chang, Katie Rose Gann, Vidit Gupta, <strong class="author-self">Sebastian Ament</strong>, Dan Guevarra, John M Gregoire, Carla P Gomes, R Bruce van Dover, Michael O Thompson</span><br><span class="pub-meta">2020 &mdash; ACS Combinatorial Science &middot; 7 citations</span></li>
+                <li class="publication"><strong><a href="https://openreview.net/forum?id=HkehD3VtvS">Deep reasoning networks: thinking fast and slow, for pattern de-mixing</a></strong><br><span class="pub-authors">Di Chen, Yiwei Bai, Wenting Zhao, <strong class="author-self">Sebastian Ament</strong>, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2020 &middot; 1 citations</span></li>
+                <li class="publication"><strong><a href="https://www.cambridge.org/core/journals/mrs-communications/article/crystal-a-multiagent-ai-system-for-automated-mapping-of-materials-crystal-structures/73E3A4F24120EBD71A782F0ED278ECB3">CRYSTAL: a multi-agent AI system for automated mapping of materials&#x27; crystal structures</a></strong><br><span class="pub-authors">Carla P Gomes, Junwen Bai, Yexiang Xue, Johan Björck, Brendan Rappazzo, <strong class="author-self">Sebastian Ament</strong>, Richard Bernstein, Shufeng Kong, Santosh K Suram, R Bruce van Dover, John M Gregoire</span><br><span class="pub-meta">2019 &mdash; MRS Communications &middot; 43 citations</span></li>
+                <li class="publication"><strong><a href="https://www.nature.com/articles/s41524-019-0213-0">Multi-component background learning automates signal detection for spectroscopic data</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian E Ament</strong>, Helge S Stein, Dan Guevarra, Lan Zhou, Joel A Haber, David A Boyd, Mitsutaro Umehara, John M Gregoire, Carla P Gomes</span><br><span class="pub-meta">2019 &mdash; npj Computational Materials &middot; 34 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/1902.05601">Exponentially-modified Gaussian mixture model: applications in spectroscopy</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2019 &mdash; arXiv preprint arXiv:1902.05601 &middot; 12 citations</span></li>
+                <li class="publication"><strong><a href="https://link.springer.com/article/10.1007/s11222-017-9725-y">Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Michael O’Neil</span><br><span class="pub-meta">2018 &mdash; Statistics and Computing &middot; 32 citations</span></li>
+                <li class="publication"><strong><a href="https://link.springer.com/chapter/10.1007/978-3-319-93031-2_4">An efficient relaxed projection method for constrained non-negative matrix factorization with application to the phase-mapping problem in materials science</a></strong><br><span class="pub-authors">Junwen Bai, <strong class="author-self">Sebastian Ament</strong>, Guillaume Perez, John Gregoire, Carla Gomes</span><br><span class="pub-meta">2018 &middot; 8 citations</span></li>
+                <li class="publication"><strong><a href="https://arxiv.org/abs/1607.04596">Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets: A survey and analysis of numerical techniques</a></strong><br><span class="pub-authors"><strong class="author-self">Sebastian Ament</strong>, Nikhil Rangarajan, Arun Parthasarathy, Shaloo Rakheja</span><br><span class="pub-meta">2016 &mdash; arXiv preprint arXiv:1607.04596 &middot; 29 citations</span></li>
                 <!-- /PUBLICATIONS_SEO -->
             </ul>
         </section>
@@ -326,46 +336,69 @@
     <footer class="fade-in">
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
-    <script src="chart.js?v=2"></script>
-    <script src="gp-background.js?v=2"></script>
+    <script src="chart.js?v=3"></script>
+    <script src="gp-background.js?v=3"></script>
     <script>
-        // Lazy-load video iframes when they scroll into view (no autoplay)
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const iframe = entry.target.querySelector('iframe[data-src]');
-                    if (iframe) {
-                        iframe.src = iframe.dataset.src;
-                        delete iframe.dataset.src;
-                    }
-                    videoObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.video-embed').forEach(el => videoObserver.observe(el));
-
-        // Click-to-play for poster images: replace poster with iframe
+        // Click-to-play videos. Nothing is requested from YouTube until the
+        // visitor actually presses play — no iframe, no thumbnail, no cookie.
+        // Embeds use youtube-nocookie.com so playback itself is privacy-scoped.
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        document.querySelectorAll('.video-poster').forEach(poster => {
-            poster.addEventListener('click', () => {
-                const src = poster.dataset.src;
-                const title = poster.getAttribute('title') || '';
-                const iframe = document.createElement('iframe');
-                const params = 'autoplay=1&playsinline=1&enablejsapi=1' + (isMobile ? '&mute=1' : '');
-                iframe.src = src + '?' + params;
-                iframe.title = title;
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
-                iframe.addEventListener('load', () => {
-                    const play = () => iframe.contentWindow.postMessage(
-                        JSON.stringify({event: 'command', func: 'playVideo'}), '*'
-                    );
-                    play();
-                    setTimeout(play, 700);
-                });
-                poster.replaceWith(iframe);
+
+        // Some videos ignore the autoplay parameter — typically ones that serve a
+        // pre-roll — so the player loads paused and needs a second click. The
+        // official iframe API can start those explicitly. It is fetched only
+        // after a real click, so the page still makes no third-party request
+        // before the visitor asks for one.
+        let ytApiPromise = null;
+        function loadYouTubeApi() {
+            if (ytApiPromise) return ytApiPromise;
+            ytApiPromise = new Promise((resolve, reject) => {
+                const prev = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = () => {
+                    if (typeof prev === 'function') prev();
+                    resolve(window.YT);
+                };
+                const script = document.createElement('script');
+                script.src = 'https://www.youtube.com/iframe_api';
+                script.async = true;
+                script.onerror = reject;
+                document.head.appendChild(script);
+                // Don't leave the promise pending forever if the API is blocked.
+                setTimeout(() => reject(new Error('YouTube API timeout')), 8000);
             });
+            return ytApiPromise;
+        }
+
+        function activateVideo(el) {
+            const src = el.dataset.src;
+            if (!src) return;
+            const title = el.dataset.title || '';
+            const iframe = document.createElement('iframe');
+            // autoplay=1 is the fast path: built and inserted synchronously in the
+            // click handler so user activation carries into the new frame.
+            // enablejsapi lets the API below force playback when that is ignored.
+            iframe.src = src + '?autoplay=1&playsinline=1&rel=0&enablejsapi=1'
+                + '&origin=' + encodeURIComponent(location.origin)
+                + (isMobile ? '&mute=1' : '');
+            iframe.title = title;
+            iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.allowFullscreen = true;
+            el.replaceWith(iframe);
+
+            // Belt and braces: once the API is up, tell the player to play. This
+            // is a no-op when autoplay already worked.
+            loadYouTubeApi().then(YT => {
+                new YT.Player(iframe, {
+                    events: {
+                        onReady: (e) => { try { e.target.playVideo(); } catch (_) {} }
+                    }
+                });
+            }).catch(() => { /* API blocked — the autoplay param is all we have */ });
+        }
+
+        // Both facades are <button>s, so Enter/Space work without extra handlers.
+        document.querySelectorAll('.video-poster').forEach(el => {
+            el.addEventListener('click', () => activateVideo(el));
         });
 
         // Load publications from JSON and enable sorting
@@ -498,8 +531,13 @@
         function renderPublications(pubs) {
             const list = document.getElementById('publication-list');
             list.innerHTML = pubs.map(pub => {
-                const authors = pub.authors.join(', ');
-                const venue = pub.venue ? ` &mdash; ${pub.venue}` : '';
+                const authors = formatAuthors(pub.authors, pub.title);
+                const eqNote = equalContributionCount(pub.title)
+                    ? ' &middot; <span class="pub-equal-note">* equal contribution</span>' : '';
+                const venue = pub.venue ? ` &mdash; ${escapeHtml(pub.venue)}` : '';
+                const badge = badgeFor(pub.title);
+                const badgeHtml = badge
+                    ? ` <span class="pub-badge">${escapeHtml(badge)}</span>` : '';
                 const citations = pub.citationCount;
                 const links = [];
                 // arXiv (most useful, present on nearly all papers)
@@ -521,14 +559,14 @@
                 if (pub.pdf) links.push(`<a href="${pub.pdf}">PDF</a>`);
                 const titleUrl = pub.arxiv || pub.url;
                 const title = titleUrl
-                    ? `<a href="${titleUrl}" class="pub-title">${pub.title}</a>`
-                    : `<span class="pub-title">${pub.title}</span>`;
+                    ? `<a href="${escapeHtml(titleUrl)}" class="pub-title">${escapeHtml(pub.title)}</a>`
+                    : `<span class="pub-title">${escapeHtml(pub.title)}</span>`;
                 const sparkline = buildSparkline(pub.title);
                 const key = paperKey(pub.title);
                 return `<li class="publication">
                     <strong>${title}</strong><br>
                     <span class="pub-authors">${authors}</span><br>
-                    <span class="pub-meta">${pub.year || 'N/A'}${venue} &middot; ${citations} citations ${sparkline}</span><br>
+                    <span class="pub-meta">${pub.year || 'N/A'}${venue} &middot; ${citations} citations${badgeHtml}${eqNote} ${sparkline}</span><br>
                     <span class="pub-links">${links.join(' &middot; ')}</span>
                     <div class="pub-detail-chart" id="detail-${key}" style="display:none">
                         <div class="citation-chart-scroll">
@@ -610,8 +648,27 @@
             openDetails.forEach(key => renderDetailChart(key, true));
         }
 
+        // Non-destructive banner used when live citation data can't be fetched.
+        function showPubNotice() {
+            const el = document.getElementById('pub-notice');
+            if (el) el.style.display = '';
+        }
+        function hidePubNotice() {
+            const el = document.getElementById('pub-notice');
+            if (el) el.style.display = 'none';
+        }
+
         function updatePublications(by) {
             currentSort = by;
+            // If the publications JSON never loaded, leave the server-rendered
+            // <li> list (written by update_publications.py) in place rather than
+            // replacing it with nothing. Without this guard a flaky connection
+            // or a renamed JSON blanks the entire Publications section.
+            if (!publications.length) {
+                showPubNotice();
+                return;
+            }
+            hidePubNotice();
             const query = (document.getElementById('pub-search').value || '').toLowerCase();
             const terms = query.split(/\s+/).filter(t => t);
             const filtered = publications.filter(pub => {
@@ -624,6 +681,8 @@
                 return (b.year || 0) - (a.year || 0) || (b.citationCount || 0) - (a.citationCount || 0);
             });
             renderPublications(sorted);
+            const empty = document.getElementById('pub-empty');
+            if (empty) empty.style.display = sorted.length ? 'none' : '';
             document.querySelectorAll('.sort-controls .sort-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.sort === by);
             });
@@ -800,7 +859,10 @@
                 .catch(e => console.error('citation history load/render failed:', e));
 
             const pubsPromise = fetchCached(src.pubs)
-                .then(data => { publications = data; })
+                .then(data => {
+                    publications = dedupePublications(
+                        data.filter(p => !isNoisePublication(p.title)));
+                })
                 .catch(e => console.error('publications load failed:', e));
 
             // Cross-reference both sources to enrich each paper with all available links
@@ -844,30 +906,44 @@
             }
             return loadSource(hasScholar ? 'scholar' : 's2');
         }).finally(() => {
-            // Scroll-triggered fade-in (after content is loaded)
+            // Content height changed once publications rendered — re-align the
+            // anchor. The fade-in itself is set up independently below.
+            scrollToHash();
+        });
+
+        function scrollToHash() {
+            if (!window.location.hash) return;
+            requestAnimationFrame(() => {
+                const target = document.querySelector(window.location.hash);
+                if (!target) return;
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+                window.scrollTo({ top, behavior: 'instant' });
+            });
+        }
+
+        // Scroll-triggered fade-in. Runs IMMEDIATELY and is deliberately not
+        // chained to any fetch: previously this lived in the .finally() of the
+        // JSON promise chain, so every section stayed at opacity 0 until three
+        // network round-trips settled (and stayed blank forever if one hung).
+        (function setupFadeIn() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-            // Re-scroll to anchor after content has loaded
+            // Deep link: reveal everything up front so the anchor math is correct.
             if (window.location.hash) {
                 document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-                requestAnimationFrame(() => {
-                    const target = document.querySelector(window.location.hash);
-                    if (target) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-                        window.scrollTo({ top, behavior: 'instant' });
-                    }
-                });
+                scrollToHash();
             }
-        });
+        })();
 
         // Projects dropdown — positioned outside header for proper backdrop-filter
         const projectsNav = document.getElementById('projects-nav');
@@ -1004,13 +1080,13 @@
         // synchronously before body parses — see that script's comment for
         // why (FOUC + iOS URL bar tinting).
         document.querySelectorAll('.theme-toggle').forEach(t => t.addEventListener('click', () => {
-            sessionStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
+            localStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
             applyTheme();
             if (overlay.classList.contains('open')) closeOverlay();
         }));
 
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            sessionStorage.removeItem('theme');
+            localStorage.removeItem('theme');
             applyTheme();
         });
 
