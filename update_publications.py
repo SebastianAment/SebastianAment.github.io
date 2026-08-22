@@ -35,6 +35,7 @@ Output files:
 """
 
 import argparse
+import html
 import json
 import os
 import re
@@ -266,6 +267,10 @@ def _normalize_title(title):
     """Normalize a title for deduplication: lowercase, strip trailing year,
     remove punctuation, collapse whitespace."""
     t = title.strip().lower()
+    # Scholar sometimes appends the year to one of several duplicate records,
+    # either bare ("Title, 2024") or parenthesised ("Title (2024)"). Strip both
+    # so the variants normalise to one key and deduplicate against each other.
+    t = re.sub(r'\s*\(\s*(?:19|20)\d{2}\s*\)\s*$', '', t)  # trailing "(YYYY)"
     t = re.sub(r'[,\s]+\d{4}\s*$', '', t)   # trailing ", YYYY"
     t = re.sub(r'[^a-z0-9\s]', '', t)         # punctuation
     return re.sub(r'\s+', ' ', t).strip()
@@ -803,6 +808,110 @@ def _infill_missing_citations():
         print("\nNo papers could be filled this run.")
 
 
+
+# ---------------------------------------------------------------------------
+# Publication list hygiene and presentation
+#
+# Mirrors chart.js (isNoisePublication / isSelfAuthor / formatAuthors /
+# PUBLICATION_BADGES) so the server-rendered SEO list and the client-rendered
+# list agree. tests/test_publication_render.py asserts the two stay in sync.
+# ---------------------------------------------------------------------------
+
+# Curated, independently verifiable recognitions only, keyed by _paper_key().
+PUBLICATION_BADGES = {
+    "unexpected_improvements_to_expected_improvement_for_bayesian": "NeurIPS 2023 Spotlight",
+}
+
+_NOISE_PATTERNS = (
+    re.compile(r"^\s*data\s+from\s*:", re.I),        # dataset deposit
+    re.compile(r"supplementary\s+material", re.I),     # supplementary PDF
+    re.compile(r"\.\s*(?:19|20)\d{2}\.\s"),           # "Authors. 2019. Title"
+)
+
+
+def is_noise_publication(title):
+    """True for Scholar artifacts that dilute the publication list.
+
+    Google Scholar attributes dataset deposits, supplementary-material PDFs and
+    occasionally a mangled entry whose *title* is actually a citation string.
+    They carry no citations and make the list look careless to exactly the
+    audience that reads publication lists closely.
+    """
+    t = (title or "").strip()
+    if not t:
+        return True
+    return any(p.search(t) for p in _NOISE_PATTERNS)
+
+
+def filter_noise_publications(items):
+    """Drop noise entries, preserving order."""
+    return [p for p in items if not is_noise_publication(p.get("title", ""))]
+
+
+def is_self_author(name):
+    """True when an author string refers to the site owner.
+
+    The same person is spelled several ways across sources ("Sebastian Ament",
+    "Sebastian E Ament", "Sebastian Eduard Ament", "S Ament", "S. Ament"), so
+    match on surname plus a first name starting with S.
+    """
+    parts = (name or "").strip().lower().replace(".", "").split()
+    if len(parts) < 2:
+        return False
+    if parts[-1] != "ament":
+        return False
+    return parts[0].startswith("s")
+
+
+# Papers whose first N authors contributed equally, keyed by _paper_key().
+# Neither Scholar nor Semantic Scholar records this — it exists only as a
+# footnote in the paper — so it is curated here. Keyed by POSITION, not name:
+# the sources spell people differently ("Jihao Andreas Lin" vs "J. Lin"),
+# whereas shared first authorship is always a prefix of the author list.
+EQUAL_CONTRIBUTION = {
+    "empirical_gaussian_processes": 2,
+}
+
+
+def equal_contribution_count(title):
+    """How many leading authors share first authorship (0 if not applicable)."""
+    return EQUAL_CONTRIBUTION.get(_paper_key(title or ""), 0)
+
+
+def format_authors(authors, title=None):
+    """Escaped author list with the site owner's name emphasised.
+
+    Joint first authors are marked with an asterisk.
+    """
+    eq = equal_contribution_count(title) if title else 0
+    out = []
+    for i, a in enumerate(authors or []):
+        name = html.escape(a)
+        marked = (f'<strong class="author-self">{name}</strong>'
+                  if is_self_author(a) else name)
+        out.append(f'{marked}<sup class="author-eq">*</sup>' if i < eq else marked)
+    return ", ".join(out)
+
+
+def badge_for(title):
+    """Badge text for a paper title, or '' when it has none."""
+    return PUBLICATION_BADGES.get(_paper_key(title or ""), "")
+
+
+def _safe_url(url):
+    """Escape a URL and allow only http(s). Anything else renders as no link.
+
+    Publication URLs originate from third-party APIs; without this a
+    ``javascript:`` href would be written straight into the committed HTML.
+    """
+    u = (url or "").strip()
+    if not u:
+        return ""
+    if not re.match(r"^https?://", u, re.I):
+        return ""
+    return html.escape(u, quote=True)
+
+
 def _render_html_seo():
     """Inject static publication HTML into index.html between SEO markers."""
     index_path = os.path.join(SCRIPT_DIR, "index.html")
@@ -815,42 +924,53 @@ def _render_html_seo():
     with open(pubs_path) as f:
         pubs = json.load(f)
 
-    # Generate static HTML for each publication
+    # Drop Scholar noise before rendering so crawlers and JS-disabled visitors
+    # see the same clean list the client-side renderer shows.
+    pubs = _deduplicate_by_title(filter_noise_publications(pubs))
+
+    # Generate static HTML for each publication.
+    # Every interpolated field is escaped: titles, authors and URLs come from
+    # third-party APIs and are never trusted.
     lines = []
     for pub in pubs:
-        authors = ", ".join(pub.get("authors", []))
-        venue = f" &mdash; {pub['venue']}" if pub.get("venue") else ""
-        title = pub.get("title", "")
-        year = pub.get("year") or "N/A"
-        citations = pub.get("citationCount", 0)
-        link = pub.get("arxiv") or pub.get("url", "")
+        authors = format_authors(pub.get("authors", []), pub.get("title", ""))
+        venue = f" &mdash; {html.escape(pub['venue'])}" if pub.get("venue") else ""
+        title = html.escape(pub.get("title", ""))
+        year = html.escape(str(pub.get("year") or "N/A"))
+        citations = int(pub.get("citationCount", 0) or 0)
+        link = _safe_url(pub.get("arxiv") or pub.get("url", ""))
         title_html = f'<a href="{link}">{title}</a>' if link else title
+        badge = badge_for(pub.get("title", ""))
+        badge_html = f' <span class="pub-badge">{html.escape(badge)}</span>' if badge else ""
+        eq_note = (' &middot; <span class="pub-equal-note">* equal contribution</span>'
+                   if equal_contribution_count(pub.get("title", "")) else "")
         lines.append(
             f'                <li class="publication"><strong>{title_html}</strong><br>'
             f'<span class="pub-authors">{authors}</span><br>'
-            f'<span class="pub-meta">{year}{venue} &middot; {citations} citations</span></li>'
+            f'<span class="pub-meta">{year}{venue} &middot; {citations} citations'
+            f'{badge_html}{eq_note}</span></li>'
         )
 
     seo_block = "\n".join(lines)
 
     with open(index_path) as f:
-        html = f.read()
+        page_html = f.read()
 
     # Replace between markers
     start_marker = "<!-- PUBLICATIONS_SEO -->"
     end_marker = "<!-- /PUBLICATIONS_SEO -->"
-    start_idx = html.find(start_marker)
-    end_idx = html.find(end_marker)
+    start_idx = page_html.find(start_marker)
+    end_idx = page_html.find(end_marker)
     if start_idx == -1 or end_idx == -1:
         print("SEO markers not found in index.html")
         return
 
     new_html = (
-        html[: start_idx + len(start_marker)]
+        page_html[: start_idx + len(start_marker)]
         + "\n"
         + seo_block
         + "\n                "
-        + html[end_idx:]
+        + page_html[end_idx:]
     )
 
     with open(index_path, "w") as f:
