@@ -49,5 +49,11 @@
             </p>
         </section>
     </main>
+    <script src="/analytics.js?v=3"></script>
+    <script>
+        // Count 404s so broken inbound links are discoverable rather than silent.
+        initAnalytics();
+        track('404', location.pathname);
+    </script>
 </body>
 </html>

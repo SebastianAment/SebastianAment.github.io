@@ -336,9 +336,14 @@
     <footer class="fade-in">
         <p>&copy; 2026 Sebastian Ament</p>
     </footer>
+    <script src="analytics.js?v=3"></script>
     <script src="chart.js?v=3"></script>
     <script src="gp-background.js?v=3"></script>
     <script>
+        // Cookieless analytics: inert until ANALYTICS_CONFIG.site is set,
+        // and skipped entirely for Do-Not-Track / GPC visitors.
+        initAnalytics();
+
         // Click-to-play videos. Nothing is requested from YouTube until the
         // visitor actually presses play — no iframe, no thumbnail, no cookie.
         // Embeds use youtube-nocookie.com so playback itself is privacy-scoped.
@@ -383,6 +388,7 @@
             iframe.title = title;
             iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
             iframe.allowFullscreen = true;
+            track('video_play', title);
             el.replaceWith(iframe);
 
             // Belt and braces: once the API is up, tell the player to play. This
@@ -584,6 +590,7 @@
             list.querySelectorAll('.bibtex-btn').forEach((btn, i) => {
                 const key = paperKey(pubs[i].title);
                 btn.addEventListener('click', () => {
+                    track('bibtex_copy');
                     navigator.clipboard.writeText(bibtexMap[key]);
                     btn.textContent = 'Copied!';
                     setTimeout(() => { btn.textContent = 'BibTeX'; }, 1500);
@@ -598,6 +605,7 @@
                     const detail = document.getElementById('detail-' + key);
                     if (!detail) return;
                     if (detail.style.display === 'none') {
+                        track('paper_chart_expand');
                         openDetails.add(key);
                         detail.style.display = '';
                         renderDetailChart(key, true);
@@ -1080,8 +1088,10 @@
         // synchronously before body parses — see that script's comment for
         // why (FOUC + iOS URL bar tinting).
         document.querySelectorAll('.theme-toggle').forEach(t => t.addEventListener('click', () => {
-            localStorage.setItem('theme', getEffectiveTheme() === 'light' ? 'dark' : 'light');
+            const next = getEffectiveTheme() === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', next);
             applyTheme();
+            track('theme_toggle', next);
             if (overlay.classList.contains('open')) closeOverlay();
         }));
 
@@ -1092,21 +1102,50 @@
 
         // Sort button handlers
         document.querySelectorAll('.sort-controls .sort-btn').forEach(btn => {
-            btn.addEventListener('click', () => updatePublications(btn.dataset.sort));
+            btn.addEventListener('click', () => {
+                track('pub_sort', btn.dataset.sort);
+                updatePublications(btn.dataset.sort);
+            });
         });
 
         // Source toggle handlers
         document.querySelectorAll('#source-toggle .sort-btn').forEach(btn => {
-            btn.addEventListener('click', () => loadSource(btn.dataset.source));
+            btn.addEventListener('click', () => {
+                track('source_toggle', btn.dataset.source);
+                loadSource(btn.dataset.source);
+            });
         });
 
         // Per-year / cumulative mode toggle handlers
         document.querySelectorAll('#mode-toggle .sort-btn').forEach(btn => {
-            btn.addEventListener('click', () => setMode(btn.dataset.mode));
+            btn.addEventListener('click', () => {
+                track('mode_toggle', btn.dataset.mode);
+                setMode(btn.dataset.mode);
+            });
         });
 
+        // Outbound links: which papers and which destinations people follow.
+        if (ANALYTICS_CONFIG.trackOutbound) {
+            document.addEventListener('click', (e) => {
+                const a = e.target.closest('a[href^="http"]');
+                if (!a) return;
+                try {
+                    const host = new URL(a.href).hostname.replace(/^www\./, '');
+                    if (host === location.hostname) return;
+                    track('outbound', host);
+                } catch (_) { /* malformed href — ignore */ }
+            }, { capture: true });
+        }
+
         // Search filter
-        document.getElementById('pub-search').addEventListener('input', () => {
+        let searchTracked = false;
+        const pubSearch = document.getElementById('pub-search');
+        pubSearch.addEventListener('input', () => {
+            // Count that search was used, once per session — never the query text.
+            if (!searchTracked && pubSearch.value.trim()) {
+                searchTracked = true;
+                track('pub_search');
+            }
             updatePublications(currentSort);
         });
     </script>

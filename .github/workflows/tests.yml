@@ -30,3 +30,4 @@ jobs:
         run: |
           node tests/test_chart.js
           node tests/test_integration.js
+          node tests/test_analytics.js

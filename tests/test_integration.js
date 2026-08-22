@@ -232,6 +232,18 @@ for (const [pattern, label] of [
 }
 assert.ok(/author-self/.test(seo), "Static list should emphasise the owner's name");
 
+// ── Analytics ───────────────────────────────────────────────────────────────
+
+assert.ok(/analytics\.js\?v=/.test(indexHtml), "analytics.js must be loaded (cache-busted)");
+assert.ok(/initAnalytics\(\)/.test(indexHtml), "Analytics must be initialised");
+// The features the owner asked to measure are all instrumented.
+for (const evt of ['theme_toggle', 'source_toggle', 'mode_toggle', 'pub_sort',
+                   'pub_search', 'paper_chart_expand', 'bibtex_copy',
+                   'video_play', 'outbound']) {
+    assert.ok(new RegExp(`track\\('${evt}'`).test(indexHtml),
+        `Feature "${evt}" is not instrumented`);
+}
+
 // ── 404 page ────────────────────────────────────────────────────────────────
 
 const notFound = fs.readFileSync(path.join(root, '404.html'), 'utf8');
