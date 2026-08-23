@@ -1,3 +1,23 @@
+/* Self-hosted Montserrat (variable, weights 100-900). Served locally so no
+   visitor IP reaches a third-party font CDN before they interact with the page.
+   unicode-range keeps latin-ext from downloading for purely ASCII pages. */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('media/fonts/montserrat-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('media/fonts/montserrat-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* Light theme (default) */
 :root {
     /* color-scheme drives UA chrome (scrollbars, form controls, native
@@ -514,16 +534,32 @@ footer p {
     margin: 0;
 }
 
-/* Scroll-triggered fade-in */
+/* Scroll-triggered fade-in.
+   Content is VISIBLE by default and the hidden start-state is applied only when
+   the document carries .js-anim (set synchronously by the head script). If JS is
+   disabled, blocked, or throws before the observer is wired up, the page still
+   renders instead of staying permanently at opacity 0. */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
-.fade-in.visible {
+.js-anim .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.js-anim .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Never hide content from users who opted out of motion. */
+    .js-anim .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* Publications */
@@ -541,7 +577,10 @@ footer p {
     padding-bottom: 0;
 }
 
-.publication strong {
+/* Direct child only: this styles the publication TITLE. Without the child
+   combinator it also captured the nested <strong class="author-self"> in the
+   author list, rendering the owner's name at the title's size and colour. */
+.publication > strong {
     color: var(--text-white);
     font-size: 15px;
 }
@@ -961,6 +1000,13 @@ a.pub-title:hover {
     height: 100%;
     position: relative;
     cursor: pointer;
+    /* Now a <button> (keyboard-operable); reset the UA chrome. */
+    padding: 0;
+    border: 0;
+    background: none;
+    display: block;
+    font: inherit;
+    color: inherit;
 }
 
 .video-poster img {
@@ -1024,4 +1070,207 @@ a.pub-title:hover {
 
 .project-awards li {
     margin-bottom: 0.15em;
+}
+
+/* Publication list status messages (failed live fetch / empty filter result) */
+.pub-notice,
+.pub-empty {
+    font-size: 14px;
+    opacity: 0.75;
+    margin: 0 0 1em;
+    padding: 0.6em 0.9em;
+    border-left: 2px solid var(--accent-color);
+    background: rgba(128, 128, 128, 0.06);
+    border-radius: 0 6px 6px 0;
+}
+
+/* ── Print / Save-as-PDF ──────────────────────────────────────────────────
+   Until there is a downloadable CV, printing this page is the de-facto CV
+   path, so it has to produce a clean document. Critically, .fade-in sections
+   are still at opacity 0 if they were never scrolled into view — without the
+   override below, printing a freshly loaded page yields blank sections. */
+@media print {
+    /* Reveal everything, regardless of scroll position or JS state. */
+    .js-anim .fade-in,
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Screen-only furniture. */
+    #gp-background,
+    header,
+    .overlay-menu,
+    .dropdown,
+    .theme-toggle,
+    .menu-btn,
+    .sort-controls,
+    .citation-chart-wrapper,
+    .video-embed,
+    .bibtex-btn,
+    .sparkline,
+    .pub-detail-chart,
+    .pub-notice,
+    .pub-empty,
+    .section-icon {
+        display: none !important;
+    }
+
+    html, body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
+    }
+
+    main, section {
+        padding: 0 !important;
+        margin: 0 0 1.2em !important;
+        background: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    /* Surface destinations that are otherwise lost on paper. */
+    .pub-links a[href^="http"]::after,
+    .project-links a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        word-break: break-all;
+    }
+
+    /* Keep a heading with the START of its section, but let long sections flow
+       across the page break. Pairing break-after:avoid on h2 with
+       break-inside:avoid on a tall .project pushed both to the next page and
+       left up to half a page blank underneath the heading. */
+    h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    /* Publications are short — keep each one whole. */
+    .publication {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Flex containers are a common cause of stranded whitespace in print:
+       several engines (Safari especially) will not break inside a flex
+       container, so a tall project or the About block gets pushed whole onto
+       the next page. The side-by-side layout only exists to seat the video,
+       which is hidden here anyway, so drop back to normal block flow. */
+    .project-body,
+    .about-content {
+        display: block;
+    }
+
+    .project-text,
+    .about-text {
+        width: auto;
+    }
+
+    /* Projects are long-form and must be allowed to split; orphans/widows stop
+       a split from stranding a single line. */
+    .project {
+        break-inside: auto;
+        page-break-inside: auto;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .project h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    .profile-picture {
+        max-width: 140px;
+    }
+}
+
+/* ── 404 ────────────────────────────────────────────────────────────────── */
+#notfound {
+    text-align: center;
+    padding: clamp(2em, 8vh, 5em) 1.5em;
+}
+
+.notfound-code {
+    font-size: clamp(56px, 14vw, 104px);
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 0.1em;
+    color: var(--accent-color);
+    opacity: 0.9;
+    letter-spacing: -0.03em;
+}
+
+#notfound h1 {
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 400;
+    margin: 0 0 0.6em;
+}
+
+.notfound-lede {
+    max-width: 46ch;
+    margin: 0 auto 1.6em;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+
+.notfound-links {
+    font-size: 15px;
+    margin: 0.5em 0;
+}
+
+/* Own-name emphasis in author lists — makes first authorship scannable. */
+/* Own-name emphasis in author lists. Deliberately gentle: co-author names sit
+   at 0.8 opacity, so lifting this one to full opacity with a medium (not bold)
+   weight is enough to find it at a glance without competing with the title. */
+.author-self {
+    /* Stay in the author list's own type scale, whatever styles the title. */
+    font-size: inherit;
+    color: inherit;
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* Award / recognition badge on a publication (e.g. NeurIPS Spotlight). */
+.pub-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15em 0.5em;
+    margin-left: 0.3em;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    color: var(--accent-color);
+    white-space: nowrap;
+    vertical-align: 1px;
+}
+
+/* Joint first authorship. Not available from Scholar or Semantic Scholar —
+   curated in chart.js / update_publications.py and marked per author. */
+.author-eq {
+    font-size: 0.8em;
+    line-height: 0;
+    margin-left: 1px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.pub-equal-note {
+    font-style: italic;
+    white-space: nowrap;
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Page not found &mdash; Sebastian Ament</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="That page doesn't exist. Find publications, projects, and contact details on the homepage.">
+    <link rel="icon" href="/media/favicon.png" type="image/png">
+    <!-- Root-absolute so assets resolve no matter which path 404'd. -->
+    <link rel="preload" href="/media/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css?v=3">
+    <meta name="theme-color" content="#f8f8f8">
+    <script>
+        // Same synchronous theme application as index.html — avoids a flash of
+        // the wrong theme and gets the iOS URL-bar tint right on first paint.
+        function getEffectiveTheme() {
+            return localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+        function applyTheme() {
+            const theme = getEffectiveTheme();
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelector('meta[name="theme-color"]').content =
+                theme === 'dark' ? '#222222' : '#f8f8f8';
+        }
+        applyTheme();
+    </script>
+</head>
+<body>
+    <main>
+        <section id="notfound">
+            <p class="notfound-code">404</p>
+            <h1>This page doesn&rsquo;t exist</h1>
+            <p class="notfound-lede">
+                The link may be out of date, or the address may have a typo.
+                Everything on this site lives on the homepage.
+            </p>
+            <p class="notfound-links">
+                <a href="/">Home</a> &middot;
+                <a href="/#about">About</a> &middot;
+                <a href="/#projects">Projects</a> &middot;
+                <a href="/#publications">Publications</a>
+            </p>
+            <p class="notfound-links">
+                <a href="https://scholar.google.com/citations?user=1vkpStcAAAAJ&amp;hl" target="_blank" rel="noopener">Google Scholar</a> &middot;
+                <a href="https://github.com/SebastianAment" target="_blank" rel="noopener">GitHub</a> &middot;
+                <a href="https://www.linkedin.com/in/amentsebastian" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

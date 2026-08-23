@@ -4,7 +4,12 @@
  */
 
 const assert = require('assert');
-const { paperKey, computeProjection, reconcileToTotal, buildBarModel } = require('../chart.js');
+const {
+    paperKey, computeProjection, reconcileToTotal, buildBarModel,
+    escapeHtml, isSelfAuthor, formatAuthors, badgeFor, isNoisePublication,
+    dedupePublications, equalContributionCount,
+    shouldRetryVideoPlay, YT_NOT_PLAYING_STATES, YT_RETRY_MAX_ATTEMPTS, YT_RETRY_WINDOW_MS,
+} = require('../chart.js');
 
 // ── paperKey tests ──────────────────────────────────────────────────────────
 
@@ -179,6 +184,191 @@ assert.strictEqual(lastBar.isStack, true, "Projected year is a stacked bar");
 assert.ok(lastBar.proj > lastBar.count, "Projection exceeds actual");
 assert.strictEqual(proj.bars[0].isStack, false, "Non-current years are not stacked");
 assert.ok(proj.maxVal >= lastBar.proj, "maxVal accounts for the projection");
+
+// ── escapeHtml tests ────────────────────────────────────────────────────────
+// Publication metadata is third-party data interpolated into innerHTML.
+
+assert.strictEqual(escapeHtml('<script>alert(1)</script>'),
+    '&lt;script&gt;alert(1)&lt;/script&gt;', "Tags must be neutralised");
+assert.strictEqual(escapeHtml('Tom & Jerry'), 'Tom &amp; Jerry');
+assert.strictEqual(escapeHtml('a"b\'c'), 'a&quot;b&#39;c', "Both quote styles escaped");
+assert.strictEqual(escapeHtml(null), '', "null renders as empty, not 'null'");
+assert.strictEqual(escapeHtml(undefined), '');
+// Ampersand must be escaped first or escapes get double-encoded.
+assert.strictEqual(escapeHtml('&lt;'), '&amp;lt;');
+
+// ── isSelfAuthor / formatAuthors tests ──────────────────────────────────────
+// Sources spell the same person several ways; all must be recognised.
+
+for (const n of ['Sebastian Ament', 'Sebastian E Ament', 'Sebastian E. Ament',
+                 'Sebastian Eduard Ament', 'S Ament', 'S. Ament', 'SE Ament',
+                 'sebastian ament']) {
+    assert.ok(isSelfAuthor(n), `Should recognise "${n}" as the site owner`);
+}
+for (const n of ['Carla Gomes', 'Maximilian Balandat', 'David Eriksson',
+                 'Ament', '', null, undefined, 'John Ament']) {
+    assert.ok(!isSelfAuthor(n), `Should NOT match "${n}"`);
+}
+
+const fa = formatAuthors(['Sebastian Ament', 'Carla Gomes']);
+assert.ok(fa.includes('<strong class="author-self">Sebastian Ament</strong>'),
+    "Own name is emphasised");
+assert.ok(fa.includes('Carla Gomes') && !fa.includes('<strong class="author-self">Carla Gomes'),
+    "Co-authors are not emphasised");
+assert.strictEqual(formatAuthors([]), '');
+assert.strictEqual(formatAuthors(null), '', "Missing author list must not throw");
+// Co-author names are escaped, and injected markup cannot survive.
+assert.ok(formatAuthors(['<img onerror=x>']).includes('&lt;img'),
+    "Author names must be escaped");
+
+// ── Equal-contribution tests ────────────────────────────────────────────────
+// Joint first authorship is not exposed by Scholar or Semantic Scholar, so it
+// is curated. Keyed by position, because the two sources spell names
+// differently — that spelling-independence is the property worth locking in.
+
+assert.strictEqual(equalContributionCount('Empirical Gaussian Processes'), 2);
+assert.strictEqual(equalContributionCount('Robust Gaussian processes via relevance pursuit'), 0);
+assert.strictEqual(equalContributionCount(''), 0);
+assert.strictEqual(equalContributionCount(null), 0);
+
+const EQ_TITLE = 'Empirical Gaussian Processes';
+// Scholar spelling and Semantic Scholar spelling must both mark two authors.
+for (const names of [
+    ['Jihao Andreas Lin', 'Sebastian Ament', 'Louis C Tiao', 'David Eriksson'],
+    ['J. Lin', 'S. Ament', 'Louis C. Tiao', 'David Eriksson'],
+]) {
+    const out = formatAuthors(names, EQ_TITLE);
+    assert.strictEqual((out.match(/class="author-eq"/g) || []).length, 2,
+        `Exactly the two joint first authors are marked, got: ${out}`);
+    // The marker sits on the first two names, not on later co-authors.
+    assert.ok(out.indexOf('author-eq') < out.indexOf('Tiao'),
+        "Markers must precede the non-first authors");
+    assert.ok(!/Eriksson<sup/.test(out), "Later authors carry no marker");
+    // Own name stays emphasised as well as marked.
+    assert.ok(/class="author-self"/.test(out), "Own name still emphasised");
+}
+
+// Papers without joint first authorship get no markers at all.
+assert.ok(!/author-eq/.test(formatAuthors(['Sebastian Ament', 'Carla Gomes'], 'Some Other Paper')));
+// And formatAuthors stays backwards compatible when no title is passed.
+assert.ok(!/author-eq/.test(formatAuthors(['Sebastian Ament', 'Carla Gomes'])));
+
+// ── badgeFor tests ──────────────────────────────────────────────────────────
+
+assert.strictEqual(
+    badgeFor('Unexpected improvements to expected improvement for bayesian optimization'),
+    'NeurIPS 2023 Spotlight');
+// Badge lookup is title-normalised, so casing/punctuation variants still hit.
+assert.strictEqual(
+    badgeFor('UNEXPECTED IMPROVEMENTS TO EXPECTED IMPROVEMENT FOR BAYESIAN OPTIMIZATION'),
+    'NeurIPS 2023 Spotlight');
+assert.strictEqual(badgeFor('Some other paper'), '', "Unbadged papers get no badge");
+assert.strictEqual(badgeFor(''), '');
+assert.strictEqual(badgeFor(null), '');
+
+// ── isNoisePublication tests ────────────────────────────────────────────────
+// Guards the exact Scholar artifacts that were diluting the list.
+
+const NOISE = [
+    'Data from: Autonomous synthesis of metastable materials',
+    'Data from: Probabilistic Phase Labeling and Lattice Refinement',
+    'data from: lowercase variant',
+    'Sparse Bayesian Learning via Stepwise Regression: Supplementary Materials',
+    'Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system',
+    '', null, undefined,
+];
+for (const t of NOISE) assert.ok(isNoisePublication(t), `Should drop: "${t}"`);
+
+const KEEP = [
+    'Unexpected improvements to expected improvement for bayesian optimization',
+    'Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams',
+    'CRYSTAL: a multi-agent AI system for automated mapping of materials\' crystal structures',
+    'Advances in Sparse and Bayesian Optimization for Autonomous Scientific Discovery',
+    'Robust Gaussian processes via relevance pursuit',
+    'Efficient projection algorithms onto the weighted \u21131 ball',
+];
+for (const t of KEEP) assert.ok(!isNoisePublication(t), `Should KEEP: "${t}"`);
+
+// ── Duplicate collapsing tests ──────────────────────────────────────────────
+// Scholar lists the same paper twice, sometimes with the year appended to one
+// copy. Both spellings must normalise to a single key, or the list shows the
+// paper twice and any award badge renders twice with it.
+
+assert.strictEqual(
+    paperKey('Unexpected improvements to expected improvement for bayesian optimization (2024)'),
+    paperKey('Unexpected improvements to expected improvement for bayesian optimization'),
+    "A parenthesised trailing year must not create a second key");
+assert.strictEqual(paperKey('Some Paper (2019)'), paperKey('Some Paper'));
+assert.strictEqual(paperKey('Some Paper, 2019'), paperKey('Some Paper'),
+    "Bare trailing year still normalises (existing behaviour)");
+// A year that is part of the actual title must survive.
+assert.ok(paperKey('NeurIPS (2024) retrospective study').includes('2024'),
+    "Only a TRAILING parenthesised year is stripped");
+
+const dupes = [
+    { title: 'A Paper', citationCount: 10 },
+    { title: 'A Paper (2024)', citationCount: 42 },
+    { title: 'Another Paper', citationCount: 5 },
+];
+const deduped = dedupePublications(dupes);
+assert.strictEqual(deduped.length, 2, "Duplicate titles collapse to one entry");
+assert.strictEqual(deduped.find(p => paperKey(p.title) === paperKey('A Paper')).citationCount, 42,
+    "The better-cited copy wins");
+assert.deepStrictEqual(dedupePublications([]), []);
+assert.deepStrictEqual(dedupePublications(null), [], "Must not throw on missing input");
+
+// Exactly one badge may survive dedupe for the badged paper.
+const badgeDupes = dedupePublications([
+    { title: 'Unexpected improvements to expected improvement for bayesian optimization', citationCount: 300 },
+    { title: 'Unexpected improvements to expected improvement for bayesian optimization (2024)', citationCount: 10 },
+]);
+assert.strictEqual(badgeDupes.filter(p => badgeFor(p.title)).length, 1,
+    "A badged paper must not render its badge twice");
+
+// ── shouldRetryVideoPlay tests ──────────────────────────────────────────────
+// Guards the "single click does nothing, second click plays it" video bug: a
+// fire-and-forget play() on player-ready is not reliable enough (autoplay can
+// be silently blocked by ad insertion, extensions, or browser heuristics), so
+// activateVideo() retries. This locks in the retry DECISION, independent of
+// any real YouTube player, so it's testable without a browser.
+
+// Retries for every "not really playing" state, while under both caps.
+for (const state of YT_NOT_PLAYING_STATES) {
+    assert.strictEqual(shouldRetryVideoPlay(state, 1, 0), true,
+        `Should retry for state ${state} (unstarted/paused/cued) early on`);
+}
+
+// Never retries for states that mean playback is already progressing or done —
+// forcing playVideo() here would be pointless (playing/buffering) or would
+// incorrectly restart a video the visitor let finish (ended).
+for (const state of [1, 3, 0]) { // playing, buffering, ended
+    assert.strictEqual(shouldRetryVideoPlay(state, 1, 0), false,
+        `Should NOT retry for state ${state} (playing/buffering/ended)`);
+}
+
+// Attempt cap: stops retrying once the cap is reached, so a visitor who
+// deliberately pauses the video is not fought forever.
+assert.strictEqual(shouldRetryVideoPlay(2, YT_RETRY_MAX_ATTEMPTS - 1, 0), true,
+    "One attempt below the cap still retries");
+assert.strictEqual(shouldRetryVideoPlay(2, YT_RETRY_MAX_ATTEMPTS, 0), false,
+    "At the attempt cap, must stop retrying");
+assert.strictEqual(shouldRetryVideoPlay(2, YT_RETRY_MAX_ATTEMPTS + 5, 0), false,
+    "Past the attempt cap, must stay stopped");
+
+// Time window: stops retrying once the window has elapsed, independent of
+// the attempt count.
+assert.strictEqual(shouldRetryVideoPlay(2, 1, YT_RETRY_WINDOW_MS - 1), true,
+    "Just inside the time window still retries");
+assert.strictEqual(shouldRetryVideoPlay(2, 1, YT_RETRY_WINDOW_MS + 1), false,
+    "Past the time window, must stop retrying even with attempts to spare");
+
+// The two caps are independent — either one alone is enough to stop retrying.
+assert.strictEqual(shouldRetryVideoPlay(-1, 0, 0), true,
+    "Zero attempts so far, well within the window: retry");
+assert.strictEqual(shouldRetryVideoPlay(-1, 999, 0), false,
+    "Attempt cap alone stops it, even at t=0");
+assert.strictEqual(shouldRetryVideoPlay(-1, 0, 999999), false,
+    "Time cap alone stops it, even on the very first attempt");
 
 // ── urlLabel tests ──────────────────────────────────────────────────────────
 
