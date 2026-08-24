@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-21T12:38:32.878887+00:00",
+  "fetched_at": "2026-08-24T09:50:43.503263+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 145,
-    "2026": 196
+    "2025": 143,
+    "2026": 200
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 249,
+      "citationCount": 252,
       "citations_by_year": {
-        "2026": 91,
-        "2025": 9
+        "2026": 93,
+        "2025": 7
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -102,9 +102,9 @@
     },
     "scalable_firstorder_bayesian_optimization_via_structured_aut": {
       "title": "Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation",
-      "citationCount": 13,
+      "citationCount": 14,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 3,
         "2024": 3,
         "2023": 3,
@@ -130,9 +130,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 98,
+      "citationCount": 99,
       "citations_by_year": {
-        "2026": 20,
+        "2026": 21,
         "2025": 21,
         "2024": 16,
         "2023": 21,
