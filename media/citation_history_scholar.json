@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-22T11:25:40.204025+00:00",
+  "fetched_at": "2026-08-25T14:16:16.004267+00:00",
   "source": "google_scholar",
-  "citedby": 1132,
+  "citedby": 1142,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,31 +11,31 @@
     "2022": 96,
     "2023": 100,
     "2024": 166,
-    "2025": 333,
-    "2026": 343
+    "2025": 337,
+    "2026": 348
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 357,
+      "citationCount": 359,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 149,
+        "2025": 151,
         "2026": 154
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 123,
+      "citationCount": 124,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 26,
-        "2026": 33
+        "2026": 34
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -52,20 +52,20 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 59,
+      "citationCount": 60,
       "citations_by_year": {
         "2025": 15,
-        "2026": 44
+        "2026": 45
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 54,
+      "citationCount": 56,
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
         "2025": 22,
-        "2026": 15
+        "2026": 17
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -149,13 +149,13 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 26,
+      "citationCount": 27,
       "citations_by_year": {
         "2021": 2,
         "2022": 5,
         "2023": 5,
         "2024": 5,
-        "2025": 4,
+        "2025": 5,
         "2026": 5
       }
     },
@@ -166,8 +166,8 @@
         "2022": 1,
         "2023": 6,
         "2024": 5,
-        "2025": 3,
-        "2026": 5
+        "2025": 4,
+        "2026": 4
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
@@ -190,6 +190,14 @@
         "2026": 5
       }
     },
+    "robust_gaussian_processes_via_relevance_pursuit": {
+      "title": "Robust Gaussian processes via relevance pursuit",
+      "citationCount": 16,
+      "citations_by_year": {
+        "2025": 6,
+        "2026": 10
+      }
+    },
     "the_fast_kernel_transform": {
       "title": "The fast kernel transform",
       "citationCount": 16,
@@ -198,14 +206,6 @@
         "2023": 1,
         "2024": 4,
         "2025": 6
-      }
-    },
-    "robust_gaussian_processes_via_relevance_pursuit": {
-      "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 15,
-      "citations_by_year": {
-        "2025": 6,
-        "2026": 9
       }
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
@@ -290,6 +290,13 @@
         "2025": 2
       }
     },
+    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
+      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
+      "citationCount": 3,
+      "citations_by_year": {
+        "2026": 3
+      }
+    },
     "constrained_machine_learning_the_bagel_framework": {
       "title": "Constrained Machine Learning: The Bagel Framework",
       "citationCount": 3,
@@ -297,13 +304,6 @@
         "2024": 1,
         "2025": 1,
         "2026": 1
-      }
-    },
-    "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
-      "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
-      "citationCount": 2,
-      "citations_by_year": {
-        "2026": 2
       }
     },
     "generalized_matching_pursuits_for_the_sparse_optimization_of": {

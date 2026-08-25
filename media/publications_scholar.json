@@ -3,7 +3,7 @@
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
     "venue": "arXiv preprint arXiv:2603.21525",
-    "citationCount": 2,
+    "citationCount": 3,
     "url": "https://arxiv.org/abs/2603.21525",
     "authors": [
       "Bayezid Baten",
@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 59,
+    "citationCount": 60,
     "url": "https://openreview.net/forum?noteId=uBnplA82aW",
     "authors": [
       "Miles Olson",
@@ -77,21 +77,6 @@
       "Andy Chenyuan Lin",
       "Matthew Grange",
       "Elena Kashtelyan",
-      "David Eriksson",
-      "Maximilian Balandat",
-      "Eytan Bakshy"
-    ],
-    "pdf": ""
-  },
-  {
-    "title": "Unexpected improvements to expected improvement for bayesian optimization (2024)",
-    "year": 2025,
-    "venue": "arXiv preprint arXiv:2310.20708",
-    "citationCount": 15,
-    "url": "https://scholar.google.com/scholar?cluster=8347492257050161163&hl=en&oi=scholarr",
-    "authors": [
-      "Sebastian Ament",
-      "Samuel Daulton",
       "David Eriksson",
       "Maximilian Balandat",
       "Eytan Bakshy"
@@ -175,7 +160,7 @@
     "title": "Robust Gaussian processes via relevance pursuit",
     "year": 2024,
     "venue": "Advances in Neural Information Processing Systems",
-    "citationCount": 15,
+    "citationCount": 16,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7124771cf8c9b0f6e9c7fec0a66c5866-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -205,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 357,
+    "citationCount": 359,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -220,7 +205,7 @@
     "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 54,
+    "citationCount": 56,
     "url": "https://proceedings.mlr.press/v206/deshwal23a.html",
     "authors": [
       "Aryan Deshwal",
@@ -250,7 +235,7 @@
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
     "venue": "Artificial Intelligence",
-    "citationCount": 26,
+    "citationCount": 27,
     "url": "https://www.sciencedirect.com/science/article/pii/S0004370222000236",
     "authors": [
       "Guillaume Perez",
@@ -313,7 +298,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 123,
+    "citationCount": 124,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
