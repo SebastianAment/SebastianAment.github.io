@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-24T09:50:43.503263+00:00",
+  "fetched_at": "2026-08-26T08:19:38.482246+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -9,8 +9,8 @@
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 143,
-    "2026": 200
+    "2025": 142,
+    "2026": 201
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 252,
+      "citationCount": 253,
       "citations_by_year": {
-        "2026": 93,
-        "2025": 7
+        "2026": 94,
+        "2025": 6
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
