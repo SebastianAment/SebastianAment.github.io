@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-26T08:20:55.790844+00:00",
+  "fetched_at": "2026-08-30T11:42:51.909613+00:00",
   "source": "google_scholar",
-  "citedby": 1142,
+  "citedby": 1153,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,32 +10,32 @@
     "2021": 40,
     "2022": 96,
     "2023": 100,
-    "2024": 166,
-    "2025": 337,
-    "2026": 348
+    "2024": 167,
+    "2025": 335,
+    "2026": 359
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 359,
+      "citationCount": 365,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 151,
-        "2026": 154
+        "2025": 150,
+        "2026": 160
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 124,
+      "citationCount": 125,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 26,
-        "2026": 34
+        "2026": 35
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -52,20 +52,20 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 60,
+      "citationCount": 61,
       "citations_by_year": {
         "2025": 15,
-        "2026": 45
+        "2026": 46
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 56,
+      "citationCount": 57,
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
         "2025": 22,
-        "2026": 17
+        "2026": 18
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -93,19 +93,19 @@
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
-      "citationCount": 40,
+      "citationCount": 41,
       "citations_by_year": {
         "2021": 12,
         "2022": 6,
         "2023": 6,
-        "2024": 5,
+        "2024": 6,
         "2025": 8,
         "2026": 3
       }
     },
     "multicomponent_background_learning_automates_signal_detectio": {
       "title": "Multi-component background learning automates signal detection for spectroscopic data",
-      "citationCount": 34,
+      "citationCount": 35,
       "citations_by_year": {
         "2020": 4,
         "2021": 2,
@@ -113,7 +113,7 @@
         "2023": 7,
         "2024": 1,
         "2025": 4,
-        "2026": 3
+        "2026": 4
       }
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
@@ -166,8 +166,8 @@
         "2022": 1,
         "2023": 6,
         "2024": 5,
-        "2025": 4,
-        "2026": 4
+        "2025": 3,
+        "2026": 5
       }
     },
     "sparse_bayesian_learning_via_stepwise_regression": {

@@ -56,7 +56,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 60,
+    "citationCount": 61,
     "url": "https://openreview.net/forum?noteId=uBnplA82aW",
     "authors": [
       "Miles Olson",
@@ -190,7 +190,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 359,
+    "citationCount": 365,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -205,7 +205,7 @@
     "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 56,
+    "citationCount": 57,
     "url": "https://proceedings.mlr.press/v206/deshwal23a.html",
     "authors": [
       "Aryan Deshwal",
@@ -298,7 +298,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 124,
+    "citationCount": 125,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
@@ -396,7 +396,7 @@
     "title": "Deep reasoning networks for unsupervised pattern de-mixing with constraint reasoning",
     "year": 2020,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 40,
+    "citationCount": 41,
     "url": "https://proceedings.mlr.press/v119/chen20a.html",
     "authors": [
       "Di Chen",
@@ -471,7 +471,7 @@
     "title": "Multi-component background learning automates signal detection for spectroscopic data",
     "year": 2019,
     "venue": "npj Computational Materials",
-    "citationCount": 34,
+    "citationCount": 35,
     "url": "https://www.nature.com/articles/s41524-019-0213-0",
     "authors": [
       "Sebastian E Ament",
