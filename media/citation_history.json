@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-08-30T11:41:38.440062+00:00",
+  "fetched_at": "2026-09-07T14:54:07.179130+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 49,
+    "2021": 48,
     "2022": 66,
     "2023": 83,
     "2024": 81,
-    "2025": 142,
-    "2026": 203
+    "2025": 140,
+    "2026": 210
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,10 +56,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 254,
+      "citationCount": 256,
       "citations_by_year": {
-        "2026": 94,
-        "2025": 6
+        "2026": 96,
+        "2025": 4
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -74,9 +74,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 31,
+      "citationCount": 33,
       "citations_by_year": {
-        "2026": 8,
+        "2026": 10,
         "2025": 16,
         "2024": 5,
         "2023": 1
@@ -94,9 +94,9 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 7,
+      "citationCount": 8,
       "citations_by_year": {
-        "2026": 3,
+        "2026": 4,
         "2025": 4
       }
     },
@@ -130,9 +130,9 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 100,
+      "citationCount": 99,
       "citations_by_year": {
-        "2026": 22,
+        "2026": 21,
         "2025": 21,
         "2024": 16,
         "2023": 21,
@@ -239,9 +239,9 @@
     },
     "multicomponent_background_learning_automates_signal_detectio": {
       "title": "Multi-component background learning automates signal detection for spectroscopic data",
-      "citationCount": 29,
+      "citationCount": 30,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 3,
         "2024": 1,
         "2023": 4,
@@ -305,14 +305,14 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 21,
+      "citationCount": 20,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 5,
+        "2021": 4,
         "2020": 1,
         "2019": 3,
         "2018": 2
@@ -329,9 +329,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 34,
+      "citationCount": 35,
       "citations_by_year": {
-        "2026": 24,
+        "2026": 25,
         "2025": 10
       }
     },
@@ -339,6 +339,13 @@
       "title": "Impedance of a Cylindrical Dipole Sinusoidal Current Distribution in geneous Anisotropic Ionosphere l Having a a Homo-w.",
       "citationCount": 0,
       "citations_by_year": {}
+    },
+    "efficiently_estimating_optimal_hyperparameter_scaling_laws_t": {
+      "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
+      "citationCount": 1,
+      "citations_by_year": {
+        "2026": 1
+      }
     }
   }
 }

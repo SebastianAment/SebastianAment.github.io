@@ -1,5 +1,23 @@
 [
   {
+    "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
+    "year": 2026,
+    "venue": "",
+    "citationCount": 1,
+    "url": "https://www.semanticscholar.org/paper/be377dd4b419fc17b0b74e6758d02ea6093e9462",
+    "authors": [
+      "Zhiliang Chen",
+      "S. Ament",
+      "David Eriksson",
+      "M. Balandat",
+      "E. Bakshy",
+      "J. Lin"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2609.01431",
+    "bibtex": "@Inproceedings{Chen2026EfficientlyEO,\n author = {Zhiliang Chen and S. Ament and David Eriksson and M. Balandat and E. Bakshy and J. Lin},\n title = {Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search},\n year = {2026}\n}\n"
+  },
+  {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
     "venue": "arXiv.org",
@@ -16,12 +34,12 @@
       "A. R. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. Dover",
+      "R. Bruce van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2601.08185",
-    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. R. Woll and John M. Gregoire and Carla P. Gomes and R. Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. R. Woll and John M. Gregoire and Carla P. Gomes and R. Bruce van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
     "title": "Empirical Gaussian Processes",
@@ -62,7 +80,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 34,
+    "citationCount": 35,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -146,7 +164,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 254,
+    "citationCount": 256,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -181,7 +199,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2023,
     "venue": "Nuclear Fusion",
-    "citationCount": 31,
+    "citationCount": 33,
     "url": "https://www.semanticscholar.org/paper/a0a89c87b1e7550d3e7204bdf459ad0daea33d46",
     "authors": [
       "P. Rodriguez-Fernandez",
@@ -199,6 +217,27 @@
     "bibtex": "@Inproceedings{Rodriguez-Fernandez2023EnhancingPC,\n author = {P. Rodriguez-Fernandez and N. T. Howard and A. Saltzman and S. Kantamneni and J. Candy and C. Holland and M. Balandat and S. Ament and A. E. White},\n booktitle = {Nuclear Fusion},\n title = {Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers},\n year = {2023}\n}\n"
   },
   {
+    "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
+    "year": 2023,
+    "venue": "npj Computational Materials",
+    "citationCount": 8,
+    "url": "https://www.semanticscholar.org/paper/b1896486477e753e9b51442c48f055083ce3e684",
+    "authors": [
+      "Ming-Chiang Chang",
+      "S. Ament",
+      "Maximilian Amsler",
+      "Duncan R. Sutherland",
+      "Lan Zhou",
+      "John M. Gregoire",
+      "Carla P. Gomes",
+      "R. Bruce van Dover",
+      "Michael O. Thompson"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2308.07897",
+    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. Bruce van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
+  },
+  {
     "title": "Sustainable Concrete via Bayesian Optimization",
     "year": 2023,
     "venue": "arXiv.org",
@@ -213,27 +252,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2310.18288",
     "bibtex": "@Inproceedings{Ament2023SustainableCV,\n author = {S. Ament and Andrew Witte and Nishant Garg and Julius Kusuma},\n booktitle = {arXiv.org},\n title = {Sustainable Concrete via Bayesian Optimization},\n year = {2023}\n}\n"
-  },
-  {
-    "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-    "year": 2023,
-    "venue": "npj Computational Materials",
-    "citationCount": 7,
-    "url": "https://www.semanticscholar.org/paper/b1896486477e753e9b51442c48f055083ce3e684",
-    "authors": [
-      "Ming-Chiang Chang",
-      "S. Ament",
-      "Maximilian Amsler",
-      "Duncan R. Sutherland",
-      "Lan Zhou",
-      "John M. Gregoire",
-      "Carla P. Gomes",
-      "R. B. van Dover",
-      "Michael O. Thompson"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2308.07897",
-    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
   },
   {
     "title": "Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation",
@@ -281,7 +299,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 100,
+    "citationCount": 99,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -464,7 +482,7 @@
     "title": "Multi-component background learning automates signal detection for spectroscopic data",
     "year": 2019,
     "venue": "npj Computational Materials",
-    "citationCount": 29,
+    "citationCount": 30,
     "url": "https://www.semanticscholar.org/paper/5799bd23a83cc93bb45e80ea141196d77eec1223",
     "authors": [
       "S. Ament",
@@ -561,16 +579,16 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 21,
+    "citationCount": 20,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",
-      "N. Rangarajan",
+      "Nikhil Rangarajan",
       "Arun Parthasarathy",
       "S. Rakheja"
     ],
     "pdf": "",
-    "bibtex": "@Inproceedings{Ament2016SolvingTS,\n author = {S. Ament and N. Rangarajan and Arun Parthasarathy and S. Rakheja},\n title = {Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques},\n year = {2016}\n}\n"
+    "bibtex": "@Inproceedings{Ament2016SolvingTS,\n author = {S. Ament and Nikhil Rangarajan and Arun Parthasarathy and S. Rakheja},\n title = {Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques},\n year = {2016}\n}\n"
   },
   {
     "title": "A practical guide to solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for macrospin dynamics",
@@ -580,12 +598,12 @@
     "url": "https://www.semanticscholar.org/paper/640ed8a1f8e8cdb35a90cf331826b1fd1828e75c",
     "authors": [
       "S. Ament",
-      "N. Rangarajan",
+      "Nikhil Rangarajan",
       "S. Rakheja"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/1607.04596",
-    "bibtex": "@Inproceedings{Ament2016APG,\n author = {S. Ament and N. Rangarajan and S. Rakheja},\n booktitle = {arXiv.org},\n title = {A practical guide to solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for macrospin dynamics},\n year = {2016}\n}\n"
+    "bibtex": "@Inproceedings{Ament2016APG,\n author = {S. Ament and Nikhil Rangarajan and S. Rakheja},\n booktitle = {arXiv.org},\n title = {A practical guide to solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for macrospin dynamics},\n year = {2016}\n}\n"
   },
   {
     "title": "Impedance of a Cylindrical Dipole Sinusoidal Current Distribution in geneous Anisotropic Ionosphere l Having a a Homo-w.",
