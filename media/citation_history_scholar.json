@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-08-30T11:42:51.909613+00:00",
+  "fetched_at": "2026-09-08T23:42:27.379364+00:00",
   "source": "google_scholar",
-  "citedby": 1153,
+  "citedby": 1165,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,19 +11,19 @@
     "2022": 96,
     "2023": 100,
     "2024": 167,
-    "2025": 335,
-    "2026": 359
+    "2025": 334,
+    "2026": 371
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 365,
+      "citationCount": 373,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 150,
-        "2026": 160
+        "2026": 167
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
@@ -52,10 +52,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 61,
+      "citationCount": 62,
       "citations_by_year": {
         "2025": 15,
-        "2026": 46
+        "2026": 47
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -70,11 +70,11 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 48,
+      "citationCount": 50,
       "citations_by_year": {
         "2024": 7,
         "2025": 22,
-        "2026": 18
+        "2026": 20
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
@@ -210,13 +210,14 @@
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
       "title": "On the optimality of backward regression: Sparse recovery and subset selection",
-      "citationCount": 13,
+      "citationCount": 14,
       "citations_by_year": {
         "2021": 1,
         "2022": 3,
         "2023": 1,
         "2024": 5,
-        "2025": 3
+        "2025": 3,
+        "2026": 1
       }
     },
     "exponentiallymodified_gaussian_mixture_model_applications_in": {
@@ -236,8 +237,8 @@
       "title": "Scalable Gaussian processes with latent Kronecker structure",
       "citationCount": 10,
       "citations_by_year": {
-        "2025": 5,
-        "2026": 5
+        "2025": 4,
+        "2026": 6
       }
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
