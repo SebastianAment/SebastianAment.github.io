@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-09-08T23:41:17.724437+00:00",
+  "fetched_at": "2026-09-14T13:41:34.762576+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
     "2021": 48,
-    "2022": 66,
-    "2023": 83,
-    "2024": 81,
-    "2025": 139,
-    "2026": 211
+    "2022": 63,
+    "2023": 85,
+    "2024": 84,
+    "2025": 140,
+    "2026": 215
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,17 +56,17 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 257,
+      "citationCount": 259,
       "citations_by_year": {
-        "2026": 97,
-        "2025": 3
+        "2026": 99,
+        "2025": 1
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 43,
+      "citationCount": 44,
       "citations_by_year": {
-        "2026": 11,
+        "2026": 12,
         "2025": 16,
         "2024": 10,
         "2023": 6
@@ -130,21 +130,21 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 99,
+      "citationCount": 111,
       "citations_by_year": {
         "2026": 21,
-        "2025": 21,
-        "2024": 16,
-        "2023": 21,
-        "2022": 13,
+        "2025": 24,
+        "2024": 19,
+        "2023": 23,
+        "2022": 10,
         "2021": 3
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 72,
+      "citationCount": 73,
       "citations_by_year": {
-        "2026": 10,
+        "2026": 11,
         "2025": 16,
         "2024": 12,
         "2023": 19,

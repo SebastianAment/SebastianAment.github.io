@@ -10,12 +10,13 @@
       "S. Ament",
       "David Eriksson",
       "M. Balandat",
+      "B. Low",
       "E. Bakshy",
       "J. Lin"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2609.01431",
-    "bibtex": "@Inproceedings{Chen2026EfficientlyEO,\n author = {Zhiliang Chen and S. Ament and David Eriksson and M. Balandat and E. Bakshy and J. Lin},\n title = {Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chen2026EfficientlyEO,\n author = {Zhiliang Chen and S. Ament and David Eriksson and M. Balandat and B. Low and E. Bakshy and J. Lin},\n title = {Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search},\n year = {2026}\n}\n"
   },
   {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
@@ -31,7 +32,7 @@
       "K. Gann",
       "Lan Zhou",
       "L. Smieska",
-      "A. R. Woll",
+      "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
       "R. Bruce van Dover",
@@ -39,7 +40,7 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2601.08185",
-    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. R. Woll and John M. Gregoire and Carla P. Gomes and R. Bruce van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. Bruce van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
     "title": "Empirical Gaussian Processes",
@@ -164,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 257,
+    "citationCount": 259,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -181,7 +182,7 @@
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 43,
+    "citationCount": 44,
     "url": "https://www.semanticscholar.org/paper/68500e037f95d21e2d169f81e696e1e0461546bb",
     "authors": [
       "Aryan Deshwal",
@@ -299,11 +300,11 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 99,
+    "citationCount": 111,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
-      "M. Amsler",
+      "Maximilian Amsler",
       "Duncan R. Sutherland",
       "Ming-Chiang Chang",
       "D. Guevarra",
@@ -315,13 +316,13 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2101.07385",
-    "bibtex": "@Inproceedings{Ament2021AutonomousMS,\n author = {S. Ament and M. Amsler and Duncan R. Sutherland and Ming-Chiang Chang and D. Guevarra and Aine B. Connolly and J. Gregoire and M. Thompson and Carla P. Gomes and R. B. Dover},\n booktitle = {Science Advances},\n title = {Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams},\n year = {2021}\n}\n"
+    "bibtex": "@Inproceedings{Ament2021AutonomousMS,\n author = {S. Ament and Maximilian Amsler and Duncan R. Sutherland and Ming-Chiang Chang and D. Guevarra and Aine B. Connolly and J. Gregoire and M. Thompson and Carla P. Gomes and R. B. Dover},\n booktitle = {Science Advances},\n title = {Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams},\n year = {2021}\n}\n"
   },
   {
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 72,
+    "citationCount": 73,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",
@@ -441,7 +442,7 @@
     "authors": [
       "Duncan R. Sutherland",
       "Aine B. Connolly",
-      "M. Amsler",
+      "Maximilian Amsler",
       "Ming-Chiang Chang",
       "K. Gann",
       "Vidit Gupta",
@@ -454,7 +455,7 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2008.06419",
-    "bibtex": "@Inproceedings{Sutherland2020OpticalIO,\n author = {Duncan R. Sutherland and Aine B. Connolly and M. Amsler and Ming-Chiang Chang and K. Gann and Vidit Gupta and S. Ament and D. Guevarra and J. Gregoire and Carla P. Gomes and R. Bruce van Dover and M. Thompson},\n booktitle = {ACS Combinatorial Science},\n title = {Optical Identification of Materials Transformations in Oxide Thin Films.},\n year = {2020}\n}\n"
+    "bibtex": "@Inproceedings{Sutherland2020OpticalIO,\n author = {Duncan R. Sutherland and Aine B. Connolly and Maximilian Amsler and Ming-Chiang Chang and K. Gann and Vidit Gupta and S. Ament and D. Guevarra and J. Gregoire and Carla P. Gomes and R. Bruce van Dover and M. Thompson},\n booktitle = {ACS Combinatorial Science},\n title = {Optical Identification of Materials Transformations in Oxide Thin Films.},\n year = {2020}\n}\n"
   },
   {
     "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures",
