@@ -98,7 +98,7 @@
       "C. Lara",
       "Ben Letham",
       "Cesar Cardoso",
-      "Shiyun Shen",
+      "Shi-Yun Shen",
       "A. Lin",
       "Matt Grange",
       "Elena Kashtelyan",
@@ -107,7 +107,7 @@
       "E. Bakshy"
     ],
     "pdf": "",
-    "bibtex": "@Inproceedings{Olson2025AxAP,\n author = {Miles Olson and Elizabeth Santorella and Louis C. Tiao and Sait Cakmak and Mia Garrard and Sam Daulton and Z. Lin and S. Ament and B. Beckerman and Eric Onofrey and Paschal Igusti and C. Lara and Ben Letham and Cesar Cardoso and Shiyun Shen and A. Lin and Matt Grange and Elena Kashtelyan and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {AutoML},\n title = {Ax: A Platform for Adaptive Experimentation},\n year = {2025}\n}\n"
+    "bibtex": "@Inproceedings{Olson2025AxAP,\n author = {Miles Olson and Elizabeth Santorella and Louis C. Tiao and Sait Cakmak and Mia Garrard and Sam Daulton and Z. Lin and S. Ament and B. Beckerman and Eric Onofrey and Paschal Igusti and C. Lara and Ben Letham and Cesar Cardoso and Shi-Yun Shen and A. Lin and Matt Grange and Elena Kashtelyan and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {AutoML},\n title = {Ax: A Platform for Adaptive Experimentation},\n year = {2025}\n}\n"
   },
   {
     "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
@@ -165,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 259,
+    "citationCount": 262,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -300,7 +300,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 111,
+    "citationCount": 112,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
