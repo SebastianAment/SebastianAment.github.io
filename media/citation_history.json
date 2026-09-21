@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-17T12:57:56.988410+00:00",
+  "fetched_at": "2026-09-21T15:45:27.841183+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 84,
     "2024": 84,
     "2025": 139,
-    "2026": 217
+    "2026": 218
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -56,7 +56,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 262,
+      "citationCount": 264,
       "citations_by_year": {
         "2026": 100
       }
@@ -83,7 +83,7 @@
     },
     "sustainable_concrete_via_bayesian_optimization": {
       "title": "Sustainable Concrete via Bayesian Optimization",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
         "2026": 2,
         "2025": 4,
@@ -93,7 +93,7 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
         "2026": 4,
         "2025": 4
@@ -129,7 +129,7 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 112,
+      "citationCount": 113,
       "citations_by_year": {
         "2026": 22,
         "2025": 24,
@@ -328,9 +328,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 35,
+      "citationCount": 36,
       "citations_by_year": {
-        "2026": 25,
+        "2026": 26,
         "2025": 10
       }
     },
@@ -345,6 +345,11 @@
       "citations_by_year": {
         "2026": 1
       }
+    },
+    "autonomous_materials_exploration_integrates_automated_phase_": {
+      "title": "Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance",
+      "citationCount": 0,
+      "citations_by_year": {}
     }
   }
 }

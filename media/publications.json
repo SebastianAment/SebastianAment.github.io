@@ -35,12 +35,12 @@
       "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. B. van Dover",
+      "R. V. van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2601.08185",
-    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
     "title": "Empirical Gaussian Processes",
@@ -81,7 +81,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 35,
+    "citationCount": 36,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -165,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 262,
+    "citationCount": 264,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -221,7 +221,7 @@
     "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
     "year": 2023,
     "venue": "npj Computational Materials",
-    "citationCount": 8,
+    "citationCount": 9,
     "url": "https://www.semanticscholar.org/paper/b1896486477e753e9b51442c48f055083ce3e684",
     "authors": [
       "Ming-Chiang Chang",
@@ -231,18 +231,18 @@
       "Lan Zhou",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. B. van Dover",
+      "R. V. van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2308.07897",
-    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
+    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
   },
   {
     "title": "Sustainable Concrete via Bayesian Optimization",
     "year": 2023,
     "venue": "arXiv.org",
-    "citationCount": 8,
+    "citationCount": 9,
     "url": "https://www.semanticscholar.org/paper/c4b0030855475c49a26a489a6535882ea2a08d45",
     "authors": [
       "S. Ament",
@@ -300,7 +300,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 112,
+    "citationCount": 113,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -620,5 +620,28 @@
     ],
     "pdf": "",
     "bibtex": "@Inproceedings{Ament2010ImpedanceOA,\n author = {S. Ament and Katzin and M. Katzin and B. C. Koo},\n title = {Impedance of a Cylindrical Dipole Sinusoidal Current Distribution in geneous Anisotropic Ionosphere l Having a a Homo-w.},\n year = {2010}\n}\n"
+  },
+  {
+    "title": "Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance",
+    "year": null,
+    "venue": "",
+    "citationCount": 0,
+    "url": "https://www.semanticscholar.org/paper/fa11d177898c79859b0a8537241342a4683e4281",
+    "authors": [
+      "Ming-Chiang Chang",
+      "Maximilian Amsler",
+      "Duncan R. Sutherland",
+      "S. Ament",
+      "K. Gann",
+      "Lan Zhou",
+      "L. Smieska",
+      "A. Woll",
+      "John M. Gregoire",
+      "Carla P. Gomes",
+      "R. V. van Dover",
+      "Michael O. Thompson"
+    ],
+    "pdf": "",
+    "bibtex": "@Misc{None,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n title = {Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance}\n}\n"
   }
 ]
