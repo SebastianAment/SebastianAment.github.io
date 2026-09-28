@@ -81,7 +81,7 @@
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 36,
+    "citationCount": 38,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -131,7 +131,7 @@
     "title": "Robust Gaussian Processes via Relevance Pursuit",
     "year": 2024,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 11,
+    "citationCount": 12,
     "url": "https://www.semanticscholar.org/paper/f39baa55227c52433d61df8f7d0468a9e0dd88f3",
     "authors": [
       "S. Ament",
@@ -165,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 264,
+    "citationCount": 272,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -182,7 +182,7 @@
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 44,
+    "citationCount": 45,
     "url": "https://www.semanticscholar.org/paper/68500e037f95d21e2d169f81e696e1e0461546bb",
     "authors": [
       "Aryan Deshwal",
@@ -300,7 +300,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 113,
+    "citationCount": 114,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -466,7 +466,7 @@
     "authors": [
       "C. Gomes",
       "Junwen Bai",
-      "Yexiang Xue",
+      "Ye-Xiang Xue",
       "Johan Bjorck",
       "B. Rappazzo",
       "S. Ament",
@@ -477,7 +477,7 @@
       "J. Gregoire"
     ],
     "pdf": "",
-    "bibtex": "@Inproceedings{Gomes2019CRYSTALAM,\n author = {C. Gomes and Junwen Bai and Yexiang Xue and Johan Bjorck and B. Rappazzo and S. Ament and Richard Bernstein and Shufeng Kong and S. Suram and R. B. Dover and J. Gregoire},\n booktitle = {MRS Communications},\n title = {CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures},\n year = {2019}\n}\n"
+    "bibtex": "@Inproceedings{Gomes2019CRYSTALAM,\n author = {C. Gomes and Junwen Bai and Ye-Xiang Xue and Johan Bjorck and B. Rappazzo and S. Ament and Richard Bernstein and Shufeng Kong and S. Suram and R. B. Dover and J. Gregoire},\n booktitle = {MRS Communications},\n title = {CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures},\n year = {2019}\n}\n"
   },
   {
     "title": "Multi-component background learning automates signal detection for spectroscopic data",
@@ -566,7 +566,7 @@
     "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
     "year": 2016,
     "venue": "Statistics and computing",
-    "citationCount": 23,
+    "citationCount": 24,
     "url": "https://www.semanticscholar.org/paper/76f269dedd7d9776c67738e160ad4e9ad30882c1",
     "authors": [
       "S. Ament",

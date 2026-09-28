@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-21T15:45:27.841183+00:00",
+  "fetched_at": "2026-09-28T17:32:48.400144+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -7,10 +7,10 @@
     "2020": 28,
     "2021": 48,
     "2022": 63,
-    "2023": 84,
+    "2023": 83,
     "2024": 84,
     "2025": 139,
-    "2026": 218
+    "2026": 222
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -39,9 +39,9 @@
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian Processes via Relevance Pursuit",
-      "citationCount": 11,
+      "citationCount": 12,
       "citations_by_year": {
-        "2026": 4,
+        "2026": 5,
         "2025": 6
       }
     },
@@ -56,16 +56,16 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 264,
+      "citationCount": 272,
       "citations_by_year": {
         "2026": 100
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 44,
+      "citationCount": 45,
       "citations_by_year": {
-        "2026": 12,
+        "2026": 13,
         "2025": 16,
         "2024": 10,
         "2023": 6
@@ -129,12 +129,12 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 113,
+      "citationCount": 114,
       "citations_by_year": {
-        "2026": 22,
+        "2026": 23,
         "2025": 24,
         "2024": 19,
-        "2023": 22,
+        "2023": 21,
         "2022": 10,
         "2021": 3
       }
@@ -289,9 +289,9 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 23,
+      "citationCount": 24,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 1,
         "2024": 4,
         "2023": 5,
