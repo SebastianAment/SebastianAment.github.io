@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T17:32:48.400144+00:00",
+  "fetched_at": "2026-09-29T09:52:36.420857+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 83,
     "2024": 84,
     "2025": 139,
-    "2026": 222
+    "2026": 223
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -328,9 +328,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 36,
+      "citationCount": 38,
       "citations_by_year": {
-        "2026": 26,
+        "2026": 27,
         "2025": 10
       }
     },

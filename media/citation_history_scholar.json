@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-09-17T12:59:19.764993+00:00",
+  "fetched_at": "2026-09-29T09:53:54.344035+00:00",
   "source": "google_scholar",
-  "citedby": 1173,
+  "citedby": 1188,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,61 +11,61 @@
     "2022": 96,
     "2023": 100,
     "2024": 167,
-    "2025": 333,
-    "2026": 380
+    "2025": 335,
+    "2026": 393
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 375,
+      "citationCount": 382,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
-        "2025": 150,
-        "2026": 169
+        "2025": 151,
+        "2026": 176
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 126,
+      "citationCount": 127,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 26,
-        "2026": 36
+        "2026": 37
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 102,
+      "citationCount": 103,
       "citations_by_year": {
         "2021": 2,
         "2022": 19,
         "2023": 25,
         "2024": 15,
         "2025": 18,
-        "2026": 23
+        "2026": 24
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 63,
+      "citationCount": 66,
       "citations_by_year": {
-        "2025": 15,
-        "2026": 48
+        "2025": 16,
+        "2026": 49
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 57,
+      "citationCount": 58,
       "citations_by_year": {
         "2023": 5,
         "2024": 12,
         "2025": 22,
-        "2026": 18
+        "2026": 19
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
@@ -235,10 +235,10 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian processes with latent Kronecker structure",
-      "citationCount": 10,
+      "citationCount": 11,
       "citations_by_year": {
         "2025": 4,
-        "2026": 6
+        "2026": 7
       }
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
@@ -282,13 +282,14 @@
     },
     "shufeng_kong_santosh_k_suram_r_bruce_van_dover_and_john_m_gr": {
       "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
-      "citationCount": 6,
+      "citationCount": 7,
       "citations_by_year": {
         "2021": 3,
         "2022": 1,
         "2023": 0,
         "2024": 0,
-        "2025": 2
+        "2025": 2,
+        "2026": 1
       }
     },
     "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {

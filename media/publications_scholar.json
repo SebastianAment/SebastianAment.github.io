@@ -210,7 +210,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 63,
+    "citationCount": 66,
     "url": "https://openreview.net/forum?noteId=uBnplA82aW",
     "authors": [
       "Miles Olson",
@@ -241,7 +241,7 @@
     "title": "Scalable Gaussian processes with latent Kronecker structure",
     "year": 2025,
     "venue": "arXiv preprint arXiv:2506.06895",
-    "citationCount": 10,
+    "citationCount": 11,
     "url": "https://arxiv.org/abs/2506.06895",
     "authors": [
       "Jihao Andreas Lin",
@@ -344,7 +344,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 375,
+    "citationCount": 382,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -359,7 +359,7 @@
     "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 57,
+    "citationCount": 58,
     "url": "https://proceedings.mlr.press/v206/deshwal23a.html",
     "authors": [
       "Aryan Deshwal",
@@ -452,7 +452,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 126,
+    "citationCount": 127,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
@@ -472,7 +472,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 102,
+    "citationCount": 103,
     "url": "https://www.nature.com/articles/s42256-021-00384-1",
     "authors": [
       "Di Chen",
@@ -657,7 +657,7 @@
     "title": "Shufeng Kong, Santosh K. Suram, R. Bruce van Dover, and John M. Gregoire. 2019. CRYSTAL: A multi-agent AI system for automated mapping of materials\u2019 crystal structures",
     "year": 2019,
     "venue": "MRS Communications",
-    "citationCount": 6,
+    "citationCount": 7,
     "url": "https://scholar.google.com/scholar?cluster=14696124643441565425&hl=en&oi=scholarr",
     "authors": [
       "Carla P Gomes",
