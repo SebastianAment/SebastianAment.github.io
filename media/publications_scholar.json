@@ -210,7 +210,7 @@
     "title": "Ax: A platform for adaptive experimentation",
     "year": 2025,
     "venue": "AutoML 2025 ABCD Track",
-    "citationCount": 66,
+    "citationCount": 67,
     "url": "https://openreview.net/forum?noteId=uBnplA82aW",
     "authors": [
       "Miles Olson",
@@ -344,7 +344,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 382,
+    "citationCount": 392,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -452,7 +452,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 127,
+    "citationCount": 128,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
@@ -674,7 +674,7 @@
     "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
     "year": 2018,
     "venue": "Statistics and Computing",
-    "citationCount": 32,
+    "citationCount": 33,
     "url": "https://link.springer.com/article/10.1007/s11222-017-9725-y",
     "authors": [
       "Sebastian Ament",
@@ -708,6 +708,22 @@
       "Nikhil Rangarajan",
       "Arun Parthasarathy",
       "Shaloo Rakheja"
+    ],
+    "pdf": ""
+  },
+  {
+    "title": "Estimating Optimal Hyperparameter Scaling Laws Efficiently through Power-Law Entropy Search",
+    "year": null,
+    "venue": "AXIOM: Foundations of Efficient Deep Learning",
+    "citationCount": 0,
+    "url": "https://openreview.net/forum?id=AgXix7hTsb",
+    "authors": [
+      "Zhiliang Chen",
+      "Sebastian Ament",
+      "David Eriksson",
+      "Maximilian Balandat",
+      "Eytan Bakshy",
+      "Jihao Andreas Lin"
     ],
     "pdf": ""
   },

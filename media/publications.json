@@ -165,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 272,
+    "citationCount": 278,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -300,7 +300,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 114,
+    "citationCount": 116,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -341,6 +341,22 @@
     "bibtex": "@Inproceedings{Chen2021AutomatingCP,\n author = {Di Chen and Yiwei Bai and S. Ament and Wenting Zhao and D. Guevarra and Lan Zhou and B. Selman and R. B. Dover and J. Gregoire and Carla P. Gomes},\n booktitle = {Nature Machine Intelligence},\n title = {Automating crystal-structure phase mapping by combining deep learning with constraint reasoning},\n year = {2021}\n}\n"
   },
   {
+    "title": "The Fast Kernel Transform",
+    "year": 2021,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "citationCount": 13,
+    "url": "https://www.semanticscholar.org/paper/56143ca59725c5f7eddce4716b7d4bdb1db03bd6",
+    "authors": [
+      "J. Ryan",
+      "S. Ament",
+      "Carla P. Gomes",
+      "Anil Damle"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2106.04487",
+    "bibtex": "@Inproceedings{Ryan2021TheFK,\n author = {J. Ryan and S. Ament and Carla P. Gomes and Anil Damle},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {The Fast Kernel Transform},\n year = {2021}\n}\n"
+  },
+  {
     "title": "Sparse Bayesian Learning via Stepwise Regression",
     "year": 2021,
     "venue": "International Conference on Machine Learning",
@@ -353,22 +369,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2106.06095",
     "bibtex": "@Inproceedings{Ament2021SparseBL,\n author = {S. Ament and Carla P. Gomes},\n booktitle = {International Conference on Machine Learning},\n title = {Sparse Bayesian Learning via Stepwise Regression},\n year = {2021}\n}\n"
-  },
-  {
-    "title": "The Fast Kernel Transform",
-    "year": 2021,
-    "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 12,
-    "url": "https://www.semanticscholar.org/paper/56143ca59725c5f7eddce4716b7d4bdb1db03bd6",
-    "authors": [
-      "J. Ryan",
-      "S. Ament",
-      "Carla P. Gomes",
-      "Anil Damle"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2106.04487",
-    "bibtex": "@Inproceedings{Ryan2021TheFK,\n author = {J. Ryan and S. Ament and Carla P. Gomes and Anil Damle},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {The Fast Kernel Transform},\n year = {2021}\n}\n"
   },
   {
     "title": "On the Optimality of Backward Regression: Sparse Recovery and Subset Selection",
@@ -580,7 +580,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 20,
+    "citationCount": 21,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",

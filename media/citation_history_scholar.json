@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-09-29T09:53:54.344035+00:00",
+  "fetched_at": "2026-10-04T09:37:10.969219+00:00",
   "source": "google_scholar",
-  "citedby": 1188,
+  "citedby": 1201,
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -11,31 +11,31 @@
     "2022": 96,
     "2023": 100,
     "2024": 167,
-    "2025": 335,
-    "2026": 393
+    "2025": 334,
+    "2026": 407
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 382,
+      "citationCount": 392,
       "citations_by_year": {
         "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 151,
-        "2026": 176
+        "2026": 186
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 127,
+      "citationCount": 128,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
-        "2025": 26,
-        "2026": 37
+        "2025": 25,
+        "2026": 39
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
@@ -52,10 +52,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 66,
+      "citationCount": 67,
       "citations_by_year": {
         "2025": 16,
-        "2026": 49
+        "2026": 50
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -118,7 +118,7 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 32,
+      "citationCount": 33,
       "citations_by_year": {
         "2017": 1,
         "2018": 2,
@@ -129,7 +129,7 @@
         "2023": 5,
         "2024": 7,
         "2025": 4,
-        "2026": 2
+        "2026": 3
       }
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
