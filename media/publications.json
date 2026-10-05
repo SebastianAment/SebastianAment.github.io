@@ -1,5 +1,22 @@
 [
   {
+    "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "citationCount": 1,
+    "url": "https://www.semanticscholar.org/paper/51bc342583fb48c3512cd3ce4d350eda4b3d6b90",
+    "authors": [
+      "B. Baten",
+      "M. A. Iqbal",
+      "S. Ament",
+      "Julius Kusuma",
+      "Nishant Garg"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2603.21525",
+    "bibtex": "@Inproceedings{Baten2026BOxCreteAB,\n author = {B. Baten and M. A. Iqbal and S. Ament and Julius Kusuma and Nishant Garg},\n booktitle = {arXiv.org},\n title = {BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization},\n year = {2026}\n}\n"
+  },
+  {
     "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
     "year": 2026,
     "venue": "",
@@ -59,23 +76,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2602.12082",
     "bibtex": "@Inproceedings{Lin2026EmpiricalGP,\n author = {J. Lin and S. Ament and Louis C. Tiao and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Empirical Gaussian Processes},\n year = {2026}\n}\n"
-  },
-  {
-    "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
-    "year": 2026,
-    "venue": "arXiv.org",
-    "citationCount": 0,
-    "url": "https://www.semanticscholar.org/paper/51bc342583fb48c3512cd3ce4d350eda4b3d6b90",
-    "authors": [
-      "B. Baten",
-      "M. A. Iqbal",
-      "S. Ament",
-      "Julius Kusuma",
-      "Nishant Garg"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2603.21525",
-    "bibtex": "@Inproceedings{Baten2026BOxCreteAB,\n author = {B. Baten and M. A. Iqbal and S. Ament and Julius Kusuma and Nishant Garg},\n booktitle = {arXiv.org},\n title = {BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization},\n year = {2026}\n}\n"
   },
   {
     "title": "Ax: A Platform for Adaptive Experimentation",

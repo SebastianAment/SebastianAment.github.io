@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-05T10:35:53.927530+00:00",
+  "fetched_at": "2026-10-05T18:06:31.933843+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 82,
     "2024": 83,
     "2025": 140,
-    "2026": 225
+    "2026": 226
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -25,8 +25,10 @@
     },
     "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
       "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
-      "citationCount": 0,
-      "citations_by_year": {}
+      "citationCount": 1,
+      "citations_by_year": {
+        "2026": 1
+      }
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
