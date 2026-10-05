@@ -3,7 +3,7 @@
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
     "venue": "arXiv preprint arXiv:2603.21525",
-    "citationCount": 3,
+    "citationCount": 4,
     "url": "https://arxiv.org/abs/2603.21525",
     "authors": [
       "Bayezid Baten",
@@ -344,7 +344,7 @@
     "title": "Unexpected improvements to expected improvement for bayesian optimization",
     "year": 2023,
     "venue": "Advances in neural information processing systems",
-    "citationCount": 392,
+    "citationCount": 394,
     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/419f72cbd568ad62183f8132a3605a2a-Abstract-Conference.html",
     "authors": [
       "Sebastian Ament",
@@ -415,7 +415,7 @@
     "title": "The fast kernel transform",
     "year": 2022,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 16,
+    "citationCount": 17,
     "url": "https://proceedings.mlr.press/v151/ryan22a",
     "authors": [
       "John P Ryan",
@@ -452,7 +452,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 128,
+    "citationCount": 129,
     "url": "https://www.science.org/doi/abs/10.1126/sciadv.abg4930",
     "authors": [
       "Sebastian Ament",
