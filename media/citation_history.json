@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-10-05T18:06:31.933843+00:00",
+  "fetched_at": "2026-10-12T18:45:42.248887+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
-    "2020": 28,
+    "2020": 29,
     "2021": 49,
     "2022": 63,
     "2023": 82,
     "2024": 83,
     "2025": 140,
-    "2026": 226
+    "2026": 233
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -32,42 +32,42 @@
     },
     "scalable_gaussian_processes_with_latent_kronecker_structure": {
       "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 4,
+        "2026": 5,
         "2025": 4,
         "2024": 1
       }
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian Processes via Relevance Pursuit",
-      "citationCount": 12,
+      "citationCount": 13,
       "citations_by_year": {
-        "2026": 5,
+        "2026": 6,
         "2025": 6
       }
     },
     "scaling_gaussian_processes_for_learning_curve_prediction_via": {
       "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
-      "citationCount": 10,
+      "citationCount": 11,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 7,
         "2024": 1
       }
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 279,
+      "citationCount": 286,
       "citations_by_year": {
         "2026": 100
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 45,
+      "citationCount": 46,
       "citations_by_year": {
-        "2026": 13,
+        "2026": 14,
         "2025": 16,
         "2024": 10,
         "2023": 6
@@ -75,9 +75,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 33,
+      "citationCount": 34,
       "citations_by_year": {
-        "2026": 10,
+        "2026": 11,
         "2025": 16,
         "2024": 5,
         "2023": 1
@@ -85,9 +85,9 @@
     },
     "sustainable_concrete_via_bayesian_optimization": {
       "title": "Sustainable Concrete via Bayesian Optimization",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 4,
         "2024": 1,
         "2023": 1
@@ -279,8 +279,9 @@
     },
     "an_efficient_relaxed_projection_method_for_constrained_nonne": {
       "title": "An Efficient Relaxed Projection Method for Constrained Non-negative Matrix Factorization with Application to the Phase-Mapping Problem in Materials Science",
-      "citationCount": 6,
+      "citationCount": 7,
       "citations_by_year": {
+        "2026": 1,
         "2022": 1,
         "2020": 4
       }
@@ -292,7 +293,7 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 24,
+      "citationCount": 25,
       "citations_by_year": {
         "2026": 3,
         "2025": 1,
@@ -300,7 +301,7 @@
         "2023": 5,
         "2022": 3,
         "2021": 1,
-        "2020": 5,
+        "2020": 6,
         "2018": 1,
         "2017": 1
       }

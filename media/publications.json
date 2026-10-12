@@ -6,7 +6,7 @@
     "citationCount": 1,
     "url": "https://www.semanticscholar.org/paper/51bc342583fb48c3512cd3ce4d350eda4b3d6b90",
     "authors": [
-      "B. Baten",
+      "Bayezid Baten",
       "M. A. Iqbal",
       "S. Ament",
       "Julius Kusuma",
@@ -14,7 +14,7 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2603.21525",
-    "bibtex": "@Inproceedings{Baten2026BOxCreteAB,\n author = {B. Baten and M. A. Iqbal and S. Ament and Julius Kusuma and Nishant Garg},\n booktitle = {arXiv.org},\n title = {BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Baten2026BOxCreteAB,\n author = {Bayezid Baten and M. A. Iqbal and S. Ament and Julius Kusuma and Nishant Garg},\n booktitle = {arXiv.org},\n title = {BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization},\n year = {2026}\n}\n"
   },
   {
     "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
@@ -48,7 +48,7 @@
       "S. Ament",
       "K. Gann",
       "Lan Zhou",
-      "L. Smieska",
+      "Louisa M. Smieska",
       "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
@@ -57,7 +57,7 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2601.08185",
-    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
     "title": "Empirical Gaussian Processes",
@@ -113,7 +113,7 @@
     "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
     "year": 2025,
     "venue": "International Conference on Machine Learning",
-    "citationCount": 9,
+    "citationCount": 10,
     "url": "https://www.semanticscholar.org/paper/da89c7f87939960d0909574355ec9b134e6eef01",
     "authors": [
       "J. Lin",
@@ -131,7 +131,7 @@
     "title": "Robust Gaussian Processes via Relevance Pursuit",
     "year": 2024,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 12,
+    "citationCount": 13,
     "url": "https://www.semanticscholar.org/paper/f39baa55227c52433d61df8f7d0468a9e0dd88f3",
     "authors": [
       "S. Ament",
@@ -149,7 +149,7 @@
     "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
     "year": 2024,
     "venue": "arXiv.org",
-    "citationCount": 10,
+    "citationCount": 11,
     "url": "https://www.semanticscholar.org/paper/5c8a1e28139ebace36ce71b3b545c73b2d6776b5",
     "authors": [
       "J. Lin",
@@ -165,7 +165,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 279,
+    "citationCount": 286,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -182,7 +182,7 @@
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 45,
+    "citationCount": 46,
     "url": "https://www.semanticscholar.org/paper/68500e037f95d21e2d169f81e696e1e0461546bb",
     "authors": [
       "Aryan Deshwal",
@@ -200,7 +200,7 @@
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2023,
     "venue": "Nuclear Fusion",
-    "citationCount": 33,
+    "citationCount": 34,
     "url": "https://www.semanticscholar.org/paper/a0a89c87b1e7550d3e7204bdf459ad0daea33d46",
     "authors": [
       "P. Rodriguez-Fernandez",
@@ -216,6 +216,22 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2312.12610",
     "bibtex": "@Inproceedings{Rodriguez-Fernandez2023EnhancingPC,\n author = {P. Rodriguez-Fernandez and N. T. Howard and A. Saltzman and S. Kantamneni and J. Candy and C. Holland and M. Balandat and S. Ament and A. E. White},\n booktitle = {Nuclear Fusion},\n title = {Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers},\n year = {2023}\n}\n"
+  },
+  {
+    "title": "Sustainable Concrete via Bayesian Optimization",
+    "year": 2023,
+    "venue": "arXiv.org",
+    "citationCount": 10,
+    "url": "https://www.semanticscholar.org/paper/c4b0030855475c49a26a489a6535882ea2a08d45",
+    "authors": [
+      "S. Ament",
+      "Andrew Witte",
+      "Nishant Garg",
+      "Julius Kusuma"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2310.18288",
+    "bibtex": "@Inproceedings{Ament2023SustainableCV,\n author = {S. Ament and Andrew Witte and Nishant Garg and Julius Kusuma},\n booktitle = {arXiv.org},\n title = {Sustainable Concrete via Bayesian Optimization},\n year = {2023}\n}\n"
   },
   {
     "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
@@ -237,22 +253,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2308.07897",
     "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
-  },
-  {
-    "title": "Sustainable Concrete via Bayesian Optimization",
-    "year": 2023,
-    "venue": "arXiv.org",
-    "citationCount": 9,
-    "url": "https://www.semanticscholar.org/paper/c4b0030855475c49a26a489a6535882ea2a08d45",
-    "authors": [
-      "S. Ament",
-      "Andrew Witte",
-      "Nishant Garg",
-      "Julius Kusuma"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2310.18288",
-    "bibtex": "@Inproceedings{Ament2023SustainableCV,\n author = {S. Ament and Andrew Witte and Nishant Garg and Julius Kusuma},\n booktitle = {arXiv.org},\n title = {Sustainable Concrete via Bayesian Optimization},\n year = {2023}\n}\n"
   },
   {
     "title": "Scalable First-Order Bayesian Optimization via Structured Automatic Differentiation",
@@ -536,7 +536,7 @@
     "title": "An Efficient Relaxed Projection Method for Constrained Non-negative Matrix Factorization with Application to the Phase-Mapping Problem in Materials Science",
     "year": 2018,
     "venue": "Integration of AI and OR Techniques in Constraint Programming",
-    "citationCount": 6,
+    "citationCount": 7,
     "url": "https://www.semanticscholar.org/paper/cf421d4fb4170b07faf44cd84285b8db163657a4",
     "authors": [
       "Junwen Bai",
@@ -566,7 +566,7 @@
     "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
     "year": 2016,
     "venue": "Statistics and computing",
-    "citationCount": 24,
+    "citationCount": 25,
     "url": "https://www.semanticscholar.org/paper/76f269dedd7d9776c67738e160ad4e9ad30882c1",
     "authors": [
       "S. Ament",
@@ -634,7 +634,7 @@
       "S. Ament",
       "K. Gann",
       "Lan Zhou",
-      "L. Smieska",
+      "Louisa M. Smieska",
       "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
@@ -642,6 +642,6 @@
       "Michael O. Thompson"
     ],
     "pdf": "",
-    "bibtex": "@Misc{None,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and L. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n title = {Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance}\n}\n"
+    "bibtex": "@Misc{None,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n title = {Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance}\n}\n"
   }
 ]
