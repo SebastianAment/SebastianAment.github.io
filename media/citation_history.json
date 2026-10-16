@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T18:45:42.248887+00:00",
+  "fetched_at": "2026-10-16T09:31:13.335191+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,7 @@
     "2023": 82,
     "2024": 83,
     "2025": 140,
-    "2026": 233
+    "2026": 234
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -58,7 +58,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 286,
+      "citationCount": 292,
       "citations_by_year": {
         "2026": 100
       }
@@ -332,9 +332,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 38,
+      "citationCount": 39,
       "citations_by_year": {
-        "2026": 27,
+        "2026": 28,
         "2025": 10
       }
     },
