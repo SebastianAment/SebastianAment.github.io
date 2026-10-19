@@ -1,5 +1,23 @@
 [
   {
+    "title": "Empirical Gaussian Processes",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "citationCount": 1,
+    "url": "https://www.semanticscholar.org/paper/40cb134a931291e62b47695e87ae50a5853db1ac",
+    "authors": [
+      "J. Lin",
+      "S. Ament",
+      "Louis C. Tiao",
+      "David Eriksson",
+      "M. Balandat",
+      "E. Bakshy"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2602.12082",
+    "bibtex": "@Inproceedings{Lin2026EmpiricalGP,\n author = {J. Lin and S. Ament and Louis C. Tiao and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Empirical Gaussian Processes},\n year = {2026}\n}\n"
+  },
+  {
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
     "year": 2026,
     "venue": "arXiv.org",
@@ -60,22 +78,39 @@
     "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
-    "title": "Empirical Gaussian Processes",
+    "title": "Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction",
     "year": 2026,
-    "venue": "arXiv.org",
+    "venue": "",
     "citationCount": 0,
-    "url": "https://www.semanticscholar.org/paper/40cb134a931291e62b47695e87ae50a5853db1ac",
+    "url": "https://www.semanticscholar.org/paper/894288278e8b6d2964e91a8f059a8e4e2b20787c",
     "authors": [
-      "J. Lin",
+      "Aishwarya Wesanekar",
+      "Sheng-Tao Yang",
+      "Jia-Wei Zhang",
+      "Flavio Sales Truzzi",
+      "Chen Chen",
+      "Nader Beigiparast",
+      "Sheng-Yuan Huang",
+      "Roshanak Zilouchian Moghaddam",
+      "Vitor Cid",
+      "Colin B. Clement",
+      "Vinayak Thapliyal",
       "S. Ament",
-      "Louis C. Tiao",
-      "David Eriksson",
+      "Jihao Andreas Lin",
+      "Vincent Huang",
+      "Kai-Wen Han",
+      "Bo-Yi Jiang",
+      "Wen-Lin Chen",
+      "Chao-Rong Chen",
+      "Ashwin Kumar",
       "M. Balandat",
-      "E. Bakshy"
+      "David Eriksson",
+      "Yi-Fei Zhang",
+      "Pan Zhong"
     ],
     "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2602.12082",
-    "bibtex": "@Inproceedings{Lin2026EmpiricalGP,\n author = {J. Lin and S. Ament and Louis C. Tiao and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Empirical Gaussian Processes},\n year = {2026}\n}\n"
+    "arxiv": "https://arxiv.org/abs/2610.23453",
+    "bibtex": "@Inproceedings{Wesanekar2026PredictableSE,\n author = {Aishwarya Wesanekar and Sheng-Tao Yang and Jia-Wei Zhang and Flavio Sales Truzzi and Chen Chen and Nader Beigiparast and Sheng-Yuan Huang and Roshanak Zilouchian Moghaddam and Vitor Cid and Colin B. Clement and Vinayak Thapliyal and S. Ament and Jihao Andreas Lin and Vincent Huang and Kai-Wen Han and Bo-Yi Jiang and Wen-Lin Chen and Chao-Rong Chen and Ashwin Kumar and M. Balandat and David Eriksson and Yi-Fei Zhang and Pan Zhong},\n title = {Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction},\n year = {2026}\n}\n"
   },
   {
     "title": "Ax: A Platform for Adaptive Experimentation",
@@ -165,7 +200,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 292,
+    "citationCount": 294,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -322,7 +357,7 @@
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 73,
+    "citationCount": 72,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",
@@ -566,7 +601,7 @@
     "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
     "year": 2016,
     "venue": "Statistics and computing",
-    "citationCount": 25,
+    "citationCount": 24,
     "url": "https://www.semanticscholar.org/paper/76f269dedd7d9776c67738e160ad4e9ad30882c1",
     "authors": [
       "S. Ament",
@@ -580,7 +615,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 21,
+    "citationCount": 20,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",

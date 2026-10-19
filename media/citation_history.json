@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-10-16T09:31:13.335191+00:00",
+  "fetched_at": "2026-10-19T16:20:49.729000+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
-    "2020": 29,
-    "2021": 49,
+    "2020": 28,
+    "2021": 48,
     "2022": 63,
     "2023": 82,
-    "2024": 83,
+    "2024": 82,
     "2025": 140,
-    "2026": 234
+    "2026": 235
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -20,8 +20,10 @@
     },
     "empirical_gaussian_processes": {
       "title": "Empirical Gaussian Processes",
-      "citationCount": 0,
-      "citations_by_year": {}
+      "citationCount": 1,
+      "citations_by_year": {
+        "2026": 1
+      }
     },
     "boxcrete_a_bayesian_optimization_opensource_ai_model_for_con": {
       "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
@@ -58,7 +60,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 292,
+      "citationCount": 294,
       "citations_by_year": {
         "2026": 100
       }
@@ -143,11 +145,11 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 73,
+      "citationCount": 72,
       "citations_by_year": {
         "2026": 11,
         "2025": 16,
-        "2024": 12,
+        "2024": 11,
         "2023": 19,
         "2022": 11,
         "2021": 2
@@ -293,7 +295,7 @@
     },
     "accurate_and_efficient_numerical_calculation_of_stable_densi": {
       "title": "Accurate and efficient numerical calculation of stable densities via optimized quadrature and asymptotics",
-      "citationCount": 25,
+      "citationCount": 24,
       "citations_by_year": {
         "2026": 3,
         "2025": 1,
@@ -301,21 +303,21 @@
         "2023": 5,
         "2022": 3,
         "2021": 1,
-        "2020": 6,
+        "2020": 5,
         "2018": 1,
         "2017": 1
       }
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 21,
+      "citationCount": 20,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
         "2024": 5,
         "2023": 2,
         "2022": 1,
-        "2021": 5,
+        "2021": 4,
         "2020": 1,
         "2019": 3,
         "2018": 2
@@ -352,6 +354,11 @@
     },
     "autonomous_materials_exploration_integrates_automated_phase_": {
       "title": "Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance",
+      "citationCount": 0,
+      "citations_by_year": {}
+    },
+    "predictable_scaling_efficient_model_exploration_via_scalingl": {
+      "title": "Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction",
       "citationCount": 0,
       "citations_by_year": {}
     }
