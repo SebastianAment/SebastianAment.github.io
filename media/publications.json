@@ -86,7 +86,7 @@
     "authors": [
       "Aishwarya Wesanekar",
       "Sheng-Tao Yang",
-      "Jia-Wei Zhang",
+      "Jia-Wei Zang",
       "Flavio Sales Truzzi",
       "Chen Chen",
       "Nader Beigiparast",
@@ -99,9 +99,9 @@
       "Jihao Andreas Lin",
       "Vincent Huang",
       "Kai-Wen Han",
-      "Bo-Yi Jiang",
+      "Bo Jiang",
       "Wen-Lin Chen",
-      "Chao-Rong Chen",
+      "Chao Chen",
       "Ashwin Kumar",
       "M. Balandat",
       "David Eriksson",
@@ -110,7 +110,7 @@
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2610.23453",
-    "bibtex": "@Inproceedings{Wesanekar2026PredictableSE,\n author = {Aishwarya Wesanekar and Sheng-Tao Yang and Jia-Wei Zhang and Flavio Sales Truzzi and Chen Chen and Nader Beigiparast and Sheng-Yuan Huang and Roshanak Zilouchian Moghaddam and Vitor Cid and Colin B. Clement and Vinayak Thapliyal and S. Ament and Jihao Andreas Lin and Vincent Huang and Kai-Wen Han and Bo-Yi Jiang and Wen-Lin Chen and Chao-Rong Chen and Ashwin Kumar and M. Balandat and David Eriksson and Yi-Fei Zhang and Pan Zhong},\n title = {Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Wesanekar2026PredictableSE,\n author = {Aishwarya Wesanekar and Sheng-Tao Yang and Jia-Wei Zang and Flavio Sales Truzzi and Chen Chen and Nader Beigiparast and Sheng-Yuan Huang and Roshanak Zilouchian Moghaddam and Vitor Cid and Colin B. Clement and Vinayak Thapliyal and S. Ament and Jihao Andreas Lin and Vincent Huang and Kai-Wen Han and Bo Jiang and Wen-Lin Chen and Chao Chen and Ashwin Kumar and M. Balandat and David Eriksson and Yi-Fei Zhang and Pan Zhong},\n title = {Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction},\n year = {2026}\n}\n"
   },
   {
     "title": "Ax: A Platform for Adaptive Experimentation",
@@ -200,7 +200,7 @@
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 294,
+    "citationCount": 298,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
@@ -217,7 +217,7 @@
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
     "year": 2023,
     "venue": "International Conference on Artificial Intelligence and Statistics",
-    "citationCount": 46,
+    "citationCount": 47,
     "url": "https://www.semanticscholar.org/paper/68500e037f95d21e2d169f81e696e1e0461546bb",
     "authors": [
       "Aryan Deshwal",
@@ -335,7 +335,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 116,
+    "citationCount": 118,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
