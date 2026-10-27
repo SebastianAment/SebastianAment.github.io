@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T15:57:49.580401+00:00",
+  "fetched_at": "2026-10-27T21:10:48.097064+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -10,7 +10,8 @@
     "2023": 82,
     "2024": 81,
     "2025": 140,
-    "2026": 237
+    "2026": 239,
+    "2027": 2
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -60,15 +61,17 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 298,
+      "citationCount": 299,
       "citations_by_year": {
-        "2026": 100
+        "2027": 1,
+        "2026": 99
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
-      "citationCount": 47,
+      "citationCount": 48,
       "citations_by_year": {
+        "2027": 1,
         "2026": 15,
         "2025": 16,
         "2024": 10,
@@ -97,9 +100,9 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 4,
+        "2026": 5,
         "2025": 4
       }
     },
@@ -145,9 +148,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 72,
+      "citationCount": 73,
       "citations_by_year": {
-        "2026": 11,
+        "2026": 12,
         "2025": 16,
         "2024": 11,
         "2023": 19,
@@ -334,9 +337,9 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 39,
+      "citationCount": 40,
       "citations_by_year": {
-        "2026": 28,
+        "2026": 29,
         "2025": 10
       }
     },

@@ -1,85 +1,84 @@
 {
-  "fetched_at": "2026-10-16T09:32:29.301686+00:00",
+  "fetched_at": "2026-10-27T21:12:24.680957+00:00",
   "source": "google_scholar",
-  "citedby": 1225,
+  "citedby": 1256,
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 5,
     "2020": 19,
     "2021": 40,
-    "2022": 96,
+    "2022": 95,
     "2023": 100,
-    "2024": 167,
+    "2024": 166,
     "2025": 339,
-    "2026": 425
+    "2026": 456
   },
   "papers": {
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected improvements to expected improvement for bayesian optimization",
-      "citationCount": 401,
+      "citationCount": 418,
       "citations_by_year": {
-        "2022": 1,
         "2023": 2,
         "2024": 49,
         "2025": 152,
-        "2026": 194
+        "2026": 211
       }
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 131,
+      "citationCount": 132,
       "citations_by_year": {
         "2021": 2,
         "2022": 13,
         "2023": 23,
         "2024": 25,
         "2025": 26,
-        "2026": 41
+        "2026": 42
       }
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 103,
+      "citationCount": 104,
       "citations_by_year": {
         "2021": 2,
         "2022": 19,
         "2023": 25,
         "2024": 15,
         "2025": 18,
-        "2026": 24
+        "2026": 25
       }
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A platform for adaptive experimentation",
-      "citationCount": 68,
+      "citationCount": 71,
       "citations_by_year": {
-        "2025": 16,
-        "2026": 51
+        "2025": 15,
+        "2026": 55
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
       "title": "Bayesian optimization over high-dimensional combinatorial spaces via dictionary-based embeddings",
-      "citationCount": 60,
+      "citationCount": 63,
       "citations_by_year": {
         "2023": 5,
-        "2024": 12,
-        "2025": 23,
-        "2026": 20
+        "2024": 11,
+        "2025": 24,
+        "2026": 22
       }
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 52,
+      "citationCount": 53,
       "citations_by_year": {
         "2024": 7,
         "2025": 22,
-        "2026": 21
+        "2026": 22
       }
     },
     "crystal_a_multiagent_ai_system_for_automated_mapping_of_mate": {
       "title": "CRYSTAL: a multi-agent AI system for automated mapping of materials' crystal structures",
-      "citationCount": 43,
+      "citationCount": 44,
       "citations_by_year": {
         "2019": 1,
         "2020": 4,
@@ -88,7 +87,7 @@
         "2023": 7,
         "2024": 5,
         "2025": 5,
-        "2026": 5
+        "2026": 6
       }
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
@@ -159,6 +158,15 @@
         "2026": 6
       }
     },
+    "sustainable_concrete_via_bayesian_optimization": {
+      "title": "Sustainable concrete via Bayesian optimization",
+      "citationCount": 20,
+      "citations_by_year": {
+        "2024": 3,
+        "2025": 10,
+        "2026": 7
+      }
+    },
     "scalable_firstorder_bayesian_optimization_via_structured_aut": {
       "title": "Scalable first-order Bayesian optimization via structured automatic differentiation",
       "citationCount": 20,
@@ -181,21 +189,12 @@
         "2026": 2
       }
     },
-    "sustainable_concrete_via_bayesian_optimization": {
-      "title": "Sustainable concrete via Bayesian optimization",
-      "citationCount": 19,
-      "citations_by_year": {
-        "2024": 3,
-        "2025": 10,
-        "2026": 6
-      }
-    },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian processes via relevance pursuit",
-      "citationCount": 17,
+      "citationCount": 18,
       "citations_by_year": {
         "2025": 6,
-        "2026": 11
+        "2026": 12
       }
     },
     "the_fast_kernel_transform": {
@@ -265,10 +264,10 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 8,
+      "citationCount": 9,
       "citations_by_year": {
         "2025": 2,
-        "2026": 5
+        "2026": 6
       }
     },
     "optical_identification_of_materials_transformations_in_oxide": {
@@ -323,6 +322,13 @@
     },
     "efficiently_estimating_optimal_hyperparameter_scaling_laws_t": {
       "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
+      "citationCount": 1,
+      "citations_by_year": {
+        "2026": 1
+      }
+    },
+    "empirical_gaussian_processes": {
+      "title": "Empirical Gaussian Processes",
       "citationCount": 1,
       "citations_by_year": {
         "2026": 1
