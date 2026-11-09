@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-10-27T21:10:48.097064+00:00",
+  "fetched_at": "2026-11-09T19:42:21.629392+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
     "2019": 8,
     "2020": 28,
-    "2021": 48,
-    "2022": 63,
+    "2021": 49,
+    "2022": 64,
     "2023": 82,
-    "2024": 81,
+    "2024": 83,
     "2025": 140,
-    "2026": 239,
-    "2027": 2
+    "2026": 248,
+    "2027": 5
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -44,9 +44,9 @@
     },
     "robust_gaussian_processes_via_relevance_pursuit": {
       "title": "Robust Gaussian Processes via Relevance Pursuit",
-      "citationCount": 13,
+      "citationCount": 14,
       "citations_by_year": {
-        "2026": 6,
+        "2026": 7,
         "2025": 6
       }
     },
@@ -61,7 +61,7 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 299,
+      "citationCount": 310,
       "citations_by_year": {
         "2027": 1,
         "2026": 99
@@ -80,9 +80,9 @@
     },
     "enhancing_predictive_capabilities_in_fusion_burning_plasmas_": {
       "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
-      "citationCount": 34,
+      "citationCount": 35,
       "citations_by_year": {
-        "2026": 11,
+        "2026": 12,
         "2025": 16,
         "2024": 5,
         "2023": 1
@@ -100,10 +100,11 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 10,
+      "citationCount": 11,
       "citations_by_year": {
         "2026": 5,
-        "2025": 4
+        "2025": 4,
+        "2027": 1
       }
     },
     "scalable_firstorder_bayesian_optimization_via_structured_aut": {
@@ -119,9 +120,9 @@
     },
     "efficient_projection_algorithms_onto_the_weighted_1_ball": {
       "title": "Efficient projection algorithms onto the weighted \u21131 ball",
-      "citationCount": 9,
+      "citationCount": 10,
       "citations_by_year": {
-        "2026": 3,
+        "2026": 4,
         "2024": 2,
         "2023": 2,
         "2021": 2
@@ -136,11 +137,12 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 118,
+      "citationCount": 119,
       "citations_by_year": {
+        "2027": 1,
         "2026": 25,
         "2025": 25,
-        "2024": 17,
+        "2024": 16,
         "2023": 20,
         "2022": 10,
         "2021": 3
@@ -148,9 +150,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 73,
+      "citationCount": 74,
       "citations_by_year": {
-        "2026": 12,
+        "2026": 13,
         "2025": 16,
         "2024": 11,
         "2023": 19,
@@ -172,12 +174,12 @@
     },
     "sparse_bayesian_learning_via_stepwise_regression": {
       "title": "Sparse Bayesian Learning via Stepwise Regression",
-      "citationCount": 12,
+      "citationCount": 13,
       "citations_by_year": {
         "2026": 1,
         "2025": 5,
-        "2024": 3,
-        "2022": 2
+        "2024": 4,
+        "2022": 3
       }
     },
     "on_the_optimality_of_backward_regression_sparse_recovery_and": {
@@ -313,14 +315,14 @@
     },
     "solving_the_stochastic_landaulifshitzgilbertslonczewski_equa": {
       "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
-      "citationCount": 20,
+      "citationCount": 23,
       "citations_by_year": {
         "2026": 1,
         "2025": 1,
-        "2024": 5,
+        "2024": 7,
         "2023": 2,
         "2022": 1,
-        "2021": 4,
+        "2021": 5,
         "2020": 1,
         "2019": 3,
         "2018": 2
@@ -337,9 +339,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 40,
+      "citationCount": 43,
       "citations_by_year": {
-        "2026": 29,
+        "2027": 1,
+        "2026": 31,
         "2025": 10
       }
     },
@@ -350,9 +353,9 @@
     },
     "efficiently_estimating_optimal_hyperparameter_scaling_laws_t": {
       "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
-      "citationCount": 1,
+      "citationCount": 4,
       "citations_by_year": {
-        "2026": 1
+        "2026": 4
       }
     },
     "autonomous_materials_exploration_integrates_automated_phase_": {

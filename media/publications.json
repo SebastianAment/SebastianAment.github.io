@@ -1,5 +1,24 @@
 [
   {
+    "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "citationCount": 4,
+    "url": "https://www.semanticscholar.org/paper/be377dd4b419fc17b0b74e6758d02ea6093e9462",
+    "authors": [
+      "Zhi-Liang Chen",
+      "S. Ament",
+      "David Eriksson",
+      "Maximilian Balandat",
+      "K. Low",
+      "E. Bakshy",
+      "J. Lin"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2609.01431",
+    "bibtex": "@Inproceedings{Chen2026EfficientlyEO,\n author = {Zhi-Liang Chen and S. Ament and David Eriksson and Maximilian Balandat and K. Low and E. Bakshy and J. Lin},\n booktitle = {arXiv.org},\n title = {Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search},\n year = {2026}\n}\n"
+  },
+  {
     "title": "Empirical Gaussian Processes",
     "year": 2026,
     "venue": "arXiv.org",
@@ -10,12 +29,12 @@
       "S. Ament",
       "Louis C. Tiao",
       "David Eriksson",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2602.12082",
-    "bibtex": "@Inproceedings{Lin2026EmpiricalGP,\n author = {J. Lin and S. Ament and Louis C. Tiao and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Empirical Gaussian Processes},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Lin2026EmpiricalGP,\n author = {J. Lin and S. Ament and Louis C. Tiao and David Eriksson and Maximilian Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Empirical Gaussian Processes},\n year = {2026}\n}\n"
   },
   {
     "title": "BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization",
@@ -35,25 +54,6 @@
     "bibtex": "@Inproceedings{Baten2026BOxCreteAB,\n author = {Bayezid Baten and M. A. Iqbal and S. Ament and Julius Kusuma and Nishant Garg},\n booktitle = {arXiv.org},\n title = {BOxCrete: A Bayesian Optimization Open-Source AI Model for Concrete Strength Forecasting and Mix Optimization},\n year = {2026}\n}\n"
   },
   {
-    "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
-    "year": 2026,
-    "venue": "",
-    "citationCount": 1,
-    "url": "https://www.semanticscholar.org/paper/be377dd4b419fc17b0b74e6758d02ea6093e9462",
-    "authors": [
-      "Zhiliang Chen",
-      "S. Ament",
-      "David Eriksson",
-      "M. Balandat",
-      "B. Low",
-      "E. Bakshy",
-      "J. Lin"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2609.01431",
-    "bibtex": "@Inproceedings{Chen2026EfficientlyEO,\n author = {Zhiliang Chen and S. Ament and David Eriksson and M. Balandat and B. Low and E. Bakshy and J. Lin},\n title = {Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search},\n year = {2026}\n}\n"
-  },
-  {
     "title": "Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning",
     "year": 2026,
     "venue": "arXiv.org",
@@ -70,12 +70,12 @@
       "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. V. van Dover",
+      "R. B. van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2601.08185",
-    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Chang2026AutonomousME,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n booktitle = {arXiv.org},\n title = {Autonomous Materials Exploration by Integrating Automated Phase Identification and AI-Assisted Human Reasoning},\n year = {2026}\n}\n"
   },
   {
     "title": "Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction",
@@ -103,20 +103,20 @@
       "Wen-Lin Chen",
       "Chao Chen",
       "Ashwin Kumar",
-      "M. Balandat",
+      "Maximilian Balandat",
       "David Eriksson",
       "Yi-Fei Zhang",
       "Pan Zhong"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2610.23453",
-    "bibtex": "@Inproceedings{Wesanekar2026PredictableSE,\n author = {Aishwarya Wesanekar and Sheng-Tao Yang and Jia-Wei Zang and Flavio Sales Truzzi and Chen Chen and Nader Beigiparast and Sheng-Yuan Huang and Roshanak Zilouchian Moghaddam and Vitor Cid and Colin B. Clement and Vinayak Thapliyal and S. Ament and Jihao Andreas Lin and Vincent Huang and Kai-Wen Han and Bo Jiang and Wen-Lin Chen and Chao Chen and Ashwin Kumar and M. Balandat and David Eriksson and Yi-Fei Zhang and Pan Zhong},\n title = {Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction},\n year = {2026}\n}\n"
+    "bibtex": "@Inproceedings{Wesanekar2026PredictableSE,\n author = {Aishwarya Wesanekar and Sheng-Tao Yang and Jia-Wei Zang and Flavio Sales Truzzi and Chen Chen and Nader Beigiparast and Sheng-Yuan Huang and Roshanak Zilouchian Moghaddam and Vitor Cid and Colin B. Clement and Vinayak Thapliyal and S. Ament and Jihao Andreas Lin and Vincent Huang and Kai-Wen Han and Bo Jiang and Wen-Lin Chen and Chao Chen and Ashwin Kumar and Maximilian Balandat and David Eriksson and Yi-Fei Zhang and Pan Zhong},\n title = {Predictable Scaling: Efficient Model Exploration via Scaling-Law Prediction},\n year = {2026}\n}\n"
   },
   {
     "title": "Ax: A Platform for Adaptive Experimentation",
     "year": 2025,
     "venue": "AutoML",
-    "citationCount": 40,
+    "citationCount": 43,
     "url": "https://www.semanticscholar.org/paper/a3af9cb9b758ac4931eb30e031698793eee9e56a",
     "authors": [
       "Miles Olson",
@@ -138,11 +138,11 @@
       "Matt Grange",
       "Elena Kashtelyan",
       "David Eriksson",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy"
     ],
     "pdf": "",
-    "bibtex": "@Inproceedings{Olson2025AxAP,\n author = {Miles Olson and Elizabeth Santorella and Louis C. Tiao and Sait Cakmak and Mia Garrard and Sam Daulton and Z. Lin and S. Ament and B. Beckerman and Eric Onofrey and Paschal Igusti and C. Lara and Ben Letham and Cesar Cardoso and Shi-Yun Shen and A. Lin and Matt Grange and Elena Kashtelyan and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {AutoML},\n title = {Ax: A Platform for Adaptive Experimentation},\n year = {2025}\n}\n"
+    "bibtex": "@Inproceedings{Olson2025AxAP,\n author = {Miles Olson and Elizabeth Santorella and Louis C. Tiao and Sait Cakmak and Mia Garrard and Sam Daulton and Z. Lin and S. Ament and B. Beckerman and Eric Onofrey and Paschal Igusti and C. Lara and Ben Letham and Cesar Cardoso and Shi-Yun Shen and A. Lin and Matt Grange and Elena Kashtelyan and David Eriksson and Maximilian Balandat and E. Bakshy},\n booktitle = {AutoML},\n title = {Ax: A Platform for Adaptive Experimentation},\n year = {2025}\n}\n"
   },
   {
     "title": "Scalable Gaussian Processes with Latent Kronecker Structure",
@@ -153,32 +153,32 @@
     "authors": [
       "J. Lin",
       "S. Ament",
-      "M. Balandat",
+      "Maximilian Balandat",
       "David Eriksson",
       "Jos\u00e9 Miguel Hern\u00e1ndez-Lobato",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2506.06895",
-    "bibtex": "@Inproceedings{Lin2025ScalableGP,\n author = {J. Lin and S. Ament and M. Balandat and David Eriksson and Jos\u00e9 Miguel Hern\u00e1ndez-Lobato and E. Bakshy},\n booktitle = {International Conference on Machine Learning},\n title = {Scalable Gaussian Processes with Latent Kronecker Structure},\n year = {2025}\n}\n"
+    "bibtex": "@Inproceedings{Lin2025ScalableGP,\n author = {J. Lin and S. Ament and Maximilian Balandat and David Eriksson and Jos\u00e9 Miguel Hern\u00e1ndez-Lobato and E. Bakshy},\n booktitle = {International Conference on Machine Learning},\n title = {Scalable Gaussian Processes with Latent Kronecker Structure},\n year = {2025}\n}\n"
   },
   {
     "title": "Robust Gaussian Processes via Relevance Pursuit",
     "year": 2024,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 13,
+    "citationCount": 14,
     "url": "https://www.semanticscholar.org/paper/f39baa55227c52433d61df8f7d0468a9e0dd88f3",
     "authors": [
       "S. Ament",
       "Elizabeth Santorella",
       "David Eriksson",
       "Ben Letham",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2410.24222",
-    "bibtex": "@Inproceedings{Ament2024RobustGP,\n author = {S. Ament and Elizabeth Santorella and David Eriksson and Ben Letham and M. Balandat and E. Bakshy},\n booktitle = {Neural Information Processing Systems},\n title = {Robust Gaussian Processes via Relevance Pursuit},\n year = {2024}\n}\n"
+    "bibtex": "@Inproceedings{Ament2024RobustGP,\n author = {S. Ament and Elizabeth Santorella and David Eriksson and Ben Letham and Maximilian Balandat and E. Bakshy},\n booktitle = {Neural Information Processing Systems},\n title = {Robust Gaussian Processes via Relevance Pursuit},\n year = {2024}\n}\n"
   },
   {
     "title": "Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure",
@@ -189,29 +189,29 @@
     "authors": [
       "J. Lin",
       "S. Ament",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2410.09239",
-    "bibtex": "@Inproceedings{Lin2024ScalingGP,\n author = {J. Lin and S. Ament and M. Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure},\n year = {2024}\n}\n"
+    "bibtex": "@Inproceedings{Lin2024ScalingGP,\n author = {J. Lin and S. Ament and Maximilian Balandat and E. Bakshy},\n booktitle = {arXiv.org},\n title = {Scaling Gaussian Processes for Learning Curve Prediction via Latent Kronecker Structure},\n year = {2024}\n}\n"
   },
   {
     "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
     "year": 2023,
     "venue": "Neural Information Processing Systems",
-    "citationCount": 299,
+    "citationCount": 310,
     "url": "https://www.semanticscholar.org/paper/0a1bf4740dc9f02c292d5489c5097cc8da7f4368",
     "authors": [
       "S. Ament",
       "Sam Daulton",
       "David Eriksson",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2310.20708",
-    "bibtex": "@Inproceedings{Ament2023UnexpectedIT,\n author = {S. Ament and Sam Daulton and David Eriksson and M. Balandat and E. Bakshy},\n booktitle = {Neural Information Processing Systems},\n title = {Unexpected Improvements to Expected Improvement for Bayesian Optimization},\n year = {2023}\n}\n"
+    "bibtex": "@Inproceedings{Ament2023UnexpectedIT,\n author = {S. Ament and Sam Daulton and David Eriksson and Maximilian Balandat and E. Bakshy},\n booktitle = {Neural Information Processing Systems},\n title = {Unexpected Improvements to Expected Improvement for Bayesian Optimization},\n year = {2023}\n}\n"
   },
   {
     "title": "Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings",
@@ -222,20 +222,20 @@
     "authors": [
       "Aryan Deshwal",
       "S. Ament",
-      "M. Balandat",
+      "Maximilian Balandat",
       "E. Bakshy",
       "J. Doppa",
       "David Eriksson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2303.01774",
-    "bibtex": "@Inproceedings{Deshwal2023BayesianOO,\n author = {Aryan Deshwal and S. Ament and M. Balandat and E. Bakshy and J. Doppa and David Eriksson},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings},\n year = {2023}\n}\n"
+    "bibtex": "@Inproceedings{Deshwal2023BayesianOO,\n author = {Aryan Deshwal and S. Ament and Maximilian Balandat and E. Bakshy and J. Doppa and David Eriksson},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {Bayesian Optimization over High-Dimensional Combinatorial Spaces via Dictionary-based Embeddings},\n year = {2023}\n}\n"
   },
   {
     "title": "Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers",
     "year": 2023,
     "venue": "Nuclear Fusion",
-    "citationCount": 34,
+    "citationCount": 35,
     "url": "https://www.semanticscholar.org/paper/a0a89c87b1e7550d3e7204bdf459ad0daea33d46",
     "authors": [
       "P. Rodriguez-Fernandez",
@@ -244,19 +244,19 @@
       "S. Kantamneni",
       "J. Candy",
       "C. Holland",
-      "M. Balandat",
+      "Maximilian Balandat",
       "S. Ament",
       "A. E. White"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2312.12610",
-    "bibtex": "@Inproceedings{Rodriguez-Fernandez2023EnhancingPC,\n author = {P. Rodriguez-Fernandez and N. T. Howard and A. Saltzman and S. Kantamneni and J. Candy and C. Holland and M. Balandat and S. Ament and A. E. White},\n booktitle = {Nuclear Fusion},\n title = {Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers},\n year = {2023}\n}\n"
+    "bibtex": "@Inproceedings{Rodriguez-Fernandez2023EnhancingPC,\n author = {P. Rodriguez-Fernandez and N. T. Howard and A. Saltzman and S. Kantamneni and J. Candy and C. Holland and Maximilian Balandat and S. Ament and A. E. White},\n booktitle = {Nuclear Fusion},\n title = {Enhancing predictive capabilities in fusion burning plasmas through surrogate-based optimization in core transport solvers},\n year = {2023}\n}\n"
   },
   {
     "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
     "year": 2023,
     "venue": "npj Computational Materials",
-    "citationCount": 10,
+    "citationCount": 11,
     "url": "https://www.semanticscholar.org/paper/b1896486477e753e9b51442c48f055083ce3e684",
     "authors": [
       "Ming-Chiang Chang",
@@ -266,12 +266,12 @@
       "Lan Zhou",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. V. van Dover",
+      "R. B. van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2308.07897",
-    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
+    "bibtex": "@Inproceedings{Chang2023ProbabilisticPL,\n author = {Ming-Chiang Chang and S. Ament and Maximilian Amsler and Duncan R. Sutherland and Lan Zhou and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n booktitle = {npj Computational Materials},\n title = {Probabilistic phase labeling and lattice refinement for autonomous materials research},\n year = {2023}\n}\n"
   },
   {
     "title": "Sustainable Concrete via Bayesian Optimization",
@@ -307,7 +307,7 @@
     "title": "Efficient projection algorithms onto the weighted \u21131 ball",
     "year": 2022,
     "venue": "Artificial Intelligence",
-    "citationCount": 9,
+    "citationCount": 10,
     "url": "https://www.semanticscholar.org/paper/af4c5984b872b2c17ae41b22f49a2ce934b82d31",
     "authors": [
       "G. Perez",
@@ -335,7 +335,7 @@
     "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
     "year": 2021,
     "venue": "Science Advances",
-    "citationCount": 118,
+    "citationCount": 119,
     "url": "https://www.semanticscholar.org/paper/f97f4660ef463ab04d8d869ce5ab4206f5583b8f",
     "authors": [
       "S. Ament",
@@ -347,17 +347,17 @@
       "J. Gregoire",
       "M. Thompson",
       "Carla P. Gomes",
-      "R. B. Dover"
+      "R. B. Van Dover"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2101.07385",
-    "bibtex": "@Inproceedings{Ament2021AutonomousMS,\n author = {S. Ament and Maximilian Amsler and Duncan R. Sutherland and Ming-Chiang Chang and D. Guevarra and Aine B. Connolly and J. Gregoire and M. Thompson and Carla P. Gomes and R. B. Dover},\n booktitle = {Science Advances},\n title = {Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams},\n year = {2021}\n}\n"
+    "bibtex": "@Inproceedings{Ament2021AutonomousMS,\n author = {S. Ament and Maximilian Amsler and Duncan R. Sutherland and Ming-Chiang Chang and D. Guevarra and Aine B. Connolly and J. Gregoire and M. Thompson and Carla P. Gomes and R. B. Van Dover},\n booktitle = {Science Advances},\n title = {Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams},\n year = {2021}\n}\n"
   },
   {
     "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
     "year": 2021,
     "venue": "Nature Machine Intelligence",
-    "citationCount": 73,
+    "citationCount": 74,
     "url": "https://www.semanticscholar.org/paper/fe76b663d4c920e019f184972dcf75a2d713005b",
     "authors": [
       "Di Chen",
@@ -367,13 +367,27 @@
       "D. Guevarra",
       "Lan Zhou",
       "B. Selman",
-      "R. B. Dover",
+      "R. B. Van Dover",
       "J. Gregoire",
       "Carla P. Gomes"
     ],
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2108.09523",
-    "bibtex": "@Inproceedings{Chen2021AutomatingCP,\n author = {Di Chen and Yi-Wei Bai and S. Ament and Wenting Zhao and D. Guevarra and Lan Zhou and B. Selman and R. B. Dover and J. Gregoire and Carla P. Gomes},\n booktitle = {Nature Machine Intelligence},\n title = {Automating crystal-structure phase mapping by combining deep learning with constraint reasoning},\n year = {2021}\n}\n"
+    "bibtex": "@Inproceedings{Chen2021AutomatingCP,\n author = {Di Chen and Yi-Wei Bai and S. Ament and Wenting Zhao and D. Guevarra and Lan Zhou and B. Selman and R. B. Van Dover and J. Gregoire and Carla P. Gomes},\n booktitle = {Nature Machine Intelligence},\n title = {Automating crystal-structure phase mapping by combining deep learning with constraint reasoning},\n year = {2021}\n}\n"
+  },
+  {
+    "title": "Sparse Bayesian Learning via Stepwise Regression",
+    "year": 2021,
+    "venue": "International Conference on Machine Learning",
+    "citationCount": 13,
+    "url": "https://www.semanticscholar.org/paper/08c3eb3135ef41659b2fed8fd6e3f743b0ed3a69",
+    "authors": [
+      "S. Ament",
+      "Carla P. Gomes"
+    ],
+    "pdf": "",
+    "arxiv": "https://arxiv.org/abs/2106.06095",
+    "bibtex": "@Inproceedings{Ament2021SparseBL,\n author = {S. Ament and Carla P. Gomes},\n booktitle = {International Conference on Machine Learning},\n title = {Sparse Bayesian Learning via Stepwise Regression},\n year = {2021}\n}\n"
   },
   {
     "title": "The Fast Kernel Transform",
@@ -390,20 +404,6 @@
     "pdf": "",
     "arxiv": "https://arxiv.org/abs/2106.04487",
     "bibtex": "@Inproceedings{Ryan2021TheFK,\n author = {J. Ryan and S. Ament and Carla P. Gomes and Anil Damle},\n booktitle = {International Conference on Artificial Intelligence and Statistics},\n title = {The Fast Kernel Transform},\n year = {2021}\n}\n"
-  },
-  {
-    "title": "Sparse Bayesian Learning via Stepwise Regression",
-    "year": 2021,
-    "venue": "International Conference on Machine Learning",
-    "citationCount": 12,
-    "url": "https://www.semanticscholar.org/paper/08c3eb3135ef41659b2fed8fd6e3f743b0ed3a69",
-    "authors": [
-      "S. Ament",
-      "Carla P. Gomes"
-    ],
-    "pdf": "",
-    "arxiv": "https://arxiv.org/abs/2106.06095",
-    "bibtex": "@Inproceedings{Ament2021SparseBL,\n author = {S. Ament and Carla P. Gomes},\n booktitle = {International Conference on Machine Learning},\n title = {Sparse Bayesian Learning via Stepwise Regression},\n year = {2021}\n}\n"
   },
   {
     "title": "On the Optimality of Backward Regression: Sparse Recovery and Subset Selection",
@@ -508,11 +508,11 @@
       "Richard Bernstein",
       "Shufeng Kong",
       "S. Suram",
-      "R. B. Dover",
+      "R. B. Van Dover",
       "J. Gregoire"
     ],
     "pdf": "",
-    "bibtex": "@Inproceedings{Gomes2019CRYSTALAM,\n author = {C. Gomes and Junwen Bai and Ye-Xiang Xue and Johan Bjorck and B. Rappazzo and S. Ament and Richard Bernstein and Shufeng Kong and S. Suram and R. B. Dover and J. Gregoire},\n booktitle = {MRS Communications},\n title = {CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures},\n year = {2019}\n}\n"
+    "bibtex": "@Inproceedings{Gomes2019CRYSTALAM,\n author = {C. Gomes and Junwen Bai and Ye-Xiang Xue and Johan Bjorck and B. Rappazzo and S. Ament and Richard Bernstein and Shufeng Kong and S. Suram and R. B. Van Dover and J. Gregoire},\n booktitle = {MRS Communications},\n title = {CRYSTAL: a multi-agent AI system for automated mapping of materials\u2019 crystal structures},\n year = {2019}\n}\n"
   },
   {
     "title": "Multi-component background learning automates signal detection for spectroscopic data",
@@ -615,7 +615,7 @@
     "title": "Solving the stochastic Landau-Lifshitz-Gilbert-Slonczewski equation for monodomain nanomagnets : A survey and analysis of numerical techniques",
     "year": 2016,
     "venue": "",
-    "citationCount": 20,
+    "citationCount": 23,
     "url": "https://www.semanticscholar.org/paper/9526809348741700a968a5bfe07cb16b7f59c2c8",
     "authors": [
       "S. Ament",
@@ -673,10 +673,10 @@
       "A. Woll",
       "John M. Gregoire",
       "Carla P. Gomes",
-      "R. V. van Dover",
+      "R. B. van Dover",
       "Michael O. Thompson"
     ],
     "pdf": "",
-    "bibtex": "@Misc{None,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. V. van Dover and Michael O. Thompson},\n title = {Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance}\n}\n"
+    "bibtex": "@Misc{None,\n author = {Ming-Chiang Chang and Maximilian Amsler and Duncan R. Sutherland and S. Ament and K. Gann and Lan Zhou and Louisa M. Smieska and A. Woll and John M. Gregoire and Carla P. Gomes and R. B. van Dover and Michael O. Thompson},\n title = {Autonomous Materials Exploration Integrates Automated Phase Identi\ufb01cation and AI Agents Enhanced by Human Guidance}\n}\n"
   }
 ]
