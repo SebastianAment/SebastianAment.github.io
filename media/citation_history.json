@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T19:42:21.629392+00:00",
+  "fetched_at": "2026-11-23T21:03:32.658279+00:00",
   "aggregate": {
     "2017": 2,
     "2018": 4,
@@ -8,10 +8,10 @@
     "2021": 49,
     "2022": 64,
     "2023": 82,
-    "2024": 83,
+    "2024": 82,
     "2025": 140,
-    "2026": 248,
-    "2027": 5
+    "2026": 254,
+    "2027": 7
   },
   "papers": {
     "autonomous_materials_exploration_by_integrating_automated_ph": {
@@ -61,10 +61,10 @@
     },
     "unexpected_improvements_to_expected_improvement_for_bayesian": {
       "title": "Unexpected Improvements to Expected Improvement for Bayesian Optimization",
-      "citationCount": 310,
+      "citationCount": 323,
       "citations_by_year": {
-        "2027": 1,
-        "2026": 99
+        "2027": 3,
+        "2026": 97
       }
     },
     "bayesian_optimization_over_highdimensional_combinatorial_spa": {
@@ -100,9 +100,9 @@
     },
     "probabilistic_phase_labeling_and_lattice_refinement_for_auto": {
       "title": "Probabilistic phase labeling and lattice refinement for autonomous materials research",
-      "citationCount": 11,
+      "citationCount": 12,
       "citations_by_year": {
-        "2026": 5,
+        "2026": 6,
         "2025": 4,
         "2027": 1
       }
@@ -137,12 +137,12 @@
     },
     "autonomous_materials_synthesis_via_hierarchical_active_learn": {
       "title": "Autonomous materials synthesis via hierarchical active learning of nonequilibrium phase diagrams",
-      "citationCount": 119,
+      "citationCount": 120,
       "citations_by_year": {
         "2027": 1,
-        "2026": 25,
+        "2026": 26,
         "2025": 25,
-        "2024": 16,
+        "2024": 15,
         "2023": 20,
         "2022": 10,
         "2021": 3
@@ -150,9 +150,9 @@
     },
     "automating_crystalstructure_phase_mapping_by_combining_deep_": {
       "title": "Automating crystal-structure phase mapping by combining deep learning with constraint reasoning",
-      "citationCount": 74,
+      "citationCount": 75,
       "citations_by_year": {
-        "2026": 13,
+        "2026": 14,
         "2025": 16,
         "2024": 11,
         "2023": 19,
@@ -201,9 +201,9 @@
     },
     "deep_reasoning_networks_for_unsupervised_pattern_demixing_wi": {
       "title": "Deep Reasoning Networks for Unsupervised Pattern De-mixing with Constraint Reasoning",
-      "citationCount": 29,
+      "citationCount": 30,
       "citations_by_year": {
-        "2026": 2,
+        "2026": 3,
         "2025": 4,
         "2024": 3,
         "2023": 5,
@@ -339,10 +339,10 @@
     },
     "ax_a_platform_for_adaptive_experimentation": {
       "title": "Ax: A Platform for Adaptive Experimentation",
-      "citationCount": 43,
+      "citationCount": 47,
       "citations_by_year": {
         "2027": 1,
-        "2026": 31,
+        "2026": 35,
         "2025": 10
       }
     },
